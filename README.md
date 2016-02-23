@@ -1,12 +1,13 @@
 # DAW
 
-Nombre de la aplicacion web: CODEGAMING
+#Nombre de la aplicacion web: CODEGAMING
 
-Descripcion->
+#Descripcion
 	Tematica: Analisis y venta online de videojuegos
 	Funcionalidades publicas: Catalogo y analisis
 	Funcionalidades privadas: Carrito de compra, valoracion de videojuegos, lista de deseados, capacidad de ser o tener mentores, ver perfil de usuarios(juegos comprados, valoraciones, etc).
 
+#Entidades
 5 entidades principales->
 	- Usuario: cuenta con datos personales con la capacidad de realizar cualquier accion de funcionalidad publica y privada.
 	- Producto: videojuego a la venta con X precio, con comentarios, una valoracion, una cantidad en stock y una o varias categorias.
@@ -20,10 +21,11 @@ Otras entidades->
 	- Carrito de compra: lista de productos a comprar previa al pedido.
 	- Stock: numero de productos disponibles.
 
-Integrantes del equipo de desarrollo->
+#Integrantes del equipo de desarrollo
 	- David Vacas Miguel, d.vacas@alumnos.urjc.es, valli22
 	- Diego Jimenez Fernandez-Pacheco, d.jimenezfer@alumnos.urjc.es, Zigic23
 	- Miguel Roldan Alcala, m.roldana@alumnos.urjc.es, miguelr95
 	- Pedro Redondo Rabanal, p.redondor@alumnos.urjc.es, dropelega
 
-TRELLO-> https://trello.com/b/cImjlED9/daw
+#TRELLO
+https://trello.com/b/cImjlED9/daw
