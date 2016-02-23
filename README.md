@@ -1,6 +1,7 @@
 # DAW
 
-#Nombre de la aplicacion web: CODEGAMING
+#Nombre de la aplicacion web
+	CODEGAMING
 
 #Descripcion
 	Tematica: Analisis y venta online de videojuegos
