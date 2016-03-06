@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link type="text/css" rel="stylesheet" href="menu.css" />
+</head>
+<body>
+    <h2>MENU PRUEBA(INSERTAR AQUI LA CABECERA)</h2>
+    <nav id="menucete"  class="navbar navbar-inverse">
+        <div class="conteiner-fluid">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li ><a href="#">INICIO</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">PC</a></li>
+                        <li><a href="#">XBOX ONE</a></li>
+                        <li><a href="#">PLAY STATION 4</a></li>
+                        <li><a href="#">TAMAGOCHI EXTREME</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="#">MENTORES</a></li>
+                    <li><a href="#">OFERTAS</a></li>
+                </ul>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <form class="navbar-form navbar-left" role="email">
+                    <div class="form-group">
+                    <input type="text" class="form-control col-md-8" placeholder="Email">
+                    <a href="#">¿Has olvidado tu contraseña?</a>
+                    <input type="text" class="form-control col-md-10" placeholder="Contraseña">
+                    <a href="#">¿Aun no tienes cuenta?</a>
+                    </div>
+                    <button type="submit" class="btn btn-default">Enviar</button>
+                </form>
+                </div>
+    </div>
+     </div>
+    </nav>
+</body>
