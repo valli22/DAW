@@ -1,0 +1,15 @@
+#menucete{
+    background-color: cornflowerblue;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #080808;
+    
+}
+
+.navbar-inverse .navbar-nav>li>{
+    margin-bottom:auto;
+    margin-top:auto;
+}
+.navbar-form .form-group > a{
+    color: #080808;
+}
