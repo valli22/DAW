@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link type="text/css" rel="stylesheet" href="menu.css" />
+</head>
+<body>
+    <div class="container">
+       <div class="row">
+               <!-- division para dejar margenes laterales -->
+                <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+           <!--imagen de perfil y cuentas-->
+            <div class="col-sm-4 col-md-4">
+                <img class="img-responsive" src="perfil.png" width="200" height="200">
+                <button type="button" class="btn btn-default">Cambiar Foto</button>
+                <br/>
+                <!--Cuentas de juego-->
+                <label for="name">ID Steam:</label><br/>
+                <input type="text" id="steam" placeholder="CuentaSteam"><br/>
+                <label for="name">ID BattleNet:</label><br/>
+                <input type="text" id="steam" placeholder="CuentaBNet"><br/>
+            </div>
+            <!--nombre,correo y cambio de contraseña-->
+             <div class="col-sm-4 col-md-4">
+                <form role="form">
+                     <div class="form-group">
+                     <label for="name">Nombre:</label>
+                     <input type="name" class="form-control" id="name" placeholder="Aqui viene el nombre">
+                     </div>
+                     <div class="form-group">
+                     <label for="email">Correo Electronico:</label>
+                     <input type="email" class="form-control" id="email" placeholder="Aqui viene el correo">
+                      </div>
+                    <!--Salto de linea-->
+                      <br/>
+                      <br/>
+                      <div class="form-group">
+                     <label for="pwd">Contraseña Actual:</label>
+                     <input type="password" class="form-control" id="passwordA" placeholder="Introduzca contraseña actual">
+                      </div>
+                      <div class="form-group">
+                     <label for="pwd">Nueva Contraseña:</label>
+                     <input type="password" class="form-control" id="NewPassword" placeholder="Introduzca nueva contraseña">
+                      </div>
+                      <div class="form-group">
+                     <label for="pwd">Confirmar Contraseña</label>
+                     <input type="password" class="form-control" id="ConfirmPassword" placeholder="Repita su nueva contraseña">
+                      </div>
+                      </form>
+                   </div>   
+            <!--fecha y descripciones-->
+            <div class="col-sm-4 col-md-4">
+                <form role="form">
+            <!--fecha de nacimiento-->
+                    <div class="form-group">
+                        <label for="date">Fecha de Nacimiento:</label>
+                        <input type="date" class="form-control" id="fechanacimiento" placeholder="Fecha nacimiento">
+                    </div>
+                </form>
+            <!-- descripciones-->
+                <label for="name">Descripción:</label>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet sem pharetra purus sollicitudin euismod. Curabitur iaculis metus arcu, eu cursus ante feugiat eget. Proin mauris quam, pellentesque vel auctor ac, blandit non nisl. Duis finibus scelerisque libero, a posuere elit tempor nec. Donec eget ultrices tortor, eget pulvinar sapien. Cras accumsan sed orci nec lacinia. Donec ut pretium urna.</p>
+                <label for="name">Descripción de mentor:</label>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet sem pharetra purus sollicitudin euismod. Curabitur iaculis metus arcu, eu cursus ante feugiat eget. Proin mauris quam, pellentesque vel auctor ac, blandit non nisl. Duis finibus scelerisque libero, a posuere elit tempor nec. Donec eget ultrices tortor, eget pulvinar sapien. Cras accumsan sed orci nec lacinia. Donec ut pretium urna.</p>
+                </div>
+                 </div>
+        <!--boton de guardar cambios-->
+                    <div class="row">
+                   <!--para centrarlo-->
+                    <div class="col-sm-5 col-md-5"><br/></div>
+                    <div class="col-sm-5 col-md-5">
+                        <button type="button" class="btn btn-default">GUARDAR CAMBIOS</button>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+</body>
