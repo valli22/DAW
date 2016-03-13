@@ -1,20 +1,9 @@
 .img-responsive {
-    margin-top: 2px;
     border: 1px solid black;
     border-radius: 90px;
 }
 #cabecera{
-    background-color: cadetblue
-}
-.col-md-7 h1 {
-    margin-top: 12px;
-}
-button{
-    margin-top: 12px;
-    
-}
-.dropdown button{
-    margin-top: 12px;
+    background-color: cadetblue;
 }
 
 .btn {
