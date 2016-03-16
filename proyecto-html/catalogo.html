@@ -4,149 +4,146 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="menu.css" />
+    <link href="../css/codegaming.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
 
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-            <div class="row" id="cabecera">
-                <!-- margenes -->
-                <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-7 col-sm-7 col-md-7">
-                    <!-- logo -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <a href="#">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+    <div class="row" id="cabecera">
+        <!-- margenes -->
+        <!-- division entre logo-nombre y botones-->
+        <div class="col-xs-7 col-sm-7 col-md-7">
+            <!-- logo -->
+            <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                <a href="#">
                         <img class=" img-responsive" src="../img/logo.png" alt="<CODEGAMING/>" >
                     </a>
-                    </div>
-                    <!-- nombre app -->
-                    <div class="col-xs-8 col-sm-8 col-md-8 text-center">
-
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <h3>&lt;CODEGAMING/&gt;</h3>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <h1>&lt;CODEGAMING/&gt;</h1>
-                        </div>
-                    </div>
-                </div>
-                <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                    <!-- idioma -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <div class="dropdown">
-                                <button class="btn btn-md btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Español</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Inglés</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="hidden-sm hidden-xs ">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Idioma
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Español</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Inglés</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- buscar -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <button type="button" class="btn btn-md btn-primary">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
-                            </button>
-                        </div>
-
-                    </div>
-                    <!-- cart -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md ">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <button type="button" class="btn btn-primary btn-md">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito
-                            </button>
-                        </div>
-
-                    </div>
-
-
-                </div>
             </div>
-            <div class="row">
-                <nav class="navbar navbar-default">
+            <!-- nombre app -->
+            <div class="col-xs-8 col-sm-8 col-md-8 text-center">
 
-                    <!-- Cuando se colapsa -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <!-- <a class="navbar-brand" href="#">&lt;CODEGAMING/&gt;</a>-->
-                    </div>
-                    <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
-                    <div class="collapse navbar-collapse" id="menu-colapsado">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#">INICIO</a></li>
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">PC</a></li>
-                                    <li><a href="#">XBOX ONE</a></li>
-                                    <li><a href="#">PLAY STATION 4</a></li>
-                                    <li><a href="#">TAMAGOCHI EXTREME</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">MENTORES</a></li>
-                            <li><a href="#">OFERTAS</a></li>
-                        </ul>
-
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Usuario">
-
-                                <input type="password" class="form-control" placeholder="Constraseña">
-                                <div>
-                                    <a href="#">¿Aun no tienes cuenta?</a>
-                                    <a href="#">¿Has olvidado tu contraseña?</a>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Log In</button>
-                        </form>
-
-
-                    </div>
-
-                </nav>
+                <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
+                <div class="hidden-lg hidden-md">
+                    <h3>&lt;CODEGAMING/&gt;</h3>
+                </div>
+                <div class="hidden-sm hidden-xs">
+                    <h1>&lt;CODEGAMING/&gt;</h1>
+                </div>
             </div>
         </div>
+        <!-- division entre logo-nombre y botones-->
+        <div class="col-xs-5 col-sm-5 col-md-5 text-center">
+            <!-- idioma -->
+            <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
+                <div class="hidden-lg hidden-md">
+                    <div class="dropdown">
+                        <button class="btn btn-md btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Español</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Inglés</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hidden-sm hidden-xs ">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Idioma
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Español</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Inglés</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- buscar -->
+            <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
+                <div class="hidden-lg hidden-md">
+                    <button type="button" class="btn btn-primary btn-md">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="hidden-sm hidden-xs">
+                    <button type="button" class="btn btn-md btn-primary">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+                    </button>
+                </div>
+
+            </div>
+            <!-- cart -->
+            <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
+                <div class="hidden-lg hidden-md">
+                    <button type="button" class="btn btn-primary btn-md ">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="hidden-sm hidden-xs">
+                    <button type="button" class="btn btn-primary btn-md">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito
+                    </button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row">
+        <nav class="navbar navbar-default">
+
+            <!-- Cuando se colapsa -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="#">&lt;CODEGAMING/&gt;</a>-->
+            </div>
+            <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
+            <div class="collapse navbar-collapse" id="menu-colapsado">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">INICIO</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">PC</a></li>
+                            <li><a href="#">XBOX ONE</a></li>
+                            <li><a href="#">PLAY STATION 4</a></li>
+                            <li><a href="#">TAMAGOCHI EXTREME</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">MENTORES</a></li>
+                    <li><a href="#">OFERTAS</a></li>
+                </ul>
+
+                <form class="navbar-form navbar-left pull-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Usuario">
+
+                        <input type="password" class="form-control" placeholder="Constraseña">
+                        <div>
+                            <a href="#">¿Aun no tienes cuenta?</a>
+                            <a href="#">¿Has olvidado tu contraseña?</a>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </form>
+
+
+            </div>
+
+        </nav>
     </div>
     <!-- buscador -->
     <div>

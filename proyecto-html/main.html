@@ -1,585 +1,586 @@
 <html>
-    <head>
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <div class="container">
 
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-            <div class="row" id="cabecera">
-                <!-- margenes -->
-                <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-7 col-sm-7 col-md-7">
-                    <!-- logo -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <a href="#">
+<head>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href="../css/codegaming.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+        <div class="row" id="cabecera">
+            <!-- margenes -->
+            <!-- division entre logo-nombre y botones-->
+            <div class="col-xs-7 col-sm-7 col-md-7">
+                <!-- logo -->
+                <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                    <a href="#">
                         <img class=" img-responsive" src="../img/logo.png" alt="<CODEGAMING/>" >
                     </a>
-                    </div>
-                    <!-- nombre app -->
-                    <div class="col-xs-8 col-sm-8 col-md-8 text-center">
-
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <h3>&lt;CODEGAMING/&gt;</h3>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <h1>&lt;CODEGAMING/&gt;</h1>
-                        </div>
-                    </div>
                 </div>
-                <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                    <!-- idioma -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <div class="dropdown">
-                                <button class="btn btn-md btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Español</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Inglés</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="hidden-sm hidden-xs ">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Idioma
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Español</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Inglés</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                <!-- nombre app -->
+                <div class="col-xs-8 col-sm-8 col-md-8 text-center">
+
+                    <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
+                    <div class="hidden-lg hidden-md">
+                        <h3>&lt;CODEGAMING/&gt;</h3>
                     </div>
-                    <!-- buscar -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <button type="button" class="btn btn-md btn-primary">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
-                            </button>
-                        </div>
-
+                    <div class="hidden-sm hidden-xs">
+                        <h1>&lt;CODEGAMING/&gt;</h1>
                     </div>
-                    <!-- cart -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md ">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <button type="button" class="btn btn-primary btn-md">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito
-                            </button>
-                        </div>
-
-                    </div>
-
-
                 </div>
             </div>
-            <div class="row">
-                <nav class="navbar navbar-default">
-
-                    <!-- Cuando se colapsa -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <!-- <a class="navbar-brand" href="#">&lt;CODEGAMING/&gt;</a>-->
+            <!-- division entre logo-nombre y botones-->
+            <div class="col-xs-5 col-sm-5 col-md-5 text-center">
+                <!-- idioma -->
+                <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                    <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
+                    <div class="hidden-lg hidden-md">
+                        <div class="dropdown">
+                            <button class="btn btn-md btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Español</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Inglés</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
-                    <div class="collapse navbar-collapse" id="menu-colapsado">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#">INICIO</a></li>
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">PC</a></li>
-                                    <li><a href="#">XBOX ONE</a></li>
-                                    <li><a href="#">PLAY STATION 4</a></li>
-                                    <li><a href="#">TAMAGOCHI EXTREME</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">MENTORES</a></li>
-                            <li><a href="#">OFERTAS</a></li>
-                        </ul>
+                    <div class="hidden-sm hidden-xs ">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Idioma
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Español</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Inglés</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- buscar -->
+                <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                    <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
+                    <div class="hidden-lg hidden-md">
+                        <button type="button" class="btn btn-primary btn-md">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="hidden-sm hidden-xs">
+                        <button type="button" class="btn btn-md btn-primary">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+                        </button>
+                    </div>
 
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Usuario">
+                </div>
+                <!-- cart -->
+                <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                    <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
+                    <div class="hidden-lg hidden-md">
+                        <button type="button" class="btn btn-primary btn-md ">
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="hidden-sm hidden-xs">
+                        <button type="button" class="btn btn-primary btn-md">
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito
+                        </button>
+                    </div>
 
-                                <input type="password" class="form-control" placeholder="Constraseña">
-                                <div>
-                                    <a href="#">¿Aun no tienes cuenta?</a>
-                                    <a href="#">¿Has olvidado tu contraseña?</a>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-default">
+
+                <!-- Cuando se colapsa -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="#">&lt;CODEGAMING/&gt;</a>-->
+                </div>
+                <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
+                <div class="collapse navbar-collapse" id="menu-colapsado">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">INICIO</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">PC</a></li>
+                                <li><a href="#">XBOX ONE</a></li>
+                                <li><a href="#">PLAY STATION 4</a></li>
+                                <li><a href="#">TAMAGOCHI EXTREME</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">MENTORES</a></li>
+                        <li><a href="#">OFERTAS</a></li>
+                    </ul>
+
+                    <form class="navbar-form navbar-left pull-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Usuario">
+
+                            <input type="password" class="form-control" placeholder="Constraseña">
+                            <div>
+                                <a href="#">¿Aun no tienes cuenta?</a>
+                                <a href="#">¿Has olvidado tu contraseña?</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </form>
+
+
+                </div>
+
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- division para dejar margenes laterales -->
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <!-- columnda de Mas Vendidos -->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-10">
+                        <h1>DESCUBRE LO MAS VENDIDO DE ESTA SEMANA! :</h1>
+                        <!-- division para primer juego (1º) -->
+                        <div class="row">
+                            <!-- foto de la caratula del juego -->
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <p>foto de la portada del juego</p>
+                            </div>
+                            <!-- parte derecha de la zona del juego -->
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <div class="row">
+                                    <!-- division para titulo de juego -->
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                        <h3>The binding of Isaac: afterbirth</h3>
+                                    </div>
+                                    <!-- division para precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <p>26'6$</p>
+                                    </div>
+                                </div>
+                                <p>comentario de texto sobre este juego para probar</p>
+                                <button type="button" class="btn btn-info">Comprar</button>
+                            </div>
+                        </div>
+                        <!-- division para nivel dos de catalogo (2º y 3º) -->
+                        <div class="row">
+                            <!-- juego numero 2 -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <!-- foto de la caratula del juego -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- parte derecha de la zona del juego -->
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                        <div class="row">
+                                            <!-- division para titulo de juego -->
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                <h3>FarCry: Primal </h3>
+                                            </div>
+                                            <!-- division para precio -->
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                <p>70$</p>
+                                            </div>
+                                        </div>
+                                        <p>comentario de texto sobre este juego para probar si funciona teniendo en cuenta que es un juego nuevo que ha salido ahora</p>
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Log In</button>
-                        </form>
-
-
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <!-- juego numero 3 -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <!-- foto de la caratula del juego -->
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- parte derecha de la zona del juego -->
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                        <div class="row">
+                                            <!-- division para titulo de juego -->
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                <h3>Hello Kitty Online</h3>
+                                            </div>
+                                            <!-- division para precio -->
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                <p>-80$</p>
+                                            </div>
+                                        </div>
+                                        <p>por favor pegarme un tiro en el pie antes de jugar esto</p>
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Division para nivel 3 en lista para que ayuda a la hora de meter objetos desde una base de datos -->
+                        <ul class="list-group">
+                            <!-- division para nivel tres de catalogo (4º)-->
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <!-- portada -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- titulo -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <h4>GTA V</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>30$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- division para nivel tres de catalogo (5º)-->
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <!-- portada -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- titulo -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <h4>Minecraft</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>20$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- division para nivel tres de catalogo (6º)-->
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <!-- portada -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- titulo -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <h4>Naruto Ultimate Ninja Storm</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>49,95$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <!-- nivel 4 catalogo (7º) -->
+                                <div class="row">
+                                    <!-- titulo -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h4>XCOM2</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <p>39,95$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <!-- nivel 4 catalogo (8º) -->
+                                <div class="row">
+                                    <!-- titulo -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h4>Overwatch</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <p>59,99$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <!-- nivel 4 catalogo (9º) -->
+                                <div class="row">
+                                    <!-- titulo -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h4>Rocket league</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <p>10,99$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <!-- nivel 4 catalogo (10º) -->
+                                <div class="row">
+                                    <!-- titulo -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h4>Shadow of mordor</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <p>4,05$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-
-                </nav>
+                    <!-- columnda de Ofertas -->
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h1>DESCUBRE NUESTRAS OFERTAS :</h1>
+                        <div class="row">
+                            <!-- foto de la caratula del juego -->
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <p>foto de la portada del juego</p>
+                            </div>
+                            <!-- parte derecha de la zona del juego -->
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <div class="row">
+                                    <!-- division para titulo de juego -->
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                        <h3>The binding of Isaac: afterbirth</h3>
+                                    </div>
+                                    <!-- division para precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <p>26'6$</p>
+                                    </div>
+                                </div>
+                                <p>comentario de texto sobre este juego para probar</p>
+                                <button type="button" class="btn btn-info">Comprar</button>
+                            </div>
+                        </div>
+                        <!-- division para nivel dos de catalogo (2º y 3º) -->
+                        <div class="row">
+                            <!-- juego numero 2 -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <!-- foto de la caratula del juego -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- parte derecha de la zona del juego -->
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                        <div class="row">
+                                            <!-- division para titulo de juego -->
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                <h3>FarCry: Primal </h3>
+                                            </div>
+                                            <!-- division para precio -->
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                <p>70$</p>
+                                            </div>
+                                        </div>
+                                        <p>comentario de texto sobre este juego para probar si funciona teniendo en cuenta que es un juego nuevo que ha salido ahora</p>
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <!-- juego numero 3 -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <!-- foto de la caratula del juego -->
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- parte derecha de la zona del juego -->
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                        <div class="row">
+                                            <!-- division para titulo de juego -->
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                <h3>Hello Kitty online</h3>
+                                            </div>
+                                            <!-- division para precio -->
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                <p>-80$</p>
+                                            </div>
+                                        </div>
+                                        <p>por favor pegarme un tiro en el pie antes de jugar esto</p>
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Division para nivel 3 en lista para que ayuda a la hora de meter objetos desde una base de datos -->
+                        <ul class="list-group">
+                            <!-- division para nivel tres de catalogo (4º)-->
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <!-- portada -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- titulo -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <h4>GTA 5</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>30$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- division para nivel tres de catalogo (5º)-->
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <!-- portada -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- titulo -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <h4>Minecraft</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>20$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- division para nivel tres de catalogo (6º)-->
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <!-- portada -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>foto de la portada del juego</p>
+                                    </div>
+                                    <!-- titulo -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <h4>Naruto Ultimate Ninja Storm</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <p>49,95$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <!-- nivel 4 catalogo (7º) -->
+                                <div class="row">
+                                    <!-- titulo -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h4>XCOM2</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <p>39,95$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <!-- nivel 4 catalogo (8º) -->
+                                <div class="row">
+                                    <!-- titulo -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h4>Overwatch</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <p>59,99$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <!-- nivel 4 catalogo (9º) -->
+                                <div class="row">
+                                    <!-- titulo -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h4>Rocket league</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <p>10,99$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <!-- nivel 4 catalogo (10º) -->
+                                <div class="row">
+                                    <!-- titulo -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h4>Shadow of mordor</h4>
+                                    </div>
+                                    <!-- precio -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <p>4,05$</p>
+                                    </div>
+                                    <!-- boton -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button type="button" class="btn btn-info">Comprar</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-        <div class="container">
-            <div class="row">
-               <!-- division para dejar margenes laterales -->
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="row">
-                        <!-- columnda de Mas Vendidos -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-10">
-                            <h1>DESCUBRE LO MAS VENDIDO DE ESTA SEMANA! :</h1>
-                            <!-- division para primer juego (1º) -->
-                            <div class="row">
-                               <!-- foto de la caratula del juego -->
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <p>foto de la portada del juego</p>
-                                </div>
-                                <!-- parte derecha de la zona del juego -->
-                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <div class="row">
-                                       <!-- division para titulo de juego -->
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                            <h3>The binding of Isaac: afterbirth</h3>
-                                        </div>
-                                        <!-- division para precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                            <p>26'6$</p>
-                                        </div>
-                                    </div>
-                                    <p>comentario de texto sobre este juego para probar</p>
-                                    <button type="button" class="btn btn-info">Comprar</button>
-                                </div>   
-                            </div>
-                            <!-- division para nivel dos de catalogo (2º y 3º) -->
-                            <div class="row">
-                               <!-- juego numero 2 -->
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                       <!-- foto de la caratula del juego -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- parte derecha de la zona del juego -->
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                            <div class="row">
-                                               <!-- division para titulo de juego -->
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                    <h3>FarCry: Primal </h3>
-                                                </div>
-                                                <!-- division para precio -->
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                    <p>70$</p>
-                                                </div>
-                                            </div>
-                                            <p>comentario de texto sobre este juego para probar si funciona teniendo en cuenta que es un juego nuevo que ha salido ahora</p>
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>   
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                   <!-- juego numero 3 -->
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                           <!-- foto de la caratula del juego -->
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- parte derecha de la zona del juego -->
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                            <div class="row">
-                                               <!-- division para titulo de juego -->
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                    <h3>Hello Kitty Online</h3>
-                                                </div>
-                                                <!-- division para precio -->
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                    <p>-80$</p>
-                                                </div>
-                                            </div>
-                                            <p>por favor pegarme un tiro en el pie antes de jugar esto</p>
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>   
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Division para nivel 3 en lista para que ayuda a la hora de meter objetos desde una base de datos -->
-                            <ul class="list-group">
-                              <!-- division para nivel tres de catalogo (4º)-->
-                               <li class="list-group-item">
-                                    <div class="row">
-                                       <!-- portada -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- titulo -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <h4>GTA V</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>30$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- division para nivel tres de catalogo (5º)-->
-                                <li class="list-group-item">
-                                    <div class="row">
-                                       <!-- portada -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- titulo -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <h4>Minecraft</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>20$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- division para nivel tres de catalogo (6º)-->
-                                <li class="list-group-item">
-                                    <div class="row">
-                                       <!-- portada -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- titulo -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <h4>Naruto Ultimate Ninja Storm</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>49,95$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <!-- nivel 4 catalogo (7º) -->
-                                    <div class="row">
-                                        <!-- titulo -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <h4>XCOM2</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <p>39,95$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <!-- nivel 4 catalogo (8º) -->
-                                    <div class="row">
-                                        <!-- titulo -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <h4>Overwatch</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <p>59,99$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <!-- nivel 4 catalogo (9º) -->
-                                    <div class="row">
-                                        <!-- titulo -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <h4>Rocket league</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <p>10,99$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <!-- nivel 4 catalogo (10º) -->
-                                    <div class="row">
-                                        <!-- titulo -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <h4>Shadow of mordor</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <p>4,05$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>     
-                        </div>
-                        <!-- columnda de Ofertas -->
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <h1>DESCUBRE NUESTRAS OFERTAS :</h1>
-                            <div class="row">
-                               <!-- foto de la caratula del juego -->
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <p>foto de la portada del juego</p>
-                                </div>
-                                <!-- parte derecha de la zona del juego -->
-                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <div class="row">
-                                       <!-- division para titulo de juego -->
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                            <h3>The binding of Isaac: afterbirth</h3>
-                                        </div>
-                                        <!-- division para precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                            <p>26'6$</p>
-                                        </div>
-                                    </div>
-                                    <p>comentario de texto sobre este juego para probar</p>
-                                    <button type="button" class="btn btn-info">Comprar</button>
-                                </div>   
-                            </div>
-                            <!-- division para nivel dos de catalogo (2º y 3º) -->
-                            <div class="row">
-                               <!-- juego numero 2 -->
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                       <!-- foto de la caratula del juego -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- parte derecha de la zona del juego -->
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                            <div class="row">
-                                               <!-- division para titulo de juego -->
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                    <h3>FarCry: Primal </h3>
-                                                </div>
-                                                <!-- division para precio -->
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                    <p>70$</p>
-                                                </div>
-                                            </div>
-                                            <p>comentario de texto sobre este juego para probar si funciona teniendo en cuenta que es un juego nuevo que ha salido ahora</p>
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>   
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                   <!-- juego numero 3 -->
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                           <!-- foto de la caratula del juego -->
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- parte derecha de la zona del juego -->
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                            <div class="row">
-                                               <!-- division para titulo de juego -->
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                    <h3>Hello Kitty online</h3>
-                                                </div>
-                                                <!-- division para precio -->
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                    <p>-80$</p>
-                                                </div>
-                                            </div>
-                                            <p>por favor pegarme un tiro en el pie antes de jugar esto</p>
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>   
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Division para nivel 3 en lista para que ayuda a la hora de meter objetos desde una base de datos -->
-                            <ul class="list-group">
-                              <!-- division para nivel tres de catalogo (4º)-->
-                               <li class="list-group-item">
-                                    <div class="row">
-                                       <!-- portada -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- titulo -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <h4>GTA 5</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>30$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- division para nivel tres de catalogo (5º)-->
-                                <li class="list-group-item">
-                                    <div class="row">
-                                       <!-- portada -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- titulo -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <h4>Minecraft</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>20$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- division para nivel tres de catalogo (6º)-->
-                                <li class="list-group-item">
-                                    <div class="row">
-                                       <!-- portada -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>foto de la portada del juego</p>
-                                        </div>
-                                        <!-- titulo -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <h4>Naruto Ultimate Ninja Storm</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <p>49,95$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <!-- nivel 4 catalogo (7º) -->
-                                    <div class="row">
-                                        <!-- titulo -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <h4>XCOM2</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <p>39,95$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <!-- nivel 4 catalogo (8º) -->
-                                    <div class="row">
-                                        <!-- titulo -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <h4>Overwatch</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <p>59,99$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <!-- nivel 4 catalogo (9º) -->
-                                    <div class="row">
-                                        <!-- titulo -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <h4>Rocket league</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <p>10,99$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <!-- nivel 4 catalogo (10º) -->
-                                    <div class="row">
-                                        <!-- titulo -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <h4>Shadow of mordor</h4>
-                                        </div>
-                                        <!-- precio -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <p>4,05$</p>
-                                        </div>
-                                        <!-- boton -->
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <button type="button" class="btn btn-info">Comprar</button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>                  
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+</body>
+
 </html>
