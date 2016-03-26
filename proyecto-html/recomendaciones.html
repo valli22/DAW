@@ -8,54 +8,29 @@
 </head>
 
 <body>
-
-
-
     <div class="container">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 links" id="cuerpo">
             <div class="row" id="cabecera">
                 <!-- margenes -->
                 <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-7 col-sm-7 col-md-7">
+                <div class="col-xs-12 col-sm-12 col-md-7">
                     <!-- logo -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                         <a href="main.html">
                         <img class=" img-responsive" src="../img/logo.png" alt="<CODEGAMING/>" >
                     </a>
                     </div>
                     <!-- nombre app -->
-                    <div class="col-xs-8 col-sm-8 col-md-8 text-center">
-
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <h3>&lt;CODEGAMING/&gt;</h3>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
+                    <div class="col-xs-12 col-sm-12 col-md-8 text-center">
                             <h1>&lt;CODEGAMING/&gt;</h1>
-                        </div>
                     </div>
                 </div>
                 <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-5 col-sm-5 col-md-5 text-center">
+                <div class="col-xs-12 col-sm-12 col-md-5 text-center btn-cabecera">
                     <!-- idioma -->
                     <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <div class="dropdown">
-                                <button class="btn btn-md btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Español</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Inglés</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="hidden-sm hidden-xs ">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="">
                                     <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Idioma
                                     <span class="caret"></span>
                                 </button>
@@ -65,36 +40,19 @@
                                     <li><a href="#">Inglés</a></li>
                                 </ul>
                             </div>
-                        </div>
                     </div>
                     <!-- buscar -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md">
-                                <a href="catalogo.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <button type="button" class="btn btn-md btn-primary">
+                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">        
+                            <button type="button" class="btn btn-md btn-primary" id="buscar">
                                 <a href="catalogo.html"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</a>
                             </button>
-                        </div>
-
                     </div>
                     <!-- cart -->
                     <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md ">
-                                <a href="cart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
                             <button type="button" class="btn btn-primary btn-md">
                                 <a href="cart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito</a>
                             </button>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -113,10 +71,10 @@
                     </div>
                     <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
                     <div class="collapse navbar-collapse" id="menu-colapsado">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" id="menucabecera">
                             <li><a href="main.html">INICIO</a></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" id="menuplataforma">
                                     <!--  de momento linkearan a catalogo pero en cuanto se tenga logica cada una linkeara a una busqueda especifica en el catalogo -->
                                     <li><a href="catalogo.html">PC</a></li>
                                     <li><a href="catalogo.html">XBOX ONE</a></li>
@@ -133,7 +91,7 @@
                                 <input type="text" class="form-control" placeholder="Usuario">
 
                                 <input type="password" class="form-control" placeholder="Constraseña">
-                                <div>
+                                <div class="links">
                                     <a href="login_registro.html">¿Aun no tienes cuenta?</a>
                                     <a href="login_registro.html">¿Has olvidado tu contraseña?</a>
                                 </div>
@@ -146,7 +104,6 @@
 
                 </nav>
             </div>
-
             <div class="row">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                     <div class="hidden-xs hidden-sm">
@@ -155,12 +112,12 @@
                     <div class="hidden-md hidden-lg">
                         <h4>Siguiendo:</h4>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Valli22</li>
-                        <li class="list-group-item">Zigic</li>
-                        <li class="list-group-item">Excen</li>
-                        <li class="list-group-item">Drope</li>
-                        <li class="list-group-item">Capitan Platano</li>
+                     <ul class="list-group text-center recomendaciones">
+                        <li class="list-group-item"><a href="usuario.html">Valli22</a></li>
+                        <li class="list-group-item"><a href="usuario.html">Zigic</a></li>
+                        <li class="list-group-item"><a href="usuario.html">Excen</a></li>
+                        <li class="list-group-item"><a href="usuario.html">Drope</a></li>
+                        <li class="list-group-item"><a href=usuario.html>Capitan Platano</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
@@ -186,7 +143,7 @@
                                 <h3>Nueva recomendacion:</h3>
                             </div>
                             <div class="row">
-                                <select class="form-control">
+                                <select class="form-control" id="juegos">
                                     <option selected="true">Hello Kitty: The game</option>
                                     <option>The division</option>
                                     <option>Call of Duty</option>
@@ -195,11 +152,11 @@
                             </div>
                             <br>
                             <div class="row">
-                                <textarea></textarea>
+                                <textarea id="arearecomendacion"></textarea>
                             </div>
                             <br>
                             <div class="row">
-                                <button class="btn btn-primary pull-right">Recomendar</button>
+                                <button class="btn btn-primary pull-right" id="btn-recomendar">Recomendar</button>
                             </div>
 
                         </div>
@@ -209,15 +166,15 @@
                             </div>
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <h3>The Binding of Isaac: Afterbirth</h3>
+                                    <h3><a href="esquemaJuego.html">The Binding of Isaac: Afterbirth</a></h3>
                                     <p>El mejor roguelike del momento y considerado el mejor entre los jugadores del mismo. Una obra de arte creada para el disfruta infinito de los amantes del genero roguelike.The Binding of Isaac es un juego de acción RPG de acción generado aleatoriamente con fuertes elementos de Rogue -like . En esta aventura seguiremos a Isaac en su viaje en los que encontrará tesoros extraños que cambian la forma de Isaac le da súper habilidades humanas y que le permita luchar contra hordas de criaturas misteriosas , descubrir secretos y luchar por su camino a la seguridad .</p>
                                 </li>
                                 <li class="list-group-item">
-                                    <h3>The Binding of Isaac: Afterbirth</h3>
+                                    <h3><a href="esquemaJuego.html">The Binding of Isaac: Afterbirth</a></h3>
                                     <p>El mejor roguelike del momento y considerado el mejor entre los jugadores del mismo. Una obra de arte creada para el disfruta infinito de los amantes del genero roguelike.The Binding of Isaac es un juego de acción RPG de acción generado aleatoriamente con fuertes elementos de Rogue -like . En esta aventura seguiremos a Isaac en su viaje en los que encontrará tesoros extraños que cambian la forma de Isaac le da súper habilidades humanas y que le permita luchar contra hordas de criaturas misteriosas , descubrir secretos y luchar por su camino a la seguridad .</p>
                                 </li>
                                 <li class="list-group-item">
-                                    <h3>The Binding of Isaac: Afterbirth</h3>
+                                    <h3><a href="esquemaJuego.html">The Binding of Isaac: Afterbirth</a></h3>
                                     <p>El mejor roguelike del momento y considerado el mejor entre los jugadores del mismo. Una obra de arte creada para el disfruta infinito de los amantes del genero roguelike.The Binding of Isaac es un juego de acción RPG de acción generado aleatoriamente con fuertes elementos de Rogue -like . En esta aventura seguiremos a Isaac en su viaje en los que encontrará tesoros extraños que cambian la forma de Isaac le da súper habilidades humanas y que le permita luchar contra hordas de criaturas misteriosas , descubrir secretos y luchar por su camino a la seguridad .</p>
                                 </li>
                             </ul>

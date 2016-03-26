@@ -9,50 +9,28 @@
 
 <body>
     <div class="container">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="cuerpo">
             <div class="row" id="cabecera">
                 <!-- margenes -->
                 <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-7 col-sm-7 col-md-7">
+                <div class="col-xs-12 col-sm-12 col-md-7">
                     <!-- logo -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                         <a href="main.html">
                         <img class=" img-responsive" src="../img/logo.png" alt="<CODEGAMING/>" >
                     </a>
                     </div>
                     <!-- nombre app -->
-                    <div class="col-xs-8 col-sm-8 col-md-8 text-center">
-
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <h3>&lt;CODEGAMING/&gt;</h3>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
+                    <div class="col-xs-12 col-sm-12 col-md-8 text-center">
                             <h1>&lt;CODEGAMING/&gt;</h1>
-                        </div>
                     </div>
                 </div>
                 <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-5 col-sm-5 col-md-5 text-center">
+                <div class="col-xs-12 col-sm-12 col-md-5 text-center btn-cabecera">
                     <!-- idioma -->
                     <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <div class="dropdown">
-                                <button class="btn btn-md btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Español</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Inglés</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="hidden-sm hidden-xs ">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="">
                                     <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Idioma
                                     <span class="caret"></span>
                                 </button>
@@ -62,41 +40,25 @@
                                     <li><a href="#">Inglés</a></li>
                                 </ul>
                             </div>
-                        </div>
                     </div>
                     <!-- buscar -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md">
-                                <a href="catalogo.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <button type="button" class="btn btn-md btn-primary">
+                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">        
+                            <button type="button" class="btn btn-md btn-primary" id="buscar">
                                 <a href="catalogo.html"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</a>
                             </button>
-                        </div>
-
                     </div>
                     <!-- cart -->
                     <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md ">
-                                <a href="cart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
                             <button type="button" class="btn btn-primary btn-md">
                                 <a href="cart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito</a>
                             </button>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
             <div class="row">
                 <nav class="navbar navbar-default">
+
                     <!-- Cuando se colapsa -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="false">
@@ -109,10 +71,10 @@
                     </div>
                     <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
                     <div class="collapse navbar-collapse" id="menu-colapsado">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" id="menucabecera">
                             <li><a href="main.html">INICIO</a></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" id="menuplataforma">
                                     <!--  de momento linkearan a catalogo pero en cuanto se tenga logica cada una linkeara a una busqueda especifica en el catalogo -->
                                     <li><a href="catalogo.html">PC</a></li>
                                     <li><a href="catalogo.html">XBOX ONE</a></li>
@@ -129,17 +91,20 @@
                                 <input type="text" class="form-control" placeholder="Usuario">
 
                                 <input type="password" class="form-control" placeholder="Constraseña">
-                                <div>
+                                <div class="links">
                                     <a href="login_registro.html">¿Aun no tienes cuenta?</a>
                                     <a href="login_registro.html">¿Has olvidado tu contraseña?</a>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Log In</button>
                         </form>
+
+
                     </div>
+
                 </nav>
             </div>
-            <div class="row">
+            <div class="row links">
                 <ul class="list-group">
                     <!-- division por filas -->
                     <!-- primera fila -->
@@ -156,7 +121,7 @@
                                     <div class="row">
                                         <!-- Titulo-->
                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                            <p>The binding of isaac: afterbirth</p>
+                                            <h4><a href="esquemaJuego.html">The binding of isaac: afterbirth</a></h4>
                                         </div>
                                         <!-- porcentaje-->
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -177,7 +142,7 @@
                                     </div>
                                     <!-- Descripcion -->
                                     <p>El mejor roguelike del momento y considerado el mejor entre los jugadores del mismo. 20% de descuento para poder disfrutar de obras de arte.</p>
-                                    <button type="button" class="btn btn-info">Comprar</button>
+                                    <button type="button" class="btn btn-info"><a href="cart.html">Comprar</a></button>
                                 </div>
                             </div>
                             <!-- Segunda oferta de la fila -->
@@ -191,7 +156,7 @@
                                     <div class="row">
                                         <!-- Titulo-->
                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                            <p>Far Cry collection</p>
+                                            <h4><a href="esquemaJuego.html">Far Cry collection</a></h4>
                                         </div>
                                         <!-- porcentaje-->
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -212,7 +177,7 @@
                                     </div>
                                     <!-- Descripcion -->
                                     <p>Si eres un amante de Far Cry esta oferta es para ti. Far Cry, Far Cry 2, Far Cry 3, FarCry 3: Blood Dragon, Far Cry 4 y Far Cry Primal, ahora toda la collecion solo por la mitad de precio. Disfruta de esta saga desde sus inicios hasta su reciente incorporacion al mercado Far Cry Primal.No te pierdas esta oferta.</p>
-                                    <button type="button" class="btn btn-info pull-botton">Comprar</button>
+                                    <button type="button" class="btn btn-info pull-botton"><a href="cart.html">Comprar</a></button>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +197,7 @@
                                     <div class="row">
                                         <!-- Titulo-->
                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                            <p>Hello Kity online ahora GRATIS</p>
+                                            <h4><a href="esquemaJuego.html">Hello Kity online ahora GRATIS</a></h4>
                                         </div>
                                         <!-- porcentaje-->
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -253,7 +218,7 @@
                                     </div>
                                     <!-- Descripcion -->
                                     <p>Si alguna vez has tenido ganas de jugar a este juego, no aproveches esta oferta, antes te pagaban y ahora tendras el juego gratis, pero total it's free</p>
-                                    <button type="button" class="btn btn-info">Comprar</button>
+                                    <button type="button" class="btn btn-info"><a href="cart.html">Comprar</a></button>
                                 </div>
                             </div>
                         </div>

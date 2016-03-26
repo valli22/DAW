@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html>
 
 <head>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -9,38 +9,29 @@
 
 <body>
     <div class="container">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="cuerpo">
             <div class="row" id="cabecera">
                 <!-- margenes -->
                 <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-7 col-sm-7 col-md-7">
+                <div class="col-xs-12 col-sm-12 col-md-7">
                     <!-- logo -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                         <a href="main.html">
                         <img class=" img-responsive" src="../img/logo.png" alt="<CODEGAMING/>" >
                     </a>
                     </div>
                     <!-- nombre app -->
-                    <div class="col-xs-8 col-sm-8 col-md-8 text-center">
-
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <h3>&lt;CODEGAMING/&gt;</h3>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
+                    <div class="col-xs-12 col-sm-12 col-md-8 text-center">
                             <h1>&lt;CODEGAMING/&gt;</h1>
-                        </div>
                     </div>
                 </div>
                 <!-- division entre logo-nombre y botones-->
-                <div class="col-xs-5 col-sm-5 col-md-5 text-center">
+                <div class="col-xs-12 col-sm-12 col-md-5 text-center btn-cabecera">
                     <!-- idioma -->
                     <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <div class="dropdown">
-                                <button class="btn btn-md btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="">
+                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Idioma
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -49,49 +40,19 @@
                                     <li><a href="#">Inglés</a></li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="hidden-sm hidden-xs ">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Idioma
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Español</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Inglés</a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                     <!-- buscar -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md">
-                                <a href="catalogo.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
-                            <button type="button" class="btn btn-md btn-primary">
+                    <div class="col-xs-4 col-sm-4 col-md-4 text-center">        
+                            <button type="button" class="btn btn-md btn-primary" id="buscar">
                                 <a href="catalogo.html"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</a>
                             </button>
-                        </div>
-
                     </div>
                     <!-- cart -->
                     <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-                        <!-- hasta añadir js esconder y aparecer elementos mediante clase hidden dependiendo del tamaño -->
-                        <div class="hidden-lg hidden-md">
-                            <button type="button" class="btn btn-primary btn-md ">
-                                <a href="cart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
-                            </button>
-                        </div>
-                        <div class="hidden-sm hidden-xs">
                             <button type="button" class="btn btn-primary btn-md">
                                 <a href="cart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito</a>
                             </button>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -110,10 +71,10 @@
                     </div>
                     <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
                     <div class="collapse navbar-collapse" id="menu-colapsado">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" id="menucabecera">
                             <li><a href="main.html">INICIO</a></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" id="menuplataforma">
                                     <!--  de momento linkearan a catalogo pero en cuanto se tenga logica cada una linkeara a una busqueda especifica en el catalogo -->
                                     <li><a href="catalogo.html">PC</a></li>
                                     <li><a href="catalogo.html">XBOX ONE</a></li>
@@ -130,7 +91,7 @@
                                 <input type="text" class="form-control" placeholder="Usuario">
 
                                 <input type="password" class="form-control" placeholder="Constraseña">
-                                <div>
+                                <div class="links">
                                     <a href="login_registro.html">¿Aun no tienes cuenta?</a>
                                     <a href="login_registro.html">¿Has olvidado tu contraseña?</a>
                                 </div>
@@ -147,17 +108,17 @@
                 <div class="row">
                     <!--imagen de perfil y cuentas-->
                     <div class="col-sm-4 col-md-4">
-                        <img class="img-responsive" src="../img/logo.png" width="200" height="200">
+                        <img class="img-responsive" src="../img/logo.png" width="200" height="200" id="fotoperfil">
                         <button type="button" class="btn btn-default">Cambiar Foto</button>
                         <br/>
                         <!--Cuentas de juego-->
-                        <label for="name">ID Steam:</label>
+                        <label for="name"id="idsteam">ID Steam:</label>
                         <br/>
-                        <input type="text" id="steam" placeholder="CuentaSteam">
+                        <input type="text" id="steam" placeholder="CuentaSteam" value="dropelega">
                         <br/>
                         <label for="name">ID BattleNet:</label>
                         <br/>
-                        <input type="text" id="bnet" placeholder="CuentaBNet">
+                        <input type="text" id="bnet" placeholder="CuentaBNet" value="valli22#2345">
                         <br/>
                     </div>
                     <!--nombre,correo y cambio de contraseña-->
@@ -168,7 +129,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Correo Electronico:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Aqui viene el correo">
+                            <input type="email" class="form-control" id="email" placeholder="Aqui viene el correo" value="zigic23@tmail.com">
                         </div>
                         <!--Salto de linea-->
                         <br/>
@@ -191,13 +152,14 @@
                         <!--fecha de nacimiento-->
                         <div class="form-group">
                             <label for="date">Fecha de Nacimiento:</label>
-                            <input type="date" class="form-control" id="fechanacimiento" placeholder="Fecha nacimiento">
+                            <input type="date" class="form-control" id="fechanacimiento" placeholder="Fecha nacimiento" value="1995-06-22">
                         </div>
                         <!-- descripciones-->
-                        <label for="name">Descripción:</label>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet sem pharetra purus sollicitudin euismod. Curabitur iaculis metus arcu, eu cursus ante feugiat eget. Proin mauris quam, pellentesque vel auctor ac, blandit non nisl. Duis finibus scelerisque libero, a posuere elit tempor nec. Donec eget ultrices tortor, eget pulvinar sapien. Cras accumsan sed orci nec lacinia. Donec ut pretium urna.</p>
-                        <label for="name">Descripción de mentor:</label>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet sem pharetra purus sollicitudin euismod. Curabitur iaculis metus arcu, eu cursus ante feugiat eget. Proin mauris quam, pellentesque vel auctor ac, blandit non nisl. Duis finibus scelerisque libero, a posuere elit tempor nec. Donec eget ultrices tortor, eget pulvinar sapien. Cras accumsan sed orci nec lacinia. Donec ut pretium urna.</p>
+                        <label for="description">Descripción:</label>
+                        <br>
+                        <textarea class="areatext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet sem pharetra purus sollicitudin euismod. Curabitur iaculis metus arcu, eu cursus ante feugiat eget. Proin mauris quam, pellentesque vel auctor ac, blandit non nisl. Duis finibus scelerisque libero, a posuere elit tempor nec. Donec eget ultrices tortor, eget pulvinar sapien. Cras accumsan sed orci nec lacinia. Donec ut pretium urna.</textarea>
+                        <label for="description">Descripción de mentor:</label><br>
+                        <textarea class="areatext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet sem pharetra purus sollicitudin euismod. Curabitur iaculis metus arcu, eu cursus ante feugiat eget. Proin mauris quam, pellentesque vel auctor ac, blandit non nisl. Duis finibus scelerisque libero, a posuere elit tempor nec. Donec eget ultrices tortor, eget pulvinar sapien. Cras accumsan sed orci nec lacinia. Donec ut pretium urna.</textarea>
                     </div>
                 </div>
                 <!--boton de guardar cambios-->
