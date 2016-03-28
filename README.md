@@ -9,19 +9,25 @@
 	Funcionalidades privadas: Carrito de compra, valoracion de videojuegos, lista de deseados, capacidad de ser o tener mentores, ver perfil de usuarios(juegos comprados, valoraciones, etc).
 
 #Entidades
-5 entidades principales->
+5 entidades principales ->
 	- Usuario: cuenta con datos personales con la capacidad de realizar cualquier accion de funcionalidad publica y privada.
 	- Producto: videojuego a la venta con X precio, con comentarios, una valoracion, una cantidad en stock y una o varias categorias.
 	- Categoria de productos: listado de productos ordenados por categorias como por ejemplo accion, rpg, deportes, etc.
 	- Pedido: encargo de uno o varios productos.
 	- Analisis: comentarios y valoracion dada por los usuarios sobre el producto.
-Otras entidades->
+Otras entidades ->
 	- Oferta: rebajas o packs de productos, asi como codigos de promocion.
 	- Lista de deseados: lista de productos que a un usuario le gustaria adquirir.
 	- Mentores: personas que recomiendan videojuegos, que ellos crean que sean buenos.
 	- Carrito de compra: lista de productos a comprar previa al pedido.
 	- Stock: numero de productos disponibles.
-
+#Diagrama de navegacion ->
+<img src="img-release/DIAGRAMA-NAVEGACION.jpg">
+#Captura de pantalla de las paginas principales ->
+-Pagina principal <br> <img src="img-release/principal.jpg"> <br>
+-Catalogo <br> <img src="img-release/catologo.jpg"> <br>
+-Mentores <br> <img src="img-release/mentores-1.jpg"> <br> <br> <img src="img-release/mentores-2.jpg"> <br> <br> <img src="img-release/mentores-3.jpg"> <br>
+-Ofertas <br> <img src="img-release/ofertas.jpg"> <br>
 #Integrantes del equipo de desarrollo
 	- David Vacas Miguel, d.vacas@alumnos.urjc.es, valli22
 	- Diego Jimenez Fernandez-Pacheco, d.jimenezfer@alumnos.urjc.es, Zigic23
