@@ -30,7 +30,7 @@ Otras entidades ->
 <br>
 -Catalogo 
 <br>
-<img src="img-release/catologo.png">
+<img src="img-release/catalogo.png">
 <br>
 -Mentores 
 <br>
