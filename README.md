@@ -25,15 +25,24 @@ Otras entidades ->
 <img src="img-release/DIAGRAMA-NAVEGACION.jpg">
 #Captura de pantalla de las paginas principales ->
 -Pagina principal 
-<img src="img-release/principal.jpg">
+<br>
+<img src="img-release/principal.png">
+<br>
 -Catalogo 
-<img src="img-release/catologo.jpg">
+<br>
+<img src="img-release/catologo.png">
+<br>
 -Mentores 
-<img src="img-release/mentores-1.jpg">
-<img src="img-release/mentores-2.jpg">
-<img src="img-release/mentores-3.jpg">
+<br>
+<img src="img-release/mentores-1.png">
+<br>
+<img src="img-release/mentores-2.png">
+<br>
+<img src="img-release/mentores-3.png">
+<br>
 -Ofertas 
-<img src="img-release/ofertas.jpg">
+<br>
+<img src="img-release/ofertas.png">
 #Integrantes del equipo de desarrollo
 	- David Vacas Miguel, d.vacas@alumnos.urjc.es, valli22
 	- Diego Jimenez Fernandez-Pacheco, d.jimenezfer@alumnos.urjc.es, Zigic23
