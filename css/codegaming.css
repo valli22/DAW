@@ -196,3 +196,9 @@ img {
 .form-control{
     margin-top: 5px;
 }
+#footer{
+    background: linear-gradient(#E2E4F0,#4C6A7F);
+    margin-top: 20px;
+    padding-top:40px;
+    color: #656565;
+}
