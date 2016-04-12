@@ -1,0 +1,52 @@
+<div class="row">
+  <!-- Mas Vendidos 1er juego -->
+  <div class="col-lg-6  col-md-6 col-sm-6 col-xs-12 columna">
+      <div class="row">
+          <h1>DESCUBRE LO MAS VENDIDO DE ESTA SEMANA!:</h1>
+      </div>
+      <hr>
+      <div class="row links">
+          <juego1main [posicion]='1'></juego1main>
+      </div>
+      <hr>
+      <!-- division para nivel dos de catalogo (2º y 3º) -->
+      <div class="row links">
+          <!-- juego numero 2 mas vendidos-->
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+              <juego1main [posicion]='2'></juego1main>
+          </div>
+          <!-- juego numero 3 mas vendidos -->
+          <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-12">
+              <juego1main [posicion]='3'></juego1main>
+          </div>
+      </div>
+      <br>
+      <div class="row links">
+          <!-- Division para nivel 3 en lista para que ayuda a la hora de meter objetos desde una base de datos -->
+          <ul class="list-group listjuegos">
+              <!-- division para nivel tres de catalogo (4º)-->
+              <juego2main [posicion]='4'></juego2main>
+              <!-- division para nivel tres de catalogo (5º)-->
+              <juego2main [posicion]='5'></juego2main>
+              <!-- division para nivel tres de catalogo (6º) -->
+              <juego2main [posicion]='6'></juego2main>
+          </ul>
+      </div>
+      <br>
+      <div class="row links">
+          <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
+          <ul class="list-group listjuegos lisjuegosinf">
+              <juego3main *ngFor="#juego of juegosLista" [juego]="juego"></juego3main>
+          </ul>
+      </div>
+      <!-- Aqui viene el html de los juegos -->
+  </div>
+  <!-- Ofertas 1er juego -->
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 columna">
+      <div class="row">
+          <h1>DESCUBRE NUESTRAS OFERTAS DE ESTA SEMANA!:</h1>
+      </div>
+      <hr>
+      <!-- Aqui viene el html de las ofertas -->
+  </div>
+</div>

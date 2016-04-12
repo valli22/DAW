@@ -1,0 +1,22 @@
+<li class="list-group-item">
+    <!-- nivel 4 catalogo (7º) -->
+    <div class="row">
+        <!-- titulo -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h4><a href="esquemaJuego.html">7: {{juego.nombre}}</a></h4>
+        </div>
+        <!-- precio -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <p>{{juego.precio}}$</p>
+        </div>
+        <!-- boton -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="hidden-sm">
+                <button type="button" class="btn btn-info pull-right" (click)="comprarJuego()">Comprar</button>
+            </div>
+            <div class="hidden-lg hidden-xs hidden-md">
+                <button type="button" class="btn btn-info pull-right btn-sm" (click)="comprarJuego()">Comprar</button>
+            </div>
+        </div>
+    </div>
+</li>

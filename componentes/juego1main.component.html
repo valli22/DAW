@@ -1,0 +1,24 @@
+<div class="row">
+    <!-- foto de la caratula del juego -->
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+        <img src={{juego.imagen}} class="img-responsive">
+    </div>
+    <!-- parte derecha de la zona del juego -->
+    <div class="container-fluid">
+        <h3><a href="esquemaJuego.html">{{posicion}}: {{juego.nombre}}</a></h3>
+        <div class="row">
+            <p>{{juego.descripcion}}</p>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 col-lg-offset-6">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <p>Precio: {{juego.precio}}$</p>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <button type="button" class="btn btn-info" (click)="comprarJuego()">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
