@@ -36,10 +36,9 @@
       <div class="row links">
           <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
           <ul class="list-group listjuegos lisjuegosinf">
-              <juego3main *ngFor="#juego of juegosLista" [juego]="juego"></juego3main>
+              <juego3main *ngFor="#juego of juegosLista; #i = index" [juego]="juego" [posicion]="index"></juego3main>
           </ul>
       </div>
-      <!-- Aqui viene el html de los juegos -->
   </div>
   <!-- Ofertas 1er juego -->
   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 columna">
@@ -47,6 +46,9 @@
           <h1>DESCUBRE NUESTRAS OFERTAS DE ESTA SEMANA!:</h1>
       </div>
       <hr>
+      <div class="row">
+        
+      </div>
       <!-- Aqui viene el html de las ofertas -->
   </div>
 </div>
