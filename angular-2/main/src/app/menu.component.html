@@ -1,0 +1,42 @@
+<div class="row">
+      <nav class="navbar navbar-default">
+          <!-- Cuando se colapsa -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                        <!-- <a class="navbar-brand" href="#">&lt;CODEGAMING/&gt;</a>-->
+            </div>
+                    <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
+            <div class="collapse navbar-collapse" id="menu-colapsado">
+            <ul class="nav navbar-nav" id="menucabecera">
+                    <li><a href="main.html">INICIO</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATALOGO<span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="menuplataforma">
+                        <!--  de momento linkearan a catalogo pero en cuanto se tenga logica cada una linkeara a una busqueda especifica en el catalogo -->
+                        <li><a href="catalogo.html">PC</a></li>
+                        <li><a href="catalogo.html">XBOX ONE</a></li>
+                        <li><a href="catalogo.html">PLAY STATION 4</a></li>
+                        <li><a href="catalogo.html">TAMAGOCHI EXTREME</a></li>
+                    </ul>
+                </li>
+                <li><a href="mentores.html">MENTORES</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+              </ul>
+              <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="usuario">
+                    <input type="password" class="form-control" placeholder="Constraseña" [(ngModel)]="pass">
+                    <div class="links">
+                      <a href="login_registro.html">¿Aun no tienes cuenta?</a>
+                      <a href="login_registro.html">¿Has olvidado tu contraseña?</a>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="fireUser()">Log In</button>
+            </form>
+        </div>
+    </nav>
+</div>
