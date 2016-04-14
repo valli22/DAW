@@ -2,20 +2,21 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {Juego} from './juego.model';
 
 @Component({
-  selector:'juego1main',
-  templateUrl:'app/juego1main.component.html'
+  selector:'juego2main',
+  templateUrl:'app/main/juego2main.component.html'
 })
 
-export class Juego1mainComponent{
+export class Juego2mainComponent{
 
   @Input()
   private juego : Juego;
 
   @Input()
   private posicion : string;
-  
+
   //llevar al carrito y añadir al array de juegos que haya en el carrito
   comprarJuego(){
 
   }
+
 }

@@ -2,11 +2,11 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {Oferta} from './oferta.model';
 
 @Component({
-  selector:'oferta3main',
-  templateUrl:'app/oferta3main.component.html',
+  selector:'oferta2main',
+  templateUrl:'app/main/oferta2main.component.html'
 })
 
-export class Oferta3mainComponent{
+export class Oferta2mainComponent {
 
   @Input()
   private oferta : Oferta;
@@ -18,5 +18,5 @@ export class Oferta3mainComponent{
   comprarOferta(){
 
   }
-  
+
 }

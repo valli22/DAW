@@ -4,7 +4,7 @@ import {Oferta} from './oferta.model';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 @Component({
   selector:'main',
-  templateUrl: 'app/main.component.html',
+  templateUrl: 'app/main/main.component.html',
   directives:[ROUTER_DIRECTIVES]
 })
 export class MainComponent{
@@ -25,5 +25,5 @@ export class MainComponent{
         this.ofertasLista.push(this.ofertas[i]);
     }
   }
-  
+
 }

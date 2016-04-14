@@ -3,7 +3,7 @@ import {Oferta} from './oferta.model';
 
 @Component({
     selector: 'oferta1main',
-    templateUrl: 'app/oferta1main.component.html'
+    templateUrl: 'app/main/oferta1main.component.html'
 })
 
 export class Oferta1mainComponent{
