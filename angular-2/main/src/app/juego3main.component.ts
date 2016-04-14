@@ -3,7 +3,8 @@ import {Juego} from './juego.model';
 
 @Component({
   selector:'juego3main',
-  templateUrl:'app/juego3main.component.html'
+  templateUrl:'app/juego3main.component.html',
+  inputs: ["juego","posicion"]
 })
 
 export class Juego3mainComponent{

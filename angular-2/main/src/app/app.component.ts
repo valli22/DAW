@@ -17,10 +17,9 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 ])
 
 export class AppComponent {
-	private usuario = "hola";
+	private usuario = "";
 
 	usuarioActivo(myuser:string){
-    console.log(myuser);
 		this.usuario = myuser;
 	}
 }

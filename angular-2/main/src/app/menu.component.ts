@@ -5,14 +5,14 @@ import {Component,Output,EventEmitter,View} from 'angular2/core';
 })
 export class MenuComponent {
 
-    usuario = "pepito";
-    pass = "1234";
+    usuario = "";
+    pass = "";
+
     @Output()
     myuser = new EventEmitter<string>();
 
 
     fireUser (){
-      console.log(this.usuario)
       this.myuser.next(this.usuario);
     }
 }

@@ -13,6 +13,7 @@ export class Juego1mainComponent{
 
   @Input()
   private posicion : string;
+  
   //llevar al carrito y añadir al array de juegos que haya en el carrito
   comprarJuego(){
 

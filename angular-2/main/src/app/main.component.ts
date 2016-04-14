@@ -25,5 +25,5 @@ export class MainComponent{
         this.ofertasLista.push(this.ofertas[i]);
     }
   }
-
+  
 }
