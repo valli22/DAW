@@ -7,15 +7,15 @@
   <div class="container-fluid">
       <h3><a href="esquemaJuego.html">{{posicion}}: {{oferta.nombre}}</a></h3>
       <div class="row">
-          <p>Comentario de texto sobre este juego para probar si funciona teniendo en cuenta que es un juego nuevo que ha salido ahora. Seguimos probado texto para ver como queda, este es el grupo 1 o eso creo de la practica de DAW.</p>
+          <p>{{oferta.descripcion}}</p>
       </div>
       <div class="row">
           <div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 col-lg-offset-6">
               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                  <p>Precio: 26,60$</p>
+                  <p>Precio: {{oferta.precioOferta}}$</p>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                  <button type="button" class="btn btn-info"><a href="cart.html">Comprar</a></button>
+                  <button type="button" class="btn btn-info"><a href="cart.html" (click)="comprarOferta()">Comprar</a></button>
               </div>
           </div>
       </div>

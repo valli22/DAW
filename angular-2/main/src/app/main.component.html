@@ -47,7 +47,38 @@
       </div>
       <hr>
       <div class="row">
-
+          <oferta1main [attr.posicion]="1"></oferta1main>
+      </div>
+      <hr>
+      <!-- division para nivel dos de catalogo (2º y 3º) -->
+      <div class="row links">
+          <!-- oferta numero 2 -->
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+              <oferta1main [attr.posicion]="2"></oferta1main>
+          </div>
+          <!-- oferta numero 3 -->
+          <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-12">
+              <oferta1main [attr.posicion]="3"></oferta1main>
+          </div>
+      </div>
+      <br>
+      <div class="row links">
+          <!-- Division para nivel 3 en lista para que ayuda a la hora de meter objetos desde una base de datos -->
+          <ul class="list-group listjuegos">
+              <!-- division para nivel tres de catalogo (4º)-->
+              <oferta2main [attr.posicion]="4"></oferta2main>
+              <!-- division para nivel tres de catalogo (5º)-->
+              <oferta2main [attr.posicion]="5"></oferta2main>
+              <!-- division para nivel tres de catalogo (6º)-->
+              <oferta2main [attr.posicion]="6"></oferta2main>
+          </ul>
+      </div>
+      <br>
+      <div class="row links">
+          <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
+          <ul class="list-group listjuegos lisjuegosinf">
+              <oferta3main *ngFor="#oferta of ofertasLista; #i = index" [attr.oferta]="oferta" [attr.posicion]="index"></oferta3main>
+          </ul>
       </div>
       <!-- Aqui viene el html de las ofertas -->
   </div>

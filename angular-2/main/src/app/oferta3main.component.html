@@ -1,0 +1,21 @@
+<li class="list-group-item">
+    <div class="row">
+        <!-- titulo -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h4><a href="esquemaJuego.html">{{posicion}}: {{oferta.nombre}}</a></h4>
+        </div>
+        <!-- precio -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <p>{{oferta.precioOferta}}$</p>
+        </div>
+        <!-- boton -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="hidden-sm">
+                <button type="button" class="btn btn-info pull-right" (click)="comprarOferta()"><a href="cart.html">Comprar</a></button>
+            </div>
+            <div class="hidden-lg hidden-xs hidden-md">
+                <button type="button" class="btn btn-info pull-right btn-sm" (click)="comprarOferta()"><a href="cart.html">Comprar</a></button>
+            </div>
+        </div>
+    </div>
+</li>

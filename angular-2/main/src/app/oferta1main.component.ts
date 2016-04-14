@@ -14,5 +14,9 @@ export class Oferta1mainComponent{
    @Input()
    private posicion : string;
 
+   //llevar al carrito y añadir los juegos de la oferta al array de juegos que haya en el carrito
+   comprarOferta(){
+
+   }
 
 }
