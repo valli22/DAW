@@ -1,10 +1,11 @@
-import {Component,Output,EventEmitter,View} from 'angular2/core';
+import {Component,Input,Output,EventEmitter,View} from 'angular2/core';
 @Component({
     selector: 'menuComponent',
     templateUrl: 'app/menu.component.html'
 })
 export class MenuComponent {
-
+    @Input()
+    private isActive = false;
     usuario = "";
     pass = "";
 

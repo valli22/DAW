@@ -25,8 +25,9 @@
                 </li>
                 <li><a href="mentores.html">MENTORES</a></li>
                 <li><a href="ofertas.html">OFERTAS</a></li>
+                <li *ngIf="isActive"><a href="usuario.html">PERFIL</a></li>
               </ul>
-              <form class="navbar-form navbar-left" role="search">
+              <form *ngIf="!isActive" class="navbar-form navbar-left" role="search">
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="usuario">
                     <input type="password" class="form-control" placeholder="Constraseña" [(ngModel)]="pass">
