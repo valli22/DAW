@@ -1,0 +1,30 @@
+<div class = "row">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <div class="hidden-xs hidden-sm">
+      <h3>Siguiendo:</h3>
+    </div>
+    <div class="hidden-md hidden-lg">
+      <h4>Siguiendo:</h4>
+    </div>
+    <ul class="list-group text-center recomendaciones">
+      <mentoresSiguiendoEstruc *ngFor="#mentorCom of mentoresSig" [mentor]="mentorCom"></mentoresSiguiendoEstruc>
+    </ul>
+  </div>
+  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    <div class="text-center">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#" (click)="mostrar('misMentores');">Mis mentores</a>
+        </li>
+        <li>
+          <a href="#" (click)="mostrar('recomendaciones');">Mis recomendaciones</a>
+        </li>
+        <li>
+          <a href="#" (click)="mostrar('todos');">Todos</a>
+        </li>
+      </ul>
+    </div>
+    <mentoresAjax [pestana] = 'aMostrar'></mentoresAjax>
+    <!-- Aqui va toda la parte ajax -->
+  </div>
+</div>
