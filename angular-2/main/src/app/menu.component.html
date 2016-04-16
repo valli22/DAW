@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li><a href="mentores.html">MENTORES</a></li>
-                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a [routerLink]="['Ofertas']">OFERTAS</a></li>
                 <li *ngIf="isActive"><a href="usuario.html">PERFIL</a></li>
               </ul>
               <form *ngIf="!isActive" class="navbar-form navbar-left" role="search">

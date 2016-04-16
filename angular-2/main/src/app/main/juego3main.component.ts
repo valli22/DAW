@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
-import {Juego} from './juego.model';
+import {Juego} from '../classes/juego.model.ts';
 
 @Component({
   selector:'juego3main',

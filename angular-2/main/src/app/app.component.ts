@@ -5,6 +5,7 @@ import {MainComponent} from './main/main.component.ts';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FooterComponent} from './footer.component.ts';
 import {CartComponent} from './cart/cart.component.ts';
+import {OfertasComponent} from './ofertas/ofertas.component';
 
 
 @Component({
@@ -14,9 +15,9 @@ import {CartComponent} from './cart/cart.component.ts';
 })
 @RouteConfig([
     {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
-    {path:'/cart',name:'Cart', component:CartComponent}
-  /*  {path:'/catalogo', name:'Catalogo', component:CatalogoComponent},
+    {path:'/cart',name:'Cart', component:CartComponent},
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
+  /*  {path:'/catalogo', name:'Catalogo', component:CatalogoComponent},
     {path:'/mentores', name:'Mentores', component:MentoresComponent},
     {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},
     {path:'/perfil', name:'Perfil', component:UsuarioComponent},

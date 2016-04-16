@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
-import {Oferta} from './oferta.model';
+import {Oferta} from '../classes/oferta.model';
 
 @Component({
   selector:'oferta3main',
