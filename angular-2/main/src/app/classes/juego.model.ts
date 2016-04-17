@@ -1,3 +1,6 @@
+import {Mentor} from './mentor.model.ts';
+import {Recomendacion} from './recomendacion.model';
+
 export class Juego{
   imagen: string;
   nombre: string;
@@ -5,6 +8,7 @@ export class Juego{
   precio: number;
   valoracion: number;
   tags: [string];
+  recomendacion : Recomendacion[] = [];
 
   constructor(private imagenc:string,private nombrec:string,private descripcionc:string,private precioc:number,private valoracionc : number, private tagsc:[string]){
     this.imagen = imagenc;
@@ -15,4 +19,10 @@ export class Juego{
     this.tags = tagsc;
   }
 
+  addRecomendacion(mentor : Mentor,titulo:string, meGusta : number, descripcion : string){
+
+    var recomendacionc = new Recomendacion(mentor,titulo,meGusta,descripcion);
+    this.recomendacion.push(recomendacionc);
+
+  }
 }

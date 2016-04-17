@@ -1,0 +1,51 @@
+<div class="row">
+    <!-- division para foto (desaparecera en moviles) -->
+    <div class="col-lg-4 col-md-4 col-sm-4 col-">
+        <img src="{{juego.imagen}}" class="img-responsive">
+    </div>
+    <!-- division informacion del juego -->
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <h3>{{juego.nombre}}</h3>
+        <p>{{juego.descripcion}}</p>
+        <!-- Division para valoracion y precio -->
+        <div class="row">
+            <!-- String : "Valoracion" -->
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <p>Valoracion: </p>
+            </div>
+            <!-- Valoracion -->
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-sm-offset-1">
+                <p>{{juego.valoracion}}/10</p>
+            </div>
+            <!-- Division para string: "Precio" y separacion de 4 para situar en zona derecha (excepto en moviles) -->
+            <div class="col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-3 col-xs-2">
+                <p>Precio:</p>
+            </div>
+            <!-- Precio -->
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <p>{{juego.precio}}$</p>
+            </div>
+        </div>
+        <button type="button" class="btn btn-info" (click)="comprarJuego()"><a href="cart.html">Comprar</a></button>
+    </div>
+</div>
+<h4>Comentarios de mentores</h4>
+<!-- Comentarios de mentores -->
+<div *ngIf="recomendacionesVacia()">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor = "#recomendacion of juego.recomendacion">
+      <!-- Division para mentor + titulo -->
+      <div class="row">
+          <!-- Nombre del mentor -->
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 links">
+              <h4><a href="usuario.html">{{recomendacion.mentor.nombre}}</a></h4>
+          </div>
+          <!-- Titulo del comentario -->
+          <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-6 col-xs-offset-2">
+              <h4>{{recomendacion.titulo}}</h4>
+          </div>
+      </div>
+      <p>{{recomendacion.descripcion}}</p>
+    </li>
+  </ul>
+</div>

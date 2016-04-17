@@ -6,23 +6,24 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FooterComponent} from './footer.component.ts';
 import {CartComponent} from './cart/cart.component.ts';
 import {OfertasComponent} from './ofertas/ofertas.component';
+import {EsquemaJuegoComponent} from './esquemaJuego/esquemaJuego.component.ts';
 
 
 @Component({
        selector: 'app',
        templateUrl: 'app/app.component.html',
-			 directives: [CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
+			 directives: [EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
+    {path:'/home', name:'Main',component:MainComponent},
     {path:'/cart',name:'Cart', component:CartComponent},
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
+    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent,useAsDefault:true}
   /*  {path:'/catalogo', name:'Catalogo', component:CatalogoComponent},
     {path:'/mentores', name:'Mentores', component:MentoresComponent},
     {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},
     {path:'/perfil', name:'Perfil', component:UsuarioComponent},
-
-    {path:'/juego/:id', name:'JuegoDetalles', component:JuegoDetallesComponent}*/
+    */
 ])
 
 export class AppComponent {
