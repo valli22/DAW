@@ -1,0 +1,29 @@
+<div class="Recomendaciones">
+  <div class="nuevaRecomendacion">
+    <div class="page-header">
+      <h3>Nueva recomendacion:</h3>
+    </div>
+    <div class="row">
+      <select class="form-control" id="juegos">
+        <option *ngFor = "game of juegos">{{game.nombre}}</option>
+      </select>
+    </div>
+    <br>
+    <div class="row">
+      <textarea id="arearecomendacion"></textarea>
+    </div>
+    <br>
+    <div class="row">
+      <button class="btn btn-primary pull-right" id="btn-recomendar">Recomendar</button>
+    </div>
+
+  </div>
+
+  <div class="Anteriores">
+    <div class="page-header">
+      <h3>Tus recomendaciones anteriores:</h3>
+    </div>
+    <ul class="list-group">
+      <mentor2mentores *ngFor = "recom of recomendaciones" [recomendacion] = "recom"></mentor2mentores>
+    </ul>
+  </div>

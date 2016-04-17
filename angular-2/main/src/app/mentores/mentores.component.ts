@@ -2,12 +2,12 @@ import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
 import {Mentor} from '../classes/mentor.model';
-import {mentoresAjaxComponent} from './mentoresAjax.component';
+import {MentoresAjaxComponent} from './mentoresAjax.component';
 
 @Component({
   selector:'mentores',
   templateUrl: 'app/mentores/mentores.component.html',
-  directives:[mentoresAjaxComponent,ROUTER_DIRECTIVES]
+  directives:[MentoresAjaxComponent,ROUTER_DIRECTIVES]
 })
 
 export class MentoresComponent{
