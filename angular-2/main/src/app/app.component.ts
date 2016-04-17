@@ -15,10 +15,10 @@ import {EsquemaJuegoComponent} from './esquemaJuego/esquemaJuego.component.ts';
 			 directives: [EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path:'/home', name:'Main',component:MainComponent},
+    {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
     {path:'/cart',name:'Cart', component:CartComponent},
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
-    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent,useAsDefault:true}
+    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent,}
   /*  {path:'/catalogo', name:'Catalogo', component:CatalogoComponent},
     {path:'/mentores', name:'Mentores', component:MentoresComponent},
     {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},

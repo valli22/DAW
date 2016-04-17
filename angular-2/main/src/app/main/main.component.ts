@@ -5,15 +5,17 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Juego1mainComponent} from './juego1main.component.ts';
 import {Juego2mainComponent} from './juego2main.component.ts';
 import {Juego3mainComponent} from './juego3main.component.ts';
+import {Juego4mainComponent} from './juego4main.component.ts';
 import {Oferta1mainComponent} from './oferta1main.component.ts';
 import {Oferta2mainComponent} from './oferta2main.component.ts';
 import {Oferta3mainComponent} from './oferta3main.component.ts';
+import {Oferta4mainComponent} from './oferta4main.component.ts';
 
 
 @Component({
   selector:'main',
   templateUrl: 'app/main/main.component.html',
-  directives:[Juego1mainComponent,Juego2mainComponent,Juego3mainComponent,Oferta1mainComponent,Oferta2mainComponent,Oferta3mainComponent,ROUTER_DIRECTIVES]
+  directives:[Juego4mainComponent,Juego1mainComponent,Juego2mainComponent,Juego3mainComponent,Oferta1mainComponent,Oferta2mainComponent,Oferta3mainComponent,Oferta4mainComponent,ROUTER_DIRECTIVES]
 })
 export class MainComponent{
 
