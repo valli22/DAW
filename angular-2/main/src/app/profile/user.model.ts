@@ -23,7 +23,6 @@ export class user{
       this.bnet=bnetc;
       this.descripcion=descripcionc;
       this.descripcionMentor=descripcionMentorc;
-      console.log(this.fotoPerfil);
     }
 
 }

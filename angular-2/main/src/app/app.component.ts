@@ -7,6 +7,7 @@ import {FooterComponent} from './footer.component.ts';
 import {CartComponent} from './cart/cart.component.ts';
 import {OfertasComponent} from './ofertas/ofertas.component';
 import {EsquemaJuegoComponent} from './esquemaJuego/esquemaJuego.component.ts';
+import {LoginSignupComponent} from './login-signup/loginSignup.component.ts';
 
 
 @Component({
@@ -18,10 +19,11 @@ import {EsquemaJuegoComponent} from './esquemaJuego/esquemaJuego.component.ts';
     {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
     {path:'/cart',name:'Cart', component:CartComponent},
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
-    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent,}
+    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent,},
+    {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent}
   /*  {path:'/catalogo', name:'Catalogo', component:CatalogoComponent},
     {path:'/mentores', name:'Mentores', component:MentoresComponent},
-    {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},
+
     {path:'/perfil', name:'Perfil', component:UsuarioComponent},
     */
 ])

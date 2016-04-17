@@ -47,7 +47,12 @@
 body {
     background-color: #2EA0A3;
 }
-
+.glyphicon-remove{
+  color:red;
+}
+.glyphicon-ok{
+  color:green;
+}
 hr {
     border-color: #15222b;
 }
