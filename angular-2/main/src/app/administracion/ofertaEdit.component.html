@@ -1,0 +1,62 @@
+<form role="form">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <img class="img-responsive" src="{{ofertaCopia.imagen}}" width="200" height="200">
+            <button type="button" class="btn btn-default" (click)="cambiarFoto()">Cambiar Foto</button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <label>Nombre: </label>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" value="{{ofertaCopia.nombre}}" [(ngModel)]="ofertaCopia.nombre">
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Precio inicial: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" value="{{ofertaCopia.precioInicial}}" [(ngModel)]="ofertaCopia.precioInicial">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Descuento: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" value="{{ofertaCopia.descuento}}" [(ngModel)]="ofertaCopia.descuento">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Precio oferta: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" value="{{ofertaCopia.precioOferta}}" [(ngModel)]="ofertaCopia.precioOferta">
+                  </div>
+              </div>
+        </div>
+      </div>
+      <label>Descripcion: </label>
+      <textarea class="areatext" [(ngModel)]="ofertaCopia.descripcion">{{ofertaCopia.descripcion}}</textarea>
+      <label>Juegos: </label>
+      <button type="button" class="btn btn-default" (click)="anadir=true">Añadir juego a la oferta</button>
+      <div *ngIf="anadir">
+        <div *ngFor="#juego of juegos; #i = index">
+          <div *ngIf="contieneJuego(juego)">
+            <span>{{juego.nombre}}</span>
+            <button type="button" class="btn btn-default" (click)="anadirJuego(i)">Añadir</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label>Juegos de la oferta</label>
+      </div>
+      <div *ngFor="#juego of ofertaCopia.juegos; #i = index">
+        <span>{{juego.nombre}}</span>
+        <button type="button" class="btn btn-default" (click)="eliminarJuego(i)">Eliminar juego</button>
+      </div>
+      <button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button>
+</form>

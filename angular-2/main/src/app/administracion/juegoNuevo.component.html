@@ -1,0 +1,49 @@
+<form role="form">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+    <div class="row">
+      <img *ngIf="noesVacioImg()" class="img-responsive" src="juego.imagen" width="200" height="200">
+      <button type="button" class="btn btn-default" (click)="anadirFoto()">Añadir foto</button>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+              <label>Nombre: </label>
+          </div>
+          <div class="col-lg-6 col-md-6">
+              <input type="text" placeholder="Escriba el nombre" [(ngModel)]="juego.nombre">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <label>Precio: </label>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <input type="text" placeholder="Escriba el precio" [(ngModel)]="juego.precio">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <label>Valoracion: </label>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <input type="text" placeholder="Escriba la valoracion" [(ngModel)]="juego.valoracion">
+            </div>
+        </div>
+      <label>Descripcion: </label>
+      <textarea class="areatext" [(ngModel)]="juego.descripcion">Escriba su descripcion</textarea>
+      <label>Tags: </label>
+      <button type="button" class="btn btn-default" (click)="anadir=true">Añadir tag</button>
+      <div *ngIf="anadir">
+        <form>
+            <input type="text" placeholder="Introduzca tag" #tag>
+            <button type="button" class="btn btn-default" (click)="anadirTag(tag.value)">Añadir tag</button>
+        </form>
+      </div>
+      <div *ngFor="#tag of juego.tags; #i = index">
+        <span>{{tag}}</span>
+        <button type="button" class="btn btn-default" (click)="eliminarTag(i)">Eliminar tag</button>
+      </div>
+      </div>
+      <button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button>
+    </div>
+  </div>
+</form>
