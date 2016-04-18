@@ -7,20 +7,20 @@
       <h4>Siguiendo:</h4>
     </div>
     <ul class="list-group text-center recomendaciones">
-      <mentoresSiguiendoEstruc *ngFor="#mentorCom of mentoresSig" [mentor]="mentorCom"></mentoresSiguiendoEstruc>
+      <mentoresSiguiendo *ngFor="#mentorCom of mentoresSig" [mentor]="mentorCom"></mentoresSiguiendo>
     </ul>
   </div>
   <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
     <div class="text-center">
       <ul class="nav nav-tabs">
-        <li class="active">
-          <a href="#" (click)="mostrar('misMentores');">Mis mentores</a>
+        <li [ngClass]="{active:isOn1, disabled: isDisabled1}">
+          <a href="#" (click)="mostrar('misMentores'); toggle('1');">Mis mentores</a>
         </li>
-        <li>
-          <a href="#" (click)="mostrar('recomendaciones');">Mis recomendaciones</a>
+        <li [ngClass]="{active:isOn2, disabled: isDisabled2}">
+          <a href="#" (click)="mostrar('recomendaciones'); toggle('2');">Mis recomendaciones</a>
         </li>
-        <li>
-          <a href="#" (click)="mostrar('todos');">Todos</a>
+        <li [ngClass]="{active:isOn3, disabled: isDisabled3}">
+          <a href="#" (click)="mostrar('todos'); toggle('3');">Todos</a>
         </li>
       </ul>
     </div>

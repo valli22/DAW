@@ -3,8 +3,7 @@ import {Mentor} from '../classes/mentor.model';
 
 @Component({
   selector:'mentor1mentores',
-  templateUrl: 'app/mentores/mentor1mentores.component.html',
-  directives:[]
+  templateUrl: 'app/mentores/mentor1mentores.component.html'
 })
 export class Mentor1{
 
