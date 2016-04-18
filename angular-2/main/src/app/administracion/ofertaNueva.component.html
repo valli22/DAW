@@ -1,0 +1,62 @@
+<form role="form">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <img *ngIf="noesVacioImg()" class="img-responsive" src="oferta.imagen" width="200" height="200">
+          <button type="button" class="btn btn-default" (click)="anadirFoto()">Añadir foto</button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <label>Nombre: </label>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" placeholder="Escriba el nombre de la oferta" [(ngModel)]="oferta.nombre">
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Precio inicial: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" placeholder="Escriba el precio inicial" [(ngModel)]="oferta.precioInicial">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Descuento: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" placeholder="Escriba el descuento" [(ngModel)]="oferta.descuento">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Precio oferta: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" [(ngModel)]="oferta.precioOferta" placeholder="Escriba el precio de oferta">
+                  </div>
+              </div>
+        </div>
+      </div>
+      <label>Descripcion: </label>
+      <textarea class="areatext" [(ngModel)]="oferta.descripcion">Escriba la descripcion aqui</textarea>
+      <label>Juegos: </label>
+      <button type="button" class="btn btn-default" (click)="anadir=true">Añadir juego a la oferta</button>
+      <div *ngIf="anadir">
+        <div *ngFor="#juego of juegos; #i = index">
+          <div *ngIf="contieneJuego(juego)">
+            <span>{{juego.nombre}}</span>
+            <button type="button" class="btn btn-default" (click)="anadirJuego(i)">Añadir</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label>Juegos de la oferta</label>
+      </div>
+      <div *ngFor="#juego of oferta.juegos; #i = index">
+        <span>{{juego.nombre}}</span>
+        <button type="button" class="btn btn-default" (click)="eliminarJuego(i)">Eliminar juego</button>
+      </div>
+      <button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button>
+</form>

@@ -12,13 +12,9 @@
       <!-- division para nivel dos de catalogo (2º y 3º) -->
       <div class="row links">
           <!-- juego numero 2 mas vendidos-->
-          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-              <juego1main [posicion]='2' [juego]='juegos[1]'></juego1main>
-          </div>
+              <juego4main [posicion]='2' [juego]='juegos[1]'></juego4main>
           <!-- juego numero 3 mas vendidos -->
-          <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-12">
-              <juego1main [posicion]='3' [juego]='juegos[2]'></juego1main>
-          </div>
+              <juego4main [posicion]='3' [juego]='juegos[2]'></juego4main>
       </div>
       <br>
       <div class="row links">
@@ -36,7 +32,10 @@
       <div class="row links">
           <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
           <ul class="list-group listjuegos lisjuegosinf">
-              <juego3main *ngFor="#juego of juegosLista; #i = index" [juego]="juego" [attr.posicion]="index"></juego3main>
+              <juego3main [juego]="juegos[6]" [posicion]="7"></juego3main>
+              <juego3main [juego]="juegos[7]" [posicion]="8"></juego3main>
+              <juego3main [juego]="juegos[8]" [posicion]="9"></juego3main>
+              <juego3main [juego]="juegos[9]" [posicion]="10"></juego3main>
           </ul>
       </div>
   </div>
@@ -53,13 +52,9 @@
       <!-- division para nivel dos de catalogo (2º y 3º) -->
       <div class="row links">
           <!-- oferta numero 2 -->
-          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-              <oferta1main [posicion]="2" [oferta]='ofertas[1]'></oferta1main>
-          </div>
+          <oferta4main [posicion]="2" [oferta]='ofertas[1]'></oferta4main>
           <!-- oferta numero 3 -->
-          <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-12">
-              <oferta1main [posicion]="3" [oferta]='ofertas[2]'></oferta1main>
-          </div>
+          <oferta4main [posicion]="3" [oferta]='ofertas[2]'></oferta4main>
       </div>
       <br>
       <div class="row links">
@@ -77,7 +72,10 @@
       <div class="row links">
           <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
           <ul class="list-group listjuegos lisjuegosinf">
-              <oferta3main *ngFor="#oferta of ofertasLista; #i = index" [oferta]="oferta" [attr.posicion]="index"></oferta3main>
+              <oferta3main [oferta]='ofertas[7]' [posicion]="7"></oferta3main>
+              <oferta3main [oferta]='ofertas[7]' [posicion]="8"></oferta3main>
+              <oferta3main [oferta]='ofertas[8]' [posicion]="9"></oferta3main>
+              <oferta3main [oferta]='ofertas[9]' [posicion]="10"></oferta3main>
           </ul>
       </div>
       <!-- Aqui viene el html de las ofertas -->

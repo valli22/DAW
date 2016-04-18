@@ -21,7 +21,8 @@ export class Juego{
 
   addRecomendacion(mentor : Mentor,titulo:string, meGusta : number, descripcion : string){
 
-    var recomendacionc = new Recomendacion(mentor,titulo,meGusta,descripcion, this.nombre);
+
+    var recomendacionc = new Recomendacion(mentor,titulo,meGusta,descripcion,this.nombre);
     this.recomendacion.push(recomendacionc);
 
   }

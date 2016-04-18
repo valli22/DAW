@@ -7,23 +7,27 @@ import {FooterComponent} from './footer.component.ts';
 import {CartComponent} from './cart/cart.component.ts';
 import {OfertasComponent} from './ofertas/ofertas.component';
 import {EsquemaJuegoComponent} from './esquemaJuego/esquemaJuego.component.ts';
+import {LoginSignupComponent} from './login-signup/loginSignup.component.ts';
+import {CatalogoComponent} from './catalogo/catalogo.component.ts';
+import {AdministracionComponent} from './administracion/administracion.component.ts';
+import {ProfileComponent} from './profile/profile.component.ts'
 
 
 @Component({
        selector: 'app',
        templateUrl: 'app/app.component.html',
-			 directives: [EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
+			 directives: [ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path:'/home', name:'Main',component:MainComponent},
+    {path:'/home', name:'Main',component:MainComponent ,useAsDefault:true},
     {path:'/cart',name:'Cart', component:CartComponent},
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
-    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent,useAsDefault:true}
-  /*  {path:'/catalogo', name:'Catalogo', component:CatalogoComponent},
-    {path:'/mentores', name:'Mentores', component:MentoresComponent},
+    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent},
     {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},
-    {path:'/perfil', name:'Perfil', component:UsuarioComponent},
-    */
+    {path: '/catalogo', name: 'Catalogo', component:CatalogoComponent},
+    {path: '/admin', name: 'Admin', component:AdministracionComponent},
+    {path:'/perfil', name:'Perfil', component:ProfileComponent}
+  /*{path:'/mentores', name:'Mentores', component:MentoresComponent},*/
 ])
 
 export class AppComponent {

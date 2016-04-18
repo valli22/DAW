@@ -32,8 +32,8 @@
                     <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="usuario">
                     <input type="password" class="form-control" placeholder="Constraseña" [(ngModel)]="pass">
                     <div class="links">
-                      <a href="login_registro.html">¿Aun no tienes cuenta?</a>
-                      <a href="login_registro.html">¿Has olvidado tu contraseña?</a>
+                      <a [routerLink]="['LoginSignup']">¿Aun no tienes cuenta?</a>
+                      <a [routerLink]="['LoginSignup']">¿Has olvidado tu contraseña?</a>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" (click)="fireUser()">Log In</button>

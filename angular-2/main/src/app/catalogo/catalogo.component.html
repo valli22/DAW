@@ -1,0 +1,37 @@
+<div class="row text-center">
+               <form>
+                   <div class="form-group">
+                       <label for="Categorias">Categorias</label>
+                       <select id="Categorias">
+                           <option selected="true">Roguelike</option>
+                           <option>Accion</option>
+                           <option>RPG</option>
+                           <option>Deporte</option>
+                           <option>Mundo abierto</option>
+                           <option>MOBA</option>
+                           <option>Aventura</option>
+                           <option>Arcade</option>
+                           <option>FPS</option>
+                           <option>Puzzle</option>
+                           <option>MMO</option>
+                           <option>Plataforma</option>
+                           <option>Estrategia</option>
+                       </select>
+                       <label for="Plataforma">Plataforma</label>
+                       <select id="Plataforma">
+                           <option selected="true">PC</option>
+                           <option>XBOX ONE</option>
+                           <option>PS4</option>
+                           <option>Battlenet</option>
+                           <option>Uplay</option>
+                       </select>
+                       <input type="text" placeholder="Introduzca su busqueda..."[(ngModel)]="parametro">
+                       <button type="submit" class="btn btn-info"(click)="buscarJuego()">Buscar</button>
+                   </div>
+               </form>
+           </div>
+           <div class="row text-center links">
+               <div  class="list-group">
+                   <juegoCatalogo *ngFor="#juego of juegos" [juego]="juego"></juegoCatalogo>
+               </div>
+           </div>
