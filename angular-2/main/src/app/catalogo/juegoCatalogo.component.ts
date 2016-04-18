@@ -3,14 +3,13 @@ import {Juego} from '../classes/juego.model.ts'
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 @Component({
   selector:'juegoCatalogo',
-  templateUrl: 'app/profile/catalogo.component.html',
+  templateUrl: 'app/catalogo/juegoCatalogo.component.html',
   directives:[ROUTER_DIRECTIVES]
 })
-export class CatalogoComponent{
+export class JuegoCatalogo{
   @Input()
-  private juego:Juego;
+  private juego : Juego;
 
-  private tags=this.juego.tags;
   comprarJuego(){
 
   }

@@ -31,7 +31,7 @@
                </form>
            </div>
            <div class="row text-center links">
-               <ul  class="list-group">
-                   <juegoCatalogo *ngFor="#juego of juegos; #i = index" [juego]="juego"></juegoCatalogo>
-               </ul>
+               <div  class="list-group">
+                   <juegoCatalogo *ngFor="#juego of juegos" [juego]="juego"></juegoCatalogo>
+               </div>
            </div>
