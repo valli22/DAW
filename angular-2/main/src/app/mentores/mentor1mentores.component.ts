@@ -10,4 +10,8 @@ export class Mentor1{
   @Input()
   private mentor: Mentor;
 
+  seguirMentor(){
+    
+  }
+
 }

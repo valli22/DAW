@@ -10,4 +10,8 @@ export class Mentor3{
   @Input()
   private recomendacion: Recomendacion;
 
+  dejarSeguir(){
+    
+  }
+
 }

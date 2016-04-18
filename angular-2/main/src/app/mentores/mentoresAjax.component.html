@@ -1,5 +1,6 @@
 <div>
   <misMentores *ngIf="pestana == 'misMentores'"></misMentores>
-  <recomendaciones *ngIf="pestana == 'recomendaciones'"></recomendaciones>
+  <recomendaciones (editRec) = "editarRecomendacion($event);" *ngIf="pestana == 'recomendaciones'"></recomendaciones>
   <todosMentores *ngIf="pestana == 'todos'"></todosMentores>
+  <editarRecomendacion *ngIf="pestana == 'editar'" [recomendacion] = "recom"></editarRecomendacion>
 </div>

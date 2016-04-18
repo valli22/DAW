@@ -24,6 +24,6 @@
       <h3>Tus recomendaciones anteriores:</h3>
     </div>
     <ul class="list-group">
-      <mentor2mentores *ngFor = "#recom of recomendaciones" [recomendacion] = "recom"></mentor2mentores>
+      <mentor2mentores *ngFor = "#recom of recomendaciones" [recomendacion] = "recom" (editRec2) = "editarRecomendacion($event)"></mentor2mentores>
     </ul>
   </div>
