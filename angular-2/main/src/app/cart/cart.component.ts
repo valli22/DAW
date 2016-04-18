@@ -7,7 +7,7 @@ import {Juego} from '../juego/juego.model.ts';
        directives:[ROUTER_DIRECTIVES]
 })
 export class CartComponent  {
-  private juegos = [new Juego('../../img/logo.png','Prueba 1','10','1'),new Juego('../../img/logo.png','Prueba 2','34','1'),new Juego('../../img/logo.png','Prueba 3','59','1')];
+  private juegos : Juego[]
   private codigos = ['VALLI22','EXCEN','ZIGIC','DROPELEGA'];
   private total = 0;
   constructor(){

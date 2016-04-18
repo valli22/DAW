@@ -10,28 +10,45 @@ import {Juego} from '../classes/juego.model.ts';
 
 export class JuegoNuevoComponent {
 
-  private juego =new Juego("","","",0,0,[""]);
+  //private juego =new Juego("","","",0,0,[""]);
+  private imagen : string;
+  private nombre : string;
+  private descripcion : string;
+  private precio : number;
+  private valoracion : number;
+  private tags : string[] = [];
+  private plataforma : string[] = [];
+
+  private anadir=false;
+  private anadirPlataforma=false;
 
   anadirFoto(){
-      this.juego.imagen='../../img/logo.png';
+      this.imagen='../../img/logo.png';
   }
 
   anadirTag(valor : string){
-    this.juego.tags.push(valor);
+    this.tags.push(valor);
+  }
+
+  anadirPlataformaMethod(valor : string){
+    this.plataforma.push(valor);
   }
 
   eliminarTag(index : number){
-    console.log(index);
-    this.juego.tags.splice(index,1);
+    this.tags.splice(index,1);
+  }
+
+  eliminarPlataforma(index : number){
+    this.plataforma.splice(index,1);
   }
 
   noesVacioImg(){
-    return this.juego.imagen != "";
+    return this.imagen != "";
   }
 
   //introducir en array de service
   guardar(){
-
+      return new Juego(this.imagen,this.nombre,this.descripcion,this.precio,this.valoracion,this.tags,this.plataforma);
   }
 
 }

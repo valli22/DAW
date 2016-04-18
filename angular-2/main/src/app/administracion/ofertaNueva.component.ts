@@ -11,23 +11,30 @@ import {Juego} from '../classes/juego.model.ts';
 
 export class OfertaNuevaComponent {
 
-  private oferta = new Oferta("","","",[new Juego("Eliminar","","",0,0,[""])],0,0,0);
+  //private oferta : Oferta;
+  private nombre : string;
+  private descripcion : string;
+  private imagen : string;
+  private juegosOferta: Juego[] = [];
+  private descuento : number;
+  private precioInicial : number;
+  private precioOferta : number;
 
-  private juegos = [new Juego('../../img/logo.png','titulojuego','descripcion del juego',24,6.9,['hola','mola']),new Juego('../../img/logo.png','titulojuego1','descripcion del juego',24,6.9,['hola','mola']),new Juego('../../img/logo.png','titulojuego2','descripcion del juego',24,6.9,['hola','mola'])];
+  private juegos : Juego[];
 
   private anadir = false;
 
   noesVacioImg(){
-    return this.oferta.imagen !=null;
+    return this.imagen !=null;
   }
 
   anadirFoto(){
-    this.oferta.imagen='../../img/logo.png';
+    this.imagen='../../img/logo.png';
   }
 
   contieneJuego( juego: Juego){
     var ret;
-    ret =  this.oferta.juegos.indexOf(juego);
+    ret =  this.juegosOferta.indexOf(juego);
     if(ret==-1){
       return true;
     }else{
@@ -37,11 +44,11 @@ export class OfertaNuevaComponent {
 
   anadirJuego( i : number){
     var juego = this.juegos[i];
-    this.oferta.juegos.push(juego);
+    this.juegosOferta.push(juego);
   }
 
   eliminarJuego( i : number){
-    this.oferta.juegos.splice(i,1);
+    this.juegosOferta.splice(i,1);
   }
 
   guardar(){

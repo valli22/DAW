@@ -11,7 +11,7 @@ import {Juego} from '../classes/juego.model.ts';
 export class JuegoEditComponent{
 
   @Input()
-  private juego=new Juego('../../img/logo.png','titulojuego','descripcion del juego',24,6.9,['hola','mola']);
+  private juego : Juego;
 
   private juegoCopia = this.juego;
   private anadir = false;

@@ -1,7 +1,7 @@
 <form role="form">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-          <img *ngIf="noesVacioImg()" class="img-responsive" src="oferta.imagen" width="200" height="200">
+          <img *ngIf="noesVacioImg()" class="img-responsive" src="imagen" width="200" height="200">
           <button type="button" class="btn btn-default" (click)="anadirFoto()">Añadir foto</button>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -10,7 +10,7 @@
                     <label>Nombre: </label>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Escriba el nombre de la oferta" [(ngModel)]="oferta.nombre">
+                    <input type="text" placeholder="Escriba el nombre de la oferta" [(ngModel)]="nombre">
                 </div>
               </div>
               <div class="row">
@@ -18,7 +18,7 @@
                       <label>Precio inicial: </label>
                   </div>
                   <div class="col-lg-6 col-md-6">
-                      <input type="text" placeholder="Escriba el precio inicial" [(ngModel)]="oferta.precioInicial">
+                      <input type="text" placeholder="Escriba el precio inicial" [(ngModel)]="precioInicial">
                   </div>
               </div>
               <div class="row">
@@ -26,7 +26,7 @@
                       <label>Descuento: </label>
                   </div>
                   <div class="col-lg-6 col-md-6">
-                      <input type="text" placeholder="Escriba el descuento" [(ngModel)]="oferta.descuento">
+                      <input type="text" [(ngModel)]="descuento" placeholder="Escriba el descuento">
                   </div>
               </div>
               <div class="row">
@@ -34,13 +34,13 @@
                       <label>Precio oferta: </label>
                   </div>
                   <div class="col-lg-6 col-md-6">
-                      <input type="text" [(ngModel)]="oferta.precioOferta" placeholder="Escriba el precio de oferta">
+                      <input type="text" [(ngModel)]="precioOferta" placeholder="Escriba el precio de la oferta">
                   </div>
               </div>
         </div>
       </div>
       <label>Descripcion: </label>
-      <textarea class="areatext" [(ngModel)]="oferta.descripcion">Escriba la descripcion aqui</textarea>
+      <textarea class="areatext" [(ngModel)]="descripcion">Escriba la descripcion aqui</textarea>
       <label>Juegos: </label>
       <button type="button" class="btn btn-default" (click)="anadir=true">Añadir juego a la oferta</button>
       <div *ngIf="anadir">
@@ -54,7 +54,7 @@
       <div>
         <label>Juegos de la oferta</label>
       </div>
-      <div *ngFor="#juego of oferta.juegos; #i = index">
+      <div *ngFor="#juego of juegosOferta; #i = index">
         <span>{{juego.nombre}}</span>
         <button type="button" class="btn btn-default" (click)="eliminarJuego(i)">Eliminar juego</button>
       </div>

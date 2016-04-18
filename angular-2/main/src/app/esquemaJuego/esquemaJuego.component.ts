@@ -13,7 +13,7 @@ import {Mentor} from '../classes/mentor.model.ts'
 export class EsquemaJuegoComponent {
 
   @Input()
-  private juego = new Juego('../../img/logo.png','titulojuego','descripcion del juego',24,6.9,['hola','mola']);
+  private juego : Juego;
 
   comprarJuego(){
 

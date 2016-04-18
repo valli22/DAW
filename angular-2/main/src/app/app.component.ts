@@ -10,7 +10,7 @@ import {EsquemaJuegoComponent} from './esquemaJuego/esquemaJuego.component.ts';
 import {LoginSignupComponent} from './login-signup/loginSignup.component.ts';
 import {CatalogoComponent} from './catalogo/catalogo.component.ts';
 import {AdministracionComponent} from './administracion/administracion.component.ts';
-import {ProfileComponent} from './profile/profile.component.ts'
+import {ProfileComponent} from './profile/profile.component.ts';
 
 
 @Component({
@@ -19,7 +19,7 @@ import {ProfileComponent} from './profile/profile.component.ts'
 			 directives: [ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path:'/home', name:'Main',component:MainComponent ,useAsDefault:true},
+    {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
     {path:'/cart',name:'Cart', component:CartComponent},
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
     {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent},

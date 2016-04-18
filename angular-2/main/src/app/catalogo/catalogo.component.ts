@@ -8,8 +8,7 @@ import {JuegoCatalogo} from './juegoCatalogo.component.ts';
   directives:[JuegoCatalogo,ROUTER_DIRECTIVES]
 })
 export class CatalogoComponent{
-  private juegos = [new Juego('../../img/logo.png','titulojuego','descripcion del juego',24,6.9,['hola','mola']),new Juego('../../img/logo.png','titulojuego2','descripcion del juego',24,6.9,['hola','mola'])];
-
+  private juegos : Juego[];
   private parametro:string;
 
   buscarJuego(){
