@@ -11,12 +11,13 @@ import {LoginSignupComponent} from './login-signup/loginSignup.component.ts';
 import {CatalogoComponent} from './catalogo/catalogo.component.ts';
 import {AdministracionComponent} from './administracion/administracion.component.ts';
 import {ProfileComponent} from './profile/profile.component.ts';
+import {MentoresComponent} from './mentores/mentores.component.ts';
 
 
 @Component({
        selector: 'app',
        templateUrl: 'app/app.component.html',
-			 directives: [ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
+			 directives: [MentoresComponent,ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
 })
 @RouteConfig([
     {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
@@ -26,8 +27,8 @@ import {ProfileComponent} from './profile/profile.component.ts';
     {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},
     {path: '/catalogo', name: 'Catalogo', component:CatalogoComponent},
     {path: '/admin', name: 'Admin', component:AdministracionComponent},
-    {path:'/perfil', name:'Perfil', component:ProfileComponent}
-  /*{path:'/mentores', name:'Mentores', component:MentoresComponent},*/
+    {path:'/perfil', name:'Perfil', component:ProfileComponent},
+    {path:'/mentores', name:'Mentores', component:MentoresComponent}
 ])
 
 export class AppComponent {
