@@ -15,10 +15,10 @@ export class MentoresAjaxComponent{
 
   @Input()
   private pestana: string;
+  private recom: Recomendacion;
 
   editarRecomendacion(recomendacion1: Recomendacion){
     this.recom = recomendacion1;
     this.pestana = "editar";
   }
-  private recom: Recomendacion;
 }

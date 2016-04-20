@@ -9,6 +9,6 @@ import {Mentor1} from './mentor1mentores.component';
 })
 export class TodosMentores{
 
-  private mentores: [Mentor] = [new Mentor("Diego", "url", "imagen", "descripcion", 15, 15000),new Mentor("Diego2", "url", "imagen", "descripcion", 15, 15000),new Mentor("Diego3", "url", "imagen", "descripcion", 15, 15000),new Mentor("Diego4", "url", "imagen", "descripcion", 15, 15000)];
+  private mentores: Mentor[] = [new Mentor("Diego", "url", "imagen", "descripcion", 15, 15000),new Mentor("Diego2", "url", "imagen", "descripcion", 15, 15000),new Mentor("Diego3", "url", "imagen", "descripcion", 15, 15000),new Mentor("Diego4", "url", "imagen", "descripcion", 15, 15000)];
 
 }

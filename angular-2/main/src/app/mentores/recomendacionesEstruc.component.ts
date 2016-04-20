@@ -11,8 +11,9 @@ import {Mentor} from '../classes/mentor.model';
 })
 export class Recomendaciones{
 
-  private recomendaciones: [Recomendacion] = [new Recomendacion(new Mentor("Diego", "url", "imagen", "descripcion", 15, 15000), "Buen juego", 15000, "pedazo de juego", "the binding of isaac"), new Recomendacion(new Mentor("Diego2", "url2", "imagen2", "descripcion2", 2, 154000), "Buen 2", 154000, "pedazo de 2", "the binding of 2")];
+  private recomendaciones: Recomendacion[] = [new Recomendacion(new Mentor("Diego", "url", "imagen", "descripcion", 15, 15000), "Buen juego", 15000, "pedazo de juego", "the binding of isaac"), new Recomendacion(new Mentor("Diego2", "url2", "imagen2", "descripcion2", 2, 154000), "Buen 2", 154000, "pedazo de 2", "the binding of 2")];
   private juegos : Juego[];
+  
   @Output()
   editRec = new EventEmitter<Recomendacion>();
 
