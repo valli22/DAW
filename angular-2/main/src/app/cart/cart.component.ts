@@ -11,23 +11,37 @@ import {CarritoService} from '../service/carrito.service.ts';
        providers:[CarritoService]
 })
 export class CartComponent  {
-  private juegos : Juego[];
-  private ofertas : Oferta[];
+  private juegos : (Juego|Oferta)[];
   private codigos = ['VALLI22','EXCEN','ZIGIC','DROPELEGA'];
+  private preciosTotales: number[] = [];
   private total = 0;
   constructor(private carritoService:CarritoService){
-    this.refreshTotal();
+  
   }
   ngOnInit(){
-    this.juegos = this.carritoService.pedidoJuegos;
-    this.ofertas = this.carritoService.pedidoOfertas;
+    this.juegos = this.carritoService.getPedido();
+    for(var juego of this.juegos){
+      var precioJuego = parseFloat((juego.cantidad*juego.precio).toFixed(2));
+      this.total+= precioJuego;
+      this.preciosTotales.push(precioJuego);
+    }
+    this.total= parseFloat(this.total.toFixed(2));
   }
   refreshTotal(){
     this.total= 0;
-    for (var juego of this.juegos){
-      this.total += juego.precio * juego.cantidad;
+    this.preciosTotales = []
+    for(var juego of this.juegos){
+      var precioJuego = parseFloat((juego.cantidad*juego.precio).toFixed(2));
+      this.total+= precioJuego;
+      this.preciosTotales.push(precioJuego);      
     }
+    this.total= parseFloat(this.total.toFixed(2));
   }
+
+  precioTotal(precio:number,cantidad:number){
+    return precio*cantidad;
+  }
+
   aplicarCodigo(codigo:string){
     var aplicable=false;
     for(var micodigo of this.codigos){
