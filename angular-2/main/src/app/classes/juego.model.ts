@@ -1,5 +1,5 @@
-import {Mentor} from './mentor.model.ts';
 import {Recomendacion} from './recomendacion.model';
+import {user} from './user.model';
 
 export class Juego{
   imagen: string;
@@ -23,7 +23,7 @@ export class Juego{
     this.cantidad = 1;
   }
 
-  addRecomendacion(mentor : Mentor,titulo:string, meGusta : number, descripcion : string){
+  addRecomendacion(mentor : user,titulo:string, meGusta : number, descripcion : string){
 
 
     var recomendacionc = new Recomendacion(mentor,titulo,meGusta,descripcion,this.nombre);

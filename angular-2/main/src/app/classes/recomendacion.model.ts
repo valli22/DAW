@@ -1,12 +1,12 @@
-import {Mentor} from './mentor.model.ts';
+import {user} from './user.model.ts';
 export class Recomendacion{
-  mentor: Mentor;
+  mentor: user;
   titulo: string;
   meGusta: number;
   descripcion: string;
-  nombreJuego: string
+  nombreJuego: string;
 
-  constructor (private mentorc: Mentor, private tituloc : string,private meGustac: number, private descripcionc: string, private nombreJuegoc: string){
+  constructor (private mentorc: user, private tituloc : string,private meGustac: number, private descripcionc: string,private nombreJuegoc:string){
     this.mentor = mentorc;
     this.titulo = tituloc;
     this.meGusta = meGustac;
