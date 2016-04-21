@@ -2,11 +2,13 @@ import {Component, Input} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Oferta} from '../classes/oferta.model.ts';
 import {Juego} from '../classes/juego.model.ts';
+import {OfertasService} from '../service/ofertas.service.ts'
 
 @Component ({
   selector: 'ofertaNueva',
   templateUrl: 'app/administracion/ofertaNueva.component.html',
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES],
+  providers : [OfertasService]
 })
 
 export class OfertaNuevaComponent {
@@ -23,6 +25,8 @@ export class OfertaNuevaComponent {
   private juegos : Juego[];
 
   private anadir = false;
+
+  constructor(private ofertasService : OfertasService){}
 
   noesVacioImg(){
     return this.imagen !=null;
@@ -52,6 +56,6 @@ export class OfertaNuevaComponent {
   }
 
   guardar(){
-
+      this.ofertasService.addOferta(new Oferta(this.nombre,this.descripcion,this.imagen,this.juegosOferta,this.descuento,this.precioInicial,this.precioOferta));
   }
 }

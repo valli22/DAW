@@ -1,16 +1,17 @@
 import {Component, Input} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Juego} from '../classes/juego.model.ts';
+import {JuegosService} from '../service/juegos.service.ts';
 
 @Component ({
   selector: 'juegoNuevo',
   templateUrl: 'app/administracion/juegoNuevo.component.html',
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES],
+  providers : [JuegosService]
 })
 
 export class JuegoNuevoComponent {
 
-  //private juego =new Juego("","","",0,0,[""]);
   private imagen : string;
   private nombre : string;
   private descripcion : string;
@@ -21,6 +22,8 @@ export class JuegoNuevoComponent {
 
   private anadir=false;
   private anadirPlataforma=false;
+
+  constructor(private juegosService : JuegosService){}
 
   anadirFoto(){
       this.imagen='../../img/logo.png';
@@ -48,7 +51,7 @@ export class JuegoNuevoComponent {
 
   //introducir en array de service
   guardar(){
-      return new Juego(this.imagen,this.nombre,this.descripcion,this.precio,this.valoracion,this.tags,this.plataforma);
+      this.juegosService.addJuego(new Juego(this.imagen,this.nombre,this.descripcion,this.precio,this.valoracion,this.tags,this.plataforma));
   }
 
 }
