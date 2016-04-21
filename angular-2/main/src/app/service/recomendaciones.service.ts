@@ -1,5 +1,5 @@
 import {Injectable} from 'angular2/core';
-import {user} from '../profile/user.model';
+import {user} from '../classes/user.model';
 import {Recomendacion} from '../classes/recomendacion.model';
 import {Mentor} from '../classes/mentor.model';
 
