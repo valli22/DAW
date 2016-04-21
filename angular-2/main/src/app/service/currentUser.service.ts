@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
-import {user} from '../classes/user.model.ts';
+import {user} from '../profile/user.model.ts';
 @Injectable()
-export class CurrentUserService{
+export class UsersService{
   private usuario:user;
   setUser(cUser:user){
     this.usuario=cUser;

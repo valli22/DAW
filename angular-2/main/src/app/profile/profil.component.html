@@ -1,0 +1,70 @@
+<form role="form">
+                <div class="row">
+                    <!--imagen de perfil y cuentas-->
+                    <div class="col-sm-4 col-md-4">
+                        <img class="img-responsive" src={{usuario.fotoPrefil}} width="200" height="200" id="fotoperfil">
+                        <button type="button" class="btn btn-default" (click)="cambiarFoto()">Cambiar Foto</button>
+                        <br/>
+                        <!--Cuentas de juego-->
+                        <label for="name" id="idsteam">ID Steam:</label>
+                        <br/>
+                        <input type="text" id="steam" placeholder="CuentaSteam" value="{{usuario.steam}}" [(ngModel="usuarioNuevo.steam")]>
+                        <br/>
+                        <label for="name">ID BattleNet:</label>
+                        <br/>
+                        <input type="text" id="bnet" placeholder="CuentaBNet" value="{{usuario.bnet}}" [(ngModel="usuarioNuevo.bnet")]>
+                        <br/>
+                    </div>
+                    <!--nombre,correo y cambio de contraseña-->
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="name" class="form-control" id="name" value={{usuario.nombre}} [(ngModel="usuarioNuevo.nombre")] placeholder="Aqui viene el nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electronico:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Aqui viene el correo" value="{{usuario.correo}}" [(ngModel="usuarioNuevo.correo")]>
+                        </div>
+                        <!--Salto de linea-->
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <label for="pwd">Contraseña Actual:</label>
+                            <input type="password" class="form-control" id="passwordA" placeholder="Introduzca contraseña actual"[(ngModel="viejaContraseña")]>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Nueva Contraseña:</label>
+                            <input type="password" class="form-control" id="NewPassword" placeholder="Introduzca nueva contraseña" [(ngModel="nuevaContraseña")]>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="ConfirmPassword" placeholder="Repita su nueva contraseña"[(ngModel="nuevaContraseñaC")]>
+                        </div>
+                    </div>
+                    <!--fecha y descripciones-->
+                    <div class="col-sm-4 col-md-4">
+                        <!--fecha de nacimiento-->
+                        <div class="form-group">
+                            <label for="date">Fecha de Nacimiento:</label>
+                            <input type="date" class="form-control" id="fechanacimiento" placeholder="Fecha nacimiento" value="{{usuario.fechaNacimiento}}"[(ngModel="usuarioNuevo.fechaNacimiento")]>
+                        </div>
+                        <!-- descripciones-->
+                        <label for="description">Descripción personal:</label>
+                        <br>
+                        <textarea class="areatext"[(ngModel="usuarioNuevo.descripcion")]>{{usuario.descripcion}}</textarea>
+                        <label for="description">Descripción de mentor:</label>
+                        <br>
+                        <textarea class="areatext"[(ngModel="usuarioNuevo.descripcionMentor")]>{{usuario.descripcionMentor}}</textarea>
+                    </div>
+                </div>
+                <!--boton de guardar cambios-->
+                <div class="row">
+                    <!--para centrarlo-->
+                    <div class="col-sm-5 col-md-5">
+                        <br/>
+                    </div>
+                    <div class="col-sm-5 col-md-5">
+                        <button type="submit" class="btn btn-default"(click)="cambiarDatos()">GUARDAR CAMBIOS</button>
+                    </div>
+                </div>
+            </form>
