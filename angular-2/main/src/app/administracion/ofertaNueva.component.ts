@@ -20,7 +20,7 @@ export class OfertaNuevaComponent {
   private juegosOferta: Juego[] = [];
   private descuento : number;
   private precioInicial : number;
-  private precioOferta : number;
+  private precio : number;
 
   private juegos : Juego[];
 

@@ -30,13 +30,13 @@
                   <th>Cantidad</th>
                   <th>Precio</th>
               </thead>
-              <tbody *ngFor="#juego of juegos">
+              <tbody *ngFor="#juego of juegos; #i = index">
                   <tr>
-                    <td><img src="{{juego.img}}" class="img-responsive"></td>
+                    <td><img src="{{juego.imagen}}" class="img-responsive"></td>
                     <td><a href="#">{{juego.nombre}}</a></td>
                     <td>{{juego.precio}}</td>
-                    <td><input (click)="juego.refreshGame();refreshTotal()" type="number" [(ngModel)]="juego.cantidad" min="1"></td>
-                    <td>{{juego.precioTotal}}</td>
+                    <td><input (click)="refreshTotal()" type="number" [(ngModel)]="juego.cantidad" min="1"></td>
+                    <td >{{preciosTotales[i]}} </td>
                   </tr>
               </tbody>
           </table>
