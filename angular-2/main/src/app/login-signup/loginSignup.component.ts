@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {user} from '../profile/user.model.ts';
+import {user} from '../classes/user.model.ts';
 @Component({
        selector: 'headerComponent',
        templateUrl: 'app/login-signup/loginSignup.component.html',
