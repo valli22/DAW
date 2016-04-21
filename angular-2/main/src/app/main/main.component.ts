@@ -11,7 +11,7 @@ import {Oferta2mainComponent} from './oferta2main.component.ts';
 import {Oferta3mainComponent} from './oferta3main.component.ts';
 import {Oferta4mainComponent} from './oferta4main.component.ts';
 import {JuegosService} from '../service/juegos.service.ts';
-import {OfertasService} from '../service/ofertas.service.ts'
+import {OfertasService} from '../service/ofertas.service.ts';
 
 
 @Component({
