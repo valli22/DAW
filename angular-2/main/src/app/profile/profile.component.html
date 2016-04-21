@@ -30,14 +30,20 @@
                         <br/>
                         <div class="form-group">
                             <label for="pwd">Contraseña Actual:</label>
+                            <span *ngIf="!passCorrecto() && viejaPass!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> La contraseña introducidas no coinciden</span>
+                            <span *ngIf="passCorrecto()" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                             <input  type="password" class="form-control" id="passwordA" placeholder="Introduzca contraseña actual" [(ngModel)]="viejaPass">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Nueva Contraseña:</label>
+                            <span *ngIf="!passIguales() && nuevaPassc!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Las contraseñas introducidas no coinciden</span>
+                            <span *ngIf="passIguales() && nuevaPassc!=''" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                             <input type="password" class="form-control" id="NewPassword" placeholder="Introduzca nueva contraseña" [(ngModel)]="nuevaPass" >
                         </div>
                         <div class="form-group">
                             <label for="pwd">Confirmar Contraseña</label>
+                            <span *ngIf="!passIguales() && nuevaPass!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Las contraseñas introducidas no coinciden</span>
+                            <span *ngIf="passIguales() && nuevaPass!=''" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                             <input type="password" class="form-control" id="ConfirmPassword" placeholder="Repita su nueva contraseña" [(ngModel)]="nuevaPassc">
                         </div>
                     </div>
