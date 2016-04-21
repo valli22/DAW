@@ -1,5 +1,5 @@
 import {Component, Input} from 'angular2/core';
-import {Mentor} from '../classes/mentor.model';
+import {user} from '../classes/user.model';
 
 @Component({
   selector:'mentoresSiguiendo',
@@ -8,6 +8,6 @@ import {Mentor} from '../classes/mentor.model';
 export class MentoresSiguiendoEstruc{
 
   @Input()
-  mentor: Mentor;
+  mentor: user;
 
 }

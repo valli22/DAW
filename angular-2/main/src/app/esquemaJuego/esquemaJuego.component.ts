@@ -2,7 +2,6 @@ import {Component, Input} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Juego} from '../classes/juego.model.ts';
 import {Recomendacion} from '../classes/recomendacion.model.ts';
-import {Mentor} from '../classes/mentor.model.ts'
 
 @Component({
   selector:  'esquemaJuego',

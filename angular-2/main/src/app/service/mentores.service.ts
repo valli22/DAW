@@ -1,50 +1,44 @@
 import {Injectable} from 'angular2/core';
 import {user} from '../classes/user.model.ts';
-import {Mentor} from '../classes/mentor.model';
 
 @Injectable()
 export class MentoresService{
-
-  getMentoresSiguiendo(user: user){
-    return [new Mentor("Diego", "diego.com", "/img/diegoUsr", "la descripcion", 18000, 20000),
-    new Mentor("Valli", "valli.com", "/img/valliUsr", "la descripcion", 18000, 20000),
-    new Mentor("Peter", "peter.com", "/img/peterUsr", "la descripcion", 18000, 20000),
-    new Mentor("Miguel", "miguel.com", "/img/miguelUsr", "la descripcion", 18000, 20000),
-    new Mentor("Alvaro", "alvaro.com", "/img/alvaroUsr", "la descripcion", 18000, 20000),
-    new Mentor("Juanma", "juanma.com", "/img/juanmaUsr", "la descripcion", 18000, 20000),
-    new Mentor("David", "david.com", "/img/davidUsr", "la descripcion", 18000, 20000),
-    new Mentor("Pedro", "pedro.com", "/img/pedroUsr", "la descripcion", 18000, 20000),
-    new Mentor("Juan", "juan.com", "/img/juanUsr", "la descripcion", 18000, 20000),
-    new Mentor("Jose", "jose.com", "/img/joseUsr", "la descripcion", 18000, 20000),
-    new Mentor("Pepe", "pepe.com", "/img/pepeUsr", "la descripcion", 18000, 20000),
-    new Mentor("Rodrigo", "rodrigo.com", "/img/rodrigoUsr", "la descripcion", 18000, 20000),
-    new Mentor("Francisco", "francisco.com", "/img/franciscoUsr", "la descripcion", 18000, 20000),
-    new Mentor("Paco", "paco.com", "/img/pacoUsr", "la descripcion", 18000, 20000),
-    new Mentor("Raul", "raul.com", "/img/raulUsr", "la descripcion", 18000, 20000),
-    new Mentor("Daniel", "daniel.com", "/img/danielUsr", "la descripcion", 18000, 20000)];
+  getMentoresSiguiendo(){
+    return [new user('../../img/perfil.png', 'Diego', 'diego@gmail.com','1234','1995-23-05','zigic','jimenez',"Gamer con ganas de jugar y aprender", 'Juegos variados y de muy buena calidad'),
+    new user('../../img/perfil.png','Valli','valli@gmail.com', '1234', '1995-22-01','valli','valli22','Gamer con ganas de jugar y aprender', 'Si quieres juegos de todos los tipos yo soy tu mentor'),
+    new user('../../img/perfil.png','Peter','peter@gmail.com','1234','1995-23','peter','dropelega','Gamer con ganas de jugar y aprender', 'Juegos arcade y shooters variados'),
+    new user('../../img/perfil.png','miguel','miguel@gmail.com','1234','1995-22-06','miguelr95','roldan','Gamer con ganas de jugar y aprender','Amante de los juegos de estrategia'),
+    new user('../../img/perfil.png','Alvaro','alvaro@gmail.com','1234','1995-20','alvaro','varo','Gamer con ganas de jugar y aprender', 'Estos juegos merecen la pena, que te lo digo yo'),
+    new user('../../img/perfil.png','Juanma','juanma@gmail.com','1234','1995-19','juanma','roki','Gamer con ganas de jugar y aprender', 'Juegos online de todos los tipos'),
+    new user('../../img/perfil.png','David','david@gmail.com','1234','1995-18','david','idavis','Gamer con ganas de jugar y aprender', 'Aqui podras encontrar juegos clasicos'),
+    new user('../../img/perfil.png','Pedro','pedro@gmail.com','1234','1995-17','pedro','pete','Gamer con ganas de jugar y aprender', 'Los mejores juegos del mercado'),
+    new user('../../img/perfil.png','Juan','juan@gmail.com','1234','1995-16','juan','joan','Gamer con ganas de jugar y aprender', 'Las reviews de los peores juegos del mercado'),
+    new user('../../img/perfil.png','Jose','jose@gmail.com','1234','1995-15','jose','felipez','Gamer con ganas de jugar y aprender', 'Amante de la conduccion, arcade y coches'),
+    new user('../../img/perfil.png','Pepe','pepe@gmail.com','1234','1995-14','pepe','pepon','Gamer con ganas de jugar y aprender', 'Terror, miedo y panico. Aqui encontraras todo esto'),
+    new user('../../img/perfil.png','Rodrigo','rodrigo@gmail.com','1234','1995-13','rodrigo','jugonGamer','Gamer con ganas de jugar y aprender', 'Juegos cooperativos multijugador'),
+    new user('../../img/perfil.png','Francisco','francisco@gmail.com','1234','1995-12','francisco','fran','Gamer con ganas de jugar y aprender', 'Mobas online de todos los tipos'),
+    new user('../../img/perfil.png','Paco','paco@gmail.com','1234','1995-11','paco','pacopaquito','Gamer con ganas de jugar y aprender', 'Los mejores mmorpg del mercado los puedes encontrar aqui'),
+    new user('../../img/perfil.png','Raul','raul@gmail.com','1234','1995-10','raul','raulDeFutbol','Gamer con ganas de jugar y aprender', 'Me encantan los juegos tipo roguelike, a ti no?'),
+    new user('../../img/perfil.png','Daniel','daniel@gmail.com','1234','1995-9','dani','daniYeah','Gamer con ganas de jugar y aprender', 'Todos los juegos de star wars estan aqui')];
   }
 
   getMentoresAleatorios(){
-    return [new Mentor("Diego", "diego.com", "/img/diegoUsr", "la descripcion", 18000, 20000),
-    new Mentor("Valli", "valli.com", "/img/valliUsr", "la descripcion", 18000, 20000),
-    new Mentor("Peter", "peter.com", "/img/peterUsr", "la descripcion", 18000, 20000),
-    new Mentor("Miguel", "miguel.com", "/img/miguelUsr", "la descripcion", 18000, 20000),
-    new Mentor("Alvaro", "alvaro.com", "/img/alvaroUsr", "la descripcion", 18000, 20000),
-    new Mentor("Juanma", "juanma.com", "/img/juanmaUsr", "la descripcion", 18000, 20000),
-    new Mentor("David", "david.com", "/img/davidUsr", "la descripcion", 18000, 20000),
-    new Mentor("Pedro", "pedro.com", "/img/pedroUsr", "la descripcion", 18000, 20000),
-    new Mentor("Juan", "juan.com", "/img/juanUsr", "la descripcion", 18000, 20000),
-    new Mentor("Jose", "jose.com", "/img/joseUsr", "la descripcion", 18000, 20000),
-    new Mentor("Pepe", "pepe.com", "/img/pepeUsr", "la descripcion", 18000, 20000),
-    new Mentor("Rodrigo", "rodrigo.com", "/img/rodrigoUsr", "la descripcion", 18000, 20000),
-    new Mentor("Francisco", "francisco.com", "/img/franciscoUsr", "la descripcion", 18000, 20000),
-    new Mentor("Paco", "paco.com", "/img/pacoUsr", "la descripcion", 18000, 20000),
-    new Mentor("Raul", "raul.com", "/img/raulUsr", "la descripcion", 18000, 20000),
-    new Mentor("Daniel", "daniel.com", "/img/danielUsr", "la descripcion", 18000, 20000)];
-  }
-
-  getNombreMentoresSig(user: user){
-    return ["Diego","Valli","Peter","Miguel","Alvaro","Juanma","David","Pedro","Juan","Jose","Pepe","Rodrigo","Fracisco","Paco","Raul","Daniel"];
+    return [new user('../../img/perfil.png', 'Diego', 'diego@gmail.com','1234','1995-23-05','zigic','jimenez',"Gamer con ganas de jugar y aprender", 'Juegos variados y de muy buena calidad'),
+    new user('../../img/perfil.png','Valli','valli@gmail.com', '1234', '1995-22-01','valli','valli22','Gamer con ganas de jugar y aprender', 'Si quieres juegos de todos los tipos yo soy tu mentor'),
+    new user('../../img/perfil.png','Peter','peter@gmail.com','1234','1995-23','peter','dropelega','Gamer con ganas de jugar y aprender', 'Juegos arcade y shooters variados'),
+    new user('../../img/perfil.png','miguel','miguel@gmail.com','1234','1995-22-06','miguelr95','roldan','Gamer con ganas de jugar y aprender','Amante de los juegos de estrategia'),
+    new user('../../img/perfil.png','Alvaro','alvaro@gmail.com','1234','1995-20','alvaro','varo','Gamer con ganas de jugar y aprender', 'Estos juegos merecen la pena, que te lo digo yo'),
+    new user('../../img/perfil.png','Juanma','juanma@gmail.com','1234','1995-19','juanma','roki','Gamer con ganas de jugar y aprender', 'Juegos online de todos los tipos'),
+    new user('../../img/perfil.png','David','david@gmail.com','1234','1995-18','david','idavis','Gamer con ganas de jugar y aprender', 'Aqui podras encontrar juegos clasicos'),
+    new user('../../img/perfil.png','Pedro','pedro@gmail.com','1234','1995-17','pedro','pete','Gamer con ganas de jugar y aprender', 'Los mejores juegos del mercado'),
+    new user('../../img/perfil.png','Juan','juan@gmail.com','1234','1995-16','juan','joan','Gamer con ganas de jugar y aprender', 'Las reviews de los peores juegos del mercado'),
+    new user('../../img/perfil.png','Jose','jose@gmail.com','1234','1995-15','jose','felipez','Gamer con ganas de jugar y aprender', 'Amante de la conduccion, arcade y coches'),
+    new user('../../img/perfil.png','Pepe','pepe@gmail.com','1234','1995-14','pepe','pepon','Gamer con ganas de jugar y aprender', 'Terror, miedo y panico. Aqui encontraras todo esto'),
+    new user('../../img/perfil.png','Rodrigo','rodrigo@gmail.com','1234','1995-13','rodrigo','jugonGamer','Gamer con ganas de jugar y aprender', 'Juegos cooperativos multijugador'),
+    new user('../../img/perfil.png','Francisco','francisco@gmail.com','1234','1995-12','francisco','fran','Gamer con ganas de jugar y aprender', 'Mobas online de todos los tipos'),
+    new user('../../img/perfil.png','Paco','paco@gmail.com','1234','1995-11','paco','pacopaquito','Gamer con ganas de jugar y aprender', 'Los mejores mmorpg del mercado los puedes encontrar aqui'),
+    new user('../../img/perfil.png','Raul','raul@gmail.com','1234','1995-10','raul','raulDeFutbol','Gamer con ganas de jugar y aprender', 'Me encantan los juegos tipo roguelike, a ti no?'),
+    new user('../../img/perfil.png','Daniel','daniel@gmail.com','1234','1995-9','dani','daniYeah','Gamer con ganas de jugar y aprender', 'Todos los juegos de star wars estan aqui')];
   }
 
 }

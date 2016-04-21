@@ -1,13 +1,15 @@
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {Mentor} from '../classes/mentor.model';
+import {user} from '../classes/user.model';
 import {MentoresAjaxComponent} from './mentoresAjax.component';
 import {MentoresSiguiendoEstruc} from './mentoresSiguiendoEstruc.component';
+import {MentoresService} from '../service/mentores.service';
 
 @Component({
   selector:'mentores',
   templateUrl: 'app/mentores/mentores.component.html',
-  directives:[MentoresAjaxComponent,MentoresSiguiendoEstruc,ROUTER_DIRECTIVES]
+  directives:[MentoresAjaxComponent,MentoresSiguiendoEstruc,ROUTER_DIRECTIVES],
+  providers:[MentoresService]
 })
 
 export class MentoresComponent{
@@ -19,7 +21,13 @@ export class MentoresComponent{
   isOn3 = false;
   isDisabled3 = false;
 
-  private mentoresSig: Mentor[] = [new Mentor("Diego", "url", "imagen", "descripcion", 15, 15000)];
+  private mentoresSig: user[];
+
+  constructor(private mentoresService: MentoresService){};
+
+  ngOnInit(){
+    this.mentoresSig = this.mentoresService.getMentoresSiguiendo();
+  }
 
   private aMostrar = "misMentores";
 

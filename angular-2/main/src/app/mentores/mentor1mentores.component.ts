@@ -1,5 +1,5 @@
+import {user} from "../classes/user.model";
 import {Component, Input} from 'angular2/core';
-import {Mentor} from '../classes/mentor.model';
 
 @Component({
   selector:'mentor1mentores',
@@ -8,10 +8,10 @@ import {Mentor} from '../classes/mentor.model';
 export class Mentor1{
 
   @Input()
-  private mentor: Mentor;
+  private mentor: user;
 
   seguirMentor(){
-    
+
   }
 
 }
