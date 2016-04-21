@@ -10,6 +10,7 @@ export class Juego{
   tags: string[];
   plataforma: string[];
   recomendacion : Recomendacion[] = [];
+  cantidad:number;
 
   constructor(private imagenc:string,private nombrec:string,private descripcionc:string,private precioc:number,private valoracionc : number, private tagsc:string[],private plataformac : string[]){
     this.imagen = imagenc;
@@ -19,6 +20,7 @@ export class Juego{
     this.valoracion = valoracionc;
     this.tags = tagsc;
     this.plataforma = plataformac;
+    this.cantidad = 1;
   }
 
   addRecomendacion(mentor : Mentor,titulo:string, meGusta : number, descripcion : string){

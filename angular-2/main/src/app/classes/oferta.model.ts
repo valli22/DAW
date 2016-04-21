@@ -8,6 +8,7 @@ export class Oferta{
   descuento : number;
   precioInicial : number;
   precioOferta: number;
+  cantidad:number;
 
   constructor(private nombrec:string,private descripcionc:string,private imagenc:string,private juegosc:Juego[],private descuentoc: number, private precioInicialc:number,private precioOfertac:number){
       this.nombre = nombrec;
@@ -17,6 +18,7 @@ export class Oferta{
       this.descuento = descuentoc;
       this.precioInicial = precioInicialc;
       this.precioOferta = precioOfertac;
+      this.cantidad = 1;
   }
 
 }

@@ -1,5 +1,5 @@
 import {Injectable} from 'angular2/core';
-import {user} from '../profile/user.model';
+import {user} from '../classes/user.model.ts';
 import {Mentor} from '../classes/mentor.model';
 
 @Injectable()
