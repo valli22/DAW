@@ -10,28 +10,20 @@ import {Oferta1mainComponent} from './oferta1main.component.ts';
 import {Oferta2mainComponent} from './oferta2main.component.ts';
 import {Oferta3mainComponent} from './oferta3main.component.ts';
 import {Oferta4mainComponent} from './oferta4main.component.ts';
+import {JuegosService} from '../service/juegos.service.ts';
 
 
 @Component({
   selector:'main',
   templateUrl: 'app/main/main.component.html',
-  directives:[Juego4mainComponent,Juego1mainComponent,Juego2mainComponent,Juego3mainComponent,Oferta1mainComponent,Oferta2mainComponent,Oferta3mainComponent,Oferta4mainComponent,ROUTER_DIRECTIVES]
+  directives:[Juego4mainComponent,Juego1mainComponent,Juego2mainComponent,Juego3mainComponent,Oferta1mainComponent,Oferta2mainComponent,Oferta3mainComponent,Oferta4mainComponent,ROUTER_DIRECTIVES],
+  providers:[JuegosService]
 })
 export class MainComponent{
 
   private juegos : Juego[];
   private ofertas : Oferta[];
 
-  /*dividirJuegos(){
-    for (let i = 6; i <= 9; i++) {
-        this.juegosLista.push(this.juegos[i]);
-    }
-  }
-
-  dividirOfertas(){
-    for (let i = 6; i <= 9; i++) {
-        this.ofertasLista.push(this.ofertas[i]);
-    }
-  }*/
+  constructor(private juegosService : JuegosService){}
 
 }
