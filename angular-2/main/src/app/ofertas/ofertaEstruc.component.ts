@@ -1,11 +1,13 @@
 import {Component, Input} from 'angular2/core';
 import {Oferta} from '../classes/oferta.model.ts';
 import {CarritoService} from '../service/carrito.service';
+import {ROUTER_DIRECTIVES} from 'angular2/router';  
 
 @Component({
   selector:'ofertaEstruc',
   templateUrl: 'app/ofertas/ofertaEstruc.component.html',
-  providers : [CarritoService]
+  directives:[ROUTER_DIRECTIVES],
+  //providers : [CarritoService]
 })
 
 export class ofertaEstrucComponent {

@@ -5,7 +5,7 @@ import {user} from '../classes/user.model.ts';
 export class CurrentUserService{
 
   private usuario:user;
-  
+
   setUser(cUser:user){
     this.usuario=cUser;
   }

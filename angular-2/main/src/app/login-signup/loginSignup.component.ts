@@ -6,8 +6,7 @@ import {UsersService} from '../service/users.service.ts';
 @Component({
        selector: 'headerComponent',
        templateUrl: 'app/login-signup/loginSignup.component.html',
-       directives:[ROUTER_DIRECTIVES],
-       providers:[CurrentUserService,UsersService]
+       directives:[ROUTER_DIRECTIVES]
 })
 export class LoginSignupComponent  {
   usuarios: user[];

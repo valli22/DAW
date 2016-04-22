@@ -12,12 +12,16 @@ import {CatalogoComponent} from './catalogo/catalogo.component.ts';
 import {AdministracionComponent} from './administracion/administracion.component.ts';
 import {ProfileComponent} from './profile/profile.component.ts';
 import {MentoresComponent} from './mentores/mentores.component.ts';
+import {CarritoService} from './service/carrito.service.ts';
+import {CurrentUserService} from './service/currentUser.service.ts';
+import {UsersService} from './service/users.service.ts';
 
 
 @Component({
        selector: 'app',
        templateUrl: 'app/app.component.html',
-			 directives: [MentoresComponent,ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES]
+			 directives: [MentoresComponent,ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES],
+       providers:[CarritoService,CurrentUserService,UsersService]
 })
 @RouteConfig([
     {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},

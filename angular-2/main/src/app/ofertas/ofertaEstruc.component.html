@@ -35,7 +35,7 @@
             </div>
             <!-- Descripcion -->
             <p>{{oferta.descripcion}}</p>
-            <button type="button" class="btn btn-info" (click)="comprarOferta()"><a href="cart.html">Comprar</a></button>
+            <a [routerLink]="['Cart']"><button type="button" class="btn btn-info" (click)="comprarOferta()">Comprar</button></a>
             </div>
         </div>
     </div>

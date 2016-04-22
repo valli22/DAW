@@ -25,9 +25,9 @@
                 </li>
                 <li><a [routerLink]="['Mentores']">MENTORES</a></li>
                 <li><a [routerLink]="['Ofertas']">OFERTAS</a></li>
-                <li *ngIf="isActive"><a>PERFIL</a></li>
+                <li *ngIf="currentActive()"><a>PERFIL</a></li>
               </ul>
-              <form *ngIf="!isActive" class="navbar-form navbar-left" role="search">
+              <form *ngIf="!currentActive()" class="navbar-form navbar-left" role="search">
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="usuario">
                     <input type="password" class="form-control" placeholder="Constraseña" [(ngModel)]="pass">

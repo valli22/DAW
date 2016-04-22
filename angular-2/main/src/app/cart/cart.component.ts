@@ -8,8 +8,8 @@ import {Juego} from '../classes/juego.model.ts';
 @Component({
        selector: 'cartComponent',
        templateUrl: 'app/cart/cart.component.html',
-       directives:[ROUTER_DIRECTIVES],
-       providers:[CarritoService]
+       directives:[ROUTER_DIRECTIVES]
+       //providers:[CarritoService]
 })
 export class CartComponent  {
   private juegos : (Juego|Oferta)[];
@@ -20,6 +20,7 @@ export class CartComponent  {
   
   }
   ngOnInit(){
+    console.log(this.carritoService.getPedido());
     this.juegos = this.carritoService.getPedido();
     for(var juego of this.juegos){
       var precioJuego = parseFloat((juego.cantidad*juego.precio).toFixed(2));
