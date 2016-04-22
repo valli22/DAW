@@ -1,34 +1,43 @@
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 list-group-item">
-    <!-- Foto -->
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <img src="{{oferta.imagen}}" class="img-responsive">
-    </div>
-    <!-- parte derecha de la oferta -->
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-        <div class="row">
-            <!-- Titulo-->
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                <h4><a href="esquemaJuego.html">{{oferta.nombre}}</a></h4>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="panel">
+        <div class="panel-heading">
+            <h2><a href="esquemaJuego.html">{{oferta.nombre}}</a></h2>
+        </div>
+        <div class="panel-body">
+        <!-- parte derecha de la oferta -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel">
+                <div class="panel-header text-center">
+                    <img src="{{oferta.imagen}}" class="img-responsive">
+                </div>
+                <div class="panel-body panel-precio">
+                    <div class="row">   
+                        <!-- porcentaje-->
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="text-left">
+                                <h4>DESCUENTO: {{oferta.descuento}}%</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Precio inicial -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h4>Precio inicial:</h4>
+                            <h4>{{oferta.precioInicial}}$</h4>
+                        </div>
+                        <!-- Preoio oferta -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h4>Precio oferta:</h4>
+                            <h4>{{oferta.precio}}$</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- porcentaje-->
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <p>{{oferta.descuento}}%</p>
+            <!-- Descripcion -->
+            <p>{{oferta.descripcion}}</p>
+            <button type="button" class="btn btn-info" (click)="comprarOferta()"><a href="cart.html">Comprar</a></button>
             </div>
         </div>
-        <div class="row">
-            <!-- Precio inicial -->
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <p>Precio inicial:</p>
-                <p>{{oferta.precioInicial}}$</p>
-            </div>
-            <!-- Preoio oferta -->
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <p>Precio oferta:</p>
-                <p>{{oferta.precio}}$</p>
-            </div>
-        </div>
-        <!-- Descripcion -->
-        <p>{{oferta.descripcion}}</p>
-        <button type="button" class="btn btn-info" (click)="comprarOferta()"><a href="cart.html">Comprar</a></button>
     </div>
 </div>
+

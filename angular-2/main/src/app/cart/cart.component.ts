@@ -1,8 +1,9 @@
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {Juego} from '../classes/juego.model.ts';
 import {Oferta} from '../classes/oferta.model.ts';
 import {CarritoService} from '../service/carrito.service.ts';
+import {Juego} from '../classes/juego.model.ts';
+
 
 @Component({
        selector: 'cartComponent',

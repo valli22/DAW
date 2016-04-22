@@ -3,9 +3,7 @@ import {user} from '../classes/user.model.ts';
 
 @Injectable()
 export class UsersService{
-
-  getUsers(){
-    return [
+  private usuarios = [
       // fotoPerfil - nombre- correo-pass-fechaNacimiento -steam-bnet-descripcion-descripcionMentor--
       new user('../../img/perfil.png','miguel','miguel@gmail.com','1234','1995-22-06','miguelr95','roldan','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
       new user('../../img/perfil.png','valli','valli@gmail.com','1234','1995-18-02','valli22','valli22','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
@@ -21,7 +19,12 @@ export class UsersService{
       new user('../../img/perfil.png','chiky','chiky@gmail.com','1234','1996-22-06','chikybob','chiky','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
       new user('../../img/perfil.png','micael','micael@gmail.com','1234','1985-22-06','micadaw','micadawc','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
 
-    ]
+    ];
+  getUsers(){
+    return this.usuarios;
+  }
+  addUser(user:user){
+    this.usuarios.push(user);
   }
 
 }

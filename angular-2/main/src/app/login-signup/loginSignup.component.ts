@@ -1,13 +1,16 @@
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {user} from '../classes/user.model.ts';
+import {CurrentUserService} from '../service/currentUser.service.ts';
+import {UsersService} from '../service/users.service.ts';
 @Component({
        selector: 'headerComponent',
        templateUrl: 'app/login-signup/loginSignup.component.html',
-       directives:[ROUTER_DIRECTIVES]
+       directives:[ROUTER_DIRECTIVES],
+       providers:[CurrentUserService,UsersService]
 })
 export class LoginSignupComponent  {
-  usuarios=[new user('../../img/logo.png','dropelega','prueba@gmail.com','1234','19-05-1995','dropelega','dropelega','Descripcion prueba','Developer and gamer'),new user('../../img/logo.png','excen','prueba@gmail.com','1111 ','19-05-1995','dropelega','dropelega','Descripcion prueba','Developer and gamer')];
+  usuarios: user[];
   usuario='';
   pass1='';
   pass2='';
@@ -15,7 +18,12 @@ export class LoginSignupComponent  {
   fecha='';
   desc='';
   descMentor='';
-
+  constructor(private currentUserService:CurrentUserService, private usersService:UsersService){
+  }
+  ngOnInit(){
+    this.usuarios = this.usersService.getUsers();
+    console.log(this.usuarios);
+  }
   noCogido(){
     var cogido= true;
     for(var user of this.usuarios){
@@ -52,7 +60,7 @@ export class LoginSignupComponent  {
   }
 
   registrar(){
-    this.usuarios.push(new user('../../img/logo.png',this.usuario,this.email,this.pass1,this.fecha,'sin definir','sin definir',this.desc,this.descMentor));
+    this.usersService.addUser(new user('../../img/logo.png',this.usuario,this.email,this.pass1,this.fecha,'sin definir','sin definir',this.desc,this.descMentor));
     console.log(this.usuarios);
   }
 }
