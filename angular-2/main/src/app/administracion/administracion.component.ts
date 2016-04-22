@@ -10,8 +10,7 @@ import {OfertasService} from '../service/ofertas.service.ts'
 @Component({
   selector: 'administracion',
   templateUrl:'app/administracion/administracion.component.html',
-  directives:[OfertaAdminComponent,JuegoAdminComponent,ROUTER_DIRECTIVES],
-  providers : [JuegosService,OfertasService]
+  directives:[OfertaAdminComponent,JuegoAdminComponent,ROUTER_DIRECTIVES]
 })
 
 export class AdministracionComponent{

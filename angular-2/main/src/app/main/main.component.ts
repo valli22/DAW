@@ -17,8 +17,7 @@ import {OfertasService} from '../service/ofertas.service.ts';
 @Component({
   selector:'main',
   templateUrl: 'app/main/main.component.html',
-  directives:[Juego4mainComponent,Juego1mainComponent,Juego2mainComponent,Juego3mainComponent,Oferta1mainComponent,Oferta2mainComponent,Oferta3mainComponent,Oferta4mainComponent,ROUTER_DIRECTIVES],
-  providers : [JuegosService,OfertasService]
+  directives:[Juego4mainComponent,Juego1mainComponent,Juego2mainComponent,Juego3mainComponent,Oferta1mainComponent,Oferta2mainComponent,Oferta3mainComponent,Oferta4mainComponent,ROUTER_DIRECTIVES]
 })
 export class MainComponent{
 

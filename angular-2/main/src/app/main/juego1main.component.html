@@ -15,7 +15,7 @@
                     <h4>PRECIO: {{juego.precio}}$</h4>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <button type="button" class="btn btn-info" (click)="comprarJuego()">Comprar</button>
+                    <a [routerLink]="['Cart']"><button type="button" class="btn btn-info" (click)="comprarJuego()">Comprar</button></a>
                 </div>
             </div>
         </div>

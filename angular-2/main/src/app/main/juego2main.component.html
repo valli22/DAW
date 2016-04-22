@@ -22,7 +22,7 @@
                         <button type="button" class="btn btn-info pull-right" (click)="comprarJuego()">Comprar</button>
                     </div>
                     <div class="hidden-lg hidden-xs hidden-md">
-                        <button type="button" class="btn btn-info pull-right btn-sm" (click)="comprarJuego()">Comprar</button>
+                        <a [routerLink]="['Cart']"><button type="button" class="btn btn-info pull-right btn-sm" (click)="comprarJuego()">Comprar</button></a>
                     </div>
                 </div>
             </div>

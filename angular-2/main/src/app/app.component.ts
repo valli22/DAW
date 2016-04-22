@@ -15,13 +15,17 @@ import {MentoresComponent} from './mentores/mentores.component.ts';
 import {CarritoService} from './service/carrito.service.ts';
 import {CurrentUserService} from './service/currentUser.service.ts';
 import {UsersService} from './service/users.service.ts';
+import {JuegoNuevoComponent} from './administracion/juegoNuevo.component.ts';
+import {OfertaNuevaComponent} from './administracion/ofertaNueva.component.ts';
+import {JuegosService} from './service/juegos.service.ts';
+import {OfertasService} from './service/ofertas.service.ts';
 
 
 @Component({
        selector: 'app',
        templateUrl: 'app/app.component.html',
 			 directives: [MentoresComponent,ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES],
-       providers:[CarritoService,CurrentUserService,UsersService]
+       providers:[CarritoService,CurrentUserService,UsersService,JuegosService,OfertasService]
 })
 @RouteConfig([
     {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
@@ -32,7 +36,9 @@ import {UsersService} from './service/users.service.ts';
     {path: '/catalogo', name: 'Catalogo', component:CatalogoComponent},
     {path: '/admin', name: 'Admin', component:AdministracionComponent},
     {path:'/perfil', name:'Perfil', component:ProfileComponent},
-    {path:'/mentores', name:'Mentores', component:MentoresComponent}
+    {path:'/mentores', name:'Mentores', component:MentoresComponent},
+    {path:'/admin/juegoNuevo', name: 'JuegoNuevo', component:JuegoNuevoComponent},
+    {path:'/admin/ofertaNueva', name: 'OfertaNueva', component:OfertaNuevaComponent}
 ])
 
 export class AppComponent {

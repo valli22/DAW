@@ -17,7 +17,7 @@
                   <h4 class="pull-right">PRECIO: {{oferta.precio}}$</h4>
               </div>
               <div class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
-                  <button type="button" (click)="comprarOferta()" class="btn btn-info pull-right"><a href="cart.html">Comprar</a></button>
+                  <a [routerLink]="['Cart']"><button type="button" (click)="comprarOferta()" class="btn btn-info pull-right">Comprar</button></a>
               </div>
           </div>
     </div>
