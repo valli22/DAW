@@ -12,6 +12,8 @@ import {CatalogoComponent} from './catalogo/catalogo.component.ts';
 import {AdministracionComponent} from './administracion/administracion.component.ts';
 import {ProfileComponent} from './profile/profile.component.ts';
 import {MentoresComponent} from './mentores/mentores.component.ts';
+import {JuegoNuevoComponent} from './administracion/juegoNuevo.component.ts';
+import {OfertaNuevaComponent} from './administracion/ofertaNueva.component.ts';
 
 
 @Component({
@@ -28,7 +30,9 @@ import {MentoresComponent} from './mentores/mentores.component.ts';
     {path: '/catalogo', name: 'Catalogo', component:CatalogoComponent},
     {path: '/admin', name: 'Admin', component:AdministracionComponent},
     {path:'/perfil', name:'Perfil', component:ProfileComponent},
-    {path:'/mentores', name:'Mentores', component:MentoresComponent}
+    {path:'/mentores', name:'Mentores', component:MentoresComponent},
+    {path:'/admin/juegoNuevo', name: 'JuegoNuevo', component:JuegoNuevoComponent},
+    {path:'/admin/ofertaNueva', name: 'OfertaNueva', component:OfertaNuevaComponent}
 ])
 
 export class AppComponent {

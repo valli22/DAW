@@ -6,8 +6,7 @@ import {JuegosService} from '../service/juegos.service.ts';
 @Component ({
   selector: 'juegoNuevo',
   templateUrl: 'app/administracion/juegoNuevo.component.html',
-  directives: [ROUTER_DIRECTIVES],
-  providers : [JuegosService]
+  directives: [ROUTER_DIRECTIVES]
 })
 
 export class JuegoNuevoComponent {

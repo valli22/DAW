@@ -7,8 +7,7 @@ import {OfertasService} from '../service/ofertas.service.ts'
 @Component ({
   selector: 'ofertaNueva',
   templateUrl: 'app/administracion/ofertaNueva.component.html',
-  directives: [ROUTER_DIRECTIVES],
-  providers : [OfertasService]
+  directives: [ROUTER_DIRECTIVES]
 })
 
 export class OfertaNuevaComponent {
