@@ -7,9 +7,11 @@ export class CurrentUserService{
   private usuario:user;
 
   setUser(cUser:user){
+
     this.usuario=cUser;
   }
   getCurrentUser(){
     return this.usuario;
+
   }
 }

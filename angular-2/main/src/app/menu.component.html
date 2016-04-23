@@ -50,6 +50,6 @@
    
 </div>
 <div class="row">
-    <alert *ngIf="mostrarAcierto" (close)="noMostrarAlert()" dismissible="true" type="success" dismissOnTimeout="3000">Bienvenido {{currentUser.nombre}}! Esperamos que disfrutes de tu navegación!</alert>
-    <alert *ngIf="mostrarFallo" type="danger" (close)="noMostrarAlert()" dismissible="true" dismissOnTimeout="3000">El usuario y/o la contraseña introducidos son incorrectos </alert>
+    <alert *ngIf="mostrarAcierto||currentActive()" (close)="noMostrarAlert()" dismissible="true" type="success" dismissOnTimeout="5000">Bienvenido {{currentUser.nombre}}! Esperamos que disfrutes de tu navegación!</alert>
+    <alert *ngIf="mostrarFallo" type="danger" (close)="noMostrarAlert()" dismissible="true" dismissOnTimeout="5000">El usuario y/o la contraseña introducidos son incorrectos </alert>
 </div>

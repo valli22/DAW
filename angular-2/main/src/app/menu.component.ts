@@ -15,8 +15,8 @@ export class MenuComponent {
     usuario = "";
     pass = "";
     currentUser:user;
-    mostrarFallo:boolean = false;
-    mostrarAcierto:boolean = false;
+    mostrarFallo = false;
+    mostrarAcierto = false;
     status:{isopen:boolean} = {isopen: false};
     disabled:boolean =false;
 
@@ -26,6 +26,7 @@ export class MenuComponent {
         this.currentUser = this.currentUserService.getCurrentUser();
     }
     login(){
+      
         for(var usuario of this.usersService.getUsers()){
             if (usuario.nombre==this.usuario && usuario.pass == this.pass){
                 this.currentUserService.setUser(usuario);
@@ -34,6 +35,9 @@ export class MenuComponent {
             }
         }
         this.mostrarAlert(this.currentUser != undefined);
+        if(this.currentUser!=undefined){
+            this._router.navigate(['Main']);
+        }    
 
     }
     noMostrarAlert(){
@@ -48,6 +52,7 @@ export class MenuComponent {
         }
     }
     currentActive(){
-        return this.currentUser!=undefined;
+        this.currentUser = this.currentUserService.getCurrentUser();
+        return this.currentUserService.getCurrentUser()!=undefined;
     }
 }
