@@ -33,7 +33,7 @@
                 <li><a [routerLink]="['Ofertas']">OFERTAS</a></li>
                 <li *ngIf="currentActive()"><a>PERFIL</a></li>
               </ul>
-              <form *ngIf="!currentActive()" class="navbar-form navbar-left" role="search">
+              <form *ngIf="!currentActive()"  class="navbar-form navbar-left" role="search">
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="usuario">
                     <input type="password" class="form-control" placeholder="Constraseña" [(ngModel)]="pass">
@@ -42,8 +42,14 @@
                       <a [routerLink]="['LoginSignup']">¿Has olvidado tu contraseña?</a>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="login()">Log In</button>
+                <button type="button" class="btn btn-primary" (click)="login()">Log In</button>
             </form>
         </div>
+       
     </nav>
+   
+</div>
+<div class="row">
+    <alert *ngIf="mostrarAcierto||currentActive()" (close)="noMostrarAlert()" dismissible="true" type="success" dismissOnTimeout="5000">Bienvenido {{currentUser.nombre}}! Esperamos que disfrutes de tu navegación!</alert>
+    <alert *ngIf="mostrarFallo" type="danger" (close)="noMostrarAlert()" dismissible="true" dismissOnTimeout="5000">El usuario y/o la contraseña introducidos son incorrectos </alert>
 </div>

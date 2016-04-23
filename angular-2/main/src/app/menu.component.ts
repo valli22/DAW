@@ -4,19 +4,19 @@ import {CurrentUserService} from './service/currentUser.service.ts';
 import {UsersService} from './service/users.service.ts';
 import {user} from './classes/user.model.ts';
 import {DROPDOWN_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
 @Component({
     selector: 'menuComponent',
     templateUrl: 'app/menu.component.html',
-    directives:[ROUTER_DIRECTIVES,DROPDOWN_DIRECTIVES]
+    directives:[ROUTER_DIRECTIVES,DROPDOWN_DIRECTIVES,Alert]
 })
 export class MenuComponent {
-    @Input()
-    private isActive = false;
+
     usuario = "";
     pass = "";
     currentUser:user;
-    @Output()
-    myuser = new EventEmitter<user>();
+    mostrarFallo = false;
+    mostrarAcierto = false;
     status:{isopen:boolean} = {isopen: false};
     disabled:boolean =false;
 
@@ -24,23 +24,35 @@ export class MenuComponent {
 
     ngOnInit(){
         this.currentUser = this.currentUserService.getCurrentUser();
-        console.log(this.currentUser);
     }
     login(){
-        console.log(this.currentUser);
+      
         for(var usuario of this.usersService.getUsers()){
             if (usuario.nombre==this.usuario && usuario.pass == this.pass){
                 this.currentUserService.setUser(usuario);
                 this.currentUser=usuario;
-                this._router.navigate(['Main']);
+                break;
             }
         }
+        this.mostrarAlert(this.currentUser != undefined);
+        if(this.currentUser!=undefined){
+            this._router.navigate(['Main']);
+        }    
+
     }
-    fireUser (user:user){
-      this.myuser.next(user);
+    noMostrarAlert(){
+        this.mostrarFallo=false;
+        this.mostrarAcierto=false;
+    }
+    mostrarAlert(mostrar:boolean){
+        if(mostrar){
+            this.mostrarAcierto=true;
+        }else{
+            this.mostrarFallo=true;
+        }
     }
     currentActive(){
-        console.log(this.currentUserService.getCurrentUser());
-        return this.currentUser!=undefined;
+        this.currentUser = this.currentUserService.getCurrentUser();
+        return this.currentUserService.getCurrentUser()!=undefined;
     }
 }
