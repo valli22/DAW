@@ -3,7 +3,7 @@
     <div class="row">
         <!-- titulo -->
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <h4><a href="esquemaJuego.html">{{posicion}}: {{juego.nombre}}</a></h4>
+            <h4><a [routerLink]="['EsquemaJuego', { nombre: juego.nombre }]">{{posicion}}: {{juego.nombre}}</a></h4>
         </div>
         <!-- precio -->
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">

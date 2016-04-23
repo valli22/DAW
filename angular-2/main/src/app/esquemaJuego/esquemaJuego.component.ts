@@ -1,7 +1,10 @@
 import {Component, Input} from 'angular2/core';
+import {RouteParams, Router} from 'angular2/router';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Juego} from '../classes/juego.model.ts';
 import {Recomendacion} from '../classes/recomendacion.model.ts';
+import {JuegosService} from '../service/juegos.service.ts';
+import {CarritoService} from '../service/carrito.service.ts';
 
 @Component({
   selector:  'esquemaJuego',
@@ -11,11 +14,15 @@ import {Recomendacion} from '../classes/recomendacion.model.ts';
 
 export class EsquemaJuegoComponent {
 
-  @Input()
   private juego : Juego;
 
-  comprarJuego(){
+  constructor(private _router:Router, routeParams:RouteParams, service: JuegosService, private carritoService : CarritoService){
+      let nombre = routeParams.get('nombre');
+      this.juego = service.getJuego(nombre);
+  }
 
+  comprarJuego(){
+      this.carritoService.addJuegoPedido(this.juego);
   }
 
   recomendacionesVacia(){

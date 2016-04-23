@@ -8,7 +8,7 @@
             <div class="row ">
                 <!-- titulo -->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h4><a href="esquemaJuego.html">{{posicion}}: {{juego.nombre}}</a></h4>
+                    <h4><a [routerLink]="['EsquemaJuego', { nombre: juego.nombre }]">{{posicion}}: {{juego.nombre}}</a></h4>
                 </div>
             </div>
             <div class="row text-right">

@@ -5,7 +5,7 @@
     </div>
     <!-- parte derecha de la zona del juego -->
     <div class="container-fluid">
-        <h2><a href="esquemaJuego.html">{{posicion}}: {{juego.nombre}}</a></h2>
+        <h2><a [routerLink]="['EsquemaJuego', { nombre: juego.nombre }]">{{posicion}}: {{juego.nombre}}</a></h2>
         <div class="row">
             <p>{{juego.descripcion}}</p>
         </div>

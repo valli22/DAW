@@ -33,7 +33,7 @@ import {OfertaEditComponent} from './administracion/ofertaEdit.component.ts';
     {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
     {path:'/cart',name:'Cart', component:CartComponent},
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
-    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent},
+    {path:'/juego/:nombre', name:'EsquemaJuego', component:EsquemaJuegoComponent},
     {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},
     {path: '/catalogo', name: 'Catalogo', component:CatalogoComponent},
     {path: '/admin', name: 'Admin', component:AdministracionComponent},

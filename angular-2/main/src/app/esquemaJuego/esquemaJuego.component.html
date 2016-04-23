@@ -26,7 +26,7 @@
                 <p>{{juego.precio}}$</p>
             </div>
         </div>
-        <button type="button" class="btn btn-info" (click)="comprarJuego()"><a href="cart.html">Comprar</a></button>
+        <a [routerLink]="['Cart']"><button type="button" class="btn btn-info" (click)="comprarJuego()">Comprar</button></a>
     </div>
 </div>
 <h4>Comentarios de mentores</h4>
