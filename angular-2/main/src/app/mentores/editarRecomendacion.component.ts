@@ -16,8 +16,12 @@ export class EditarRecomendacion{
 
   descripcion: string;
 
-  editarRecomendacion(recom: string){
-    this.recomendacion.descripcion = recom;
+  ngOnInit(){
+    this.descripcion = this.recomendacion.descripcion
+  }
+
+  editarRecomendacion(){
+    this.recomendacion.descripcion = this.descripcion;
     this.pestanaOut.next("recomendaciones");
   }
 
