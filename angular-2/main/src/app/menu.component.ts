@@ -3,10 +3,11 @@ import {ROUTER_DIRECTIVES,Router} from 'angular2/router';
 import {CurrentUserService} from './service/currentUser.service.ts';
 import {UsersService} from './service/users.service.ts';
 import {user} from './classes/user.model.ts';
+import {DROPDOWN_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 @Component({
     selector: 'menuComponent',
     templateUrl: 'app/menu.component.html',
-    directives:[ROUTER_DIRECTIVES],
+    directives:[ROUTER_DIRECTIVES,DROPDOWN_DIRECTIVES]
 })
 export class MenuComponent {
     @Input()
@@ -16,6 +17,8 @@ export class MenuComponent {
     currentUser:user;
     @Output()
     myuser = new EventEmitter<user>();
+    status:{isopen:boolean} = {isopen: false};
+    disabled:boolean =false;
 
     constructor(private _router:Router, private currentUserService:CurrentUserService, private usersService:UsersService){}
 
