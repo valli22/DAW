@@ -43,4 +43,9 @@ export class user{
       this.mentoresSiguiendo.push(u);
     }
 
+    delMentor(u: user){
+      let aux = this.mentoresSiguiendo.indexOf(u);
+      this.mentoresSiguiendo.splice(aux);
+    }
+
   }

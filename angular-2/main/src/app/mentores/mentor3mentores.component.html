@@ -2,17 +2,18 @@
   <div class="container-fluid">
     <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 text-center">
       <div class="row ">
-        <h3><a href="usuario.html">{{recomendacion.mentor.nombre}}</a></h3>
+        <h3><a href="/perfil">{{recomendacion.mentor.nombre}}</a></h3>
       </div>
       <div class="row">
         <img src="{{recomendacion.mentor.imagen}}" alt="imagenMentor" class="img-responsive" />
       </div>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <h3><a href="esquemaJuego.html">{{recomendacion.titulo}}: {{recomendacion.nombreJuego}}</a></h3>
+      <h3><a href="/juego:{{recomendacion.nombreJuego}}">{{recomendacion.titulo}}: {{recomendacion.nombreJuego}}</a></h3>
       <p>{{recomendacion.descripcion}}</p>
       <div class="pull-right likes">
-        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</button>
+        <button type="button" class="btn btn-primary" *ngIf = "!disabled" (click) = "meGusta();"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</button>
+        <button type="button" class="btn btn-primary" *ngIf = "disabled" (click) = "noMeGusta();"><span class="glyphicon glyphicon-thumbs-up"></span>No me gusta</button>
         <mark>{{recomendacion.meGusta}}</mark>
         <button type = "button" class = "btn btn-primary" (click) = "dejarSeguir();">Dejar de seguir</button>
       </div>

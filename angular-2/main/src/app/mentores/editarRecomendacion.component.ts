@@ -11,4 +11,8 @@ export class EditarRecomendacion{
   @Input()
   recomendacion: Recomendacion;
 
+  editarRecomendacion(recom: string){
+    this.recomendacion.descripcion = recom;
+  }
+
 }

@@ -11,7 +11,11 @@ export class Mentor1{
   private mentor: user;
 
   seguirMentor(){
+    //this.CurrentUser.addMentor(mentor);
+  }
 
+  siguiendo(){
+    
   }
 
 }
