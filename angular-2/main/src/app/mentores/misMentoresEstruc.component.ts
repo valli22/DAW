@@ -8,12 +8,11 @@ import {Mentor3} from './mentor3mentores.component';
   selector:'misMentores',
   templateUrl: 'app/mentores/misMentoresEstruc.component.html',
   directives:[Mentor3],
-  providers:[CurrentUserService]
 })
 export class MisMentores{
 
   private mentores: user[];
-  private recomendaciones: Recomendacion[];
+  private recomendaciones: Recomendacion[] = [];
   private curUs: user;
 
   constructor(private userService: CurrentUserService){}
@@ -22,7 +21,11 @@ export class MisMentores{
     this.curUs = this.userService.getCurrentUser();
     this.mentores = this.curUs.mentoresSiguiendo;
     for(var i = 0; i < this.mentores.length; i++){
-      this.recomendaciones.concat(this.mentores[i].recomendaciones);
+      if (this.mentores[i].recomendaciones != undefined){
+        for (var j = 0; j < this.mentores[i].recomendaciones.length; j++){
+          this.recomendaciones.push(this.mentores[i].recomendaciones[j]);
+        }
+      }
     }
   }
 

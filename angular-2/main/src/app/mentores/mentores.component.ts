@@ -9,8 +9,7 @@ import {MentoresService} from '../service/mentores.service';
 @Component({
   selector:'mentores',
   templateUrl: 'app/mentores/mentores.component.html',
-  directives:[MentoresAjaxComponent,MentoresSiguiendoEstruc,ROUTER_DIRECTIVES],
-  providers:[MentoresService]
+  directives:[MentoresAjaxComponent,MentoresSiguiendoEstruc,ROUTER_DIRECTIVES]
 })
 
 export class MentoresComponent{

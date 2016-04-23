@@ -7,7 +7,6 @@ import {Mentor1} from './mentor1mentores.component';
   selector:'todosMentores',
   templateUrl: 'app/mentores/todosMentoresEstruc.component.html',
   directives:[Mentor1],
-  providers:[UsersService]
 })
 export class TodosMentores{
 

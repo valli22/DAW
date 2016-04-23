@@ -2,12 +2,10 @@ import {user} from "../classes/user.model";
 import {CurrentUserService} from "../service/currentUser.service";
 import {Component, Input} from 'angular2/core';
 import {Recomendacion} from '../classes/recomendacion.model';
-import {RecomendacionesService} from '../service/recomendaciones.service';
 
 @Component({
   selector:'mentor3mentores',
-  templateUrl: 'app/mentores/mentor3mentores.component.html',
-  providers: [RecomendacionesService]
+  templateUrl: 'app/mentores/mentor3mentores.component.html'
 })
 export class Mentor3{
 
@@ -17,7 +15,7 @@ export class Mentor3{
   disabled: boolean = false;
   private curUs: user;
 
-  constructor(private recomService: RecomendacionesService, private curUsService: CurrentUserService){}
+  constructor(private curUsService: CurrentUserService){}
 
   ngOnInit(){
     this.curUs = this.curUsService.getCurrentUser();

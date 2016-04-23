@@ -31,8 +31,8 @@ export class user{
       this.seguidores = 0;
     }
 
-    setSeguidores(s: number){
-      this.seguidores = s;
+    addSeguidor(){
+      this.seguidores++;
     }
 
     addRecomendacion(r: Recomendacion){
@@ -44,8 +44,10 @@ export class user{
     }
 
     delMentor(u: user){
-      let aux = this.mentoresSiguiendo.indexOf(u);
-      this.mentoresSiguiendo.splice(aux);
+      var aux = this.mentoresSiguiendo.indexOf(u);
+      if (aux != -1){
+        this.mentoresSiguiendo.splice(aux,1);
+      }
     }
 
   }

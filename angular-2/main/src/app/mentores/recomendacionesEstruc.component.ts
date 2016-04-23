@@ -10,13 +10,16 @@ import {Juego} from '../classes/juego.model';
   selector:'recomendaciones',
   templateUrl: 'app/mentores/recomendacionesEstruc.component.html',
   directives:[Mentor2],
-  providers:[JuegosService,CurrentUserService]
 })
 export class Recomendaciones{
 
   private recomendaciones: Recomendacion[];
   private juegos : Juego[];
   private curUs: user;
+  titulo = '';
+  descripcion = '';
+  tituloJuego: string;
+
 
   @Output()
   editRec = new EventEmitter<Recomendacion>();
@@ -33,12 +36,13 @@ export class Recomendaciones{
     this.editRec.next(recomend);
   }
 
-  addRecomendacion(juego: string, recomendacion: string, titulo: string){
-    var ju = this.findJuego(juego);
-    var recom = new Recomendacion(this.curUs,titulo,0,"recomendacion",juego)
+  addRecomendacion(){
+    var ju = this.findJuego(this.tituloJuego);
+    var recom = new Recomendacion(this.curUs,this.titulo,0,this.descripcion,this.tituloJuego);
+    this.titulo = '';
+    this.descripcion = '';
     ju.addRecomendacion(recom);
     this.curUs.addRecomendacion(recom);
-    this.recomendaciones.push(recom);
   };
 
   findJuego(jueg: string){

@@ -5,7 +5,7 @@
         <h4><a href="usuario.html">{{mentor.nombre}}</a></h4>
       </div>
       <div class="row">
-        <img src="{{mentor.imagen}}" alt="imagenMentor" class="img-responsive" />
+        <img src="{{mentor.fotoPerfil}}" alt="imagenMentor" class="img-responsive" />
       </div>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -16,7 +16,8 @@
         <p>Seguidores: {{mentor.seguidores}}</p>
       </div>
       <div class="row">
-        <button type="button" class="btn btn-default" [disabled] = "siguiendo()" (click) = "seguirMentor();">Seguir</button>
+        <button type="button" class="btn btn-default" *ngIf = "!siguiendo()" (click) = "seguirMentor();">Seguir</button>
+        <button type="button" class="btn btn-default" *ngIf = "siguiendo()" (click) = "dejarSeguirMentor();">No seguir</button>
       </div>
     </div>
   </div>
