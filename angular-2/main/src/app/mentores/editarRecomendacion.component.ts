@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input,Output,EventEmitter} from 'angular2/core';
 import {Recomendacion} from '../classes/recomendacion.model';
 
 @Component({
@@ -11,8 +11,14 @@ export class EditarRecomendacion{
   @Input()
   recomendacion: Recomendacion;
 
+  @Output()
+  pestanaOut = new EventEmitter<string>();
+
+  descripcion: string;
+
   editarRecomendacion(recom: string){
     this.recomendacion.descripcion = recom;
+    this.pestanaOut.next("recomendaciones");
   }
 
 }
