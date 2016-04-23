@@ -46,11 +46,5 @@ import {OfertaEditComponent} from './administracion/ofertaEdit.component.ts';
 ])
 
 export class AppComponent {
-	private usuario = "";
-  private esUsuario = false;
-
-	usuarioActivo(myuser:string){
-		this.usuario = myuser;
-    this.esUsuario = !this.esUsuario;
-	}
+	
 }
