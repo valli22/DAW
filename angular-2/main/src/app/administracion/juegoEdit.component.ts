@@ -1,6 +1,8 @@
 import {Component, Input} from 'angular2/core';
+import {RouteParams, Router} from 'angular2/router';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Juego} from '../classes/juego.model.ts';
+import {JuegosService} from '../service/juegos.service.ts';
 
 @Component ({
   selector: 'juegoEdit',
@@ -10,11 +12,15 @@ import {Juego} from '../classes/juego.model.ts';
 
 export class JuegoEditComponent{
 
-  @Input()
   private juego : Juego;
-
-  private juegoCopia = this.juego;
+  private juegoCopia : Juego;
   private anadir = false;
+
+  constructor(private _router:Router, routeParams:RouteParams, service: JuegosService){
+      let nombre = routeParams.get('nombre');
+      this.juego = service.getJuego(nombre);
+      this.juegoCopia = this.juego;
+  }
 
   cambiarFoto(){
 
@@ -31,5 +37,6 @@ export class JuegoEditComponent{
 
   guardar(){
     this.juego=this.juegoCopia;
+    this._router.navigate(['Admin']);
   }
 }

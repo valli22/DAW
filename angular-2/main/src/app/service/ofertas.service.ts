@@ -25,4 +25,11 @@ export class OfertasService{
   addOferta(oferta : Oferta){
     this.ofertas.push(oferta);
     }
+
+    getOferta(nombre : string){
+      for (let i = 0; i < this.ofertas.length; i++) {
+          if(this.ofertas[i].nombre==nombre){return this.ofertas[i]};
+      }
+    }
+
 }
