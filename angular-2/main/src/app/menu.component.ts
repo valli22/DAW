@@ -26,7 +26,7 @@ export class MenuComponent {
         this.currentUser = this.currentUserService.getCurrentUser();
     }
     login(){
-      
+
         for(var usuario of this.usersService.getUsers()){
             if (usuario.nombre==this.usuario && usuario.pass == this.pass){
                 this.currentUserService.setUser(usuario);
@@ -37,7 +37,7 @@ export class MenuComponent {
         this.mostrarAlert(this.currentUser != undefined);
         if(this.currentUser!=undefined){
             this._router.navigate(['Main']);
-        }    
+        }
 
     }
     noMostrarAlert(){

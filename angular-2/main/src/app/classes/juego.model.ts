@@ -23,11 +23,7 @@ export class Juego{
     this.cantidad = 1;
   }
 
-  addRecomendacion(mentor : user,titulo:string, meGusta : number, descripcion : string){
-
-
-    var recomendacionc = new Recomendacion(mentor,titulo,meGusta,descripcion,this.nombre);
-    this.recomendacion.push(recomendacionc);
-
+  addRecomendacion(recom: Recomendacion){
+    this.recomendacion.push(recom);
   }
 }

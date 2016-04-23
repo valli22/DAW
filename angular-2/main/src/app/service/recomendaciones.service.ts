@@ -30,11 +30,4 @@ export class RecomendacionesService{
     this.recomendaciones.push(recom);
   }
 
-  cambiarMeGusta(recom: Recomendacion, num: number){
-    var i = this.recomendaciones.indexOf(recom);
-    if (i !== -1){
-      this.recomendaciones[i].meGusta += num;
-    }
-  }
-
 }

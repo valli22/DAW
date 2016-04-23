@@ -10,8 +10,8 @@ export class user{
   descripcion:string;
   descripcionMentor:string;
   seguidores: number;
-  recomendaciones: Recomendacion[];
-  mentoresSiguiendo: user[];
+  recomendaciones: Recomendacion[] = [];
+  mentoresSiguiendo: user[] = [];
 
 
   constructor(fotoPrefilc:string, nombrec: string, correoc:string, passc:string, fechaNacimientoc:string,

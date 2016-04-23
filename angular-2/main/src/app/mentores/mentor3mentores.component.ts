@@ -1,3 +1,5 @@
+import {user} from "../classes/user.model";
+import {CurrentUserService} from "../service/currentUser.service";
 import {Component, Input} from 'angular2/core';
 import {Recomendacion} from '../classes/recomendacion.model';
 import {RecomendacionesService} from '../service/recomendaciones.service';
@@ -13,22 +15,25 @@ export class Mentor3{
   private recomendacion: Recomendacion;
 
   disabled: boolean = false;
+  private curUs: user;
 
-  constructor(private recomService: RecomendacionesService){}
+  constructor(private recomService: RecomendacionesService, private curUsService: CurrentUserService){}
+
+  ngOnInit(){
+    this.curUs = this.curUsService.getCurrentUser();
+  }
 
   dejarSeguir(){
-    //Currentuser.delMentor(recomendacion.mentor);
+    this.curUs.delMentor(this.recomendacion.mentor);
   }
 
   meGusta(){
     this.recomendacion.meGusta += 1;
-    this.recomService.cambiarMeGusta(this.recomendacion, +1);
     this.disabled = true;
   }
 
   noMeGusta(){
     this.recomendacion.meGusta -= 1;
-    this.recomService.cambiarMeGusta(this.recomendacion, -1);
     this.disabled = false;
   }
 

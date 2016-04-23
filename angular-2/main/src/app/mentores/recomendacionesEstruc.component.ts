@@ -1,5 +1,5 @@
+import {CurrentUserService} from "../service/currentUser.service";
 import {user} from "../classes/user.model";
-import {RecomendacionesService} from "../service/recomendaciones.service";
 import {JuegosService} from "../service/juegos.service";
 import {Component, Output,EventEmitter} from 'angular2/core';
 import {Recomendacion} from '../classes/recomendacion.model';
@@ -10,32 +10,35 @@ import {Juego} from '../classes/juego.model';
   selector:'recomendaciones',
   templateUrl: 'app/mentores/recomendacionesEstruc.component.html',
   directives:[Mentor2],
-  providers:[JuegosService,RecomendacionesService]
+  providers:[JuegosService,CurrentUserService]
 })
 export class Recomendaciones{
 
   private recomendaciones: Recomendacion[];
   private juegos : Juego[];
+  private curUs: user;
 
   @Output()
   editRec = new EventEmitter<Recomendacion>();
 
-  constructor(private juegosService: JuegosService, private recomService: RecomendacionesService){}
+  constructor(private juegosService: JuegosService, private curUserSer: CurrentUserService){}
 
   ngOnInit(){
     this.juegos = this.juegosService.getJuegos();
-    this.recomendaciones = this.recomService.getRecomendacionesOf();
+    this.curUs = this.curUserSer.getCurrentUser();
+    this.recomendaciones = this.curUs.recomendaciones;
   }
 
   editarRecomendacion(recomend: Recomendacion){
     this.editRec.next(recomend);
   }
 
-  addRecomendacion(juego: string, recomendacion: string){
-    this.recomService.addRecomendacion(new Recomendacion(new user('../../img/perfil.png','Daniel','daniel@gmail.com','1234','1995-9','dani','daniYeah','Gamer con ganas de jugar y aprender', 'Todos los juegos de star wars estan aqui'),"Nueva recomendacion",0,"recomendacion",juego))
-    //var ju = this.findJuego(juego);
-    //ju.addRecomendacion(new Recomendacion(this.CurrentUser,"Nueva recomendacion",0,"recomendacion",juego));
-    //this.CurrentUser.addRecomendacion(new Recomendacion(this.CurrentUser,"Nueva recomendacion",0,"recomendacion",juego))
+  addRecomendacion(juego: string, recomendacion: string, titulo: string){
+    var ju = this.findJuego(juego);
+    var recom = new Recomendacion(this.curUs,titulo,0,"recomendacion",juego)
+    ju.addRecomendacion(recom);
+    this.curUs.addRecomendacion(recom);
+    this.recomendaciones.push(recom);
   };
 
   findJuego(jueg: string){

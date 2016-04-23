@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <select class="form-control" id="juegos">
-        <option *ngFor = "#game of juegos">{{game.nombre}}</option>
+        <option *ngFor = "#game of juegos" value = "{{game.nombre}}">{{game.nombre}}</option>
       </select>
     </div>
     <br>
@@ -17,7 +17,7 @@
     </div>
     <br>
     <div class="row">
-      <button class="btn btn-primary pull-right" id="btn-recomendar" (click) = "addRecomendacion(juegos, arearecomendacion);">Recomendar</button>
+      <button class="btn btn-primary pull-right" id="btn-recomendar" (click) = "addRecomendacion(juegos, arearecomendacion, titulo);">Recomendar</button>
     </div>
 
   </div>

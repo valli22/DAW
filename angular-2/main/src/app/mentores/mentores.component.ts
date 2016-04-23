@@ -1,3 +1,4 @@
+import {CurrentUserService} from "../service/currentUser.service";
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {user} from '../classes/user.model';
@@ -22,11 +23,13 @@ export class MentoresComponent{
   isDisabled3 = false;
 
   private mentoresSig: user[];
+  private curUs: user;
 
-  constructor(private mentoresService: MentoresService){};
+  constructor(private curUsService: CurrentUserService){};
 
   ngOnInit(){
-    this.mentoresSig = this.mentoresService.getMentoresSiguiendo();
+    this.curUs = this.curUsService.getCurrentUser();
+    this.mentoresSig = this.curUs.mentoresSiguiendo;
   }
 
   private aMostrar = "misMentores";

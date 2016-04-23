@@ -1,22 +1,29 @@
+import {CurrentUserService} from "../service/currentUser.service";
+import {user} from "../classes/user.model";
 import {Component} from 'angular2/core';
 import {Recomendacion} from '../classes/recomendacion.model';
 import {Mentor3} from './mentor3mentores.component';
-import {RecomendacionesService} from '../service/recomendaciones.service';
 
 @Component({
   selector:'misMentores',
   templateUrl: 'app/mentores/misMentoresEstruc.component.html',
   directives:[Mentor3],
-  providers:[RecomendacionesService]
+  providers:[CurrentUserService]
 })
 export class MisMentores{
 
+  private mentores: user[];
   private recomendaciones: Recomendacion[];
+  private curUs: user;
 
-  constructor(private recomendacionesService: RecomendacionesService){}
+  constructor(private userService: CurrentUserService){}
 
   ngOnInit(){
-    this.recomendaciones = this.recomendacionesService.getRecomendacionesDeMentores();
+    this.curUs = this.userService.getCurrentUser();
+    this.mentores = this.curUs.mentoresSiguiendo;
+    for(var i = 0; i < this.mentores.length; i++){
+      this.recomendaciones.concat(this.mentores[i].recomendaciones);
+    }
   }
 
 }

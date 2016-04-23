@@ -1,5 +1,6 @@
 import {Injectable} from 'angular2/core';
 import {user} from '../classes/user.model.ts';
+import {Recomendacion} from '../classes/recomendacion.model';
 
 @Injectable()
 export class CurrentUserService{
@@ -9,6 +10,7 @@ export class CurrentUserService{
   setUser(cUser:user){
 
     this.usuario=cUser;
+    
   }
   getCurrentUser(){
     return this.usuario;
