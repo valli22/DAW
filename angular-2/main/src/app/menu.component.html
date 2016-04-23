@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row menu">
       <nav class="navbar navbar-default">
           <!-- Cuando se colapsa -->
             <div class="navbar-header">
@@ -13,14 +13,20 @@
                     <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
             <div class="collapse navbar-collapse" id="menu-colapsado">
             <ul class="nav navbar-nav" id="menucabecera">
-                    <li><a [routerLink]="['Main']">INICIO</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" [routerLink]="['Catalogo']">CATALOGO<span class="caret"></span></a>
-                    <ul class="dropdown-menu" id="menuplataforma">
-                        <!--  de momento linkearan a catalogo pero en cuanto se tenga logica cada una linkeara a una busqueda especifica en el catalogo -->
-                        <li><a href="catalogo.html">PC</a></li>
-                        <li><a href="catalogo.html">XBOX ONE</a></li>
-                        <li><a href="catalogo.html">PLAY STATION 4</a></li>
-                        <li><a href="catalogo.html">TAMAGOCHI EXTREME</a></li>
+                <li><a [routerLink]="['Main']">INICIO</a></li>
+                <li  dropdown>
+                    <a id="split-button" ><a id="catalogo-menu" [routerLink]="['Catalogo']">CATALOGO</a>
+                    <span dropdownToggle>
+                        <span class="caret"></span>
+                        <span class="sr-only">Split button!</span>
+                    </span>
+                    </a>
+                    
+                    <ul class="dropdown-menu" id="menuplataforma" role="menu" aria-labelledby="split-button">
+                      <li role="menuitem"><a class="dropdown-item" href="#">PC</a></li>
+                      <li role="menuitem"><a class="dropdown-item" href="#">XBOX ONE </a></li>
+                      <li role="menuitem"><a class="dropdown-item" href="#">PLAY STATION</a></li>
+                      <li role="menuitem"><a class="dropdown-item" href="#">TAMAGOCHI EXTREME</a></li>               
                     </ul>
                 </li>
                 <li><a [routerLink]="['Mentores']">MENTORES</a></li>

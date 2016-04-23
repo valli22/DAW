@@ -1,6 +1,6 @@
 <div [ngClass]="{'col-lg-5 col-md-5 col-sm-5 col-xs-12':true, 'col-lg-offset-2 col-md-offset-2 col-sm-offset-2':posicion=='3'}">
   <div class="row">
-      <h3><a href="esquemaJuego.html">{{posicion}}: {{juego.nombre}}</a></h3>
+      <h3><a [routerLink]="['EsquemaJuego', { nombre: juego.nombre }]">{{posicion}}: {{juego.nombre}}</a></h3>
   </div>
   <div class="row">
       <!-- foto de la caratula del juego -->

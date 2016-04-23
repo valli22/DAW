@@ -51,7 +51,18 @@
 .dropdown-toogle:active {
     background-color: #4C6A7F;
 }
-
+.dropdown-menu{
+    padding: 0px;
+}
+.dropdown-menu li{
+    background-color: #4C6A7F;
+}
+#split-button:active{
+    background-color: #4C6A7F;
+}
+#menu-colapsado ul li ul li a:hover{
+    color:black;
+}
 .listjuegos .list-group-item {
     background-color: #4C6A7F;
 }
@@ -84,6 +95,13 @@ img {
 }
 
 #menucabecera li a {
+  text-decoration: none;
+}
+
+#menucabecera li span a:hover {
+    background-color: #15222b;
+}
+#menucabecera li span a {
     background-color: #4C6A7F;
 }
 
@@ -136,7 +154,10 @@ img {
     padding-left: 40px;
     padding-right: 40px;
 }
-
+#catalago-menu{
+    color: #15222b;
+    text-decoration: none;
+}
 .links a {
     color: #15222b;
 }
@@ -155,7 +176,9 @@ img {
     border: 0px;
     border-radius: 0px;
 }
-
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+    background-color: #4C6A7F;
+}
 #cuerpo {
     background-color: #E2E4F0;
 }

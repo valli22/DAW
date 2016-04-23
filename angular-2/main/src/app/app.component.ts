@@ -19,26 +19,30 @@ import {JuegoNuevoComponent} from './administracion/juegoNuevo.component.ts';
 import {OfertaNuevaComponent} from './administracion/ofertaNueva.component.ts';
 import {JuegosService} from './service/juegos.service.ts';
 import {OfertasService} from './service/ofertas.service.ts';
+import {JuegoEditComponent} from './administracion/juegoEdit.component.ts';
+import {OfertaEditComponent} from './administracion/ofertaEdit.component.ts';
 
 
 @Component({
        selector: 'app',
        templateUrl: 'app/app.component.html',
 			 directives: [MentoresComponent,ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES],
-       providers:[CarritoService,CurrentUserService,UsersService,JuegosService,OfertasService]
+       providers:[OfertaEditComponent,JuegoNuevoComponent,OfertaNuevaComponent,JuegoEditComponent,CarritoService,CurrentUserService,UsersService,JuegosService,OfertasService]
 })
 @RouteConfig([
     {path:'/home', name:'Main',component:MainComponent,useAsDefault:true},
     {path:'/cart',name:'Cart', component:CartComponent},
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
-    {path:'/juego', name:'EsquemaJuego', component:EsquemaJuegoComponent},
+    {path:'/juego/:nombre', name:'EsquemaJuego', component:EsquemaJuegoComponent},
     {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},
     {path: '/catalogo', name: 'Catalogo', component:CatalogoComponent},
     {path: '/admin', name: 'Admin', component:AdministracionComponent},
     {path:'/perfil', name:'Perfil', component:ProfileComponent},
     {path:'/mentores', name:'Mentores', component:MentoresComponent},
     {path:'/admin/juegoNuevo', name: 'JuegoNuevo', component:JuegoNuevoComponent},
-    {path:'/admin/ofertaNueva', name: 'OfertaNueva', component:OfertaNuevaComponent}
+    {path:'/admin/ofertaNueva', name: 'OfertaNueva', component:OfertaNuevaComponent},
+    {path:'/admin/editarJuego/:nombre', name: 'EditarJuego', component:JuegoEditComponent},
+    {path:'/admin/editarOferta/:nombre', name: 'EditarOferta', component:OfertaEditComponent}
 ])
 
 export class AppComponent {

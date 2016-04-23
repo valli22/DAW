@@ -1,7 +1,10 @@
 import {Component, Input} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteParams, Router} from 'angular2/router';
 import {Oferta} from '../classes/oferta.model.ts';
 import {Juego} from '../classes/juego.model.ts';
+import {JuegosService} from '../service/juegos.service.ts';
+import {OfertasService} from '../service/ofertas.service.ts';
 
 @Component ({
   selector: 'ofertaEdit',
@@ -11,15 +14,23 @@ import {Juego} from '../classes/juego.model.ts';
 
 export class OfertaEditComponent{
 
-  @Input()
   private oferta : Oferta;
 
   //este es el array de todos los juegos disponibles en la tienda
-  @Input()
   private juegos : Juego[];
 
   private ofertaCopia = this.oferta;
   private anadir = false;
+
+  constructor(private _router:Router, routeParams:RouteParams, private serviceJuegos: JuegosService, serviceOfertas : OfertasService){
+      let nombre = routeParams.get('nombre');
+      this.oferta = serviceOfertas.getOferta(nombre);
+      this.ofertaCopia = this.oferta;
+  }
+
+  ngOnInit(){
+    this.juegos = this.serviceJuegos.getJuegos();
+  }
 
   contieneJuego( juego: Juego){
     var ret;
@@ -46,6 +57,7 @@ export class OfertaEditComponent{
 
   guardar(){
     this.oferta = this.ofertaCopia;
+    this._router.navigate(['Admin']);
   }
 
 }

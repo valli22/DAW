@@ -30,4 +30,10 @@ export class JuegosService{
     this.juegos.push(juego);
   }
 
+  getJuego(nombre : string){
+    for (let i = 0; i < this.juegos.length; i++) {
+        if(this.juegos[i].nombre==nombre){return this.juegos[i]};
+    }
+  }
+
 }
