@@ -1,15 +1,17 @@
 import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_DIRECTIVES,Router} from 'angular2/router';
 import {user} from '../classes/user.model.ts';
 import {CurrentUserService} from '../service/currentUser.service.ts';
 import {UsersService} from '../service/users.service.ts';
+import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
 @Component({
        selector: 'headerComponent',
        templateUrl: 'app/login-signup/loginSignup.component.html',
-       directives:[ROUTER_DIRECTIVES]
+       directives:[Alert,ROUTER_DIRECTIVES]
 })
 export class LoginSignupComponent  {
   usuarios: user[];
+  currentUser:user;
   usuario='';
   pass1='';
   pass2='';
@@ -17,11 +19,11 @@ export class LoginSignupComponent  {
   fecha='';
   desc='';
   descMentor='';
-  constructor(private currentUserService:CurrentUserService, private usersService:UsersService){
+  mostrarFallo = false;
+  constructor(private _router:Router, private currentUserService:CurrentUserService, private usersService:UsersService){
   }
   ngOnInit(){
-    this.usuarios = this.usersService.getUsers();
-    console.log(this.usuarios);
+    this.usuarios = this.usersService.getUsers();  
   }
   noCogido(){
     var cogido= true;
@@ -42,12 +44,24 @@ export class LoginSignupComponent  {
     for(var user of this.usuarios){
       if(user.nombre==usuario){
         if(user.pass==pass){
-          alert('Se ha logueado');
-          return undefined;
+          this.currentUser = user;
+          this.currentUserService.setUser(user);
+          break;
         }
       }
     }
-    alert('El usuario y/o la password introducidas son incorrectos');
+    this.mostrarAlert(this.currentUser != undefined);
+    if(this.currentUser!=undefined){
+      this._router.navigate(['Main']);
+    }
+  }
+  noMostrarAlert(){
+        this.mostrarFallo=false;
+  }
+  mostrarAlert(mostrar:boolean){
+      if(!mostrar){
+        this.mostrarFallo=true;
+      }
   }
 
   posibleRegistro(){
@@ -59,7 +73,9 @@ export class LoginSignupComponent  {
   }
 
   registrar(){
-    this.usersService.addUser(new user('../../img/logo.png',this.usuario,this.email,this.pass1,this.fecha,'sin definir','sin definir',this.desc,this.descMentor));
-    console.log(this.usuarios);
+    var newUser = new user('../../img/logo.png',this.usuario,this.email,this.pass1,this.fecha,'sin definir','sin definir',this.desc,this.descMentor);
+    this.currentUserService.setUser(newUser);
+    this.currentUser = newUser;
+    this._router.navigate(['Main']);
   }
 }
