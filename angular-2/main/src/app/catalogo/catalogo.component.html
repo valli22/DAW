@@ -2,8 +2,9 @@
                <form>
                    <div class="form-group">
                        <label for="Categorias">Categorias</label>
-                       <select id="Categorias">
-                           <option selected="true">Roguelike</option>
+                       <select [(ngModel)]="categoria" >
+                          <option selected="true">Cualquiera</option>
+                           <option>Roguelike</option>
                            <option>Accion</option>
                            <option>RPG</option>
                            <option>Deporte</option>
@@ -16,22 +17,24 @@
                            <option>MMO</option>
                            <option>Plataforma</option>
                            <option>Estrategia</option>
+                           <option>Historia</option>
                        </select>
                        <label for="Plataforma">Plataforma</label>
-                       <select id="Plataforma">
-                           <option selected="true">PC</option>
+                       <select [(ngModel)]="plataforma">
+                           <option selected="true">Cualquiera</option>
+                           <option >PC</option>
                            <option>XBOX ONE</option>
                            <option>PS4</option>
                            <option>Battlenet</option>
                            <option>Uplay</option>
                        </select>
                        <input type="text" placeholder="Introduzca su busqueda..."[(ngModel)]="parametro">
-                       <button type="submit" class="btn btn-info"(click)="buscarJuego()">Buscar</button>
+                       <button type="button" class="btn btn-info"(click)="buscarJuego()">Buscar</button>
                    </div>
                </form>
            </div>
-           <div class="row text-center links">
+           <div class="row text-center links" *ngFor="#juegosEsc of juegos">
                <div  class="list-group">
-                   <juegoCatalogo *ngFor="#juego of juegos" [juego]="juego"></juegoCatalogo>
+                   <juegoCatalogo *ngFor="#juego of juegosEsc" [juego]="juego"></juegoCatalogo>
                </div>
            </div>

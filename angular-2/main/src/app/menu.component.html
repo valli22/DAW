@@ -15,18 +15,18 @@
             <ul class="nav navbar-nav" id="menucabecera">
                 <li><a [routerLink]="['Main']">INICIO</a></li>
                 <li  dropdown>
-                    <a id="split-button" ><a id="catalogo-menu" [routerLink]="['Catalogo']">CATALOGO</a>
+                    <a id="split-button" ><a id="catalogo-menu" [routerLink]="['Catalogo',{plataforma:'Cualquiera'}]"> CATALOGO</a>
                     <span dropdownToggle>
                         <span class="caret"></span>
                         <span class="sr-only">Split button!</span>
                     </span>
                     </a>
-                    
+
                     <ul class="dropdown-menu" id="menuplataforma" role="menu" aria-labelledby="split-button">
-                      <li role="menuitem"><a class="dropdown-item" href="#">PC</a></li>
-                      <li role="menuitem"><a class="dropdown-item" href="#">XBOX ONE </a></li>
-                      <li role="menuitem"><a class="dropdown-item" href="#">PLAY STATION</a></li>
-                      <li role="menuitem"><a class="dropdown-item" href="#">TAMAGOCHI EXTREME</a></li>               
+                      <li role="menuitem"><a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'PC'}]">PC</a></li>
+                      <li role="menuitem"><a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'XBOX ONE'}]">XBOX ONE </a></li>
+                      <li role="menuitem"><a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'PS4'}]">PLAY STATION</a></li>
+                      <li role="menuitem"><a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'Nintendo DS'}]">NINTENDO DS</a></li>
                     </ul>
                 </li>
                 <li (click)="irMentores()"><a>MENTORES</a></li>
@@ -47,9 +47,9 @@
                 <button type="button" class="btn btn-primary" (click)="login()">Log In</button>
             </form>
         </div>
-       
+
     </nav>
-   
+
 </div>
 <div class="row">
     <alert *ngIf="mostrarAcierto||currentActive()" (close)="noMostrarAlert()" dismissible="true" type="success" dismissOnTimeout="5000">Bienvenido {{currentUser.nombre}}! Esperamos que disfrutes de tu navegación!</alert>
