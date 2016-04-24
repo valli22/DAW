@@ -64,9 +64,19 @@ export class MenuComponent {
         this.currentUser=undefined;
         this.currentUserService.setUser(undefined);
         this.mostrarAcierto=false;
+        this._router.navigate(['Main']);
+        this.usuario="";
+        this.pass="";
     }
     colapsar(){
         this.colapsado=!this.colapsado;
-        console.log("hola");
+    }
+
+    irMentores(){
+        if(this.currentActive()){
+            this._router.navigate(['Mentores']);
+        }else{
+            this._router.navigate(['LoginSignup']);
+        }
     }
 }

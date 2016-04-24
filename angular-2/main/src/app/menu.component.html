@@ -29,7 +29,7 @@
                       <li role="menuitem"><a class="dropdown-item" href="#">TAMAGOCHI EXTREME</a></li>               
                     </ul>
                 </li>
-                <li><a [routerLink]="['Mentores']">MENTORES</a></li>
+                <li (click)="irMentores()"><a>MENTORES</a></li>
                 <li><a [routerLink]="['Ofertas']">OFERTAS</a></li>
                 <li *ngIf="currentActive()"><a [routerLink]="['Perfil']">PERFIL</a></li>
                 <li *ngIf="isAdmin()"><a [routerLink]="['Admin']">ADMINISTRACION</a></li>
