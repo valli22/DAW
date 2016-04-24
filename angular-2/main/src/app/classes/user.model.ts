@@ -12,6 +12,7 @@ export class user{
   seguidores: number;
   recomendaciones: Recomendacion[] = [];
   mentoresSiguiendo: user[] = [];
+  recomendacionesMeGusta: Recomendacion[] = [];
 
 
   constructor(fotoPrefilc:string, nombrec: string, correoc:string, passc:string, fechaNacimientoc:string,
@@ -49,5 +50,11 @@ export class user{
         this.mentoresSiguiendo.splice(aux,1);
       }
     }
+
+    addMeGustaR(r: Recomendacion){
+      this.recomendacionesMeGusta.push(r);
+    }
+
+
 
   }

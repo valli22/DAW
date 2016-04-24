@@ -19,6 +19,9 @@ export class Mentor3{
 
   ngOnInit(){
     this.curUs = this.curUsService.getCurrentUser();
+    for (var i = 0; i < this.curUs.recomendacionesMeGusta.length; i++){
+      
+    }
   }
 
   dejarSeguir(){
