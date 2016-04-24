@@ -12,7 +12,7 @@
         <!-- boton -->
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="hidden-sm">
-                <button type="button" class="btn btn-info pull-right" (click)="comprarJuego()">Comprar</button>
+                <a [routerLink]="['Cart']"><button type="button" class="btn btn-info pull-right" (click)="comprarJuego()">Comprar</button></a>
             </div>
             <div class="hidden-lg hidden-xs hidden-md">
                 <a [routerLink]="['Cart']"><button type="button" class="btn btn-info pull-right btn-sm" (click)="comprarJuego()">Comprar</button></a>

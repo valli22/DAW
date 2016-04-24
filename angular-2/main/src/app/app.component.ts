@@ -36,15 +36,16 @@ import {UserComponent} from './user/user.component.ts';
     {path:'/ofertas', name:'Ofertas', component:OfertasComponent},
     {path:'/juego/:nombre', name:'EsquemaJuego', component:EsquemaJuegoComponent},
     {path:'/login-signup', name:'LoginSignup', component:LoginSignupComponent},
-    {path: '/catalogo', name: 'Catalogo', component:CatalogoComponent},
-    {path: '/admin', name: 'Admin', component:AdministracionComponent},
+    {path:'/catalogo/:plataforma', name:'Catalogo', component:CatalogoComponent},
+    {path:'/admin', name:'Admin', component:AdministracionComponent},
     {path:'/perfil', name:'Perfil', component:ProfileComponent},
     {path:'/mentores', name:'Mentores', component:MentoresComponent},
-    {path:'/admin/juegoNuevo', name: 'JuegoNuevo', component:JuegoNuevoComponent},
-    {path:'/admin/ofertaNueva', name: 'OfertaNueva', component:OfertaNuevaComponent},
-    {path:'/admin/editarJuego/:nombre', name: 'EditarJuego', component:JuegoEditComponent},
-    {path:'/admin/editarOferta/:nombre', name: 'EditarOferta', component:OfertaEditComponent},
+    {path:'/admin/juegoNuevo', name:'JuegoNuevo', component:JuegoNuevoComponent},
+    {path:'/admin/ofertaNueva', name:'OfertaNueva', component:OfertaNuevaComponent},
+    {path:'/admin/editarJuego/:nombre', name:'EditarJuego', component:JuegoEditComponent},
+    {path:'/admin/editarOferta/:nombre', name:'EditarOferta', component:OfertaEditComponent},
     {path:'/usuario/:nombre', name:'UsuarioEsp', component:UserComponent}
+
 ])
 
 export class AppComponent {

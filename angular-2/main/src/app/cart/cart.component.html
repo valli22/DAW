@@ -1,4 +1,9 @@
 <div class="row">
+    <alert *ngIf="fallo" type="danger" (close)="noMostrarAlert()" dismissible="true" dismissOnTimeout="7000">Para poder realizar la compra debe estar registrado y logueado. Su seleccion se quedara guardada y solamente tardara 5 minutos.</alert>
+    <alert *ngIf="acierto" type="success" (close)="noMostrarAlert()" dismissible="true" dismissOnTimeout="7000">Su compra se ha realizado con exito, en unos minutos le llegara un correo electronico con su compra. Gracias por utilizar nuestros servicios!</alert>
+</div>
+
+<div class="row">
   <!-- pequeña cabecera con titulo y boton de seguir comprando-->
   <div class="col-xs-6 col-sm-6 col-md-6">
       <h1>
@@ -8,12 +13,12 @@
 
   <div class="col-xs-3 col-xs-offset-2 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-3">
       <div class="hidden-xs">
-          <button class="btn btn-primary">Continuar comprando</button>
+          <a [routerLink]="['Main']"><button class="btn btn-primary">Continuar comprando</button></a>
       </div>
 
       <div class="hidden-md hidden-sm hidden-lg">
-          <button class="btn btn-md btn-primary">Continuar
-              <br> comprando</button>
+           <a [routerLink]="['Main']"><button class="btn btn-md btn-primary">Continuar
+              <br> comprando</button></a>
       </div>
   </div>
 </div>
@@ -35,7 +40,7 @@
                     <td><img src="{{juego.imagen}}" class="img-responsive"></td>
                     <td><a href="#">{{juego.nombre}}</a></td>
                     <td>{{juego.precio}}</td>
-                    <td><input (click)="refreshTotal()" type="number" [(ngModel)]="juego.cantidad" min="1"></td>
+                    <td><input (click)="refreshTotal()" type="number" [(ngModel)]="juego.cantidad" min="0"></td>
                     <td >{{preciosTotales[i]}} </td>
                   </tr>
               </tbody>
@@ -62,15 +67,15 @@
 <div class="row">
   <!-- Terminos y condiciones e email y acceder al pago-->
   <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-6">
-      <input type="checkbox"> He leido y aceptado los <a data-toggle="modal" data-target="#terms">
+      <input [(ngModel)]="checked" type="checkbox"> He leido y acepta los <a data-toggle="modal" data-target="#terms" (click)="colapsado=false">
       Terminos y condiciones
     </a> estoy de acuerdo con ellos y confirmo que soy mayor de 18 años.
   </div>
-  <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div [ngClass]="{'modal fade':true,'in':!colpasado}" [ngStyle]="getStyles()"id="terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal" (click)="colapsado=true" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Terminos y Condiciones de Uso</h4>
         </div>
         <div class="modal-body">
@@ -82,16 +87,15 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" (click)="colapsado=true" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-6">
-      <input type="email" placeholder="Correo electronico">
-      <button class="btn btn-primary btn-md">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-6 text-right">
+      <button  [disabled]="!deshabilitado()" (click)="realizarPago()" class="btn btn-primary btn-md">
           Acceder al pago
       </button>
   </div>

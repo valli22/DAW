@@ -19,7 +19,7 @@
                 <!-- boton -->
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                     <div class="hidden-sm">
-                        <button type="button" class="btn btn-info pull-right" (click)="comprarOferta()"><a href="cart.html">Comprar</a></button>
+                        <a [routerLink]="['Cart']"><button type="button" class="btn btn-info pull-right" (click)="comprarOferta()">Comprar</button></a>
                     </div>
                     <div class="hidden-lg hidden-xs hidden-md">
                         <a [routerLink]="['Cart']"><button type="button" class="btn btn-info pull-right btn-sm" (click)="comprarOferta()">Comprar</button></a>

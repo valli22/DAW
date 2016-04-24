@@ -30,15 +30,19 @@
         </div>
         <!-- buscar -->
         <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-            <button type="button" class="btn btn-md btn-primary" id="buscar">
-                <a href="catalogo.html"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</a>
-            </button>
+            <a  [routerLink]="['Catalogo']">
+                <button type="button" class="btn btn-md btn-primary" id="buscar">
+                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+                </button>
+            </a>
         </div>
         <!-- cart -->
         <div class="col-xs-4 col-sm-4 col-md-4 text-center">
-            <button type="button" class="btn btn-primary btn-md">
-                <a [routerLink]="['Cart']"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito</a>
-            </button>
+            <a [routerLink]="['Cart']">
+                <button type="button" class="btn btn-primary btn-md">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Carrito
+                </button>
+            </a>
         </div>
     </div>
 </div>
