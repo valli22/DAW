@@ -19,7 +19,7 @@ export class MenuComponent {
     mostrarAcierto = false;
     status:{isopen:boolean} = {isopen: false};
     disabled:boolean =false;
-
+    colapsado=true;
     constructor(private _router:Router, private currentUserService:CurrentUserService, private usersService:UsersService){}
 
     ngOnInit(){
@@ -54,5 +54,19 @@ export class MenuComponent {
     currentActive(){
         this.currentUser = this.currentUserService.getCurrentUser();
         return this.currentUserService.getCurrentUser()!=undefined;
+    }
+    isAdmin(){
+        this.currentUser = this.currentUserService.getCurrentUser();
+
+        return this.currentActive() && this.currentUser.nombre == 'admin';
+    }
+    cerrarSesion(){
+        this.currentUser=undefined;
+        this.currentUserService.setUser(undefined);
+        this.mostrarAcierto=false;
+    }
+    colapsar(){
+        this.colapsado=!this.colapsado;
+        console.log("hola");
     }
 }
