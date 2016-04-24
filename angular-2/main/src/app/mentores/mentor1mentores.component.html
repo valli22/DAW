@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
       <div class="row ">
-        <h4><a href="usuario.html">{{mentor.nombre}}</a></h4>
+        <h4><a [routerLink] = "['UsuarioEsp',{nombre : mentor.nombre}]">{{mentor.nombre}}</a></h4>
       </div>
       <div class="row">
         <img src="{{mentor.fotoPerfil}}" alt="imagenMentor" class="img-responsive" />

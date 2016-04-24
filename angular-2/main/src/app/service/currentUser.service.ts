@@ -10,7 +10,7 @@ export class CurrentUserService{
   setUser(cUser:user){
 
     this.usuario=cUser;
-    this.usuario.addRecomendacion(new Recomendacion(new user('../../img/perfil.png', 'Diego', 'diego@gmail.com','1234','1995-23-05','zigic','jimenez',"Gamer con ganas de jugar y aprender", 'Juegos variados y de muy buena calidad'), "El mejor roguelike", 15000, "Este juego es el mejor roguelike que ha salido nunca", "The binding of isaac: Afterbirth"));
+    this.usuario.addRecomendacion(new Recomendacion(new user('../../img/perfil.png', 'Diego', 'diego@gmail.com','1234','1995-23-05','zigic','jimenez',"Gamer con ganas de jugar y aprender", 'Juegos variados y de muy buena calidad'), "El mejor roguelike", 15000, "Este juego es el mejor roguelike que ha salido nunca", "The binding of isaac: Rebirth"));
     this.usuario.addRecomendacion(new Recomendacion(new user('../../img/perfil.png','Valli','valli@gmail.com', '1234', '1995-22-01','valli','valli22','Gamer con ganas de jugar y aprender', 'Si quieres juegos de todos los tipos yo soy tu mentor'), "Dificil y muy entretenido", 15000, "Vas a morir. Mucho","Dark Souls III"));
     this.usuario.addRecomendacion(new Recomendacion(new user('../../img/perfil.png','Peter','peter@gmail.com','1234','1995-23','peter','dropelega','Gamer con ganas de jugar y aprender', 'Juegos arcade y shooters variados'), "Genocida!", 15000, "Intenta asesinar a toda la humanidad, yo lo he conseguido","Plague Inc: Evolved"));
     this.usuario.addRecomendacion(new Recomendacion(new user('../../img/perfil.png','miguel','miguel@gmail.com','1234','1995-22-06','miguelr95','roldan','Gamer con ganas de jugar y aprender','Amante de los juegos de estrategia'), "La perfeccion hecha juego", 15000, "Esto es volver a mi infancia","Ratchet y clank"));

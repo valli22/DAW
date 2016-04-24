@@ -55,6 +55,13 @@ export class user{
       this.recomendacionesMeGusta.push(r);
     }
 
+    delMeGustaR(r: Recomendacion){
+      var aux = this.recomendacionesMeGusta.indexOf(r);
+      if (aux != -1){
+        this.recomendacionesMeGusta.splice(aux, 1);
+      }
+    }
+
 
 
   }

@@ -15,13 +15,16 @@ export class EditarRecomendacion{
   pestanaOut = new EventEmitter<string>();
 
   descripcion: string;
+  titulo: string;
 
   ngOnInit(){
-    this.descripcion = this.recomendacion.descripcion
+    this.descripcion = this.recomendacion.descripcion;
+    this.titulo = this.recomendacion.titulo;
   }
 
   editarRecomendacion(){
     this.recomendacion.descripcion = this.descripcion;
+    this.recomendacion.titulo = this.titulo;
     this.pestanaOut.next("recomendaciones");
   }
 

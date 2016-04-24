@@ -1,10 +1,12 @@
 import {CurrentUserService} from "../service/currentUser.service";
 import {user} from "../classes/user.model";
 import {Component, Input} from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
   selector:'mentor1mentores',
-  templateUrl: 'app/mentores/mentor1mentores.component.html'
+  templateUrl: 'app/mentores/mentor1mentores.component.html',
+  directives: [ROUTER_DIRECTIVES]
 })
 export class Mentor1{
 
