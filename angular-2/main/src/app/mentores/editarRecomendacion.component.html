@@ -4,8 +4,12 @@
             <h3>Editar recomendacion:</h3>
         </div>
         <br>
+        <div class = "row">
+          <h3>Titulo: <input type = "text" id = "titulo" [(ngModel)] = "titulo"></h3>
+        </div>
+        <br/>
         <div class="row">
-            <textarea id="arearecomendacion">{{recomendacion.descripcion}}</textarea>
+            <textarea id="arearecomendacion" [(ngModel)] = "descripcion" ></textarea>
         </div>
         <br>
         <div class="row">

@@ -21,4 +21,8 @@ export class MentoresAjaxComponent{
     this.recom = recomendacion1;
     this.pestana = "editar";
   }
+
+  cambiarPestana(pestan: string){
+    this.pestana = pestan;
+  }
 }

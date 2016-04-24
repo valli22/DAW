@@ -14,10 +14,10 @@
     <div class="text-center">
       <ul class="nav nav-tabs">
         <li [ngClass]="{active:isOn1, disabled: isDisabled1}">
-          <a  (click)="mostrar('misMentores'); toggle('1');">Mis mentores</a>
+          <a (click)="mostrar('misMentores'); toggle('1');">Mis mentores</a>
         </li>
         <li [ngClass]="{active:isOn2, disabled: isDisabled2}">
-          <a  (click)="mostrar('recomendaciones'); toggle('2');">Mis recomendaciones</a>
+          <a (click)="mostrar('recomendaciones'); toggle('2');">Mis recomendaciones</a>
         </li>
         <li [ngClass]="{active:isOn3, disabled: isDisabled3}">
           <a (click)="mostrar('todos'); toggle('3');">Todos</a>

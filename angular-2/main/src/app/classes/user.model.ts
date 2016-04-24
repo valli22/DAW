@@ -10,8 +10,9 @@ export class user{
   descripcion:string;
   descripcionMentor:string;
   seguidores: number;
-  recomendaciones: Recomendacion[];
-  mentoresSiguiendo: user[];
+  recomendaciones: Recomendacion[] = [];
+  mentoresSiguiendo: user[] = [];
+  recomendacionesMeGusta: Recomendacion[] = [];
 
 
   constructor(fotoPrefilc:string, nombrec: string, correoc:string, passc:string, fechaNacimientoc:string,
@@ -31,8 +32,8 @@ export class user{
       this.seguidores = 0;
     }
 
-    setSeguidores(s: number){
-      this.seguidores = s;
+    addSeguidor(){
+      this.seguidores++;
     }
 
     addRecomendacion(r: Recomendacion){
@@ -42,5 +43,25 @@ export class user{
     addMentor(u: user){
       this.mentoresSiguiendo.push(u);
     }
+
+    delMentor(u: user){
+      var aux = this.mentoresSiguiendo.indexOf(u);
+      if (aux != -1){
+        this.mentoresSiguiendo.splice(aux,1);
+      }
+    }
+
+    addMeGustaR(r: Recomendacion){
+      this.recomendacionesMeGusta.push(r);
+    }
+
+    delMeGustaR(r: Recomendacion){
+      var aux = this.recomendacionesMeGusta.indexOf(r);
+      if (aux != -1){
+        this.recomendacionesMeGusta.splice(aux, 1);
+      }
+    }
+
+
 
   }

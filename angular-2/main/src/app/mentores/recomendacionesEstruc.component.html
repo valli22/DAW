@@ -3,18 +3,21 @@
     <div class="page-header">
       <h3>Nueva recomendacion:</h3>
     </div>
+    <div class = "row">
+      <h3>Titulo: <input type = "text" id = "titulo" [(ngModel)] = "titulo"></h3>
+    </div>
     <div class="row">
-      <select class="form-control" id="juegos">
-        <option *ngFor = "#game of juegos">{{game.nombre}}</option>
+      <select class="form-control" id="juegos" [(ngModel)] = "tituloJuego">
+        <option *ngFor = "#game of juegos" value = "{{game.nombre}}">{{game.nombre}}</option>
       </select>
     </div>
     <br>
     <div class="row">
-      <textarea id="arearecomendacion"></textarea>
+      <textarea [(ngModel)] = "descripcion" id="arearecomendacion"></textarea>
     </div>
     <br>
     <div class="row">
-      <button class="btn btn-primary pull-right" id="btn-recomendar">Recomendar</button>
+      <button class="btn btn-primary pull-right" id="btn-recomendar" (click) = "addRecomendacion();">Recomendar</button>
     </div>
 
   </div>

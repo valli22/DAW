@@ -1,3 +1,4 @@
+import {CurrentUserService} from "../service/currentUser.service";
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {user} from '../classes/user.model';
@@ -8,8 +9,7 @@ import {MentoresService} from '../service/mentores.service';
 @Component({
   selector:'mentores',
   templateUrl: 'app/mentores/mentores.component.html',
-  directives:[MentoresAjaxComponent,MentoresSiguiendoEstruc,ROUTER_DIRECTIVES],
-  providers:[MentoresService]
+  directives:[MentoresAjaxComponent,MentoresSiguiendoEstruc,ROUTER_DIRECTIVES]
 })
 
 export class MentoresComponent{
@@ -22,11 +22,13 @@ export class MentoresComponent{
   isDisabled3 = false;
 
   private mentoresSig: user[];
+  private curUs: user;
 
-  constructor(private mentoresService: MentoresService){};
+  constructor(private curUsService: CurrentUserService){};
 
   ngOnInit(){
-    this.mentoresSig = this.mentoresService.getMentoresSiguiendo();
+    this.curUs = this.curUsService.getCurrentUser();
+    this.mentoresSig = this.curUs.mentoresSiguiendo;
   }
 
   private aMostrar = "misMentores";
