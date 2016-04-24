@@ -2,8 +2,31 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
     <div class="row">
-      <img *ngIf="noesVacioImg()" class="img-responsive" src="imagen" width="200" height="200">
-      <button type="button" class="btn btn-default" (click)="anadirFoto()">Añadir foto</button>
+      <img *ngIf="noesVacioImg()" class="img-responsive" src="{{imagen}}" width="200" height="200">
+      <button type="button" class="btn btn-default" (click)="anadirFoto()" data-toggle="modal" data-target="#imgs">Añadir foto</button>
+      <div [ngClass]="{'modal fade':true,'in':!colpasado}" [ngStyle]="getStyles()"id="imgs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" (click)="colapsado=true" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Fotos</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                      <div class="col-lg-6"><img class="img-responsive" (click)="setFoto('../../img/perfil.png')" src="../../img/perfil.png"></div>
+                      <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/perfilmujer.png')" src="../../img/perfilmujer.png"></div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/logo.png')" src="../../img/logo.png"></div>
+                      <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/bioshock.jpg')" src="../../img/bioshock.jpg"></div>
+                  </div>
+                </div>
+                <div class="row modal-footer">
+                  <button type="button" (click)="colapsado=true" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+        </div>
         <div class="row">
           <div class="col-lg-6 col-md-6">
               <label>Nombre: </label>
@@ -61,7 +84,7 @@
         </div>
       </div>
       </div>
-      <button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button>
+      <a [routerLink]="['Admin']"><button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button></a>
     </div>
   </div>
 </form>

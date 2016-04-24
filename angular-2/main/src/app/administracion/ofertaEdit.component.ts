@@ -19,6 +19,8 @@ export class OfertaEditComponent{
   //este es el array de todos los juegos disponibles en la tienda
   private juegos : Juego[];
 
+  private colapsado = true;
+
   private ofertaCopia = this.oferta;
   private anadir = false;
 
@@ -30,6 +32,16 @@ export class OfertaEditComponent{
 
   ngOnInit(){
     this.juegos = this.serviceJuegos.getJuegos();
+  }
+
+  setFoto(imgs:string){
+    this.oferta.imagen=imgs;
+  }
+
+  getStyles(){
+    return {
+      'display':this.colapsado? 'none':'block'
+    }
   }
 
   contieneJuego( juego: Juego){
@@ -52,7 +64,7 @@ export class OfertaEditComponent{
   }
 
   cambiarFoto(){
-
+    this.colapsado=false;
   }
 
   guardar(){

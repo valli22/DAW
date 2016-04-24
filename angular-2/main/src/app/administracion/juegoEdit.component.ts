@@ -16,6 +16,8 @@ export class JuegoEditComponent{
   private juegoCopia : Juego;
   private anadir = false;
 
+  private colapsado = true;
+
   constructor(private _router:Router, routeParams:RouteParams, service: JuegosService){
       let nombre = routeParams.get('nombre');
       this.juego = service.getJuego(nombre);
@@ -23,8 +25,20 @@ export class JuegoEditComponent{
   }
 
   cambiarFoto(){
-
+    this.colapsado=false;
   }
+
+
+    setFoto(imgs:string){
+      this.juego.imagen=imgs;
+    }
+
+    getStyles(){
+      return {
+        'display':this.colapsado? 'none':'block'
+      }
+    }
+
 
   anadirTag(valor : string){
     this.juegoCopia.tags.push(valor);

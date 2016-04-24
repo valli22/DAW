@@ -1,5 +1,5 @@
 import {Component, Input} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_DIRECTIVES,Router} from 'angular2/router';
 import {Juego} from '../classes/juego.model.ts';
 import {JuegosService} from '../service/juegos.service.ts';
 
@@ -19,13 +19,25 @@ export class JuegoNuevoComponent {
   private tags : string[] = [];
   private plataforma : string[] = [];
 
+  private colapsado= true;
+
   private anadir=false;
   private anadirPlataforma=false;
 
   constructor(private juegosService : JuegosService){}
 
   anadirFoto(){
-      this.imagen='../../img/logo.png';
+      this.colapsado=false;
+  }
+
+  setFoto(imgs:string){
+    this.imagen=imgs;
+  }
+
+  getStyles(){
+    return {
+      'display':this.colapsado? 'none':'block'
+    }
   }
 
   anadirTag(valor : string){
