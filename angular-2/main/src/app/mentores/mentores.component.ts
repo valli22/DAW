@@ -4,7 +4,6 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {user} from '../classes/user.model';
 import {MentoresAjaxComponent} from './mentoresAjax.component';
 import {MentoresSiguiendoEstruc} from './mentoresSiguiendoEstruc.component';
-import {MentoresService} from '../service/mentores.service';
 
 @Component({
   selector:'mentores',
