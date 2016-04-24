@@ -27,5 +27,11 @@ export class UsersService{
     this.usuarios.push(user);
   }
 
+  getUser(nombre : string){
+    for (let i = 0; i < this.usuarios.length; i++) {
+        if(this.usuarios[i].nombre==nombre){return this.usuarios[i]};
+    }
+  }
+
 }
 // fotoPerfil - nombre- correo-pass-fechaNacimiento -steam-bnet-descripcion-descripcionMentor--
