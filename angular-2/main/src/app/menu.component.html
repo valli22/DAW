@@ -2,7 +2,7 @@
       <nav class="navbar navbar-default">
           <!-- Cuando se colapsa -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="false">
+                <button type="button" [ngClass]="{'collapsed':!colapsado,'navbar-toggle':true}" (click)="colapsar()" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="true">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -11,7 +11,7 @@
                         <!-- <a class="navbar-brand" href="#">&lt;CODEGAMING/&gt;</a>-->
             </div>
                     <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
-            <div class="collapse navbar-collapse" id="menu-colapsado">
+            <div [ngClass]="{'collapse navbar-collapse':true, 'in':!colapsado}" id="menu-colapsado">
             <ul class="nav navbar-nav" id="menucabecera">
                 <li><a [routerLink]="['Main']">INICIO</a></li>
                 <li  dropdown>
@@ -31,7 +31,9 @@
                 </li>
                 <li><a [routerLink]="['Mentores']">MENTORES</a></li>
                 <li><a [routerLink]="['Ofertas']">OFERTAS</a></li>
-                <li *ngIf="currentActive()"><a>PERFIL</a></li>
+                <li *ngIf="currentActive()"><a [routerLink]="['Perfil']">PERFIL</a></li>
+                <li *ngIf="isAdmin()"><a [routerLink]="['Admin']">ADMINISTRACION</a></li>
+                <li *ngIf="currentActive()"><button class="btn" (click)="cerrarSesion()" id="cerrar-sesion">Cerrar Sesion</button></li>
               </ul>
               <form *ngIf="!currentActive()"  class="navbar-form navbar-left" role="search">
                   <div class="form-group">
