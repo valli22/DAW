@@ -1,8 +1,9 @@
 import {Component, Input} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_DIRECTIVES,Router} from 'angular2/router';
 import {Oferta} from '../classes/oferta.model.ts';
 import {Juego} from '../classes/juego.model.ts';
 import {OfertasService} from '../service/ofertas.service.ts'
+import {JuegosService} from '../service/juegos.service.ts';
 
 @Component ({
   selector: 'ofertaNueva',
@@ -20,21 +21,30 @@ export class OfertaNuevaComponent {
   private descuento : number;
   private precioInicial : number;
   private precio : number;
+  private colapsado= true;
 
   private juegos : Juego[];
 
   private anadir = false;
 
-  constructor(private ofertasService : OfertasService){}
+  constructor(private _router:Router, private ofertasService : OfertasService, private juegosService : JuegosService){this.juegos=this.juegosService.getJuegos();}
 
   noesVacioImg(){
     return this.imagen !=null;
   }
 
   anadirFoto(){
-    this.imagen='../../img/logo.png';
+    this.colapsado=false;
   }
-
+  setFoto(imgs:string){
+    this.imagen=imgs;
+  }
+  
+  getStyles(){
+    return {
+      'display':this.colapsado? 'none':'block'
+    }
+  }
   contieneJuego( juego: Juego){
     var ret;
     ret =  this.juegosOferta.indexOf(juego);
@@ -56,5 +66,6 @@ export class OfertaNuevaComponent {
 
   guardar(){
       this.ofertasService.addOferta(new Oferta(this.nombre,this.descripcion,this.imagen,this.juegosOferta,this.descuento,this.precioInicial,this.precio));
+      this._router.navigate(['Admin']);
   }
 }
