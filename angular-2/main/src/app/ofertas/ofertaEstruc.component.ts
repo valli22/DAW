@@ -6,8 +6,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 @Component({
   selector:'ofertaEstruc',
   templateUrl: 'app/ofertas/ofertaEstruc.component.html',
-  directives:[ROUTER_DIRECTIVES],
-  //providers : [CarritoService]
+  directives:[ROUTER_DIRECTIVES]
 })
 
 export class ofertaEstrucComponent {

@@ -8,8 +8,7 @@ import {OfertasService} from '../service/ofertas.service.ts';
 @Component({
   selector:'ofertas',
   templateUrl: 'app/ofertas/ofertas.component.html',
-  directives:[ofertaEstrucComponent,ROUTER_DIRECTIVES],
-  providers: [OfertasService]
+  directives:[ofertaEstrucComponent,ROUTER_DIRECTIVES]
 })
 
 export class OfertasComponent{
@@ -26,27 +25,13 @@ export class OfertasComponent{
      for(var oferta of ofertasE){
        ofertillas.push(oferta);
        j++;
-       if(j==2){
+       if(j==2 || ((i*2)+j)==ofertasE.length ){
          this.ofertas.push(ofertillas);
          ofertillas=[];
          i++;
          j=0;
        }
      }
-     /*for (let i = 0; i < (ofertasE.length/2); i++) {
-         for (let j = 0; i < 2; i++){
-           console.log(this.ofertas[i]);
-           if(ofertasE.length>i*j){
-             if(i==0){
-               this.ofertas[i].push(ofertasE[j]);
-             }else{
-               this.ofertas[i].push(ofertasE[j*i]);
-             }
-           }else{
-             break;
-           }
-         }
-     }*/
   }
 
 }
