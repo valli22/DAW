@@ -23,10 +23,10 @@
                     </a>
 
                     <ul class="dropdown-menu" id="menuplataforma" role="menu" aria-labelledby="split-button">
-                      <li role="menuitem"><a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'PC'}]">PC</a></li>
-                      <li role="menuitem"><a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'XBOX ONE'}]">XBOX ONE </a></li>
-                      <li role="menuitem"><a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'PS4'}]">PLAY STATION</a></li>
-                      <li role="menuitem"><a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'Nintendo DS'}]">NINTENDO DS</a></li>
+                      <a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'PC'}]"><li role="menuitem">PC</li></a>
+                      <a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'XBOX ONE'}]"><li role="menuitem">XBOX ONE </li></a>
+                      <a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'PS4'}]"><li role="menuitem">PLAY STATION</li></a>
+                      <a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'Nintendo DS'}]"><li role="menuitem">NINTENDO DS</li></a>
                     </ul>
                 </li>
                 <li (click)="irMentores()"><a>MENTORES</a></li>
