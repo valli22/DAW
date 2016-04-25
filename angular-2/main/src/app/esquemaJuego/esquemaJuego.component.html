@@ -5,7 +5,7 @@
     </div>
     <!-- division informacion del juego -->
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-        <h3>{{juego.nombre}}</h3>
+        <h2>{{juego.nombre}}</h2>
         <p>{{juego.descripcion}}</p>
         <!-- Division para valoracion y precio -->
         <div class="row">
@@ -29,8 +29,9 @@
         <a [routerLink]="['Cart']"><button type="button" class="btn btn-info" (click)="comprarJuego()">Comprar</button></a>
     </div>
 </div>
-<h4>Comentarios de mentores</h4>
+<h3>Comentarios de mentores</h3>
 <!-- Comentarios de mentores -->
+
 <div *ngIf="recomendacionesVacia()">
   <ul class="list-group">
     <li class="list-group-item" *ngFor = "#recomendacion of juego.recomendacion">

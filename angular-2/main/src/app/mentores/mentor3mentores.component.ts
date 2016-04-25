@@ -1,6 +1,6 @@
 import {user} from "../classes/user.model";
 import {CurrentUserService} from "../service/currentUser.service";
-import {Component, Input} from 'angular2/core';
+import {Component, Input,Output,EventEmitter} from 'angular2/core';
 import {Recomendacion} from '../classes/recomendacion.model';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
@@ -13,6 +13,9 @@ export class Mentor3{
 
   @Input()
   private recomendacion: Recomendacion;
+
+  @Output()
+  refrescar = new EventEmitter<boolean>();
 
   disabled: boolean = false;
   private curUs: user;
@@ -30,6 +33,7 @@ export class Mentor3{
 
   dejarSeguir(){
     this.curUs.delMentor(this.recomendacion.mentor);
+    this.refrescar.next(true);
   }
 
   meGusta(){
@@ -42,6 +46,7 @@ export class Mentor3{
     this.recomendacion.meGusta -= 1;
     this.disabled = false;
     this.curUs.delMeGustaR(this.recomendacion);
+
   }
 
 }

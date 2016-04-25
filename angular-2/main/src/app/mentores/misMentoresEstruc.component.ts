@@ -28,5 +28,16 @@ export class MisMentores{
       }
     }
   }
+  refreshRecomendaciones(refrescar:boolean){
+    if(refrescar){
+      this.mentores=this.curUs.mentoresSiguiendo;
+      this.recomendaciones=[];
+      for(var mentor of this.mentores){
+        for(var recomendacion of mentor.recomendaciones){
+          this.recomendaciones.push(recomendacion)
+        }
+      }
+    }
+  }
 
 }

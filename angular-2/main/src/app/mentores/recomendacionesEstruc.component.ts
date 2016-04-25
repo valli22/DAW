@@ -28,6 +28,7 @@ export class Recomendaciones{
 
   ngOnInit(){
     this.juegos = this.juegosService.getJuegos();
+    console.log(this.juegos);
     this.curUs = this.curUserSer.getCurrentUser();
     this.recomendaciones = this.curUs.recomendaciones;
   }

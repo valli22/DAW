@@ -75,6 +75,7 @@ export class LoginSignupComponent  {
   registrar(){
     var newUser = new user('../../img/logo.png',this.usuario,this.email,this.pass1,this.fecha,'sin definir','sin definir',this.desc,this.descMentor);
     this.currentUserService.setUser(newUser);
+    this.usersService.addUser(newUser);
     this.currentUser = newUser;
     this._router.navigate(['Main']);
   }
