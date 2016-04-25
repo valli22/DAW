@@ -21,6 +21,7 @@ export class CartComponent  {
   currentUser:user;
   fallo=false;
   acierto =false;
+  aplicable=true;
   constructor(private carritoService:CarritoService,private _router:Router,private currentUserService:CurrentUserService){
   
   }
@@ -54,12 +55,13 @@ export class CartComponent  {
   }
 
   aplicarCodigo(codigo:string){
-    var aplicable=false;
-    for(var micodigo of this.codigos){
-      if (micodigo==codigo) {
-        this.total = this.total - this.total*0.05;
-        aplicable = !aplicable;
-        break;
+    if(this.aplicable){
+      for(var micodigo of this.codigos){
+        if (micodigo==codigo) {
+          this.total = parseFloat((this.total - this.total*0.05).toFixed(2));
+          this.aplicable = !this.aplicable;
+          break;
+        }
       }
     }
   }

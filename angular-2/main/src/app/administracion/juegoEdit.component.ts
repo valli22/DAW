@@ -45,7 +45,6 @@ export class JuegoEditComponent{
   }
 
   eliminarTag(index : number){
-    console.log(index);
     this.juegoCopia.tags.splice(index,1);
   }
 

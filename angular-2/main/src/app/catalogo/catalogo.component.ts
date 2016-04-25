@@ -2,8 +2,8 @@ import {Component,Input} from 'angular2/core';
 import {Juego} from '../classes/juego.model.ts'
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {JuegoCatalogo} from './juegoCatalogo.component.ts';
-import {JuegosService} from '../service/juegos.service.ts'
 import {RouteParams, Router} from 'angular2/router';
+import {JuegosService} from '../service/juegos.service.ts';
 
 @Component({
   selector:'catalogo',
@@ -14,7 +14,7 @@ export class CatalogoComponent{
   private juegos : Juego[][]=[];
   private parametro:string="";
   private plataforma:string="";
-  private categoria:string="";
+  private categoria:string="Cualquiera";
   private juegosE:Juego[];
   constructor(private juegosService:JuegosService,private _router:Router, routeParams:RouteParams){
     this.plataforma=routeParams.get('plataforma');
@@ -92,8 +92,6 @@ export class CatalogoComponent{
           }
       }//ordenar para que salga bien en la vista
       this.juegosE=games;
-      console.log(games);
-      console.log(this.juegosE);
       this.juegos=[];
       var i = 0;
       var j = 0;
