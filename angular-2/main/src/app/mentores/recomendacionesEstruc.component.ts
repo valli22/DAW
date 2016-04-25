@@ -38,23 +38,12 @@ export class Recomendaciones{
   }
 
   addRecomendacion(){
-    var ju = this.findJuego(this.tituloJuego);
+    var ju = this.juegosService.getJuego(this.tituloJuego);
     var recom = new Recomendacion(this.curUs,this.titulo,0,this.descripcion,this.tituloJuego);
     this.titulo = '';
     this.descripcion = '';
     ju.addRecomendacion(recom);
     this.curUs.addRecomendacion(recom);
   };
-
-  findJuego(jueg: string){
-    var i = 0;
-    var juegosT = this.juegos;
-    var ju = juegosT.pop();
-    while ((i < this.juegos.length) && (ju.nombre != jueg)){
-      i++;
-      ju = juegosT.pop();
-    }
-    return ju;
-  }
 
 }
