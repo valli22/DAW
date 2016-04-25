@@ -2,7 +2,8 @@
 
 #Nombre de la aplicacion web
 	CODEGAMING
-
+#Intrucciones de uso
+	Instalar node.js version 4 o superior, a continuacion instalar angular (npm install -g angular-cli@0.0.24), crear un proyecto y copiar en el la carpeta src el src de nuestro proyecto. Por último, abrir la consola en la carpeta del proyecto y ejecutar el comando'ng serve' y abrir en el navegador la direccion: "http://localhost:4200/". Estos pasos han sido comprobados en Windows 10.
 #Descripcion
 	Tematica: Analisis y venta online de videojuegos
 	Funcionalidades publicas: Catalogo y analisis
@@ -23,6 +24,8 @@ Otras entidades ->
 	- Stock: numero de productos disponibles.
 #Diagrama de navegacion ->
 <img src="img-release/DIAGRAMA-NAVEGACION.jpg">
+#Diagrama de clases cliente ->
+<img src="img-release/Diagrama-clases-angular.png">
 #Captura de pantalla de las paginas principales ->
 -Pagina principal 
 <br>
