@@ -14,12 +14,17 @@ export class Mentor1{
   private mentor: user;
   private curUs: user;
   private follow: boolean = false;
+  private us: boolean = false;
 
   constructor(private curUsService: CurrentUserService){}
 
   ngOnInit(){
     this.curUs = this.curUsService.getCurrentUser();
     var mentores = this.curUs.mentoresSiguiendo;
+    if (this.curUs == this.mentor){
+      this.follow = true;
+      this.us = true;
+    }
     var i = 0;
     while (!this.follow && i < mentores.length){
       this.follow = mentores[i] == this.mentor;
@@ -41,6 +46,10 @@ export class Mentor1{
 
   siguiendo(){
     return this.follow;
+  }
+
+  oculto(){
+    return !this.us;
   }
 
 }

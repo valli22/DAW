@@ -11,7 +11,7 @@ export class CurrentUserService{
 
     this.usuario=cUser;
     if(this.usuario!=undefined){
-	    this.usuario.addRecomendacion(new Recomendacion(this.usuario, "El mejor roguelike", 15000, "Este juego es el mejor roguelike que ha salido nunca", "The binding of isaac: Rebirth"));
+	    /*this.usuario.addRecomendacion(new Recomendacion(this.usuario, "El mejor roguelike", 15000, "Este juego es el mejor roguelike que ha salido nunca", "The binding of isaac: Rebirth"));
 	    this.usuario.addRecomendacion(new Recomendacion(this.usuario, "Dificil y muy entretenido", 15000, "Vas a morir. Mucho","Dark Souls III"));
 	    this.usuario.addRecomendacion(new Recomendacion(this.usuario, "Genocida!", 15000, "Intenta asesinar a toda la humanidad, yo lo he conseguido","Plague Inc: Evolved"));
 	    this.usuario.addRecomendacion(new Recomendacion(this.usuario, "La perfeccion hecha juego", 15000, "Esto es volver a mi infancia","Ratchet y clank"));
@@ -50,7 +50,7 @@ export class CurrentUserService{
 	    this.usuario.mentoresSiguiendo[3].addRecomendacion(new Recomendacion(this.usuario.mentoresSiguiendo[3], "No. No lo compres", 15000, "¿Sabes lo que es un bug? Aqui lo tienes en forma de juego","Assasin's Creed Unity"));
 	    this.usuario.mentoresSiguiendo[4].addRecomendacion(new Recomendacion(this.usuario.mentoresSiguiendo[4], "Para los amantes de los coches", 15000, "Muy buenos graficos. Y coches. Muchos coches. Para todos los gustos","Forza Motorsport 6"));
 	    this.usuario.mentoresSiguiendo[4].addRecomendacion(new Recomendacion(this.usuario.mentoresSiguiendo[4],"Best juego de miedo EUW", 15000, "Si despues de una pelicula de miedo no puedes dormir no juegues a este juego. Flipante","Outlast"));
-	    this.usuario.mentoresSiguiendo[4].addRecomendacion(new Recomendacion(this.usuario.mentoresSiguiendo[4], "El cooperativo definitivo", 15000, "Matar zombies en familia siempre es un gustazo. Y mas con machete","Left 4 dead 2"));
+	    this.usuario.mentoresSiguiendo[4].addRecomendacion(new Recomendacion(this.usuario.mentoresSiguiendo[4], "El cooperativo definitivo", 15000, "Matar zombies en familia siempre es un gustazo. Y mas con machete","Left 4 dead 2"));*/
   	}
   }
   getCurrentUser(){

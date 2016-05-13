@@ -1,3 +1,4 @@
+import {CurrentUserService} from "../service/currentUser.service";
 import {UsersService} from "../service/users.service";
 import {Component} from 'angular2/core';
 import {user} from '../classes/user.model';

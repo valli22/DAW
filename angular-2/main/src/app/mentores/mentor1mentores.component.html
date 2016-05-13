@@ -18,8 +18,8 @@
         <p>Seguidores: {{mentor.seguidores}}</p>
       </div>
       <div class="row">
-        <button type="button" class="btn btn-default" *ngIf = "!siguiendo()" (click) = "seguirMentor();">Seguir</button>
-        <button type="button" class="btn btn-default" *ngIf = "siguiendo()" (click) = "dejarSeguirMentor();">No seguir</button>
+        <button type="button" class="btn btn-default" *ngIf = "!siguiendo() && oculto()" (click) = "seguirMentor();">Seguir</button>
+        <button type="button" class="btn btn-default" *ngIf = "siguiendo() && oculto()" (click) = "dejarSeguirMentor();">No seguir</button>
       </div>
     </div>
   </div>

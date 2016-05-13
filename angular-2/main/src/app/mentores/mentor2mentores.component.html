@@ -1,5 +1,13 @@
 <li class = "list-group-item">
-  <h3><a [routerLink]="['EsquemaJuego',{nombre : recomendacion.nombreJuego}]">{{recomendacion.titulo}}: {{recomendacion.nombreJuego}}</a></h3>
-  <p>{{recomendacion.descripcion}}</p>
-  <button type="button" class="btn btn-default" (click) = "editarRecomendacion();">Editar</button>
+  <div class = "container-fluid">
+    <div class = "col-xs-10 col-sm-10 col-md-10 col-lg-10">
+      <h3><a [routerLink]="['EsquemaJuego',{nombre : recomendacion.nombreJuego}]">{{recomendacion.titulo}}: {{recomendacion.nombreJuego}}</a></h3>
+      <p>{{recomendacion.descripcion}}</p>
+      <button type="button" class="btn btn-default" (click) = "editarRecomendacion();">Editar</button>
+    </div>
+    <div class = "col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <br/>
+      <p><strong>Me Gusta: </strong>{{recomendacion.meGusta}}</p>
+    </div>
+  </div>
 </li>
