@@ -1,0 +1,57 @@
+<div class="row menu">
+      <nav class="navbar navbar-default">
+          <!-- Cuando se colapsa -->
+            <div class="navbar-header">
+                <button type="button" [ngClass]="{'collapsed':!colapsado,'navbar-toggle':true}" (click)="colapsar()" data-toggle="collapse" data-target="#menu-colapsado" aria-expanded="true">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                        <!-- <a class="navbar-brand" href="#">&lt;CODEGAMING/&gt;</a>-->
+            </div>
+                    <!-- Todo lo que se ve: dropdowns, links y formulario de log -->
+            <div [ngClass]="{'collapse navbar-collapse':true, 'in':!colapsado}" id="menu-colapsado">
+            <ul class="nav navbar-nav" id="menucabecera">
+                <li><a [routerLink]="['Main']">INICIO</a></li>
+                <li  dropdown>
+                    <a id="split-button" ><a id="catalogo-menu" [routerLink]="['Catalogo',{plataforma:'Cualquiera'}]"> CATALOGO</a>
+                    <span dropdownToggle>
+                        <span class="caret"></span>
+                        <span class="sr-only">Split button!</span>
+                    </span>
+                    </a>
+
+                    <ul class="dropdown-menu" id="menuplataforma" role="menu" aria-labelledby="split-button">
+                      <a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'PC'}]"><li role="menuitem">PC</li></a>
+                      <a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'XBOX ONE'}]"><li role="menuitem">XBOX ONE </li></a>
+                      <a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'PS4'}]"><li role="menuitem">PLAY STATION</li></a>
+                      <a class="dropdown-item" [routerLink]="['Catalogo',{plataforma:'Nintendo DS'}]"><li role="menuitem">NINTENDO DS</li></a>
+                    </ul>
+                </li>
+                <li (click)="irMentores()"><a>MENTORES</a></li>
+                <li><a [routerLink]="['Ofertas']">OFERTAS</a></li>
+                <li *ngIf="currentActive()"><a [routerLink]="['Perfil']">PERFIL</a></li>
+                <li *ngIf="isAdmin()"><a [routerLink]="['Admin']">ADMINISTRACION</a></li>
+                <li *ngIf="currentActive()"><button class="btn" (click)="cerrarSesion()" id="cerrar-sesion">Cerrar Sesion</button></li>
+              </ul>
+              <form *ngIf="!currentActive()"  class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="usuario">
+                    <input type="password" class="form-control" placeholder="Constraseña" [(ngModel)]="pass">
+                    <div class="links">
+                      <a [routerLink]="['LoginSignup']">¿Aun no tienes cuenta?</a>
+                      <a [routerLink]="['LoginSignup']">¿Has olvidado tu contraseña?</a>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="login()">Log In</button>
+            </form>
+        </div>
+
+    </nav>
+
+</div>
+<div class="row">
+    <alert *ngIf="mostrarAcierto||currentActive()" (close)="noMostrarAlert()" dismissible="true" type="success" dismissOnTimeout="5000">Bienvenido {{currentUser.nombre}}! Esperamos que disfrutes de tu navegación!</alert>
+    <alert *ngIf="mostrarFallo" type="danger" (close)="noMostrarAlert()" dismissible="true" dismissOnTimeout="5000">El usuario y/o la contraseña introducidos son incorrectos </alert>
+</div>

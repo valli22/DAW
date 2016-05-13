@@ -1,0 +1,86 @@
+<form role="form">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <img *ngIf="noesVacioImg()" class="img-responsive" src="{{imagen}}" width="200" height="200">
+          <button type="button" class="btn btn-default" (click)="anadirFoto()" data-toggle="modal" data-target="#imgs">Añadir foto</button>
+          <div [ngClass]="{'modal fade':true,'in':!colpasado}" [ngStyle]="getStyles()"id="imgs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" (click)="colapsado=true" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Fotos</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                          <div class="col-lg-6"><img class="img-responsive" (click)="setFoto('../../img/perfil.png')" src="../../img/perfil.png"></div>
+                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/perfilmujer.png')" src="../../img/perfilmujer.png"></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/logo.png')" src="../../img/logo.png"></div>
+                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/bioshock.jpg')" src="../../img/bioshock.jpg"></div>
+                      </div>
+                    </div>
+                    <div class="row modal-footer">
+                      <button type="button" (click)="colapsado=true" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <label>Nombre: </label>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" placeholder="Escriba el nombre de la oferta" [(ngModel)]="nombre">
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Precio inicial: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" placeholder="Escriba el precio inicial" [(ngModel)]="precioInicial">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Descuento: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" [(ngModel)]="descuento" placeholder="Escriba el descuento">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Precio oferta: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" [(ngModel)]="precio" placeholder="Escriba el precio de la oferta">
+                  </div>
+              </div>
+        </div>
+      </div>
+      <label>Descripcion: </label>
+      <textarea class="areatext" [(ngModel)]="descripcion">Escriba la descripcion aqui</textarea>
+      <label>Juegos: </label>
+      <button type="button" class="btn btn-default" (click)="anadir=true">Añadir juego a la oferta</button>
+      <div *ngIf="anadir">
+        <div *ngFor="#juego of juegos; #i = index">
+          <div *ngIf="contieneJuego(juego)">
+            <span>{{juego.nombre}}</span>
+            <button type="button" class="btn btn-default" (click)="anadirJuego(i)">Añadir</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <br>
+        <label>Juegos de la oferta:</label>
+      </div>
+      <div *ngFor="#juego of juegosOferta; #i = index">
+        <span>{{juego.nombre}}</span>
+        <button type="button" class="btn btn-default" (click)="eliminarJuego(i)">Eliminar juego</button>
+      </div>
+      <button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button>
+</form>

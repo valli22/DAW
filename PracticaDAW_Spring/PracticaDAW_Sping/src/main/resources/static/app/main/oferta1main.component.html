@@ -1,0 +1,22 @@
+<div class="row links">
+  <!-- foto de la caratula del juego -->
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+      <img src="{{oferta.imagen}}" class="img-responsive">
+  </div>
+  <!-- parte derecha de la zona del juego -->
+  <div class="container-fluid">
+      <h2>{{posicion}}: {{oferta.nombre}}</h2>
+      <div class="row">
+          <p>{{oferta.descripcion}}</p>
+      </div>
+      <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-lg-offset-6 text-right">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <h4>PRECIO: {{oferta.precio}}$</h4>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <a [routerLink]="['Cart']"><button type="button" class="btn btn-info" (click)="comprarOferta()">Comprar</button></a>
+              </div>
+          </div>
+      </div>
+</div>

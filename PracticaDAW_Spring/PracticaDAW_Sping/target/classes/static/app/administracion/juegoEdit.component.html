@@ -1,0 +1,72 @@
+<form role="form">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <img class="img-responsive" src="{{juegoCopia.imagen}}" width="200" height="200">
+            <button type="button" class="btn btn-default" (click)="cambiarFoto()" data-toggle="modal" data-target="#imgs">Cambiar Foto</button>
+            <div [ngClass]="{'modal fade':true,'in':!colpasado}" [ngStyle]="getStyles()"id="imgs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" (click)="colapsado=true" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Fotos</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6"><img class="img-responsive" (click)="setFoto('../../img/l4d2.jpg')" src="../../img/l4d2.jpg"></div>
+                            <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/darkSouls.png')" src="../../img/darkSouls.png"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/helloKitty.jpg')" src="../../img/helloKitty.jpg"></div>
+                            <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/bioshock.jpg')" src="../../img/bioshock.jpg"></div>
+                        </div>
+                      </div>
+                      <div class="row modal-footer">
+                        <button type="button" (click)="colapsado=true" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <label>Nombre: </label>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" value="{{juegoCopia.nombre}}" [(ngModel)]="juegoCopia.nombre">
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Precio: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" value="{{juegoCopia.precio}}" [(ngModel)]="juegoCopia.precio">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                      <label>Valoracion: </label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <input type="text" value="{{juegoCopia.valoracion}}" [(ngModel)]="juegoCopia.valoracion">
+                  </div>
+              </div>
+        </div>
+      </div>
+      <label>Descripcion: </label>
+      <textarea class="areatext" [(ngModel)]="juegoCopia.descripcion">{{juegoCopia.descripcion}}</textarea>
+      <label>Tags: </label>
+      <button type="button" class="btn btn-default" (click)="anadir=true">Añadir tag</button>
+      <div *ngIf="anadir">
+        <form>
+            <input type="text" placeholder="Introduzca tag" #tag>
+            <button type="button" class="btn btn-default" (click)="anadirTag(tag.value)">Añadir tag</button>
+        </form>
+      </div>
+      <div *ngFor="#tag of juegoCopia.tags; #i = index">
+        <span>{{tag}}</span>
+        <button type="button" class="btn btn-default" (click)="eliminarTag(i)">Eliminar tag</button>
+      </div>
+      <button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button>
+</form>

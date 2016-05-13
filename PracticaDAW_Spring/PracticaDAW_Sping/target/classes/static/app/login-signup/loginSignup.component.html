@@ -1,0 +1,81 @@
+
+<div class="row">
+    <alert *ngIf="mostrarFallo" type="danger" (close)="noMostrarAlert()" dismissible="true" dismissOnTimeout="5000">El usuario y/o la contraseña introducidos son incorrectos </alert>
+</div>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+      <!--LOG IN-->
+      <form role="form">
+          <div class="form-group">
+              <div class="text-center">
+                  <h3>LOG IN</h3></div>
+              <br>
+              <label for="name">USUARIO:</label>
+
+              <br>
+              <input type="user" #userLog class="form-control" placeholder="Introduzca su usuario">
+              <br>
+              <label for="password">PASSWORD:</label>
+              <br>
+              <input type="password" #passLog class="form-control" placeholder="Introduzca su password">
+              <br>
+              <br>
+              <div class="text-center">
+                  <button type="button" (click)="login(userLog.value, passLog.value)" class="btn btn-primary">LOG IN</button>
+              </div>
+          </div>
+      </form>
+
+      <hr>
+      <!-- registro-->
+      <br>
+      <form role="form">
+          <div class="form-group">
+              <div class="text-center">
+                  <h3>REGISTRO</h3>
+              </div>
+
+              <br>
+              <label for="name">USUARIO:</label>
+              <span *ngIf="!noCogido() && usuario!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Usuario no disponible</span>
+              <span *ngIf="noCogido() && usuario!=''" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <br/>
+              <input type="user" [(ngModel)]="usuario" class="form-control" placeholder="Introduzca su usuario">
+              <br>
+              <label for="password">PASSWORD:</label>
+              <span *ngIf="!passIguales() && pass2!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Las contraseñas introducidas no coinciden</span>
+              <span *ngIf="passIguales() && pass2!=''" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <br>
+              <input type="password" [(ngModel)]="pass1" class="form-control" placeholder="Introduzca su password">
+              <br>
+              <label for="password">CONFIRMAR PASSWORD:</label>
+              <span *ngIf="!passIguales() && pass1!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Las contraseñas introducidas no coinciden</span>
+              <span *ngIf="passIguales() && pass1!=''" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <br>
+              <input type="password" [(ngModel)]="pass2" class="form-control" placeholder="Confirme su password">
+              <br>
+              <label for="email">EMAIL:</label>
+              <br>
+              <input [(ngModel)]="email" type="email" class="form-control" placeholder="Introduzca su email">
+              <br>
+              <label for="date">FECHA DE NACIMIENTO:</label>
+              <br>
+              <input type="date" [(ngModel)]="fecha" class="form-control" placeholder="Introduzca su fecha de nacimiento">
+              <br>
+              <label for="text">DESCRIPCION PERSONAL:</label>
+              <br>
+              <textarea type="text" [(ngModel)]="desc" rows="10" cols="10" class="form-control" placeholder="Introduzca su descripcion personal"></textarea>
+              <br>
+              <label for="text">DESCRIPCION COMO MENTOR:</label>
+              <br>
+              <textarea type="text" [(ngModel)]="descMentor" rows="10" cols="10s" class="form-control" placeholder="Introduzca su descripcion como mentor"></textarea>
+              <br>
+              <br>
+              <div class="text-center">
+                  <button type="button" (click)="registrar()" [disabled]="!posibleRegistro()" class="btn btn-primary">REGISTRARSE</button>
+                  <br>
+              </div>
+          </div>
+      </form>
+  </div>
+</div>

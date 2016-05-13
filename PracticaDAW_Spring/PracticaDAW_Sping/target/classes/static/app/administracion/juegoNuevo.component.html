@@ -1,0 +1,90 @@
+<form role="form">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+    <div class="row">
+      <img *ngIf="noesVacioImg()" class="img-responsive" src="{{imagen}}" width="200" height="200">
+      <button type="button" class="btn btn-default" (click)="anadirFoto()" data-toggle="modal" data-target="#imgs">Añadir foto</button>
+      <div [ngClass]="{'modal fade':true,'in':!colpasado}" [ngStyle]="getStyles()"id="imgs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" (click)="colapsado=true" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Fotos</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                      <div class="col-lg-6"><img class="img-responsive" (click)="setFoto('../../img/perfil.png')" src="../../img/perfil.png"></div>
+                      <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/perfilmujer.png')" src="../../img/perfilmujer.png"></div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/logo.png')" src="../../img/logo.png"></div>
+                      <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/bioshock.jpg')" src="../../img/bioshock.jpg"></div>
+                  </div>
+                </div>
+                <div class="row modal-footer">
+                  <button type="button" (click)="colapsado=true" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+              <label>Nombre: </label>
+          </div>
+          <div class="col-lg-6 col-md-6">
+              <input type="text" placeholder="Escriba el nombre" [(ngModel)]="nombre">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <label>Precio: </label>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <input type="text" placeholder="Escriba el precio" [(ngModel)]="precio">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <label>Valoracion: </label>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <input type="text" placeholder="Escriba la valoracion" [(ngModel)]="valoracion">
+            </div>
+        </div>
+      <label>Descripcion: </label>
+      <textarea class="areatext" [(ngModel)]="jdescripcion">Escriba su descripcion</textarea>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <label>Tags: </label>
+          <button type="button" class="btn btn-default" (click)="anadir=true">Añadir tag</button>
+          <div *ngIf="anadir">
+            <form>
+                <input type="text" placeholder="Introduzca tag" #tag>
+                <button type="button" class="btn btn-default" (click)="anadirTag(tag.value)">Añadir tag</button>
+            </form>
+          </div>
+          <div *ngFor="#tag of tags; #i = index">
+            <span>{{tag}}</span>
+            <button type="button" class="btn btn-default" (click)="eliminarTag(i)">Eliminar tag</button>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <label>Plataforma: </label>
+          <button type="button" class="btn btn-default" (click)="anadirPlataforma=true">Añadir plataforma</button>
+          <div *ngIf="anadirPlataforma">
+            <form>
+                <input type="text" placeholder="Introduzca plataforma" #plataforma>
+                <button type="button" class="btn btn-default" (click)="anadirPlataformaMethod(plataforma.value)">Añadir tag</button>
+            </form>
+          </div>
+          <div *ngFor="#plataforma of plataforma; #i = index">
+            <span>{{plataforma}}</span>
+            <button type="button" class="btn btn-default" (click)="eliminarPlataforma(i)">Eliminar plataforma</button>
+          </div>
+        </div>
+      </div>
+      </div>
+      <a [routerLink]="['Admin']"><button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button></a>
+    </div>
+  </div>
+</form>

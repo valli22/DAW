@@ -1,0 +1,103 @@
+<form role="form">
+      <div class="row">
+        <alert *ngIf="mostrarAcierto" (close)="noMostrarAlert()" dismissible="true" type="success" dismissOnTimeout="5000">Se han guardado los cambios correctamente</alert>
+        <alert *ngIf="mostrarFallo" type="danger" (close)="noMostrarAlert()" dismissible="true" dismissOnTimeout="5000">Introduzca la contraseña actual correcta para verficar el cambio</alert>
+      </div>
+      <div class="row">
+        <!--imagen de perfil y cuentas-->
+        <div class="col-sm-4 col-md-4">
+            <img class="img-responsive" src="{{foto}}" width="200" height="200">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#imgs" (click)="cambiarFoto();">Cambiar Foto</button>
+            <div [ngClass]="{'modal fade':true,'in':!colpasado}" [ngStyle]="getStyles()"id="imgs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" (click)="colapsado=true" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Fotos</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                          <div class="col-lg-6"><img class="img-responsive" (click)="setFoto('../../img/perfil.png')" src="../../img/perfil.png"></div>
+                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/perfilmujer.png')" src="../../img/perfilmujer.png"></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/logo.png')" src="../../img/logo.png"></div>
+                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/bioshock.jpg')" src="../../img/bioshock.jpg"></div>
+                      </div>
+                    </div>
+                    <div class="row modal-footer">
+                      <button type="button" (click)="colapsado=true" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <br/>
+            <!--Cuentas de juego-->
+            <label for="name" id="idsteam" >ID Steam:</label>
+            <br/>
+            <input  type="text" placeholder="CuentaSteam"[(ngModel)]="steam">
+            <br/>
+            <label for="name">ID BattleNet:</label>
+            <br/>
+            <input  type="text"  placeholder="CuentaBNet"  [(ngModel)]="bnet">
+            <br/>
+        </div>
+        <!--nombre,correo y cambio de contraseña-->
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <span *ngIf="!noCogido() && usuario!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Usuario no disponible</span>
+                <span *ngIf="noCogido() && usuario!=''" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                <input type="name" class="form-control"  placeholder="Aqui viene el nombre" [(ngModel)]="nombre">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electronico:</label>
+                <input  type="email" class="form-control"  placeholder="Aqui viene el correo" [(ngModel)]="mail">
+            </div>
+            <!--Salto de linea-->
+            <br/>
+            <br/>
+            <div class="form-group">
+                <label for="pwd">Contraseña Actual:</label>
+                <input  type="password" class="form-control"  placeholder="Introduzca contraseña actual" [(ngModel)]="viejaPass">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Nueva Contraseña:</label>
+                <span *ngIf="!passIguales() && nuevaPassc!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Las contraseñas introducidas no coinciden</span>
+                <span *ngIf="passIguales() && nuevaPassc!=''" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                <input type="password" class="form-control"  placeholder="Introduzca nueva contraseña" [(ngModel)]="nuevaPass" >
+            </div>
+            <div class="form-group">
+                <label for="pwd">Confirmar Contraseña</label>
+                <span *ngIf="!passIguales() && nuevaPass!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Las contraseñas introducidas no coinciden</span>
+                <span *ngIf="passIguales() && nuevaPass!=''" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                <input type="password" class="form-control" placeholder="Repita su nueva contraseña" [(ngModel)]="nuevaPassc">
+            </div>
+        </div>
+        <!--fecha y descripciones-->
+        <div class="col-sm-4 col-md-4">
+            <!--fecha de nacimiento-->
+            <div class="form-group">
+                <label for="date">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control" placeholder="Fecha nacimiento"  [(ngModel)]="fecha">
+            </div>
+            <!-- descripciones-->
+            <label for="description">Descripción personal:</label>
+            <br>
+            <textarea class="areatext" [(ngModel)]="descripcion"></textarea>
+            <label for="description">Descripción de mentor:</label>
+            <br>
+            <textarea class="areatext" [(ngModel)]="descripcionMentor"></textarea>
+        </div>
+    </div>
+    <!--boton de guardar cambios-->
+    <div class="row">
+        <!--para centrarlo-->
+        <div class="col-sm-5 col-md-5">
+            <br/>
+        </div>
+        <div class="col-sm-5 col-md-5">
+            <button type="submit"[disabled]="!passIguales()" class="btn btn-default"(click)="cambiarDatos()">GUARDAR CAMBIOS</button>
+        </div>
+    </div>
+</form>

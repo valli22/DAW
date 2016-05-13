@@ -1,0 +1,24 @@
+<div [ngClass]="{'col-lg-5 col-md-5 col-sm-5 col-xs-12':true, 'col-lg-offset-2 col-md-offset-2 col-sm-offset-2':posicion=='3'}">
+  <div class="row">
+      <h3><a [routerLink]="['EsquemaJuego', { nombre: juego.nombre }]">{{posicion}}: {{juego.nombre}}</a></h3>
+  </div>
+  <div class="row">
+      <!-- foto de la caratula del juego -->
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+          <img src="{{juego.imagen}}" class="img-responsive">
+      </div>
+      <!-- parte derecha de la zona del juego -->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="row">
+              <p>{{juego.descripcion}}</p>
+          </div>
+          <div class="row text-center">
+              <div class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
+                  <h4 class="pull-right">PRECIO: {{juego.precio}}$</h4>
+              </div>
+              <div class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
+                  <a [routerLink]="['Cart']"><button type="button" (click)="comprarJuego()" class="btn btn-info pull-right">Comprar</button></a>
+              </div>
+          </div>
+    </div>
+</div>

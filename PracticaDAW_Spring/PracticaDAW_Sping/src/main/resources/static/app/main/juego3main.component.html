@@ -1,0 +1,22 @@
+<li class="list-group-item">
+    <!-- nivel 4 catalogo (7º) -->
+    <div class="row">
+        <!-- titulo -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h4><a [routerLink]="['EsquemaJuego', { nombre: juego.nombre }]">{{posicion}}: {{juego.nombre}}</a></h4>
+        </div>
+        <!-- precio -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h4>{{juego.precio}}$</h4>
+        </div>
+        <!-- boton -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="hidden-sm">
+                <a [routerLink]="['Cart']"><button type="button" class="btn btn-info pull-right" (click)="comprarJuego()">Comprar</button></a>
+            </div>
+            <div class="hidden-lg hidden-xs hidden-md">
+                <a [routerLink]="['Cart']"><button type="button" class="btn btn-info pull-right btn-sm" (click)="comprarJuego()">Comprar</button></a>
+            </div>
+        </div>
+    </div>
+</li>

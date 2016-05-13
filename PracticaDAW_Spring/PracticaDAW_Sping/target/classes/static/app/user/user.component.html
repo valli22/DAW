@@ -1,0 +1,45 @@
+
+<div class="row">
+  <!--imagen de perfil y cuentas-->
+  <div class="col-sm-4 col-md-4">
+      <img class="img-responsive" src="{{usuario.fotoPerfil}}" width="200" height="200">
+      <br/>
+      <!--Cuentas de juego-->
+      <label for="name" id="idsteam" >ID Steam:</label>
+      <br/>
+      <p>{{usuario.steam}}</p>
+      <br/>
+      <label for="name">ID BattleNet:</label>
+      <br/>
+      <p>{{usuario.bnet}}</p>
+      <br/>
+  </div>
+  <!--nombre,correo y cambio de contraseña-->
+  <div class="col-sm-4 col-md-4">
+      <div class="form-group">
+          <label for="name">Nombre:</label>
+          <p>{{usuario.nombre}}</p>
+      </div>
+      <div class="form-group">
+          <label for="email">Correo Electronico:</label>
+          <p>{{usuario.correo}}</p>
+      </div>
+      <!--Salto de linea-->
+      <br/>
+  </div>
+  <!--fecha y descripciones-->
+  <div class="col-sm-4 col-md-4">
+      <!--fecha de nacimiento-->
+      <div class="form-group">
+          <label for="date">Fecha de Nacimiento:</label>
+          <p>{{usuario.fechaNacimiento}}</p>
+      </div>
+      <!-- descripciones-->
+      <label for="description">Descripción personal:</label>
+      <br>
+      <p>{{usuario.descripcion}}</p>
+      <label for="description">Descripción de mentor:</label>
+      <br>
+      <p>{{usuario.descripcionMentor}}</p>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="Recomendaciones">
+  <div class="nuevaRecomendacion">
+    <div class="page-header">
+      <h3>Nueva recomendacion:</h3>
+    </div>
+    <div class = "row">
+      <h3>Titulo: <input type = "text" id = "titulo" [(ngModel)] = "titulo"></h3>
+    </div>
+    <div class="row">
+      <select class="form-control" id="juegos" [(ngModel)] = "tituloJuego">
+        <option *ngFor = "#game of juegos" value = "{{game.nombre}}">{{game.nombre}}</option>
+      </select>
+    </div>
+    <br>
+    <div class="row">
+      <textarea [(ngModel)] = "descripcion" id="arearecomendacion"></textarea>
+    </div>
+    <br>
+    <div class="row">
+      <button class="btn btn-primary pull-right" id="btn-recomendar" (click) = "addRecomendacion();">Recomendar</button>
+    </div>
+
+  </div>
+
+  <div class="Anteriores">
+    <div class="page-header">
+      <h3>Tus recomendaciones anteriores:</h3>
+    </div>
+    <ul class="list-group">
+      <mentor2mentores *ngFor = "#recom of recomendaciones" [recomendacion] = "recom" (editRec2) = "editarRecomendacion($event)"></mentor2mentores>
+    </ul>
+  </div>

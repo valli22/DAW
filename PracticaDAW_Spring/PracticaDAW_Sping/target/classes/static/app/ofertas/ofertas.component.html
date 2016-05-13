@@ -1,0 +1,5 @@
+<div class=" row links" *ngFor="#ofertaEsc of ofertas">
+    <div class="list-group">
+        <ofertaEstruc *ngFor="#oferta of ofertaEsc" [oferta]="oferta"></ofertaEstruc>
+    </div>
+</div>

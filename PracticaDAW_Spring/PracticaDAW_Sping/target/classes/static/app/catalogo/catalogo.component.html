@@ -1,0 +1,40 @@
+<div class="row text-center">
+               <form>
+                   <div class="form-group">
+                       <label for="Categorias">Categorias</label>
+                       <select [(ngModel)]="categoria" >
+                           <option selected>Cualquiera</option>
+                           <option>Rogue-like</option>
+                           <option>Accion</option>
+                           <option>RPG</option>
+                           <option>Deporte</option>
+                           <option>Mundo abierto</option>
+                           <option>MOBA</option>
+                           <option>Aventura</option>
+                           <option>Arcade</option>
+                           <option>FPS</option>
+                           <option>Puzzle</option>
+                           <option>MMO</option>
+                           <option>Plataforma</option>
+                           <option>Estrategia</option>
+                           <option>Historia</option>
+                       </select>
+                       <label for="Plataforma">Plataforma</label>
+                       <select [(ngModel)]="plataforma">
+                           <option selected>Cualquiera</option>
+                           <option >PC</option>
+                           <option>XBOX ONE</option>
+                           <option>PS4</option>
+                           <option>Battlenet</option>
+                           <option>Uplay</option>
+                       </select>
+                       <input type="text" placeholder="Introduzca su busqueda..."[(ngModel)]="parametro">
+                       <button type="button" class="btn btn-info"(click)="buscarJuego()">Buscar</button>
+                   </div>
+               </form>
+           </div>
+           <div class="row text-center links" *ngFor="#juegosEsc of juegos">
+               <div  class="list-group">
+                   <juegoCatalogo *ngFor="#juego of juegosEsc" [juego]="juego"></juegoCatalogo>
+               </div>
+           </div>

@@ -1,0 +1,26 @@
+<li class = "list-group-item">
+  <div class="container-fluid">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+      <div class="row ">
+        <h4><a [routerLink] = "['UsuarioEsp',{nombre : mentor.nombre}]">{{mentor.nombre}}</a></h4>
+      </div>
+      <div class="row">
+        <img src="{{mentor.fotoPerfil}}" alt="imagenMentor" class="img-responsive" />
+      </div>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <br/>
+      <p>{{mentor.descripcionMentor}}</p>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+    <br/>
+      <div class="row">
+        <p>Seguidores: {{mentor.seguidores}}</p>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-default" *ngIf = "!siguiendo() && oculto()" (click) = "seguirMentor();">Seguir</button>
+        <button type="button" class="btn btn-default" *ngIf = "siguiendo() && oculto()" (click) = "dejarSeguirMentor();">No seguir</button>
+      </div>
+    </div>
+  </div>
+</li>
