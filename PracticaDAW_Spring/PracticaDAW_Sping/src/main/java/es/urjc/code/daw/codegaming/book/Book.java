@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.book;
+package es.urjc.code.daw.codegaming.book;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,11 +13,12 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id = -1;
 	private String title;
-	
+
 	@Column(length = 50000)
 	private String description;
 
-	public Book() {}
+	public Book() {
+	}
 
 	public Book(String nombre, String description) {
 		super();

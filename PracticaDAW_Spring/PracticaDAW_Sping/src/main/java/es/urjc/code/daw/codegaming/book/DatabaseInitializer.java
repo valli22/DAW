@@ -1,11 +1,11 @@
-package es.urjc.code.daw.library.book;
+package es.urjc.code.daw.codegaming.book;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
-import es.urjc.code.daw.library.user.User;
-import es.urjc.code.daw.library.user.UserRepository;
+import es.urjc.code.daw.codegaming.user.User;
+import es.urjc.code.daw.codegaming.user.UserRepository;
 
 @Controller
 public class DatabaseInitializer implements CommandLineRunner {

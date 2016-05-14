@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.security;
+package es.urjc.code.daw.codegaming.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

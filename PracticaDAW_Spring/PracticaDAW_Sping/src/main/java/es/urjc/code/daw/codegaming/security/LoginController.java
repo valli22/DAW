@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.security;
+package es.urjc.code.daw.codegaming.security;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.urjc.code.daw.library.user.User;
-import es.urjc.code.daw.library.user.UserComponent;
+import es.urjc.code.daw.codegaming.user.User;
+import es.urjc.code.daw.codegaming.user.UserComponent;
 
 /**
  * This class is used to provide REST endpoints to logIn and logOut to the

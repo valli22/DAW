@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.book;
+package es.urjc.code.daw.codegaming.book;
 
 import java.util.Collection;
 
