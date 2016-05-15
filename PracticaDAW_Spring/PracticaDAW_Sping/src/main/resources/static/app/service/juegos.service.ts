@@ -58,10 +58,15 @@ export class JuegosService{
     }
   }
   
- /* deleteJuego(nombre: string){
+  deleteJuego(nombre: string){
   	return this.http.delete(BASE_URL+'/deleteJuego/'+nombre)
   		.map(response => response.json())
   		.catch(error => this.handleError(error));
-  }*/
+  }
+  
+  handleError(error: any){
+  	console.error(error);
+  	return Observable.throw("Server error (" + error.status + "): " + error.text())
+  }
 
 }
