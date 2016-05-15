@@ -18,7 +18,7 @@ public class Juego {
     private List<String> tags;
     private List<String> plataforma;
     
-    @OneToMany
+    @OneToMany(mappedBy="juego")
     private List<Recomendacion> recomendacion;
     private int cantidad;
     
