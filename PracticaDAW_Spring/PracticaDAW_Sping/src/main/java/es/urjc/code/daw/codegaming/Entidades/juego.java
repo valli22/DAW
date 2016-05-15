@@ -15,16 +15,20 @@ public class Juego {
     private String descripcion;
     private float precio;
     private float valoracion;
-    private List<String> tags;
-    private List<String> plataforma;
     
-    @OneToMany(mappedBy="juego")
-    private List<Recomendacion> recomendacion;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Tag> tags;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Plataforma> plataforma;
+    
+    /*@OneToMany
+    private List<Recomendacion> recomendacion;*/
     private int cantidad;
     
     protected Juego(){}
     
-    public Juego(String imagenc, String nombrec, String descripcionc, float precioc, float valoracionc, List<String> tagsc, List<String> plataformac){
+    public Juego(String imagenc, String nombrec, String descripcionc, float precioc, float valoracionc, List<Tag> tagsc, List<Plataforma> plataformac){
         
         this.imagen = imagenc;
         this.nombre = nombrec;
@@ -34,13 +38,13 @@ public class Juego {
         this.tags = tagsc;
         this.plataforma = plataformac;
         this.cantidad = 1;
-        this.recomendacion = new ArrayList<>();
+        //this.recomendacion = new ArrayList<>();
         
     }
     
-    public void addRecomendacion(Recomendacion recom){
+    /*public void addRecomendacion(Recomendacion recom){
         this.recomendacion.add(recom);
-    }
+    }*/
 
 	public String getImagen() {
 		return imagen;
@@ -82,29 +86,29 @@ public class Juego {
 		this.valoracion = valoracion;
 	}
 
-	public List<String> getTags() {
+	public List<Tag> getTags() {
 		return tags;
 	}
 
-	public void setTags(List<String> tags) {
+	public void setTags(List<Tag> tags) {
 		this.tags = tags;
 	}
 
-	public List<String> getPlataforma() {
+	public List<Plataforma> getPlataforma() {
 		return plataforma;
 	}
 
-	public void setPlataforma(List<String> plataforma) {
+	public void setPlataforma(List<Plataforma> plataforma) {
 		this.plataforma = plataforma;
 	}
 
-	public List<Recomendacion> getRecomendacion() {
+	/*public List<Recomendacion> getRecomendacion() {
 		return recomendacion;
 	}
 
 	public void setRecomendacion(List<Recomendacion> recomendacion) {
 		this.recomendacion = recomendacion;
-	}
+	}*/
 
 	public int getCantidad() {
 		return cantidad;
