@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <h3><a [routerLink]="['EsquemaJuego',{nombre : recomendacion.nombreJuego}]">{{recomendacion.titulo}}: {{recomendacion.nombreJuego}}</a></h3>
+      <h3><a [routerLink]="['EsquemaJuego',{nombre : recomendacion.juego.nombre}]">{{recomendacion.titulo}}: {{recomendacion.nombreJuego}}</a></h3>
       <p>{{recomendacion.descripcion}}</p>
       <div class="pull-right likes">
         <button type="button" class="btn btn-primary" *ngIf = "!disabled" (click) = "meGusta();"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</button>
