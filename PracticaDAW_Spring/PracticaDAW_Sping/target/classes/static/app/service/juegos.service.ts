@@ -9,7 +9,7 @@ const BASE_URL = 'https://127.0.0.1:8443';
 @Injectable()
 export class JuegosService{
 
-  /*private juegos = [
+  private juegos = [
     new Juego("../img/darkSouls.png","Dark Souls III","Dark Souls continua redefiniendo los limites con el nuevo y ambicioso capitulo de esta serie revolucionaria, tan aclamada por la critica. ¡Preparate para sumergirte en la oscuridad!",40.99,8,['Dark Fantasy','Dificil','Atmosferico','Rol','PvP'],['PC','PS4']),
     new Juego("../img/plagueInc.jpg","Plague Inc: Evolved","Plague Inc: Evolved es una mezcla unica entre profunda estrategia y simulacion tremendamente realista. Tu patogeno solo ha infectado a un paciente cero - ahora debes poner fin a la humanidad haciendo evolucionar una plaga mortal y global mientras la humanidad hace lo que puede para salvarse.",14.99,6.6,["Estrategia","Simuladores","Indie","Un jugador","2D"],["PC"]),
     new Juego("../img/tboi.jpg","The binding of isaac: Rebirth","The binding of Isaac: Rebirth es un action RPG shooter con unos fuertes elementos de Rogue-like. Seguiremos a Isaac en su viaje en los que lo jugadores encontraran bizarros tesoros que hara que Isaac tendra habilidades de super humano, que le posibilitaran volar, descubrir secretos...",14.99,10,["Indie","Replay Value","Rogue-like","Dificil","Remake"],["PC","Nintendo DS"]),
@@ -25,19 +25,19 @@ export class JuegosService{
     new Juego("../img/som.jpg","Sombras de mordor","Lucha en Mordor, descubre la verdad del espiritu que te fuerza, el origen de los Anillos de Poder, erige tu leyenda y enfrentate a Sauron en esta nueva cronica de la Tierra-Media",8.2,49.99,["Accion","Mundo abierto","Aventura","Fantasia","Rol"],["PS4","PC"]),
     new Juego("../img/unity.jpg","Assasin's Creed Unity","Presentamos Assassins Creed Unity, la evolucion para la nueva generacion de la serie de juegos superventas, ahora con la potencia del renovado motor grafico Anvil. Revive a Revolucion Francesa como nunca ants lo habias hecho, desde el asalto y toma de la Bastilla hasta la ejecucion del rey Luis XVI, y ayuda al pueblo frances a forjar su nuevo destino.",6,59.95,["Historia"],["PC","PS4","XBOX ONE"]),
     new Juego("../img/forza.jpg","Forza Motorsport 6", "Forza Motorsport 6 es la accion incesante a velocidad de simulacion en el juego de carreras mas hermoso y completo de esta generacion. Colecciona, personaliza y pilota mas de 450 coches ForzaVista con cabinas funcionales y daños realisas. Compite en carreras epicas para 24 jugadores en 26 emplazamientos de fama mundial.",7.5,69.99,["Deportes","Coches","Realista"],["XBOX ONE"])
-  ];*/
+  ];
   
-  constructor(private http: Http){}
+  //constructor(private http: Http){}
 
   getJuegos(){
-  	return this.http.get(BASE_URL + '/allJuegos')
+  	/*return this.http.get(BASE_URL + '/allJuegos')
   	.map(response => response.json())
-  	.catch(error => this.handleError(error));
-    //return this.juegos;
+  	.catch(error => this.handleError(error));*/
+    return this.juegos;
   }
 
   addJuego(juego : Juego){
-  	let body = JSON.stringify(juego);
+  	/*let body = JSON.stringify(juego);
   	let headers = new Headers({
   		'Content-type': 'application/json'
   	});
@@ -45,23 +45,23 @@ export class JuegosService{
   	
   	return this.http.post(BASE_ULR+'/addJuego', body, options)
   		.map(response => response.json())
-  		.catch(error => this.handleError(error));
-    //this.juegos.push(juego);
+  		.catch(error => this.handleError(error));*/
+    this.juegos.push(juego);
   }
 
   getJuego(nombre : string){
-  	return this.http.get(BASE_URL+'/getJuego/'+nombre)
+  	/*return this.http.get(BASE_URL+'/getJuego/'+nombre)
   		.map(response => response.json())
-  		.catch(error => this.handleError(error));
-    /*for (let i = 0; i < this.juegos.length; i++) {
+  		.catch(error => this.handleError(error));*/
+    for (let i = 0; i < this.juegos.length; i++) {
         if(this.juegos[i].nombre==nombre){return this.juegos[i]};
-    }*/
+    }
   }
   
-  deleteJuego(nombre: string){
+ /* deleteJuego(nombre: string){
   	return this.http.delete(BASE_URL+'/deleteJuego/'+nombre)
   		.map(response => response.json())
   		.catch(error => this.handleError(error));
-  }
+  }*/
 
 }

@@ -1,8 +1,14 @@
 package es.urjc.code.daw.codegaming.Entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Juego {
@@ -22,8 +28,8 @@ public class Juego {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Plataforma> plataforma;
     
-    /*@OneToMany
-    private List<Recomendacion> recomendacion;*/
+    @OneToMany
+    private List<Recomendacion> recomendacion;
     private int cantidad;
     
     protected Juego(){}
@@ -38,13 +44,13 @@ public class Juego {
         this.tags = tagsc;
         this.plataforma = plataformac;
         this.cantidad = 1;
-        //this.recomendacion = new ArrayList<>();
+        this.recomendacion = new ArrayList<>();
         
     }
     
-    /*public void addRecomendacion(Recomendacion recom){
+    public void addRecomendacion(Recomendacion recom){
         this.recomendacion.add(recom);
-    }*/
+    }
 
 	public String getImagen() {
 		return imagen;
@@ -102,13 +108,13 @@ public class Juego {
 		this.plataforma = plataforma;
 	}
 
-	/*public List<Recomendacion> getRecomendacion() {
+	public List<Recomendacion> getRecomendacion() {
 		return recomendacion;
 	}
 
 	public void setRecomendacion(List<Recomendacion> recomendacion) {
 		this.recomendacion = recomendacion;
-	}*/
+	}
 
 	public int getCantidad() {
 		return cantidad;
