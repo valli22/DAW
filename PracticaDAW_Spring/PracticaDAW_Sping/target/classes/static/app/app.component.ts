@@ -24,10 +24,11 @@ import {OfertaEditComponent} from './administracion/ofertaEdit.component.ts';
 import {UserComponent} from './user/user.component.ts';
 
 
+
 @Component({
        selector: 'app',
        templateUrl: 'app/app.component.html',
-			 directives: [UserComponent,MentoresComponent,ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES],
+	   directives: [UserComponent,MentoresComponent,ProfileComponent,AdministracionComponent,CatalogoComponent,EsquemaJuegoComponent,CabeceraComponent,MenuComponent,FooterComponent,ROUTER_DIRECTIVES],
        providers:[OfertaEditComponent,JuegoNuevoComponent,OfertaNuevaComponent,JuegoEditComponent,CarritoService,CurrentUserService,UsersService,JuegosService,OfertasService]
 })
 @RouteConfig([

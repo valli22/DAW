@@ -2,7 +2,7 @@ package es.urjc.code.daw.codegaming.Componentes;
 import es.urjc.code.daw.codegaming.Entidades.Juego;
 import es.urjc.code.daw.codegaming.Entidades.Oferta;
 import es.urjc.code.daw.codegaming.Repositorios.OfertaRepository;
-import es.urjc.code.daw.codegaming.book.Book;
+
 
 import java.util.List;
 

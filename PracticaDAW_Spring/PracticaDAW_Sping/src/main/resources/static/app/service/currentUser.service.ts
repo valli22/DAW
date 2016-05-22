@@ -20,7 +20,7 @@ export class CurrentUserService{
 		});
 			
 		let options = new RequestOptions({headers});		
-		
+		console.log('llega hasta aqui req');
 		this.http.get('logIn', options).subscribe(
 			response => this.processLogInResponse(response),
 			error => {
@@ -47,12 +47,13 @@ export class CurrentUserService{
 		});
 			
 		let options = new RequestOptions({headers});		
-		
+		console.log('Se loguea con:'+user+' '+pass);
 		return this.http.get('logIn', options).map(
 			response => {
 				this.processLogInResponse(response);
 				return this.usuario;
 			}
+
 		);		
 	}
 	

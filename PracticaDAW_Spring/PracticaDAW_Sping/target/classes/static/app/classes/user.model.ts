@@ -13,6 +13,7 @@ export class user{
   recomendaciones: Recomendacion[] = [];
   mentoresSiguiendo: user[] = [];
   recomendacionesMeGusta: Recomendacion[] = [];
+  roles:string[];
 
 
   constructor(fotoPrefilc:string, nombrec: string, correoc:string, passc:string, fechaNacimientoc:string,

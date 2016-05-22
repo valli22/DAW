@@ -27,17 +27,25 @@ export class MenuComponent {
     }
     login(){
 
-        for(var usuario of this.usersService.getUsers()){
+       /* for(var usuario of this.usersService.getUsers()){
             if (usuario.nombre==this.usuario && usuario.pass == this.pass){
                 this.currentUserService.setUser(usuario);
                 this.currentUser=usuario;
                 break;
             }
-        }
+        }*/
+        console.log(this.usuario,this.pass);
+        /*this.currentUserService.logIn(this.usuario,this.pass);
+        this.currentUser = this.currentUserService.usuario;
+        console.log(this.currentUser);
         this.mostrarAlert(this.currentUser != undefined);
         if(this.currentUser!=undefined){
             this._router.navigate(['Main']);
-        }
+        }*/
+        this.currentUserService.logIn(this.usuario, this.pass).subscribe(
+          user => console.log(user),
+          error => alert("Invalid user or password")
+      );
 
     }
     noMostrarAlert(){
@@ -61,6 +69,10 @@ export class MenuComponent {
         return this.currentActive() && this.currentUser.nombre == 'admin';
     }
     cerrarSesion(){
+        this.currentUserService.logOut().subscribe(
+            response => {}, 
+            error => console.log("Error when trying to log out: "+error)
+        );
         this.currentUser=undefined;
         this.currentUserService.setUser(undefined);
         this.mostrarAcierto=false;

@@ -50,9 +50,9 @@ public class User {
 	private String descripcionMentor;
 	private Integer seguidores;
 	
-	@OneToMany
+	/*@OneToMany
 	private List<User> mentoresSiguiendo;
-	
+	*/
 	private String name;
 
 	@JsonIgnore
@@ -64,10 +64,17 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, String password, String... roles) {
+	public User(String name, String password, String correo, String fechaNacimiento, String steam, String btnet, String descripcion, String descripcionMentor, String... roles) {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
+		this.correo = correo;
+		this.fechaNacimiento = fechaNacimiento;
+		this.steam = steam;
+		this.bnet = btnet;
+		this.descripcion = descripcion;
+		this.descripcionMentor = descripcionMentor;
+		//this.mentoresSiguiendo = siguiendo;
 	}
 
 	public String getName() {
@@ -158,13 +165,13 @@ public class User {
 		this.seguidores = seguidores;
 	}
 
-	public List<User> getMentoresSiguiendo() {
+	/*public List<User> getMentoresSiguiendo() {
 		return mentoresSiguiendo;
 	}
 
 	public void setMentoresSiguiendo(List<User> mentoresSiguiendo) {
 		this.mentoresSiguiendo = mentoresSiguiendo;
-	}
+	}*/
 	
 
 }

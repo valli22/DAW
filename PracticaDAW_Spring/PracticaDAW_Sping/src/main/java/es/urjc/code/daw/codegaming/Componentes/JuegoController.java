@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import es.urjc.code.daw.codegaming.Entidades.Juego;
 import es.urjc.code.daw.codegaming.Repositorios.JuegoRepository;
-import es.urjc.code.daw.codegaming.book.Book;
+
 
 @RestController
 public class JuegoController {
@@ -42,7 +42,7 @@ public class JuegoController {
 	}
 	
 	@RequestMapping(value = "/deleteJuego/{nombre}", method = RequestMethod.DELETE)
-	public ResponseEntity<Book> borraAnuncio(@PathVariable String nombre) {
+	public ResponseEntity<Juego> borraAnuncio(@PathVariable String nombre) {
 
 		if (rep.findByNombre(nombre)!=null) {
 			rep.delete(rep.findByNombre(nombre));
