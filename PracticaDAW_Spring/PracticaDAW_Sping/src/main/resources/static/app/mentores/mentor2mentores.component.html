@@ -1,7 +1,7 @@
 <li class = "list-group-item">
   <div class = "container-fluid">
     <div class = "col-xs-10 col-sm-10 col-md-10 col-lg-10">
-      <h3><a [routerLink]="['EsquemaJuego',{nombre : recomendacion.nombreJuego}]">{{recomendacion.titulo}}: {{recomendacion.nombreJuego}}</a></h3>
+      <h3><a [routerLink]="['EsquemaJuego',{nombre : recomendacion.juego.nombre}]">{{recomendacion.titulo}}: {{recomendacion.nombreJuego}}</a></h3>
       <p>{{recomendacion.descripcion}}</p>
       <button type="button" class="btn btn-default" (click) = "editarRecomendacion();">Editar</button>
     </div>

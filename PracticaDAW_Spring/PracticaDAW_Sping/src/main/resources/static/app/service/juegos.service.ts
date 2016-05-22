@@ -1,5 +1,10 @@
 import {Injectable} from 'angular2/core';
 import {Juego} from '../classes/juego.model.ts';
+import {Http, Headers, RequestOptions} from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
+
+const BASE_URL = 'https://127.0.0.1:8443';
 
 @Injectable()
 export class JuegosService{
@@ -21,19 +26,47 @@ export class JuegosService{
     new Juego("../img/unity.jpg","Assasin's Creed Unity","Presentamos Assassins Creed Unity, la evolucion para la nueva generacion de la serie de juegos superventas, ahora con la potencia del renovado motor grafico Anvil. Revive a Revolucion Francesa como nunca ants lo habias hecho, desde el asalto y toma de la Bastilla hasta la ejecucion del rey Luis XVI, y ayuda al pueblo frances a forjar su nuevo destino.",6,59.95,["Historia"],["PC","PS4","XBOX ONE"]),
     new Juego("../img/forza.jpg","Forza Motorsport 6", "Forza Motorsport 6 es la accion incesante a velocidad de simulacion en el juego de carreras mas hermoso y completo de esta generacion. Colecciona, personaliza y pilota mas de 450 coches ForzaVista con cabinas funcionales y daños realisas. Compite en carreras epicas para 24 jugadores en 26 emplazamientos de fama mundial.",7.5,69.99,["Deportes","Coches","Realista"],["XBOX ONE"])
   ];
+  
+  //constructor(private http: Http){}
 
   getJuegos(){
+  	/*return this.http.get(BASE_URL + '/allJuegos')
+  	.map(response => response.json())
+  	.catch(error => this.handleError(error));*/
     return this.juegos;
   }
 
   addJuego(juego : Juego){
+  	/*let body = JSON.stringify(juego);
+  	let headers = new Headers({
+  		'Content-type': 'application/json'
+  	});
+  	let options = new RequestOptions({ headers });
+  	
+  	return this.http.post(BASE_ULR+'/addJuego', body, options)
+  		.map(response => response.json())
+  		.catch(error => this.handleError(error));*/
     this.juegos.push(juego);
   }
 
   getJuego(nombre : string){
+  	/*return this.http.get(BASE_URL+'/getJuego/'+nombre)
+  		.map(response => response.json())
+  		.catch(error => this.handleError(error));*/
     for (let i = 0; i < this.juegos.length; i++) {
         if(this.juegos[i].nombre==nombre){return this.juegos[i]};
     }
+  }
+  
+  deleteJuego(nombre: string){
+  	return this.http.delete(BASE_URL+'/deleteJuego/'+nombre)
+  		.map(response => response.json())
+  		.catch(error => this.handleError(error));
+  }
+  
+  handleError(error: any){
+  	console.error(error);
+  	return Observable.throw("Server error (" + error.status + "): " + error.text())
   }
 
 }

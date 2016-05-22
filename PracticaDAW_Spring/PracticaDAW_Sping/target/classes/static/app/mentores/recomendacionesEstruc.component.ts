@@ -38,7 +38,7 @@ export class Recomendaciones{
 
   addRecomendacion(){
     var ju = this.juegosService.getJuego(this.tituloJuego);
-    var recom = new Recomendacion(this.curUs,this.titulo,0,this.descripcion,this.tituloJuego);
+    var recom = new Recomendacion(this.curUs,this.titulo,0,this.descripcion,ju);
     this.titulo = '';
     this.descripcion = '';
     ju.addRecomendacion(recom);
