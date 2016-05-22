@@ -27,13 +27,15 @@ export class MenuComponent {
     }
     login(){
 
-        for(var usuario of this.usersService.getUsers()){
+       /* for(var usuario of this.usersService.getUsers()){
             if (usuario.nombre==this.usuario && usuario.pass == this.pass){
                 this.currentUserService.setUser(usuario);
                 this.currentUser=usuario;
                 break;
             }
-        }
+        }*/
+        this.currentUserService.logIn(this.usuario,this.pass);
+        this.currentUser = this.currentUserService.usuario;
         this.mostrarAlert(this.currentUser != undefined);
         if(this.currentUser!=undefined){
             this._router.navigate(['Main']);

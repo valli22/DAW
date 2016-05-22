@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -40,7 +41,18 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	
+	private String correo;
+	private String fechaNacimiento;
+	private String steam;
+	private String bnet;
+	private String descripcion;
+	private String descripcionMentor;
+	private Integer seguidores;
+	
+	@OneToMany
+	private List<User> mentoresSiguiendo;
+	
 	private String name;
 
 	@JsonIgnore
@@ -81,5 +93,78 @@ public class User {
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getSteam() {
+		return steam;
+	}
+
+	public void setSteam(String steam) {
+		this.steam = steam;
+	}
+
+	public String getBnet() {
+		return bnet;
+	}
+
+	public void setBnet(String bnet) {
+		this.bnet = bnet;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getDescripcionMentor() {
+		return descripcionMentor;
+	}
+
+	public void setDescripcionMentor(String descripcionMentor) {
+		this.descripcionMentor = descripcionMentor;
+	}
+
+	public Integer getSeguidores() {
+		return seguidores;
+	}
+
+	public void setSeguidores(Integer seguidores) {
+		this.seguidores = seguidores;
+	}
+
+	public List<User> getMentoresSiguiendo() {
+		return mentoresSiguiendo;
+	}
+
+	public void setMentoresSiguiendo(List<User> mentoresSiguiendo) {
+		this.mentoresSiguiendo = mentoresSiguiendo;
+	}
+	
 
 }
