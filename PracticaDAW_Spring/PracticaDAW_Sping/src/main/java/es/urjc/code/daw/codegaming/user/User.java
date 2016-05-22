@@ -4,17 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonView;
 
 /**
  * This is the entity to store in database user information. It contains the
@@ -37,30 +41,59 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
-
+	
+	public interface Basico{}
+	public interface Mentores{}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(Basico.class)
 	private Long id;
 	
+	@JsonView(Basico.class)
 	private String correo;
+	
+	@JsonView(Basico.class)
 	private String fechaNacimiento;
+	
+	@JsonView(Basico.class)
 	private String steam;
+	
+	@JsonView(Basico.class)
 	private String bnet;
+	
+	@JsonView(Basico.class)
 	private String descripcion;
+	
+	@JsonView(Basico.class)
 	private String descripcionMentor;
+	
+	@JsonView(Basico.class)
 	private Integer seguidores;
 	
-	/*@OneToMany
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JsonView(Basico.class)
+	@JsonBackReference
 	private List<User> mentoresSiguiendo;
-	*/
+	
+	@JsonView(Basico.class)
+	@JsonManagedReference
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy="mentoresSiguiendo")
+	private List<User> usersSiguiendome;
+	
+	@JsonView(Basico.class)
 	private String name;
 
 	@JsonIgnore
 	private String passwordHash;
 
 	@ElementCollection(fetch = FetchType.EAGER)
+	@JsonView(Basico.class)
 	private List<String> roles;
+	
 
+	
 	public User() {
 	}
 
@@ -74,7 +107,8 @@ public class User {
 		this.bnet = btnet;
 		this.descripcion = descripcion;
 		this.descripcionMentor = descripcionMentor;
-		//this.mentoresSiguiendo = siguiendo;
+		this.mentoresSiguiendo = new ArrayList<>();
+		this.seguidores = 0;
 	}
 
 	public String getName() {
@@ -165,13 +199,15 @@ public class User {
 		this.seguidores = seguidores;
 	}
 
-	/*public List<User> getMentoresSiguiendo() {
+	public List<User> getMentoresSiguiendo() {
 		return mentoresSiguiendo;
 	}
 
 	public void setMentoresSiguiendo(List<User> mentoresSiguiendo) {
 		this.mentoresSiguiendo = mentoresSiguiendo;
-	}*/
-	
+	}
+	public void addMentor(User usuario){
+		this.mentoresSiguiendo.add(usuario);
+	}
 
 }

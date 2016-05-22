@@ -10,8 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.urjc.code.daw.codegaming.user.User;
 import es.urjc.code.daw.codegaming.user.UserComponent;
+import es.urjc.code.daw.codegaming.user.User.Basico;
 
 /**
  * This class is used to provide REST endpoints to logIn and logOut to the
@@ -21,12 +24,14 @@ import es.urjc.code.daw.codegaming.user.UserComponent;
  */
 @RestController
 public class LoginController {
-
+	
+	
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 
 	@Autowired
 	private UserComponent userComponent;
-
+	
+	@JsonView(User.Basico.class)
 	@RequestMapping("/logIn")
 	public ResponseEntity<User> logIn() {
 

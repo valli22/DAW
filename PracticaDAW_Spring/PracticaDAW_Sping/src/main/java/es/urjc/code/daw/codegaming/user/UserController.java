@@ -23,12 +23,12 @@ public class UserController {
 	private UserRepository userRepository;
 	
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public List<User> getBooks() {
+	public List<User> getUsers() {
 		return this.userRepository.findAll();
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-	public ResponseEntity<User> getAnuncio(@PathVariable long id) {
+	public ResponseEntity<User> getUser(@PathVariable long id) {
 
 //		log.info("Get book {}", id);
 
@@ -42,7 +42,7 @@ public class UserController {
 
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public User nuevoAnuncio(@RequestBody User usuario) {
+	public User nuevoUser(@RequestBody User usuario) {
 
 		this.userRepository.save(usuario);
 
@@ -50,7 +50,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<User> actulizaAnuncio(@PathVariable long id, @RequestBody User usuarioNuevo) {
+	public ResponseEntity<User> actulizaUser(@PathVariable long id, @RequestBody User usuarioNuevo) {
 
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
@@ -65,7 +65,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<User> borraAnuncio(@PathVariable long id) {
+	public ResponseEntity<User> borraUser(@PathVariable long id) {
 
 		if (this.userRepository.exists(id)) {
 			this.userRepository.delete(id);

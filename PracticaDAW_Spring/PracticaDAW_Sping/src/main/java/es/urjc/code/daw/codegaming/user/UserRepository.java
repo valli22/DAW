@@ -1,6 +1,9 @@
 package es.urjc.code.daw.codegaming.user;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  * Repository to manage users in database.
@@ -12,5 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findByName(String name);
-
+	//@Query("select * from user_mentores_siguiendo,user where user_mentores_siguiendo.mentores_siguiendo_id=?1 AND user.id=user_mentores_siguiendo.user_id")
+	//List<User> findMentores(long id);
 }
