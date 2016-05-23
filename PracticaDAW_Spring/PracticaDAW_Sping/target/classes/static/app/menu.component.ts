@@ -26,30 +26,19 @@ export class MenuComponent {
         this.currentUser = this.currentUserService.getCurrentUser();
     }
     login(){
-
-       /* for(var usuario of this.usersService.getUsers()){
-            if (usuario.nombre==this.usuario && usuario.pass == this.pass){
-                this.currentUserService.setUser(usuario);
-                this.currentUser=usuario;
-                break;
-            }
-        }*/
-        /*this.currentUserService.logIn(this.usuario,this.pass);
-        this.currentUser = this.currentUserService.usuario;
-        console.log(this.currentUser);
-        this.mostrarAlert(this.currentUser != undefined);
-        if(this.currentUser!=undefined){
-            this._router.navigate(['Main']);
-        }*/
         this.currentUserService.logIn(this.usuario, this.pass).subscribe(
           user => {
-                      console.log(user);
-                      this.currentUser = user;
-                      this._router.navigate(['Main']);
-                  },
+                  this.currentUser = user;
+                  this.currentUserService.getMentores().subscribe(
+                    mentores =>{
+                        console.log(mentores);
+                    },
+                    error => console.log('Algo va mal')
+                    );
+                  this._router.navigate(['Main']);
+              },
           error => alert("Invalid user or password")
-      );
-
+        );
     }
     noMostrarAlert(){
         this.mostrarFallo=false;

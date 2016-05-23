@@ -16,7 +16,6 @@ export class ProfileComponent{
   mostrarAcierto = false;
   private usuarios:user[];
   private nusuario: user;
-  private viejaPass="";
   private nuevaPass="";
   private nuevaPassc="";
   private nombre="";
@@ -29,7 +28,7 @@ export class ProfileComponent{
   private pass="";
   private mail="";
   colapsado = true;
-
+  dataUp=false;
 
   constructor(private currentUserService:CurrentUserService, private usersService: UsersService){
   }
@@ -44,12 +43,15 @@ export class ProfileComponent{
     this.foto=this.nusuario.fotoPerfil;
     this.pass=this.nusuario.pass;
     this.mail=this.nusuario.correo;
-    this.usuarios = this.usersService.getUsers();
+    this.usersService.getUsers().subscribe(
+      usuarios=> {
+        this.usuarios=usuarios;
+        this.dataUp =true;
+      },
+      error=> console.log('Error:'+error)
+    );
   }
 
-  passCorrecto(){
-    return this.viejaPass==this.pass;
-  }
 
   passIguales(){
     return this.nuevaPass== this.nuevaPassc;
@@ -61,37 +63,39 @@ export class ProfileComponent{
 
   noCogido(){
     var cogido= true;
-    for(var userio of this.usuarios){
-      if(userio.nombre==this.nombre){
-        cogido=false;
-        break;
+    if(this.dataUp){
+      for(var userio of this.usuarios){
+        if(userio.nombre==this.nombre){
+          cogido=false;
+          break;
+        }
       }
     }
     return cogido || this.nombre==this.nusuario.nombre;
   }
   cambiarDatos(newUser:user){
-    if(this.viejaPass==this.pass){
-      if(this.nuevaPass==this.nuevaPassc){
-        if(this.nuevaPass==''){
-          this.nusuario.pass=this.pass;
-        }else{
-          this.nusuario.pass=this.nuevaPass;
-        }
-        this.nusuario.fotoPerfil=this.foto;
-        this.nusuario.nombre=this.nombre;
-        this.nusuario.descripcion=this.descripcion;
-        this.nusuario.descripcionMentor=this.descripcionMentor;
-        this.nusuario.steam=this.steam;
-        this.nusuario.bnet=this.bnet;
-        this.nusuario.fechaNacimiento=this.fecha;
-        this.nusuario.correo=this.mail;
-        this.mostrarAlert(true);
-      }else{
-        this.mostrarAlert(false);
+    if(this.nuevaPass==this.nuevaPassc){
+      if(this.nuevaPass!=''){
+        this.nusuario.pass=this.nuevaPass;
       }
+      this.nusuario.fotoPerfil=this.foto;
+      this.nusuario.nombre=this.nombre;
+      this.nusuario.descripcion=this.descripcion;
+      this.nusuario.descripcionMentor=this.descripcionMentor;
+      this.nusuario.steam=this.steam;
+      this.nusuario.bnet=this.bnet;
+      this.nusuario.fechaNacimiento=this.fecha;
+      this.nusuario.correo=this.mail;
+      this.usersService.updateUser(this.nusuario).subscribe(
+          user=> {
+            this.nusuario=user;
+            this.currentUserService.setUser(user);
+          },
+          error=> console.error('Error update: '+error)
+      );
+      this.mostrarAlert(true);
     }else{
       this.mostrarAlert(false);
-
     }
   }
   noMostrarAlert(){

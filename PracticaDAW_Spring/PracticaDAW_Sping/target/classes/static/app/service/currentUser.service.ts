@@ -75,6 +75,14 @@ export class CurrentUserService{
   	getCurrentUser(){
     	return this.usuario;
   	}
+  	getMentores(){
+  		return this.http.get('users/mentores/'+this.usuario.id).map(
+  			response => {
+  				let mentores = response.json();
+  				return mentores;
+  			}
+  		);
+  	}
 }
 function utf8_to_b64(str) {
     return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {

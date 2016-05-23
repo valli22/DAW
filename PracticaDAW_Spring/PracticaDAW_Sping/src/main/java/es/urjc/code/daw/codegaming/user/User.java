@@ -79,11 +79,14 @@ public class User {
 	
 	
 	@JsonView(Basico.class)
-	private String name;
+	private String nombre;
 
-	@JsonIgnore
-	private String passwordHash;
-
+	//@JsonIgnore
+	private String pass;
+	
+	@JsonView(Basico.class)
+	private String fotoPerfil;
+	
 	@ElementCollection(fetch = FetchType.EAGER)
 	@JsonView(Basico.class)
 	private List<String> roles;
@@ -91,37 +94,41 @@ public class User {
 	@OneToMany
 	private List<Recomendacion> recomendaciones;
 	
+	
+	
 	public User() {
 	}
 
-	public User(String name, String password, String correo, String fechaNacimiento, String steam, String btnet, String descripcion, String descripcionMentor, String... roles) {
-		this.name = name;
-		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+	public User(String name, String pass, String correo, String fechaNacimiento, String steam, String bnet, String descripcion, String descripcionMentor, String... roles) {
+		this.nombre = name;
+		this.pass = new BCryptPasswordEncoder().encode(pass);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 		this.correo = correo;
 		this.fechaNacimiento = fechaNacimiento;
 		this.steam = steam;
-		this.bnet = btnet;
+		this.bnet = bnet;
 		this.descripcion = descripcion;
 		this.descripcionMentor = descripcionMentor;
 		this.mentoresSiguiendo = new ArrayList<>();
 		this.seguidores = 0;
+		this.recomendaciones = new ArrayList<>();
+		this.fotoPerfil="";
 	}
 
-	public String getName() {
-		return name;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNombre(String name) {
+		this.nombre = name;
 	}
 
-	public String getPasswordHash() {
-		return passwordHash;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	public List<String> getRoles() {
@@ -204,7 +211,18 @@ public class User {
 		this.mentoresSiguiendo = mentoresSiguiendo;
 	}
 	public void addMentor(User usuario){
+		usuario.seguidores += 1;
 		this.mentoresSiguiendo.add(usuario);
+	}
+	public void dejarSeguir(User usuario){
+		usuario.seguidores-= 1;
+		this.mentoresSiguiendo.remove(usuario);
+	}
+	public void setFotoPerfil(String fotoPerfil){
+		this.fotoPerfil=fotoPerfil;
+	}
+	public String getFotoPerfil(){
+		return this.fotoPerfil;
 	}
 
 }
