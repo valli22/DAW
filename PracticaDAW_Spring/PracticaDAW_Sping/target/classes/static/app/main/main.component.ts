@@ -35,7 +35,6 @@ export class MainComponent{
     			},
     	error => console.log(error)
     );
-    console.log(this.juegos);
     this.ofertas = this.ofertasService.getOfertas();
   }
 

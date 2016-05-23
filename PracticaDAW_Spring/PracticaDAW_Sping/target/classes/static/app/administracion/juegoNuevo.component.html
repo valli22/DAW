@@ -64,7 +64,7 @@
             </form>
           </div>
           <div *ngFor="#tag of tags; #i = index">
-            <span>{{tag}}</span>
+            <span>{{tag.nombre}}</span>
             <button type="button" class="btn btn-default" (click)="eliminarTag(i)">Eliminar tag</button>
           </div>
         </div>
@@ -74,11 +74,11 @@
           <div *ngIf="anadirPlataforma">
             <form>
                 <input type="text" placeholder="Introduzca plataforma" #plataforma>
-                <button type="button" class="btn btn-default" (click)="anadirPlataformaMethod(plataforma.value)">Añadir tag</button>
+                <button type="button" class="btn btn-default" (click)="anadirPlataformaMethod(plataforma.value)">Añadir plataforma</button>
             </form>
           </div>
           <div *ngFor="#plataforma of plataforma; #i = index">
-            <span>{{plataforma}}</span>
+            <span>{{plataforma.nombre}}</span>
             <button type="button" class="btn btn-default" (click)="eliminarPlataforma(i)">Eliminar plataforma</button>
           </div>
         </div>
