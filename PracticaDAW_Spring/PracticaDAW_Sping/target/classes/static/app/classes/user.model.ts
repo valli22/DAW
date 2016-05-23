@@ -1,5 +1,6 @@
 import {Recomendacion} from "./recomendacion.model";
 export class user{
+  id:number;
   fotoPerfil:string;
   nombre: string;
   correo:string;
@@ -14,6 +15,7 @@ export class user{
   mentoresSiguiendo: user[] = [];
   recomendacionesMeGusta: Recomendacion[] = [];
   roles:string[];
+
 
 
   constructor(fotoPrefilc:string, nombrec: string, correoc:string, passc:string, fechaNacimientoc:string,
@@ -31,6 +33,7 @@ export class user{
       this.descripcion=descripcionc;
       this.descripcionMentor=descripcionMentorc;
       this.seguidores = 0;
+      this.roles=['ROLE_USER'];
     }
 
     addSeguidor(){

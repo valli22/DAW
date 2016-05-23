@@ -56,7 +56,6 @@ public class UserController {
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public User nuevoUser(@RequestBody User usuario) {
-
 		this.userRepository.save(usuario);
 
 		return usuario;
@@ -68,9 +67,9 @@ public class UserController {
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
 
-			usuario.getMentoresSiguiendo().add(usuarioNuevo);
+			usuario.addMentor(usuarioNuevo);
 			this.userRepository.save(usuario);
-
+			this.userRepository.save(usuarioNuevo);
 			return new ResponseEntity<>(usuario, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -82,7 +81,7 @@ public class UserController {
 
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
-
+			usuarioNuevo.setPass(usuario.getPass());
 			usuarioNuevo.setId(id);
 			this.userRepository.save(usuarioNuevo);
 
@@ -114,8 +113,9 @@ public class UserController {
 				}
 			}
 			if(mentorB!=null){
-				usuario.getMentoresSiguiendo().remove(mentorB);
+				usuario.dejarSeguir(mentorB);
 				this.userRepository.save(usuario);
+				this.userRepository.save(mentorB);
 				return new ResponseEntity<>(null, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);

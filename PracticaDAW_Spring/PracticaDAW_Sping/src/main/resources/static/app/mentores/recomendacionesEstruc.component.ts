@@ -27,7 +27,10 @@ export class Recomendaciones{
   constructor(private juegosService: JuegosService, private curUserSer: CurrentUserService){}
 
   ngOnInit(){
-    this.juegos = this.juegosService.getJuegos();
+    this.juegosService.getJuegos().subscribe(
+       response=> this.juegos = response,
+       error=> console.error('Error: '+error)
+      );
     this.curUs = this.curUserSer.getCurrentUser();
     this.recomendaciones = this.curUs.recomendaciones;
   }

@@ -4,12 +4,12 @@
 	    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 	        <a [routerLink]="['JuegoNuevo']"><h5>Añadir nuevo juego</h5></a>
 	        <ul class="list-group">
-	            <juegoAdmin *ngFor="#juego of juegos" [juego]="juego"></juegoAdmin>
+	            <juegoAdmin *ngFor="#juego of juegos" [juego]="juego" (remove)="removeJuego(juego)"></juegoAdmin>
 	        </ul>
 	    </div>
     </div>
     <!-- ofertas -->
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <div *ngIf="dataUpdateOfertas" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <a [routerLink]="['OfertaNueva']"><h5>Añadir nueva oferta</h5></a>
         <ul class="list-group">
             <ofertaAdmin *ngFor="#oferta of ofertas" [oferta]="oferta"></ofertaAdmin>

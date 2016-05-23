@@ -45,12 +45,24 @@ public class JuegoController {
 	}
 	
 	@RequestMapping(value = "/deleteJuego/{nombre}", method = RequestMethod.DELETE)
-	public ResponseEntity<Juego> borraAnuncio(@PathVariable String nombre) {
+	public ResponseEntity<Juego> borrarJuego(@PathVariable String nombre) {
 
 		if (rep.findByNombre(nombre)!=null) {
 			rep.delete(rep.findByNombre(nombre));
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/actualizarJuego/{nombre}", method = RequestMethod.PUT)
+	public ResponseEntity<Juego> actualizaJuego(@PathVariable String nombre, @RequestBody Juego juego){
+		if(rep.findByNombre(nombre)!=null){
+			Juego j = rep.findByNombre(nombre);
+			juego.setId(j.getId());
+			rep.save(juego);
+			return new ResponseEntity<>(juego, HttpStatus.OK);
+		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
