@@ -45,7 +45,7 @@ public class JuegoController {
 	}
 	
 	@RequestMapping(value = "/deleteJuego/{nombre}", method = RequestMethod.DELETE)
-	public ResponseEntity<Juego> borraAnuncio(@PathVariable String nombre) {
+	public ResponseEntity<Juego> borrarJuego(@PathVariable String nombre) {
 
 		if (rep.findByNombre(nombre)!=null) {
 			rep.delete(rep.findByNombre(nombre));

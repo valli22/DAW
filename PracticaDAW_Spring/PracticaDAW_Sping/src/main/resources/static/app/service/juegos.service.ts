@@ -58,7 +58,7 @@ export class JuegosService{
   }
   
   deleteJuego(nombre: string){
-  	return this.http.delete(BASE_URL+'/deleteJuego/'+nombre)
+  	return this.http.delete('deleteJuego/'+nombre)
   		.map(response => response.json())
   		.catch(error => this.handleError(error));
   }

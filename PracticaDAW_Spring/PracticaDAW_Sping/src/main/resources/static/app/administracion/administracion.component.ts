@@ -22,7 +22,7 @@ export class AdministracionComponent{
   constructor(private juegosService : JuegosService, private ofertasService : OfertasService){}
 
   ngOnInit(){
-      this.juegos = this.juegosService.getJuegos().subscribe(
+      this.juegosService.getJuegos().subscribe(
     	juegos => {
     				this.juegos = juegos;
     				this.dataUp = true;
@@ -30,6 +30,23 @@ export class AdministracionComponent{
     	error => console.log(error)
       );
       this.ofertas = this.ofertasService.getOfertas();
+  }
+  
+  private refresh(){
+  	this.juegosService.getJuegos().subscribe(
+    	juegos => {
+    				this.juegos = juegos;
+    				this.dataUp = true;
+    			},
+    	error => console.log(error)
+      );
+  }
+  
+  removeJuego(juego : Juego){
+      this.juegosService.deleteJuego(juego.nombre).subscribe(
+	        result => this.refresh(),
+	        error => this.refresh()
+	    );
   }
 
 
