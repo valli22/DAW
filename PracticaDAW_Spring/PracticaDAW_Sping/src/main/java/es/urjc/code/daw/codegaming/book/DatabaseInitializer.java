@@ -17,8 +17,8 @@ public class DatabaseInitializer implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		User usuario1 = new User("user", "pass", "prueba@gmail.com", "19-05-1995","drope","drope", "descr", "descrp mentor" ,"ROLE_USER");
-		User usuario2 = new User("admin", "pass","prueba@gmail.com", "19-05-1995","drope","drope", "descr", "descrp mentor", "ROLE_USER", "ROLE_ADMIN");
+		User usuario1 = new User("user", "pass", "prueba@gmail.com", "1995-05-19","drope","drope", "descr", "descrp mentor" ,"ROLE_USER");
+		User usuario2 = new User("admin", "pass","prueba@gmail.com", "1995-05-19","drope","drope", "descr", "descrp mentor", "ROLE_USER", "ROLE_ADMIN");
 		usuario1.addMentor(usuario2);
 		usuario2.addMentor(usuario1);
 		// Sample users

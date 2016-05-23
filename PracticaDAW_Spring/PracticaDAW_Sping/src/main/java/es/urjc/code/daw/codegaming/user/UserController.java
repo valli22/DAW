@@ -39,6 +39,19 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	@RequestMapping(value = "/users/mentores/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<User>> getMentores(@PathVariable long id) {
+
+//		log.info("Get book {}", id);
+
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+			List<User> mentores = usuario.getMentoresSiguiendo();
+			return new ResponseEntity<>(mentores, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
