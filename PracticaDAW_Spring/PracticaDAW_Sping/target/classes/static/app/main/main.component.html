@@ -5,42 +5,44 @@
           <h1>DESCUBRE LO MAS VENDIDO DE ESTA SEMANA!:</h1>
       </div>
       <hr>
-      <div class="row links">
-          <juego1main [posicion]='1' [juego]='juegos[0]'></juego1main>
-      </div>
-      <hr>
-      <!-- division para nivel dos de catalogo (2º y 3º) -->
-      <div class="row links">
-          <!-- juego numero 2 mas vendidos-->
-              <juego4main [posicion]='2' [juego]='juegos[1]'></juego4main>
-          <!-- juego numero 3 mas vendidos -->
-              <juego4main [posicion]='3' [juego]='juegos[2]'></juego4main>
-      </div>
-      <br>
-      <div class="row links">
-          <!-- Division para nivel 3 en lista para que ayuda a la hora de meter objetos desde una base de datos -->
-          <ul class="list-group listjuegos">
-              <!-- division para nivel tres de catalogo (4º)-->
-              <juego2main [posicion]='4' [juego]='juegos[3]'></juego2main>
-              <!-- division para nivel tres de catalogo (5º)-->
-              <juego2main [posicion]='5' [juego]='juegos[4]'></juego2main>
-              <!-- division para nivel tres de catalogo (6º) -->
-              <juego2main [posicion]='6' [juego]='juegos[5]'></juego2main>
-          </ul>
-      </div>
-      <br>
-      <div class="row links">
-          <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
-          <ul class="list-group listjuegos lisjuegosinf">
-              <juego3main [juego]="juegos[6]" [posicion]="7"></juego3main>
-              <juego3main [juego]="juegos[7]" [posicion]="8"></juego3main>
-              <juego3main [juego]="juegos[8]" [posicion]="9"></juego3main>
-              <juego3main [juego]="juegos[9]" [posicion]="10"></juego3main>
-          </ul>
-      </div>
+      <div *ngIf="dataUp">
+	      <div class="row links">
+	          <juego1main [posicion]='1' [juego]='juegos[0]'></juego1main>
+	      </div>
+	      <hr>
+	      <!-- division para nivel dos de catalogo (2º y 3º) -->
+	      <div class="row links">
+	          <!-- juego numero 2 mas vendidos-->
+	              <juego4main [posicion]='2' [juego]='juegos[1]'></juego4main>
+	          <!-- juego numero 3 mas vendidos -->
+	              <juego4main [posicion]='3' [juego]='juegos[2]'></juego4main>
+	      </div>
+	      <br>
+	      <div class="row links">
+	          <!-- Division para nivel 3 en lista para que ayuda a la hora de meter objetos desde una base de datos -->
+	          <ul class="list-group listjuegos">
+	              <!-- division para nivel tres de catalogo (4º)-->
+	              <juego2main [posicion]='4' [juego]='juegos[3]'></juego2main>
+	              <!-- division para nivel tres de catalogo (5º)-->
+	              <juego2main [posicion]='5' [juego]='juegos[4]'></juego2main>
+	              <!-- division para nivel tres de catalogo (6º) -->
+	              <juego2main [posicion]='6' [juego]='juegos[5]'></juego2main>
+	          </ul>
+	      </div>
+	      <br>
+	      <div class="row links">
+	          <!-- lista de nivel 4 que ayudara para incluir objetos desde base de datos -->
+	          <ul class="list-group listjuegos lisjuegosinf">
+	              <juego3main [juego]="juegos[6]" [posicion]="7"></juego3main>
+	              <juego3main [juego]="juegos[7]" [posicion]="8"></juego3main>
+	              <juego3main [juego]="juegos[8]" [posicion]="9"></juego3main>
+	              <juego3main [juego]="juegos[9]" [posicion]="10"></juego3main>
+	          </ul>
+	      </div>
+	  </div>
   </div>
   <!-- Ofertas 1er juego -->
-  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 columna">
+  <div *ngIf="dataUpOfertas" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 columna">
       <div class="row">
           <h1>DESCUBRE NUESTRAS OFERTAS DE ESTA SEMANA!:</h1>
       </div>

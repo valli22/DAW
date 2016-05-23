@@ -33,8 +33,10 @@
                    </div>
                </form>
            </div>
-           <div class="row text-center links" *ngFor="#juegosEsc of juegos">
-               <div  class="list-group">
-                   <juegoCatalogo *ngFor="#juego of juegosEsc" [juego]="juego"></juegoCatalogo>
-               </div>
+           <div *ngIf="dataUp">
+	           <div class="row text-center links" *ngFor="#juegosEsc of juegos">
+	               <div  class="list-group">
+	                   <juegoCatalogo *ngFor="#juego of juegosEsc" [juego]="juego"></juegoCatalogo>
+	               </div>
+	           </div>
            </div>

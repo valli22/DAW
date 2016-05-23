@@ -15,10 +15,21 @@ import {CarritoService} from '../service/carrito.service.ts';
 export class EsquemaJuegoComponent {
 
   private juego : Juego;
+  private nombre : string;
+  private dataUp = false;
 
-  constructor(private _router:Router, routeParams:RouteParams, service: JuegosService, private carritoService : CarritoService){
-      let nombre = routeParams.get('nombre');
-      this.juego = service.getJuego(nombre);
+  constructor(private _router:Router, routeParams:RouteParams, private service: JuegosService, private carritoService : CarritoService){
+      this.nombre = routeParams.get('nombre');   
+  }
+  
+  ngOnInit(){
+  	this.juego = this.service.getJuego(this.nombre).subscribe(
+    	juego => {
+    				this.juego = juego;
+    				this.dataUp = true;
+    			},
+    	error => console.log(error)
+    );
   }
 
   comprarJuego(){

@@ -23,12 +23,25 @@ export class MainComponent{
 
   private juegos : Juego[];
   private ofertas : Oferta[];
-
+  private dataUpOfertas = false;
+  private dataUp = false;
   constructor(private juegosService : JuegosService, private ofertasService : OfertasService) {}
 
   ngOnInit(){
-    this.juegos = this.juegosService.getJuegos();
-    this.ofertas = this.ofertasService.getOfertas();
+    this.ofertas = this.ofertasService.getOfertas().subscribe(
+    	ofertas=> {
+    		 	this.ofertas= ofertas;
+    		 	this.dataUpOfertas=true;
+    		 },
+    	error=> console.log(error)
+    	);
+    this.juegos = this.juegosService.getJuegos().subscribe(
+    	juegos => {
+    				this.juegos = juegos;
+    				this.dataUp = true;
+    			},
+    	error => console.log(error)
+    );
   }
 
 }

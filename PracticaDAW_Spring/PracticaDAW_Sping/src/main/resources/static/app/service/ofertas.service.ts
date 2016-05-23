@@ -1,6 +1,10 @@
 import {Injectable} from 'angular2/core';
 import {Juego} from '../classes/juego.model.ts';
 import {Oferta} from '../classes/oferta.model.ts'
+import { Http, RequestOptions, Headers } from 'angular2/http';
+import 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
+
 
 @Injectable()
 export class OfertasService{
@@ -17,19 +21,33 @@ export class OfertasService{
     new Oferta('Ubisoft regala juego','En esta oferta podras obtener el ultimo juego de la saga Assesins Creed de ubisoft. Disfruta de la etapa medieval-moderna en francia gracias a este fantastico juego.','../img/unity.jpg',[new Juego("../img/unity.jpg","Assasin's Creed Unity","Presentamos Assassins Creed Unity, la evolucion para la nueva generacion de la serie de juegos superventas, ahora con la potencia del renovado motor grafico Anvil. Revive a Revolucion Francesa como nunca ants lo habias hecho, desde el asalto y toma de la Bastilla hasta la ejecucion del rey Luis XVI, y ayuda al pueblo frances a forjar su nuevo destino.",6,59.95,["Historia"],["PC","PS4","XBOX ONE"])],60,59.95,23.98),
     new Oferta('Minecraft','Disfruta de miles de horas de juego, supervivencia, crafteos, construccion, lucha... y un largo numero de caracteristicas que hacen a este juego uno de los inolvidables de esta epoca.','../img/minecraft.jpg',[new Juego("../img/minecraft.jpg","Minecraft","Minecraft es un juego en mundo abierto, basado en los graficos pixelados. En este mundo intentaras sobrevivir empezando sin nada y consiguiendo items a partir del entorno que te rodea gracias a la mecanica de crafteos.",7.9,20,["Mundo abierto","Crafteos","Survival"],["PC","PS4"])],5,20,19)
   ];
-
+	constructor(private http:Http){ }
   getOfertas(){
-    return this.ofertas;
+    //return this.ofertas;
+    return this.http.get('AllOfertas')
+      .map(response => return response.json())
+      .catch(error => this.handleError(error));
   }
 
   addOferta(oferta : Oferta){
-    this.ofertas.push(oferta);
-    }
+    let body = JSON.stringify(oferta);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.post('addOferta', body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));    }
 
     getOferta(nombre : string){
       for (let i = 0; i < this.ofertas.length; i++) {
           if(this.ofertas[i].nombre==nombre){return this.ofertas[i]};
       }
     }
-
+    private handleError(error:any){
+    	console.error(error);
+    	return Observable.throw("Server error (" + error.status + "): " + error.text())
+	}
 }

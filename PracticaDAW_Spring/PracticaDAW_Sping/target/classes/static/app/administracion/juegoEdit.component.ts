@@ -15,13 +15,26 @@ export class JuegoEditComponent{
   private juego : Juego;
   private juegoCopia : Juego;
   private anadir = false;
+  private nombre : string;
+  private dataUp = false;
 
   private colapsado = true;
 
-  constructor(private _router:Router, routeParams:RouteParams, service: JuegosService){
-      let nombre = routeParams.get('nombre');
-      this.juego = service.getJuego(nombre);
-      this.juegoCopia = this.juego;
+  constructor(private _router:Router, routeParams:RouteParams, private service: JuegosService){
+      this.nombre = routeParams.get('nombre');
+  }
+
+  ngOnInit(){
+  
+  this.service.getJuego(this.nombre).subscribe(
+    	juego => {
+    				this.juego = juego;
+    				this.juegoCopia = this.juego;
+    				this.dataUp = true;
+    			},
+    	error => console.log(error)
+    );
+  
   }
 
   cambiarFoto(){
@@ -49,7 +62,9 @@ export class JuegoEditComponent{
   }
 
   guardar(){
-    this.juego=this.juegoCopia;
-    this._router.navigate(['Admin']);
+    this.service.updateJuego(this.juegoCopia).subscribe(
+    	result => this._router.navigate(['Admin']),
+    	error => console.log(error)
+    );
   }
 }

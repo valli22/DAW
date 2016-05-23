@@ -65,7 +65,10 @@ export class OfertaNuevaComponent {
   }
 
   guardar(){
-      this.ofertasService.addOferta(new Oferta(this.nombre,this.descripcion,this.imagen,this.juegosOferta,this.descuento,this.precioInicial,this.precio));
+      this.ofertasService.addOferta(new Oferta(this.nombre,this.descripcion,this.imagen,this.juegosOferta,this.descuento,this.precioInicial,this.precio)).subscribe(
+      	response=> console.log('funciona');
+      	error=>console.log(error);
+      ;
       this._router.navigate(['Admin']);
   }
 }

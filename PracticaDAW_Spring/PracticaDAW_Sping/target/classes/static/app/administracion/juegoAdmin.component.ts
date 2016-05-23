@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Juego} from '../classes/juego.model.ts';
 import {JuegosService} from '../service/juegos.service.ts';
@@ -13,13 +13,14 @@ export class JuegoAdminComponent {
 
   @Input()
   private juego: Juego;
+	
+  @Output()
+  private remove = new EventEmitter<Juego>();
 
   constructor(private juegosService : JuegosService){}
 
   eliminarJuego(){
-      var juegosAux = this.juegosService.getJuegos();
-      var index = juegosAux.indexOf(this.juego);
-      this.juegosService.getJuegos().splice(index,1);
+      this.remove.next(this.juego);
   }
 
 }
