@@ -49,12 +49,12 @@ export class JuegosService{
   }
 
   getJuego(nombre : string){
-  	/*return this.http.get(BASE_URL+'/getJuego/'+nombre)
+  	return this.http.get('getJuego/'+nombre)
   		.map(response => response.json())
-  		.catch(error => this.handleError(error));*/
-    for (let i = 0; i < this.juegos.length; i++) {
+  		.catch(error => this.handleError(error));
+    /*for (let i = 0; i < this.juegos.length; i++) {
         if(this.juegos[i].nombre==nombre){return this.juegos[i]};
-    }
+    }*/
   }
   
   deleteJuego(nombre: string){

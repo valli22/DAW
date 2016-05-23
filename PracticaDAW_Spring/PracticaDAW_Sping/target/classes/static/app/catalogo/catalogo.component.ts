@@ -16,6 +16,7 @@ export class CatalogoComponent{
   private plataforma:string="";
   private categoria:string="Cualquiera";
   private juegosE:Juego[];
+  private dataUp = false;
   constructor(private juegosService:JuegosService,private _router:Router, routeParams:RouteParams){
     this.plataforma=routeParams.get('plataforma');
   }
@@ -24,12 +25,19 @@ export class CatalogoComponent{
     var plataf:boolean;
     var gamesInit:Juego[]=[];
     if(this.plataforma=='Cualquiera'){
-      this.juegosE= this.juegosService.getJuegos();
+      this.juegosE= this.juegosService.getJuegos().subscribe(
+    	juegos => {
+    				this.juegosE = juegos;
+    				console.log(this.juegosE);
+    				this.dataUp = true;
+    			},
+    	error => console.log(error)
+    );;
 
     }else{
       for (var game of this.juegosService.getJuegos()){
         plataf=false;
-        for (var consola of game.plataforma){
+        for (var consola of game.plataforma.nombre){
           if(consola==this.plataforma){
             plataf=true;
           }
