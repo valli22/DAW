@@ -20,16 +20,22 @@ export class Mentor1{
 
   ngOnInit(){
     this.curUs = this.curUsService.getCurrentUser();
-    var mentores = this.curUs.mentoresSiguiendo;
-    if (this.curUs == this.mentor){
-      this.follow = true;
-      this.us = true;
-    }
-    var i = 0;
-    while (!this.follow && i < mentores.length){
-      this.follow = mentores[i] == this.mentor;
-      i++;
-    }
+    this.curUsService.getMentores().subscribe(
+      response=> {
+        var mentores = response;
+        if (this.curUs == this.mentor){
+          this.follow = true;
+          this.us = true;
+        }
+        var i = 0;
+        while (!this.follow && i < mentores.length){
+          this.follow = mentores[i] == this.mentor;
+          i++;
+        }
+      },
+      error=> console.log('Error: '+error)
+    );
+    
   }
 
   seguirMentor(){
