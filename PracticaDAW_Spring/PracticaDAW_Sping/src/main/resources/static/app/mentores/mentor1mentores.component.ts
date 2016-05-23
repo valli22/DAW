@@ -26,9 +26,11 @@ export class Mentor1{
       this.us = true;
     }
     var i = 0;
-    while (!this.follow && i < mentores.length){
-      this.follow = mentores[i] == this.mentor;
-      i++;
+    if(mentores){
+	    while (!this.follow && i < mentores.length){
+	      this.follow = mentores[i] == this.mentor;
+	      i++;
+	    }
     }
   }
 

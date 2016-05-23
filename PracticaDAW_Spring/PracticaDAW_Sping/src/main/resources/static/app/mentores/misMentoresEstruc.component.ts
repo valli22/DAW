@@ -20,12 +20,14 @@ export class MisMentores{
   ngOnInit(){
     this.curUs = this.userService.getCurrentUser();
     this.mentores = this.curUs.mentoresSiguiendo;
-    for(var i = 0; i < this.mentores.length; i++){
-      if (this.mentores[i].recomendaciones != undefined){
-        for (var j = 0; j < this.mentores[i].recomendaciones.length; j++){
-          this.recomendaciones.push(this.mentores[i].recomendaciones[j]);
-        }
-      }
+    if(this.mentores){
+	    for(var i = 0; i < this.mentores.length; i++){
+	      if (this.mentores[i].recomendaciones != undefined){
+	        for (var j = 0; j < this.mentores[i].recomendaciones.length; j++){
+	          this.recomendaciones.push(this.mentores[i].recomendaciones[j]);
+	        }
+	      }
+	    }
     }
   }
   refreshRecomendaciones(refrescar:boolean){
