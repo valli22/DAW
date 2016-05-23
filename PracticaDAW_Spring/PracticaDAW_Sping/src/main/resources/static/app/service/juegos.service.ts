@@ -4,8 +4,6 @@ import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-const BASE_URL = 'https://127.0.0.1:8443';
-
 @Injectable()
 export class JuegosService{
 
@@ -27,26 +25,27 @@ export class JuegosService{
     new Juego("../img/forza.jpg","Forza Motorsport 6", "Forza Motorsport 6 es la accion incesante a velocidad de simulacion en el juego de carreras mas hermoso y completo de esta generacion. Colecciona, personaliza y pilota mas de 450 coches ForzaVista con cabinas funcionales y daños realisas. Compite en carreras epicas para 24 jugadores en 26 emplazamientos de fama mundial.",7.5,69.99,["Deportes","Coches","Realista"],["XBOX ONE"])
   ];
   
-  //constructor(private http: Http){}
+  constructor(private http: Http){}
 
   getJuegos(){
-  	/*return this.http.get(BASE_URL + '/allJuegos')
-  	.map(response => response.json())
-  	.catch(error => this.handleError(error));*/
-    return this.juegos;
+  	return this.http.get('allJuegos').map(
+  			response => return response.json()).catch(
+  			error => this.handleError(error));
+    //return this.juegos;
   }
 
   addJuego(juego : Juego){
-  	/*let body = JSON.stringify(juego);
+  	let body = JSON.stringify(juego);
   	let headers = new Headers({
-  		'Content-type': 'application/json'
+  		'Content-type': 'application/json',
+  		'X-Requested-With': 'XMLHttpRequest'
   	});
   	let options = new RequestOptions({ headers });
   	
-  	return this.http.post(BASE_ULR+'/addJuego', body, options)
+  	return this.http.post('addJuego', body, options)
   		.map(response => response.json())
-  		.catch(error => this.handleError(error));*/
-    this.juegos.push(juego);
+  		.catch(error => this.handleError(error));
+    //this.juegos.push(juego);
   }
 
   getJuego(nombre : string){

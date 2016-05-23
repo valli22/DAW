@@ -29,8 +29,11 @@ public class JuegoController {
 	@RequestMapping(value = "/getJuego/{nombre}", method = RequestMethod.GET)
 	public ResponseEntity<Juego> getJuego(@PathVariable String nombre){
 		Juego juego = rep.findByNombre(nombre);
-		return new ResponseEntity<>(juego, HttpStatus.OK);
-		//return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		if(juego!=null){
+			return new ResponseEntity<>(juego, HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 		
 	}
 	

@@ -62,7 +62,10 @@ export class JuegoNuevoComponent {
 
   //introducir en array de service
   guardar(){
-      this.juegosService.addJuego(new Juego(this.imagen,this.nombre,this.descripcion,this.precio,this.valoracion,this.tags,this.plataforma));
+      this.juegosService.addJuego(new Juego(this.imagen,this.nombre,this.descripcion,this.precio,this.valoracion,this.tags,this.plataforma)).subscribe(
+      	juegoNuevo => console.log("Juego añadido con exito"),
+      	error => console.log(error)
+      );
   }
 
 }
