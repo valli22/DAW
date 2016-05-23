@@ -14,24 +14,33 @@ import {OfertasService} from '../service/ofertas.service.ts';
 export class OfertasComponent{
 
   private ofertas : Oferta[][] = [];
+  private dataUpdate = false;
 
   constructor(private ofertasService : OfertasService){}
 
   ngOnInit(){
-     var ofertasE = this.ofertasService.getOfertas();
-     var i = 0;
-     var j = 0;
-     var ofertillas = [];
-     for(var oferta of ofertasE){
-       ofertillas.push(oferta);
-       j++;
-       if(j==2 || ((i*2)+j)==ofertasE.length ){
-         this.ofertas.push(ofertillas);
-         ofertillas=[];
-         i++;
-         j=0;
-       }
-     }
+     var ofertasE:Oferta[];
+     this.ofertasService.getOfertas().subscribe(
+     		ofertas=> {
+     			ofertasE=ofertas;
+     			this.dataUpdate=true;
+     			var i = 0;
+			    var j = 0;
+			    var ofertillas = [];
+			    for(var oferta of ofertasE){
+			      ofertillas.push(oferta);
+			      j++;
+			      if(j==2 || ((i*2)+j)==ofertasE.length ){
+			        this.ofertas.push(ofertillas);
+			        ofertillas=[];
+			        i++;
+			        j=0;
+			      }
+			    }
+     		}
+     		error => console.log(error);
+     );
+     
   }
 
 }
