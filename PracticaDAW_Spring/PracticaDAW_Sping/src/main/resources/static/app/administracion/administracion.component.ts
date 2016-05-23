@@ -17,19 +17,27 @@ export class AdministracionComponent{
 
   private juegos :Juego[];
   private ofertas : Oferta[];
+  private dataUpdateOfertas = false;
   private dataUp = false;
+
 
   constructor(private juegosService : JuegosService, private ofertasService : OfertasService){}
 
   ngOnInit(){
-      this.juegosService.getJuegos().subscribe(
+      this.ofertas = this.ofertasService.getOfertas().subscribe(
+      		ofertas=>{
+      			this.ofertas=ofertas;
+      			this.dataUpdateOfertas=true;
+      			console.log(this.ofertas);
+      		}
+      		error=>console.log(error));	 	
+      this.juegos = this.juegosService.getJuegos().subscribe(
     	juegos => {
     				this.juegos = juegos;
     				this.dataUp = true;
     			},
     	error => console.log(error)
       );
-      this.ofertas = this.ofertasService.getOfertas();
   }
   
   private refresh(){
@@ -48,7 +56,4 @@ export class AdministracionComponent{
 	        error => this.refresh()
 	    );
   }
-
-
-
 }
