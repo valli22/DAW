@@ -1,6 +1,8 @@
 import {Component, Input} from 'angular2/core';
 import {ROUTER_DIRECTIVES,Router} from 'angular2/router';
 import {Juego} from '../classes/juego.model.ts';
+import {Tag} from '../classes/tag.model.ts';
+import {Plataforma} from '../classes/plataforma.model.ts';
 import {JuegosService} from '../service/juegos.service.ts';
 
 @Component ({
@@ -16,8 +18,8 @@ export class JuegoNuevoComponent {
   private descripcion : string;
   private precio : number;
   private valoracion : number;
-  private tags : string[] = [];
-  private plataforma : string[] = [];
+  private tags : Tag[] = [];
+  private plataforma : Plataforma[] = [];
 
   private colapsado= true;
 
@@ -41,11 +43,12 @@ export class JuegoNuevoComponent {
   }
 
   anadirTag(valor : string){
-    this.tags.push(valor);
+  	console.log(valor);
+    this.tags.push(new Tag(valor));
   }
 
   anadirPlataformaMethod(valor : string){
-    this.plataforma.push(valor);
+    this.plataforma.push(new Plataforma(valor));
   }
 
   eliminarTag(index : number){
@@ -62,7 +65,10 @@ export class JuegoNuevoComponent {
 
   //introducir en array de service
   guardar(){
-      this.juegosService.addJuego(new Juego(this.imagen,this.nombre,this.descripcion,this.precio,this.valoracion,this.tags,this.plataforma));
+      this.juegosService.addJuego(new Juego(this.imagen,this.nombre,this.descripcion,this.precio,this.valoracion,this.tags,this.plataforma)).subscribe(
+      	juegoNuevo => console.log("Juego añadido con exito"),
+      	error => console.log(error)
+      );
   }
 
 }

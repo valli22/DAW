@@ -16,8 +16,12 @@ export class JuegoAdminComponent {
 
   constructor(private juegosService : JuegosService){}
 
+//CAMBIAR
   eliminarJuego(){
-      var juegosAux = this.juegosService.getJuegos();
+      var juegosAux = this.service.getJuegos().subscribe(
+    	juego => console.log("Carga realizada"),
+    	error => console.log(error)
+    	);;
       var index = juegosAux.indexOf(this.juego);
       this.juegosService.getJuegos().splice(index,1);
   }
