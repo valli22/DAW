@@ -62,7 +62,9 @@ export class JuegoEditComponent{
   }
 
   guardar(){
-    this.juego=this.juegoCopia;
-    this._router.navigate(['Admin']);
+    this.service.updateJuego(this.juegoCopia).subscribe(
+    	result => this._router.navigate(['Admin']),
+    	error => console.log(error)
+    );
   }
 }

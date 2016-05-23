@@ -63,6 +63,18 @@ export class JuegosService{
   		.catch(error => this.handleError(error));
   }
   
+  updateJuego(juego : Juego){
+  
+  	let body = JSON.stringify(juego);
+  	let headers = new Headers({
+  		'Content-Type': 'application/json'
+  	});
+  	let options = new RequestOptions({ headers });
+  	
+  	return this.http.put('actualizarJuego/'+juego.nombre,body,options).map(response=>response.json()).catch(error=>this.handleError(error));
+  
+  }
+  
   handleError(error: any){
   	console.error(error);
   	return Observable.throw("Server error (" + error.status + "): " + error.text())
