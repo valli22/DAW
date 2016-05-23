@@ -11,15 +11,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.daw.codegaming.Entidades.Recomendacion;
 
 /**
  * This is the entity to store in database user information. It contains the
@@ -89,7 +88,8 @@ public class User {
 	@JsonView(Basico.class)
 	private List<String> roles;
 	
-
+	@OneToMany
+	private List<Recomendacion> recomendaciones;
 	
 	public User() {
 	}

@@ -34,7 +34,6 @@ export class MenuComponent {
                 break;
             }
         }*/
-        console.log(this.usuario,this.pass);
         /*this.currentUserService.logIn(this.usuario,this.pass);
         this.currentUser = this.currentUserService.usuario;
         console.log(this.currentUser);
@@ -43,7 +42,11 @@ export class MenuComponent {
             this._router.navigate(['Main']);
         }*/
         this.currentUserService.logIn(this.usuario, this.pass).subscribe(
-          user => console.log(user),
+          user => {
+                      console.log(user);
+                      this.currentUser = user;
+                      this._router.navigate(['Main']);
+                  },
           error => alert("Invalid user or password")
       );
 
@@ -64,13 +67,11 @@ export class MenuComponent {
         return this.currentUserService.getCurrentUser()!=undefined;
     }
     isAdmin(){
-        this.currentUser = this.currentUserService.getCurrentUser();
-
-        return this.currentActive() && this.currentUser.nombre == 'admin';
+        return this.currentUserService.isAdmin;
     }
     cerrarSesion(){
         this.currentUserService.logOut().subscribe(
-            response => {}, 
+            response => {this.currentUser}, 
             error => console.log("Error when trying to log out: "+error)
         );
         this.currentUser=undefined;

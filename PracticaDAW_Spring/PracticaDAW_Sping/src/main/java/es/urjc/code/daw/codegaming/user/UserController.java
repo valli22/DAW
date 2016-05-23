@@ -61,7 +61,22 @@ public class UserController {
 
 		return usuario;
 	}
+	
+	@RequestMapping(value = "/users/mentores/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<User> addMentor(@PathVariable long id, @RequestBody User usuarioNuevo) {
 
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+
+			usuario.getMentoresSiguiendo().add(usuarioNuevo);
+			this.userRepository.save(usuario);
+
+			return new ResponseEntity<>(usuario, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<User> actulizaUser(@PathVariable long id, @RequestBody User usuarioNuevo) {
 
@@ -83,6 +98,28 @@ public class UserController {
 		if (this.userRepository.exists(id)) {
 			this.userRepository.delete(id);
 			return new ResponseEntity<>(null, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	@RequestMapping(value = "/users/mentores/{id}/{idMentor}", method = RequestMethod.PUT)
+	public ResponseEntity<User> borraMentor(@PathVariable long id, @PathVariable long idMentor) {
+		if (this.userRepository.exists(id)) {
+			User usuario = this.userRepository.findOne(id);
+			User mentorB = null;
+			for(User mentor : usuario.getMentoresSiguiendo()){
+				if(mentor.getId().equals(idMentor)){
+					mentorB = mentor;
+					break;
+				}
+			}
+			if(mentorB!=null){
+				usuario.getMentoresSiguiendo().remove(mentorB);
+				this.userRepository.save(usuario);
+				return new ResponseEntity<>(null, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
