@@ -41,13 +41,13 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider {
 		String username = authentication.getName();
 		String password = (String) authentication.getCredentials();
 
-		User user = userRepository.findByName(username);
+		User user = userRepository.findByNombre(username);
 
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}
 
-		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
+		if (!new BCryptPasswordEncoder().matches(password, user.getPass())) {
 
 			throw new BadCredentialsException("Wrong password");
 		} else {

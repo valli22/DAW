@@ -58,6 +58,20 @@ export class AdministracionComponent{
  	    );
    }
 
-
-
+  private refresh(){
+  	this.juegosService.getJuegos().subscribe(
+    	juegos => {
+    				this.juegos = juegos;
+    				this.dataUp = true;
+    			},
+    	error => console.log(error)
+      );
+  }
+  
+  removeJuego(juego : Juego){
+      this.juegosService.deleteJuego(juego.nombre).subscribe(
+	        result => this.refresh(),
+	        error => this.refresh()
+	    );
+  }
 }

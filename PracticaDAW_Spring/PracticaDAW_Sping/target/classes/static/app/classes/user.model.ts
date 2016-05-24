@@ -1,5 +1,6 @@
 import {Recomendacion} from "./recomendacion.model";
 export class user{
+  id:number;
   fotoPerfil:string;
   nombre: string;
   correo:string;
@@ -31,12 +32,17 @@ export class user{
       this.descripcion=descripcionc;
       this.descripcionMentor=descripcionMentorc;
       this.seguidores = 0;
+      this.roles=['ROLE_USER'];
     }
 
     addSeguidor(){
       this.seguidores++;
     }
-
+	
+	hola(){
+	console.log("hola");
+	}
+	
     addRecomendacion(r: Recomendacion){
       this.recomendaciones.push(r);
     }

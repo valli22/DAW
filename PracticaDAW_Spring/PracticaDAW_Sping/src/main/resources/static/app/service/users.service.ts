@@ -1,11 +1,15 @@
 import {Injectable} from 'angular2/core';
 import {user} from '../classes/user.model.ts';
+import { Http, RequestOptions, Headers } from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 @Injectable()
 export class UsersService{
-  private usuarios = [
+
+  private usuarios:user[];
       // fotoPerfil - nombre- correo-pass-fechaNacimiento -steam-bnet-descripcion-descripcionMentor--
-      new user('../../img/perfil.png','miguel','miguel@gmail.com','1234','1995-02-06','miguelr95','roldan','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
+      /*new user('../../img/perfil.png','miguel','miguel@gmail.com','1234','1995-02-06','miguelr95','roldan','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
       new user('../../img/perfil.png','valli','valli@gmail.com','1234','1995-06-18','valli22','valli22','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
       new user('../../img/perfil.png','pedro','pedro@gmail.com','1234','1995-01-05','dropelega','dropelega','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
       new user('../../img/perfil.png','diego','diego@gmail.com','1234','1995-12-05','zigic','zigic','Gamer con ganas de jugar y aprender','Te enseñare todo lo que se de videojuegos'),
@@ -35,19 +39,51 @@ export class UsersService{
       new user('../../img/perfil.png','Paco','paco@gmail.com','1234','1995-11','paco','pacopaquito','Gamer con ganas de jugar y aprender', 'Los mejores mmorpg del mercado los puedes encontrar aqui'),
       new user('../../img/perfil.png','Raul','raul@gmail.com','1234','1995-10','raul','raulDeFutbol','Gamer con ganas de jugar y aprender', 'Me encantan los juegos tipo roguelike, a ti no?'),
       new user('../../img/perfil.png','Daniel','daniel@gmail.com','1234','1995-9','dani','daniYeah','Gamer con ganas de jugar y aprender', 'Todos los juegos de star wars estan aqui'),
-    ];
-  getUsers(){
-    return this.usuarios;
-  }
-  addUser(user:user){
-    this.usuarios.push(user);
+    */
+  constructor(private http: Http){
+ 
   }
 
+  getUsers(){
+    return this.http.get('users').map(
+    	response=>{
+    		this.usuarios = response.json();
+    		return this.usuarios;
+    	}
+    ).catch(error => this.handleError(error));
+  }
+  addUser(user:user){
+    let body = JSON.stringify(user);
+    console.log('Nuevo user:'+body);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.post('users', body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+  updateUser(user:user){
+  	let body = JSON.stringify(user);
+    console.log('User actualizado: '+body);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.put('users/'+user.id, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
   getUser(nombre : string){
     for (let i = 0; i < this.usuarios.length; i++) {
         if(this.usuarios[i].nombre==nombre){return this.usuarios[i]};
     }
   }
-
+  private handleError(error: any){
+      console.error(error);
+      return Observable.throw("Server error (" + error.status + "): " + error.text())
+    }
 }
 // fotoPerfil - nombre- correo-pass-fechaNacimiento -steam-bnet-descripcion-descripcionMentor--

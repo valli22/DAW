@@ -7,7 +7,8 @@
         <!--imagen de perfil y cuentas-->
         <div class="col-sm-4 col-md-4">
             <img class="img-responsive" src="{{foto}}" width="200" height="200">
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#imgs" (click)="cambiarFoto();">Cambiar Foto</button>
+      		<input type="file" class="btn btn-default inputf" (change)="selectFoto($event);" placeholder = "Cambiar Foto"><!-- data-toggle="modal" data-target="#imgs" --> 
+	  		<button type = "button" class = "btn btn-default" (click)="upload()">Subir Imagen</button>
             <div [ngClass]="{'modal fade':true,'in':!colpasado}" [ngStyle]="getStyles()"id="imgs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -17,12 +18,12 @@
                     </div>
                     <div class="modal-body">
                       <div class="row">
-                          <div class="col-lg-6"><img class="img-responsive" (click)="setFoto('../../img/perfil.png')" src="../../img/perfil.png"></div>
-                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/perfilmujer.png')" src="../../img/perfilmujer.png"></div>
+                          <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6"><img class="img-responsive" (click)="setFoto('../../img/perfil.png')" src="../../img/perfil.png"></div>
+                          <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/perfilmujer.png')" src="../../img/perfilmujer.png"></div>
                       </div>
                       <div class="row">
-                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/logo.png')" src="../../img/logo.png"></div>
-                          <div class="col-lg-6"><img class="img-responsive"  (click)="setFoto('../../img/bioshock.jpg')" src="../../img/bioshock.jpg"></div>
+                          <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 "><img class="img-responsive"  (click)="setFoto('../../img/logo.png')" src="../../img/logo.png"></div>
+                          <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 "><img class="img-responsive"  (click)="setFoto('../../img/bioshock.jpg')" src="../../img/bioshock.jpg"></div>
                       </div>
                     </div>
                     <div class="row modal-footer">
@@ -57,10 +58,6 @@
             <!--Salto de linea-->
             <br/>
             <br/>
-            <div class="form-group">
-                <label for="pwd">Contraseña Actual:</label>
-                <input  type="password" class="form-control"  placeholder="Introduzca contraseña actual" [(ngModel)]="viejaPass">
-            </div>
             <div class="form-group">
                 <label for="pwd">Nueva Contraseña:</label>
                 <span *ngIf="!passIguales() && nuevaPassc!=''" class="glyphicon glyphicon-remove" aria-hidden="true"> Las contraseñas introducidas no coinciden</span>

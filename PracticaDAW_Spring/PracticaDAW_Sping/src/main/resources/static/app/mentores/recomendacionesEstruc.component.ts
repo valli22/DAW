@@ -1,6 +1,7 @@
 import {CurrentUserService} from "../service/currentUser.service";
 import {user} from "../classes/user.model";
 import {JuegosService} from "../service/juegos.service";
+import {UsersService} from "../service/users.service";
 import {Component, Output,EventEmitter} from 'angular2/core';
 import {Recomendacion} from '../classes/recomendacion.model';
 import {Mentor2} from './mentor2mentores.component';
@@ -24,12 +25,19 @@ export class Recomendaciones{
   @Output()
   editRec = new EventEmitter<Recomendacion>();
 
-  constructor(private juegosService: JuegosService, private curUserSer: CurrentUserService){}
+  constructor(private juegosService: JuegosService, private curUserSer: CurrentUserService, private usrService : UsersService){}
 
   ngOnInit(){
-    this.juegos = this.juegosService.getJuegos();
+    this.juegosService.getJuegos().subscribe(
+       response=> this.juegos = response,
+       error=> console.error('Error: '+error)
+      );
     this.curUs = this.curUserSer.getCurrentUser();
-    this.recomendaciones = this.curUs.recomendaciones;
+    this.curUserSer.getRecomendaciones().subscribe(
+    	response=> this.recomendaciones = response,
+    	error=> console.error('Error: '+error)
+    );
+
   }
 
   editarRecomendacion(recomend: Recomendacion){
@@ -37,12 +45,32 @@ export class Recomendaciones{
   }
 
   addRecomendacion(){
-    var ju = this.juegosService.getJuego(this.tituloJuego);
-    var recom = new Recomendacion(this.curUs,this.titulo,0,this.descripcion,ju);
-    this.titulo = '';
-    this.descripcion = '';
-    ju.addRecomendacion(recom);
-    this.curUs.addRecomendacion(recom);
-  };
+    this.curUs.hola();
+    this.juegosService.getJuego(this.tituloJuego).subscribe(
+    	result => {
+    				var ju:Juego = result;
+            var juego = new Juego(ju.imagen,ju.nombre,ju.descripcion,ju.precio,ju.valoracion,ju.tags,ju.plataforma);
+            juego.id = ju.id;
+            
+    				var recom = new Recomendacion(this.curUs,this.titulo,0,this.descripcion,juego);
+				    this.titulo = '';
+				    this.descripcion = '';
+				    
+				    this.curUserSer.addRecomendacion(recom).subscribe(
+              response=>{console.log('Usuario actualizado')},
+              error=> {}
+            );
+				    console.log('llega');
+				    /*juego.addRecomendacion(recom);
+				    this.juegosService.updateJuego(juego).subscribe(
+				    	result => console.log("Update complete"),
+				    	error => console.error(error)
+				    );
+            */
+				    
+    	},
+    	error => console.error(error);
+    );
+  }
 
 }

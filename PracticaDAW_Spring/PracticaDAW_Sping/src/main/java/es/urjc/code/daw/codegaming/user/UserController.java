@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.urjc.code.daw.codegaming.Entidades.Recomendacion;
+
 
 
 @RestController	
@@ -41,9 +43,6 @@ public class UserController {
 	}
 	@RequestMapping(value = "/users/mentores/{id}", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> getMentores(@PathVariable long id) {
-
-//		log.info("Get book {}", id);
-
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
 			List<User> mentores = usuario.getMentoresSiguiendo();
@@ -52,11 +51,21 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(value = "/users/recomendaciones/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Recomendacion>> getRecomendacionesUser(@PathVariable long id) {
 
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+			return new ResponseEntity<>(usuario.getRecomendaciones(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public User nuevoUser(@RequestBody User usuario) {
-
 		this.userRepository.save(usuario);
 
 		return usuario;
@@ -68,7 +77,25 @@ public class UserController {
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
 
-			usuario.getMentoresSiguiendo().add(usuarioNuevo);
+			usuario.addMentor(usuarioNuevo);
+			this.userRepository.save(usuario);
+			this.userRepository.save(usuarioNuevo);
+			return new ResponseEntity<>(usuario, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/users/recomendaciones/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<User> addRecomendacion(@PathVariable long id, @RequestBody Recomendacion recomendacion) {
+
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+
+			usuario.addRecomendacion(recomendacion);
+			for(Recomendacion rec:usuario.getRecomendaciones()){
+				System.out.println(rec.getDescripcion());
+			}
 			this.userRepository.save(usuario);
 
 			return new ResponseEntity<>(usuario, HttpStatus.OK);
@@ -82,7 +109,8 @@ public class UserController {
 
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
-
+			System.out.println(usuarioNuevo.getRecomendaciones().toString());
+			usuarioNuevo.setPass(usuario.getPass());
 			usuarioNuevo.setId(id);
 			this.userRepository.save(usuarioNuevo);
 
@@ -114,8 +142,9 @@ public class UserController {
 				}
 			}
 			if(mentorB!=null){
-				usuario.getMentoresSiguiendo().remove(mentorB);
+				usuario.dejarSeguir(mentorB);
 				this.userRepository.save(usuario);
+				this.userRepository.save(mentorB);
 				return new ResponseEntity<>(null, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -20,17 +20,25 @@ export class LoginSignupComponent  {
   desc='';
   descMentor='';
   mostrarFallo = false;
+  datosUp = false;
   constructor(private _router:Router, private currentUserService:CurrentUserService, private usersService:UsersService){
   }
   ngOnInit(){
-    this.usuarios = this.usersService.getUsers();  
+    this.usersService.getUsers().subscribe(
+        usuarios => {
+          this.usuarios = usuarios;
+          this.datosUp= true;
+        }
+    );  
   }
   noCogido(){
     var cogido= true;
-    for(var user of this.usuarios){
-      if(user.nombre==this.usuario){
-        cogido=false;
-        break;
+    if(this.datosUp){
+      for(var user of this.usuarios){
+        if(user.nombre==this.usuario){
+          cogido=false;
+          break;
+        }
       }
     }
     return cogido;
@@ -41,7 +49,7 @@ export class LoginSignupComponent  {
   }
 
   login(usuario:string, pass:string){
-    for(var user of this.usuarios){
+    /*for(var user of this.usuarios){
       if(user.nombre==usuario){
         if(user.pass==pass){
           this.currentUser = user;
@@ -49,11 +57,21 @@ export class LoginSignupComponent  {
           break;
         }
       }
-    }
-    this.mostrarAlert(this.currentUser != undefined);
-    if(this.currentUser!=undefined){
-      this._router.navigate(['Main']);
-    }
+    }*/
+    this.currentUserService.logIn(usuario,pass).subscribe(
+      user=> {
+        this.currentUser = user;
+        this.mostrarAlert(this.currentUser != undefined);
+        if(this.currentUser!=undefined){
+          this._router.navigate(['Main']);
+        }
+      },
+      error=> {
+        console.error('Error login: '+error)
+        this.currentUser= undefined;
+      }
+    );
+    
   }
   noMostrarAlert(){
         this.mostrarFallo=false;
@@ -74,9 +92,15 @@ export class LoginSignupComponent  {
 
   registrar(){
     var newUser = new user('../../img/logo.png',this.usuario,this.email,this.pass1,this.fecha,'sin definir','sin definir',this.desc,this.descMentor);
-    this.currentUserService.setUser(newUser);
-    this.usersService.addUser(newUser);
-    this.currentUser = newUser;
-    this._router.navigate(['Main']);
+    this.usersService.addUser(newUser).subscribe(
+      user => {
+        this.currentUserService.logIn(this.usuario,this.pass1).subscribe(
+           user=> {},
+           error=>console.error('Error login after signup: '+error)
+        );
+        this._router.navigate(['Main']);
+      }, 
+      error => console.error('Error creating new user: '+error)
+    );  
   }
 }

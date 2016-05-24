@@ -3,6 +3,8 @@ import {RouteParams, Router} from 'angular2/router';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Juego} from '../classes/juego.model.ts';
 import {JuegosService} from '../service/juegos.service.ts';
+import {MultipartItem} from '../imageUploader/multipart-item.ts';
+import {MultipartUploader} from '../imageUploader/multipart-uploader.ts';
 
 @Component ({
   selector: 'juegoEdit',
@@ -17,6 +19,8 @@ export class JuegoEditComponent{
   private anadir = false;
   private nombre : string;
   private dataUp = false;
+  private file;
+  private i = 0;
 
   private colapsado = true;
 
@@ -37,13 +41,43 @@ export class JuegoEditComponent{
   
   }
 
-  cambiarFoto(){
-    this.colapsado=false;
+  selectFoto($event){
+  	this.file = $event.target.files[0];
+  	console.debug("Selected file: " + this.file + " type:" + this.file.size + " size:" + this.file.size);		
+    //this.colapsado=false;
+  }
+  
+  upload(){
+  	console.debug("Uploading file...");
+	if (this.file == null){
+		console.error("You have to select a file.");
+		return;
+	}		
+	
+	let formData = new FormData();
+		
+	formData.append("file",  this.file);
+	formData.append("filename1", this.nombre+this.i);
+	let multipartItem = new MultipartItem(new MultipartUploader({url: 'image/upload'}));
+	
+	multipartItem.formData = formData;
+	
+	multipartItem.callback = (data, status, headers) => {	
+		if (status == 200){				
+			console.debug("File has been uploaded");
+			this.setFoto();		
+		} else {
+			console.error("Error uploading file");
+		}
+	};
+	
+	multipartItem.upload();
   }
 
-
-    setFoto(imgs:string){
-      this.juego.imagen=imgs;
+    setFoto(){
+		this.juegoCopia.imagen = "img/"+this.nombre+this.i+".jpg";
+		this.i++;
+     	//this.juego.imagen=imgs;
     }
 
     getStyles(){
@@ -62,7 +96,9 @@ export class JuegoEditComponent{
   }
 
   guardar(){
-    this.juego=this.juegoCopia;
-    this._router.navigate(['Admin']);
+    this.service.updateJuego(this.juegoCopia).subscribe(
+    	result => this._router.navigate(['Admin']),
+    	error => console.log(error)
+    );
   }
 }

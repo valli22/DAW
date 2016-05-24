@@ -27,7 +27,10 @@ export class MentoresComponent{
 
   ngOnInit(){
     this.curUs = this.curUsService.getCurrentUser();
-    this.mentoresSig = this.curUs.mentoresSiguiendo;
+    this.curUsService.getMentores().subscribe(
+      mentores=> this.mentoresSig=mentores,
+      error=> console.error('Error mentores: '+error)
+    );
   }
 
   private aMostrar = "misMentores";

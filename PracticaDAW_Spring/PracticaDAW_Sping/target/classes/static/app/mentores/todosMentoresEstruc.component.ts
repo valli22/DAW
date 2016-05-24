@@ -16,7 +16,10 @@ export class TodosMentores{
   constructor(private mentoresService: UsersService){}
 
   ngOnInit(){
-    this.mentores = this.mentoresService.getUsers();
+    this.mentoresService.getUsers().subscribe(
+    	response => this.mentores = response,
+    	error => console.error('Error getUsers: '+error)
+    );
   }
 
 }

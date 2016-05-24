@@ -5,6 +5,8 @@ import {Oferta} from '../classes/oferta.model.ts';
 import {Juego} from '../classes/juego.model.ts';
 import {JuegosService} from '../service/juegos.service.ts';
 import {OfertasService} from '../service/ofertas.service.ts';
+import {MultipartItem} from '../imageUploader/multipart-item.ts';
+import {MultipartUploader} from '../imageUploader/multipart-uploader.ts';
 
 @Component ({
   selector: 'ofertaEdit',
@@ -25,6 +27,9 @@ export class OfertaEditComponent{
   private anadir = false;
   private dataUp=false;
   private nombre : string;
+
+  private i = 0;
+
 
   constructor(private _router:Router, routeParams:RouteParams, private serviceJuegos: JuegosService,private serviceOfertas : OfertasService){
       this.nombre = routeParams.get('nombre');
@@ -54,9 +59,45 @@ export class OfertaEditComponent{
     	error=>console.log(error)
     	);
  		}
+  }
+	
+  selectFoto($event){
+  	this.file = $event.target.files[0];
+  	console.debug("Selected file: " + this.file + " type:" + this.file.size + " size:" + this.file.size);		
+    //this.colapsado=false;
+  }
+  
+  upload(){
+  	console.debug("Uploading file...");
+	if (this.file == null){
+		console.error("You have to select a file.");
+		return;
+	}		
+	
+	let formData = new FormData();
+		
+	formData.append("file",  this.file);
+	formData.append("filename1", "oferta"+this.ofertaCopia.nombre+this.i);
+	let multipartItem = new MultipartItem(new MultipartUploader({url: 'image/upload'}));
+	
+	multipartItem.formData = formData;
+	
+	multipartItem.callback = (data, status, headers) => {	
+		if (status == 200){				
+			console.debug("File has been uploaded");
+			this.setFoto();		
+		} else {
+			console.error("Error uploading file");
+		}
+	};
+	
+	multipartItem.upload();
+  }
 
-  setFoto(imgs:string){
-    this.oferta.imagen=imgs;
+  setFoto(){
+	this.ofertaCopia.imagen = "img/oferta"+this.oferta.nombre+this.i+".jpg";
+	this.i++;
+    //this.imagen=imgs;
   }
 
   getStyles(){
