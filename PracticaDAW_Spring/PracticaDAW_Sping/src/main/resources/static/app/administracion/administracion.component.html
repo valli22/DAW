@@ -12,7 +12,7 @@
     <div *ngIf="dataUpdateOfertas" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <a [routerLink]="['OfertaNueva']"><h5>Añadir nueva oferta</h5></a>
         <ul class="list-group">
-            <ofertaAdmin *ngFor="#oferta of ofertas" [oferta]="oferta"></ofertaAdmin>
+            <ofertaAdmin *ngFor="#oferta of ofertas" [oferta]="oferta" (remove)="removeOferta(oferta)"></ofertaAdmin>
         </ul>
     </div>
 </div>

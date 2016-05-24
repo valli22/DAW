@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 @CrossOrigin(origins = "*")
 public class ImagesController {
 
-	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/img");
+	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "target/classes/static/img");
 
 	private List<Image> images = new ArrayList<>();
 

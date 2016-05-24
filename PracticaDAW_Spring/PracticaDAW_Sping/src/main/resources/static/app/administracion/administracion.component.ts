@@ -24,22 +24,40 @@ export class AdministracionComponent{
   constructor(private juegosService : JuegosService, private ofertasService : OfertasService){}
 
   ngOnInit(){
-      this.ofertas = this.ofertasService.getOfertas().subscribe(
+     	this.ofertasService.getOfertas().subscribe(
       		ofertas=>{
       			this.ofertas=ofertas;
       			this.dataUpdateOfertas=true;
       			console.log(this.ofertas);
       		}
       		error=>console.log(error));	 	
-      this.juegos = this.juegosService.getJuegos().subscribe(
+   		this.juegosService.getJuegos().subscribe(
     	juegos => {
     				this.juegos = juegos;
     				this.dataUp = true;
     			},
     	error => console.log(error)
-      );
+      );	
   }
   
+  
+	  private refreshOferta(){
+	   	this.ofertasService.getOfertas().subscribe(
+	    	ofertas => {
+	     				this.ofertas = ofertas;
+	     				this.dataUpdateOfertas = true;
+	     			},
+	     	error => console.log(error)
+      	);
+   }
+   
+   removeOferta(oferta : Oferta){
+       this.ofertasService.deleteOferta(oferta.nombre).subscribe(
+ 	        result => this.refreshOferta(),
+ 	        error => this.refreshOferta()
+ 	    );
+   }
+
   private refresh(){
   	this.juegosService.getJuegos().subscribe(
     	juegos => {

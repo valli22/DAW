@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -53,6 +55,10 @@ public class Juego {
     private List<Recomendacion> recomendacion;
     private int cantidad;
     
+    @JsonIgnore
+    @ManyToMany(cascade=CascadeType.ALL)
+    private List<Oferta> ofertas;
+    
     protected Juego(){}
     
     public Juego(String imagenc, String nombrec, String descripcionc, float precioc, float valoracionc, List<Tag> tagsc, List<Plataforma> plataformac){
@@ -65,6 +71,7 @@ public class Juego {
         this.tags = tagsc;
         this.plataforma = plataformac;
         this.cantidad = 1;
+        this.ofertas= new ArrayList<>();
         this.recomendacion = new ArrayList<>();
         
     }
@@ -96,6 +103,20 @@ public class Juego {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	public void addOferta(Oferta oferta){
+		this.ofertas.add(oferta);
+	}
+	public void borrarOferta(Oferta oferta){
+		System.out.println(oferta.getNombre());
+		for(Oferta of:this.ofertas){
+			System.out.println(of.getNombre());
+			if(of.getId()==oferta.getId()){
+				this.ofertas.remove(of);
+				break;
+			}
+		}
+	}
+	
 
 	public float getPrecio() {
 		return precio;
@@ -119,6 +140,22 @@ public class Juego {
 
 	public void setTags(List<Tag> tags) {
 		this.tags = tags;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public List<Oferta> getOfertas() {
+		return ofertas;
+	}
+
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
 	}
 
 	public List<Plataforma> getPlataforma() {
@@ -145,12 +182,5 @@ public class Juego {
 		this.cantidad = cantidad;
 	}
     
-    public long getId(){
-    	return this.id;
-    }
-    
-    public void setId(long id){
-    	this.id = id;
-    }
     
 }

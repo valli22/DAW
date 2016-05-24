@@ -1,5 +1,6 @@
 package es.urjc.code.daw.codegaming.Entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,7 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,7 +36,8 @@ public class Oferta {
 	private String descripcion;
 	private String imagen;
 	
-	@OneToMany
+	@JsonIgnore
+	@ManyToMany(mappedBy="ofertas")
 	private List<Juego> juegos;
 	
 	
@@ -42,12 +48,12 @@ public class Oferta {
 	
 	protected Oferta(){}
 	
-	public Oferta(String nombre, String descripcion, String imagen, List<Juego> juegos, float descuento,
+	public Oferta(String nombre, String descripcion, String imagen, float descuento,
 			float precioInicial, float precio) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.imagen = imagen;
-		this.juegos = juegos;
+		this.juegos= new ArrayList<>();
 		this.descuento = descuento;
 		this.precioInicial = precioInicial;
 		this.precio = precio;
@@ -88,6 +94,10 @@ public class Oferta {
 	
 	public float getDescuento() {
 		return descuento;
+	}
+	
+	public void addJuego(Juego juego){
+		this.getJuegos().add(juego);
 	}
 	
 	public void setDescuento(float descuento) {

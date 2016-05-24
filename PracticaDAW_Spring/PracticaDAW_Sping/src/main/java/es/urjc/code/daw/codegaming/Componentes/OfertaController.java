@@ -2,6 +2,7 @@ package es.urjc.code.daw.codegaming.Componentes;
 import es.urjc.code.daw.codegaming.Entidades.Juego;
 
 import es.urjc.code.daw.codegaming.Entidades.Oferta;
+import es.urjc.code.daw.codegaming.Repositorios.JuegoRepository;
 import es.urjc.code.daw.codegaming.Repositorios.OfertaRepository;
 
 
@@ -22,6 +23,8 @@ public class OfertaController {
 	
 	@Autowired
 	private OfertaRepository rep;
+	@Autowired 
+	private JuegoRepository repJ;
 	
 	@RequestMapping(value = "/AllOfertas", method = RequestMethod.GET)
 	public List<Oferta> getJuegos(){
@@ -43,6 +46,70 @@ public class OfertaController {
 		rep.save(oferta);
 		return oferta;
 	}
+	@RequestMapping(value ="/addJuegoOferta/{nombre}", method = RequestMethod.PUT)
+	public Oferta addJuegos(@PathVariable String nombre,@RequestBody List<Juego> lista){
+		if(rep.findByNombre(nombre)!=null){
+			Oferta oferta = rep.findByNombre(nombre);
+			for(Juego juego:lista){
+				Juego jue= repJ.findByNombre(juego.getNombre());
+				jue.addOferta(oferta);
+				repJ.save(jue);
+				}
+			return oferta;
+			}
+		return null;	
+	}
+	
+	@RequestMapping(value="/deleteJuegoOferta/{nombre}",method=RequestMethod.PUT)
+	public Juego deleteJuego(@PathVariable String nombre,@RequestBody String nombreJ){
+		System.out.println("pasas por aqui");
+		if(rep.findByNombre(nombre)!=null){
+			Oferta oferta = rep.findByNombre(nombre);
+			Juego jue= repJ.findByNombre(nombreJ);
+			if(jue!=null){
+			jue.borrarOferta(oferta);
+			repJ.save(jue);
+			return jue;
+			}else{
+				System.out.println("no coge la oferta");
+			}
+		}	
+		return null;
+			}
+	
+	
+	@RequestMapping(value="/getJuegosOferta/{nombre}",method=RequestMethod.GET)
+	public ResponseEntity<List<Juego>> getJuegosOferta(@PathVariable String nombre){
+		Oferta oferta = rep.findByNombre(nombre);
+		return new ResponseEntity<>(oferta.getJuegos(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/editarOferta/{nombre}", method = RequestMethod.PUT)
+	public ResponseEntity<Oferta> actulizaOferta(@PathVariable String nombre, @RequestBody Oferta variableOferta) {
+		if(rep.findByNombre(nombre)!=null){
+			Oferta oferta = rep.findByNombre(nombre);
+			variableOferta.setId(oferta.getId());
+			rep.save(variableOferta);
+			return new ResponseEntity<>(variableOferta, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+				}
+		}
+	@RequestMapping(value="/añadirJuego/{nombre}",method = RequestMethod.PUT)
+	public ResponseEntity<Oferta> añadirJuego(@PathVariable String nombre,@RequestBody List<Juego> listaJuegos){
+			if(rep.findByNombre(nombre)!=null){
+				Oferta oferta= rep.findByNombre(nombre);
+				for(Juego juego:listaJuegos){
+					oferta.addJuego(juego);
+				}
+				rep.save(oferta);
+				return new ResponseEntity<>(oferta,HttpStatus.OK);
+			}else{
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+	}
+	
 	
 	@RequestMapping(value = "/deleteOferta/{nombre}", method = RequestMethod.DELETE)
 	public ResponseEntity<Oferta> borraOferta(@PathVariable String nombre) {
