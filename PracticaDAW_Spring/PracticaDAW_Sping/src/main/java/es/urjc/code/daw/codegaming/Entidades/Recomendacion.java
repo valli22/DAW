@@ -6,13 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import es.urjc.code.daw.codegaming.user.User;
+
 @Entity
 public class Recomendacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	//private user mentor;
+	@OneToOne
+	private User mentor;
+	
 	private String titulo;
 	private int meGusta;
 	private String descripcion;
@@ -22,21 +26,21 @@ public class Recomendacion {
 	
 	protected Recomendacion(){}
 
-	public Recomendacion(/*user mentorc,*/ String tituloc, int meGustac, String descripcionc, Juego nombreJuegoc) {
-		//this.mentor = mentorc;
+	public Recomendacion(User mentorc, String tituloc, int meGustac, String descripcionc, Juego nombreJuegoc) {
+		this.mentor = mentorc;
 		this.titulo = tituloc;
 		this.meGusta = meGustac;
 		this.descripcion = descripcionc;
 		this.juego = nombreJuegoc;
 	}
 
-	/*public user getMentor() {
+	public User getMentor() {
 		return this.mentor;
 	}
 
-	public void setMentor(user mentor) {
+	public void setMentor(User mentor) {
 		this.mentor = mentor;
-	}*/
+	}
 
 	public String getTitulo() {
 		return this.titulo;

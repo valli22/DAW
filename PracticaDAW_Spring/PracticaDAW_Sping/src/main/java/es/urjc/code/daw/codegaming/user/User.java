@@ -128,7 +128,11 @@ public class User {
 	}
 
 	public void setPass(String pass) {
-		this.pass = pass;
+		if(pass.length()>50){
+			this.pass = pass;
+		}else{
+			this.pass = new BCryptPasswordEncoder().encode(pass);
+		}
 	}
 
 	public List<String> getRoles() {
@@ -223,6 +227,14 @@ public class User {
 	}
 	public String getFotoPerfil(){
 		return this.fotoPerfil;
+	}
+
+	public List<Recomendacion> getRecomendaciones() {
+		return recomendaciones;
+	}
+
+	public void setRecomendaciones(List<Recomendacion> recomendaciones) {
+		this.recomendaciones = recomendaciones;
 	}
 
 }

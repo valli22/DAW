@@ -83,6 +83,14 @@ export class CurrentUserService{
   			}
   		);
   	}
+  	getRecomendaciones(){
+  		return this.http.get('users/recomendaciones/'+this.usuario.id).map(
+  			response => {
+  				let recomendaciones = response.json();
+  				return recomendaciones;
+  			}
+  		);
+  	}
 }
 function utf8_to_b64(str) {
     return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
