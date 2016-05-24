@@ -4,6 +4,8 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 import{CurrentUserService} from '../service/currentUser.service.ts';
 import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
 import {UsersService} from '../service/users.service.ts';
+import {MultipartItem} from '../imageUploader/multipart-item.ts';
+import {MultipartUploader} from '../imageUploader/multipart-uploader.ts';
 
 @Component({
   selector:'profile',
@@ -29,6 +31,7 @@ export class ProfileComponent{
   private mail="";
   colapsado = true;
   dataUp=false;
+  private i = 0;
 
   constructor(private currentUserService:CurrentUserService, private usersService: UsersService){
   }
@@ -114,7 +117,45 @@ export class ProfileComponent{
       'display':this.colapsado? 'none':'block'
     }
   }
-  setFoto(img:string){
-    this.foto=img;
+
+  selectFoto($event){
+  	this.file = $event.target.files[0];
+  	console.debug("Selected file: " + this.file + " size:" + this.file.size);		
+    //this.colapsado=false;
   }
+  
+  upload(){
+  	console.debug("Uploading file...");
+	if (this.file == null){
+		console.error("You have to select a file.");
+		return;
+	}		
+	
+	let formData = new FormData();
+		
+	formData.append("file",  this.file);
+	formData.append("filename1", "user"+this.nusuario.nombre+this.i);
+	let multipartItem = new MultipartItem(new MultipartUploader({url: 'image/upload'}));
+	
+	multipartItem.formData = formData;
+	
+	multipartItem.callback = (data, status, headers) => {	
+		if (status == 200){				
+			console.debug("File has been uploaded");
+			this.setFoto();		
+		} else {
+			console.error("Error uploading file");
+		}
+	};
+	
+	multipartItem.upload();
+  }
+
+  setFoto(){
+	this.nusuario.imagen = "img/user"+this.nusuario.nombre+this.i+".jpg";
+	this.foto = "img/user"+this.nusuario.nombre+this.i+".jpg";
+	this.i++;
+    //this.imagen=imgs;
+  }
+
   }
