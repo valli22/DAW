@@ -68,16 +68,15 @@ public class DatabaseInitializer implements CommandLineRunner {
 		//Juegos9.add(juego9);
 		//Juegos4.add(juego10);
 		
-		Oferta oferta1= new Oferta("Ubisoft regala juego","En esta oferta podras obtener el ultimo juego de la saga Assesins Creed de ubisoft. Disfruta de la etapa medieval-moderna en francia gracias a este fantastico juego.","../img/unity.jpg",Juegos,60f,59.95f,23.98f);
-		Oferta oferta2= new Oferta("Minecraft","Disfruta de miles de horas de juego, supervivencia, crafteos, construccion, lucha... y un largo numero de caracteristicas que hacen a este juego uno de los inolvidables de esta epoca.","../img/minecraft.jpg",Juegos1,5f,20f,19f);
-		Oferta oferta3= new Oferta("LEGENDARIOS","Quieres disfrutar de juegos unos de los juegos mas legendarios que se han creado? Con esta oferta podras disfrutar de ellos si es que todavia no lo habias hecho.","../img/legendarios.png",Juegos2,50f,81.97f,40.97f);
-		Oferta oferta4= new Oferta("Es la hora del miedo Outlast","Quieres tener miedo? Estar en tension? Tener la adrenalina por las nubes? Esta es tu oportunidad de conseguir uno de los mejores juegos de miedo que se han creado: Outlast","../img/outlast.jpg",Juegos3,10f,19.99f,17.99f);
-		Oferta oferta5= new Oferta("Doble deportive doble diversion","En este pack de juegos tenemos dos de los mejores juegos deportivos que han salido este año. Gracias a esta oferta podra disfrutar de Forza 6 y Fifa 16 con un gran descuento del 20%.","../img/ofertaDeportiva.png",Juegos4,20f,99.46f,79.56f);
-		Oferta oferta6= new Oferta("Oferta de salida Dark Souls III","Vas a poder disfrutar de este juego en su reciente salida gracias a esta gran oferta. El tercer juego de la saga conocida por su dificultad.","../img/darkSouls.png",Juegos5,10f,40.99f,36.89f);
-		Oferta oferta7= new Oferta("El mejor juego online ya en oferta","Disfrutaras del mejor juego online gracias a esta oferta. Hello Kitty online estara al precio de cualquiera que tenga ganas de jugar esto.","../img/helloKitty.jpg",Juegos6,99f,99.99f,0.99f);
-		Oferta oferta8= new Oferta("Plan XBOX","En esta oferta tendras los mejores juegos exclusivos de xbox hasta el momento. Te arrepentiras de no comprarla.","../img/exclusivos.png",Juegos9,25f,79.98f,59.98f);
-		Oferta oferta9= new Oferta("Best roguelike in history","Disfruta del mejor juego del estilo rogue-like que se ha creado jamas. En este rework del juego se podra disfrutar de mejores graficos y mayor cantidad de objetos disponibles en el tambien probablemente mejor juego indie de la historia.","../img/tboi.jpg",Juegos7,6f,14.99f,140.9f);
-		Oferta oferta10= new Oferta("Imposible is nothing","while(jugar){morir();revivir();} Quieres intentar pasarte dos de los juegos mas dificiles creados hasta el momento? Si tu intencion es conseguir el 100% de estos juegos tardaras horas y horas jugando y divirtiendote para conseguirlo.","../img/imposible.png",Juegos8,30f,55.98f,39.18f);
+		Oferta oferta2= new Oferta("Minecraft","Disfruta de miles de horas de juego, supervivencia, crafteos, construccion, lucha... y un largo numero de caracteristicas que hacen a este juego uno de los inolvidables de esta epoca.","../img/minecraft.jpg",5f,20f,19f);
+		Oferta oferta3= new Oferta("LEGENDARIOS","Quieres disfrutar de juegos unos de los juegos mas legendarios que se han creado? Con esta oferta podras disfrutar de ellos si es que todavia no lo habias hecho.","../img/legendarios.png",50f,81.97f,40.97f);
+		Oferta oferta4= new Oferta("Es la hora del miedo Outlast","Quieres tener miedo? Estar en tension? Tener la adrenalina por las nubes? Esta es tu oportunidad de conseguir uno de los mejores juegos de miedo que se han creado: Outlast","../img/outlast.jpg",10f,19.99f,17.99f);
+		Oferta oferta5= new Oferta("Doble deportive doble diversion","En este pack de juegos tenemos dos de los mejores juegos deportivos que han salido este año. Gracias a esta oferta podra disfrutar de Forza 6 y Fifa 16 con un gran descuento del 20%.","../img/ofertaDeportiva.png",20f,99.46f,79.56f);
+		Oferta oferta6= new Oferta("Oferta de salida Dark Souls III","Vas a poder disfrutar de este juego en su reciente salida gracias a esta gran oferta. El tercer juego de la saga conocida por su dificultad.","../img/darkSouls.png",10f,40.99f,36.89f);
+		Oferta oferta7= new Oferta("El mejor juego online ya en oferta","Disfrutaras del mejor juego online gracias a esta oferta. Hello Kitty online estara al precio de cualquiera que tenga ganas de jugar esto.","../img/helloKitty.jpg",99f,99.99f,0.99f);
+		Oferta oferta8= new Oferta("Plan XBOX","En esta oferta tendras los mejores juegos exclusivos de xbox hasta el momento. Te arrepentiras de no comprarla.","../img/exclusivos.png",25f,79.98f,59.98f);
+		Oferta oferta9= new Oferta("Best roguelike in history","Disfruta del mejor juego del estilo rogue-like que se ha creado jamas. En este rework del juego se podra disfrutar de mejores graficos y mayor cantidad de objetos disponibles en el tambien probablemente mejor juego indie de la historia.","../img/tboi.jpg",6f,14.99f,140.9f);
+		Oferta oferta10= new Oferta("Imposible is nothing","while(jugar){morir();revivir();} Quieres intentar pasarte dos de los juegos mas dificiles creados hasta el momento? Si tu intencion es conseguir el 100% de estos juegos tardaras horas y horas jugando y divirtiendote para conseguirlo.","../img/imposible.png",30f,55.98f,39.18f);
 
 
 		User usuario1 = new User("user", "pass", "prueba@gmail.com", "1995-05-19","drope","drope", "descr", "descrp mentor" ,"ROLE_USER");
@@ -165,6 +164,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		Juego j8 = new Juego("/imagen","darkSouls8","esto es un juego de prueba",9.99f,4f,lt8,lp8);
 		Juego j9 = new Juego("/imagen","darkSouls9","esto es un juego de prueba",9.99f,4f,lt9,lp9);
 		Juego j0 = new Juego("/imagen","darkSouls0","esto es un juego de prueba",9.99f,4f,lt0,lp0);
+		j0.addOferta(oferta2);
 		juegoRep.save(j1);
 		juegoRep.save(j2);
 		juegoRep.save(j3);
@@ -175,7 +175,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		juegoRep.save(j8);
 		juegoRep.save(j9);
 		juegoRep.save(j0);
-
+		Oferta oferta1= new Oferta("Ubisoft regala juego","En esta oferta podras obtener el ultimo juego de la saga Assesins Creed de ubisoft. Disfruta de la etapa medieval-moderna en francia gracias a este fantastico juego.","../img/unity.jpg",60f,59.95f,23.98f);
 		// Sample users
 		userRepository.save(usuario1);
 		userRepository.save(usuario2);    

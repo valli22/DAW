@@ -67,8 +67,8 @@
       <label>Juegos: </label>
       <button type="button" class="btn btn-default" (click)="anadir=true">Añadir juego a la oferta</button>
       <div *ngIf="anadir">
-        <div *ngFor="#juego of juegos; #i = index">
-          <div *ngIf="contieneJuego(juego)">
+        <div *ngIf="dataUpdate" *ngFor="#juego of juegos; #i = index">
+          <div *ngIf="contieneJuego(juego)&&juego!=null">
             <span>{{juego.nombre}}</span>
             <button type="button" class="btn btn-default" (click)="anadirJuego(i)">Añadir</button>
           </div>

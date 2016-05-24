@@ -1,4 +1,4 @@
-<form role="form">
+<form *ngIf="upData" role="form">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <img class="img-responsive" src="{{ofertaCopia.imagen}}" width="200" height="200">
@@ -66,7 +66,7 @@
       <textarea class="areatext" [(ngModel)]="ofertaCopia.descripcion">{{ofertaCopia.descripcion}}</textarea>
       <label>Juegos: </label>
       <button type="button" class="btn btn-default" (click)="anadir=true">Añadir juego a la oferta</button>
-      <div *ngIf="anadir">
+      <div *ngIf="anadir&&dataUp">
         <div *ngFor="#juego of juegos; #i = index">
           <div *ngIf="contieneJuego(juego)">
             <span>{{juego.nombre}}</span>

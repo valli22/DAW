@@ -22,12 +22,24 @@ export class OfertaNuevaComponent {
   private precioInicial : number;
   private precio : number;
   private colapsado= true;
-
+  private dataUpdate= false;
   private juegos : Juego[];
 
   private anadir = false;
 
-  constructor(private _router:Router, private ofertasService : OfertasService, private juegosService : JuegosService){this.juegos=this.juegosService.getJuegos();}
+  constructor(private _router:Router, private ofertasService : OfertasService, private juegosService : JuegosService){
+ 	
+  }
+  ngOnInit(){
+  	this.juegosService.getJuegos().subscribe(
+    	juegos => {
+    				this.juegos = juegos;
+    				console.log(this.juegos);
+    				this.dataUpdate = true;
+    			},
+    	error => console.log(error)
+    );
+  }
 
   noesVacioImg(){
     return this.imagen !=null;
@@ -66,7 +78,11 @@ export class OfertaNuevaComponent {
 
   guardar(){
       this.ofertasService.addOferta(new Oferta(this.nombre,this.descripcion,this.imagen,this.juegosOferta,this.descuento,this.precioInicial,this.precio)).subscribe(
-      	response=> console.log('funciona');
+      	response=>{	
+      				this.ofertasService.guardarJuegos(this.nombre, this.juegosOferta).subscribe(
+	      				result=>console.log("funciona"),
+	      				error=>console.log(error));
+      				this._router.navigate(['Admin']);
       	error=>console.log(error);
       ;
       this._router.navigate(['Admin']);
