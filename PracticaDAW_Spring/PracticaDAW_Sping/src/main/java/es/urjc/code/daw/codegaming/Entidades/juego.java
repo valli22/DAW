@@ -10,24 +10,45 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.daw.codegaming.user.User.Basico;
+
 @Entity
 public class Juego {
+	
+	public interface Basico{}
+	
     @Id
+    @JsonView(Basico.class)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
+    @JsonView(Basico.class)
     private String imagen;
+    
+    @JsonView(Basico.class)
     private String nombre;
+    
+    @JsonView(Basico.class)
     private String descripcion;
+    
+    @JsonView(Basico.class)
     private float precio;
+    
+    @JsonView(Basico.class)
     private float valoracion;
     
+    @JsonView(Basico.class)
     @OneToMany(cascade = CascadeType.ALL)
     private List<Tag> tags;
     
+    @JsonView(Basico.class)
     @OneToMany(cascade = CascadeType.ALL)
     private List<Plataforma> plataforma;
     
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
     private List<Recomendacion> recomendacion;
     private int cantidad;
