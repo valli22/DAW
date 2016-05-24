@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.urjc.code.daw.codegaming.Entidades.Recomendacion;
+
 
 
 @RestController	
@@ -52,6 +54,17 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(value = "/users/recomendaciones/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Recomendacion>> getRecomendacionesUser(@PathVariable long id) {
+
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+			return new ResponseEntity<>(usuario.getRecomendaciones(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
@@ -81,6 +94,7 @@ public class UserController {
 
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
+			System.out.println(usuarioNuevo.getRecomendaciones().toString());
 			usuarioNuevo.setPass(usuario.getPass());
 			usuarioNuevo.setId(id);
 			this.userRepository.save(usuarioNuevo);

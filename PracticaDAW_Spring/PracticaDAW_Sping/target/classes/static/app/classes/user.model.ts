@@ -39,7 +39,11 @@ export class user{
     addSeguidor(){
       this.seguidores++;
     }
-
+	
+	hola(){
+	console.log("hola");
+	}
+	
     addRecomendacion(r: Recomendacion){
       this.recomendaciones.push(r);
     }

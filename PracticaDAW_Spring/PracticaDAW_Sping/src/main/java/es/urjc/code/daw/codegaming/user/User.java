@@ -229,4 +229,12 @@ public class User {
 		return this.fotoPerfil;
 	}
 
+	public List<Recomendacion> getRecomendaciones() {
+		return recomendaciones;
+	}
+
+	public void setRecomendaciones(List<Recomendacion> recomendaciones) {
+		this.recomendaciones = recomendaciones;
+	}
+
 }
