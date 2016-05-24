@@ -128,7 +128,11 @@ public class User {
 	}
 
 	public void setPass(String pass) {
-		this.pass = pass;
+		if(pass.length()>50){
+			this.pass = pass;
+		}else{
+			this.pass = new BCryptPasswordEncoder().encode(pass);
+		}
 	}
 
 	public List<String> getRoles() {

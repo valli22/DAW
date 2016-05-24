@@ -66,7 +66,7 @@ export class UsersService{
   }
   updateUser(user:user){
   	let body = JSON.stringify(user);
-    console.log('Nuevo user:'+body);
+    console.log('User actualizado: '+body);
     let headers = new Headers({
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest'
