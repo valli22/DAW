@@ -17,7 +17,6 @@ export class user{
   roles:string[];
 
 
-
   constructor(fotoPrefilc:string, nombrec: string, correoc:string, passc:string, fechaNacimientoc:string,
     steamc: string,
     bnetc:string,

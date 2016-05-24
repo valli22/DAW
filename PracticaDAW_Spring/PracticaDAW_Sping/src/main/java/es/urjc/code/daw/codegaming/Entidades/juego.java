@@ -28,7 +28,7 @@ public class Juego {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Plataforma> plataforma;
     
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Recomendacion> recomendacion;
     private int cantidad;
     

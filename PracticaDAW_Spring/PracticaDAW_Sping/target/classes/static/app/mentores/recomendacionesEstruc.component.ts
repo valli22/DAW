@@ -37,6 +37,7 @@ export class Recomendaciones{
     	response=> this.recomendaciones = response,
     	error=> console.error('Error: '+error)
     );
+
   }
 
   editarRecomendacion(recomend: Recomendacion){
@@ -44,30 +45,32 @@ export class Recomendaciones{
   }
 
   addRecomendacion(){
-  this.curUs.hola();
+    this.curUs.hola();
     this.juegosService.getJuego(this.tituloJuego).subscribe(
     	result => {
-    				var ju = result;
-    				console.log(ju.addRecomendacion);
-    				var recom = new Recomendacion(this.curUs,this.titulo,0,this.descripcion,ju);
+    				var ju:Juego = result;
+            var juego = new Juego(ju.imagen,ju.nombre,ju.descripcion,ju.precio,ju.valoracion,ju.tags,ju.plataforma);
+            juego.id = ju.id;
+            
+    				var recom = new Recomendacion(this.curUs,this.titulo,0,this.descripcion,juego);
 				    this.titulo = '';
 				    this.descripcion = '';
-				    /*
-				    this.curUs.addRecomendacion(recom);
-				    this.usrService.updateUser(this.curUs).subscribe(
+				    
+				    this.curUserSer.addRecomendacion(recom).subscribe(
+              response=>{console.log('Usuario actualizado')},
+              error=> {}
+            );
+				    console.log('llega');
+				    /*juego.addRecomendacion(recom);
+				    this.juegosService.updateJuego(juego).subscribe(
 				    	result => console.log("Update complete"),
 				    	error => console.error(error)
 				    );
+            */
 				    
-				    ju.addRecomendacion(recom);
-				    this.juegosService.updateJuego(ju).subscribe({
-				    	result => console.log("Update complete"),
-				    	error => console.error(error)
-				    });*/
-				    
-    	}
+    	},
     	error => console.error(error);
     );
-  };
+  }
 
 }

@@ -91,7 +91,7 @@ public class User {
 	@JsonView(Basico.class)
 	private List<String> roles;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Recomendacion> recomendaciones;
 	
 	
@@ -235,6 +235,9 @@ public class User {
 
 	public void setRecomendaciones(List<Recomendacion> recomendaciones) {
 		this.recomendaciones = recomendaciones;
+	}
+	public void addRecomendacion(Recomendacion recomendacion){
+		this.recomendaciones.add(recomendacion);
 	}
 
 }

@@ -32,7 +32,12 @@ export class CurrentUserService{
 	}
 	private processLogInResponse(response){
 		this.isLogged = true;
-		this.usuario = response.json();
+		this.usuario =response.json();
+		let usuario = new user(this.usuario.fotoPerfil,this.usuario.nombre,this.usuario.correo,this.usuario.pass,this.usuario.fechaNacimiento,this.usuario.steam,this.usuario.bnet,this.usuario.descripcion,this.usuario.descripcionMentor);
+		console.log(usuario);
+		usuario.id = this.usuario.id;
+		usuario.roles = this.usuario.roles;
+		this.usuario=usuario;
 		this.isAdmin = this.usuario.roles.indexOf("ROLE_ADMIN") !== -1;
 	}
 	
@@ -91,6 +96,18 @@ export class CurrentUserService{
   			}
   		);
   	}
+
+  	addRecomendacion(recomendacion:Recomendacion){
+	  	let body = JSON.stringify(recomendacion);
+	    let headers = new Headers({
+	        'Content-Type': 'application/json',
+	        'X-Requested-With': 'XMLHttpRequest'
+	    });
+	    let options = new RequestOptions({ headers });
+	    return this.http.put('users/recomendaciones/'+this.usuario.id, body, options)
+	      .map(response => response.json())
+	      .catch(error => console.error('Error: '+error));
+	  }
 }
 function utf8_to_b64(str) {
     return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
