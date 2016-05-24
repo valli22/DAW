@@ -1,5 +1,5 @@
 <div>
-  <misMentores *ngIf="pestana == 'misMentores'"></misMentores>
+  <misMentores (refrescar)='refresh($event)' *ngIf="pestana == 'misMentores'"></misMentores>
   <recomendaciones (editRec) = "editarRecomendacion($event);" *ngIf="pestana == 'recomendaciones'"></recomendaciones>
   <todosMentores *ngIf="pestana == 'todos'"></todosMentores>
   <editarRecomendacion *ngIf="pestana == 'editar'" [recomendacion] = "recom" (pestanaOut) = "cambiarPestana($event);"></editarRecomendacion>

@@ -4,26 +4,48 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.urjc.code.daw.codegaming.user.User;
+import es.urjc.code.daw.codegaming.user.User.Basico;
 
 @Entity
 public class Recomendacion {
+	public interface Basico{}
+	
 	@Id
+	@JsonView(Basico.class)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@OneToOne
+	@JsonView(Basico.class)
+	@ManyToOne
 	private User mentor;
 	
+	@JsonView(Basico.class)
 	private String titulo;
+	
+	@JsonView(Basico.class)
 	private int meGusta;
+	
+	@JsonView(Basico.class)
 	private String descripcion;
 
-	@OneToOne
+	@JsonView(Basico.class)
+	@ManyToOne
 	private Juego juego;
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	protected Recomendacion(){}
 
 	public Recomendacion(User mentorc, String tituloc, int meGustac, String descripcionc, Juego nombreJuegoc) {

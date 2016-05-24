@@ -17,16 +17,23 @@ export class EsquemaJuegoComponent {
   private juego : Juego;
   private nombre : string;
   private dataUp = false;
+  private recomendaciones:Recomendacion[];
 
   constructor(private _router:Router, routeParams:RouteParams, private service: JuegosService, private carritoService : CarritoService){
       this.nombre = routeParams.get('nombre');   
   }
   
   ngOnInit(){
-  	this.juego = this.service.getJuego(this.nombre).subscribe(
+  	this.service.getJuego(this.nombre).subscribe(
     	juego => {
     				this.juego = juego;
-    				this.dataUp = true;
+    				this.service.getRecomendaciones(this.juego.nombre).subscribe(
+    					response => {this.dataUp = true;
+    								this.recomendaciones = response;
+    								},
+    					error => console.error(error)
+    				
+    				);
     			},
     	error => console.log(error)
     );
@@ -37,7 +44,7 @@ export class EsquemaJuegoComponent {
   }
 
   recomendacionesVacia(){
-    return this.juego.recomendacion.length!=0;
+    return this.recomendaciones.length!=0;
   }
 
 }

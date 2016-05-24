@@ -75,6 +75,23 @@ export class JuegosService{
   
   }
   
+  addRecomendacion(recomendacion : Recomendacion, nombre : String){
+  	let body = JSON.stringify(recomendacion);
+  	let headers = new Headers({
+  		'Content-Type': 'application/json'
+  	});
+  	let options = new RequestOptions({ headers });
+  	
+  	return this.http.put('juego/recomendaciones/'+nombre,body,options).map(response=>response.json()).catch(error=>this.handleError(error));
+  
+  }
+  
+  getRecomendaciones(nombre : string){
+  	return this.http.get('juego/recomendaciones/'+nombre)
+  		.map(response => response.json())
+  		.catch(error => console.error("Recomendaciones doesnt work quite well"));
+  }
+  
   handleError(error: any){
   	console.error(error);
   	return Observable.throw("Server error (" + error.status + "): " + error.text())

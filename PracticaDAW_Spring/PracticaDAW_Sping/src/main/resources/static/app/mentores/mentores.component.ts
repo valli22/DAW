@@ -35,6 +35,14 @@ export class MentoresComponent{
 
   private aMostrar = "misMentores";
 
+  refresh(refrescar:boolean){
+  	console.log('Refrescar');
+  	this.curUsService.getMentores().subscribe(
+      mentores=> this.mentoresSig=mentores,
+      error=> console.error('Error mentores: '+error)
+    );
+  }
+  
   mostrar(mostrarl : string){
     this.aMostrar = mostrarl;
   }

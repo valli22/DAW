@@ -37,7 +37,6 @@ export class Recomendaciones{
     	response=> this.recomendaciones = response,
     	error=> console.error('Error: '+error)
     );
-
   }
 
   editarRecomendacion(recomend: Recomendacion){
@@ -45,7 +44,6 @@ export class Recomendaciones{
   }
 
   addRecomendacion(){
-    this.curUs.hola();
     this.juegosService.getJuego(this.tituloJuego).subscribe(
     	result => {
     				var ju:Juego = result;
@@ -57,17 +55,18 @@ export class Recomendaciones{
 				    this.descripcion = '';
 				    
 				    this.curUserSer.addRecomendacion(recom).subscribe(
-              response=>{console.log('Usuario actualizado')},
-              error=> {}
-            );
-				    console.log('llega');
-				    /*juego.addRecomendacion(recom);
-				    this.juegosService.updateJuego(juego).subscribe(
+		              response=>{console.log('Usuario actualizado');
+					             this.curUserSer.getRecomendaciones().subscribe(
+							    	response=> this.recomendaciones = response,
+							    	error=> console.error('Error: '+error)
+							    );
+				    },
+		              error=> {console.log("Usuario no actualizado")}
+		            );
+				    this.juegosService.addRecomendacion(recom,juego.nombre).subscribe(
 				    	result => console.log("Update complete"),
 				    	error => console.error(error)
-				    );
-            */
-				    
+				    );	    
     	},
     	error => console.error(error);
     );

@@ -38,24 +38,13 @@ export class user{
     addSeguidor(){
       this.seguidores++;
     }
-	
-	hola(){
-	console.log("hola");
-	}
-	
+    
     addRecomendacion(r: Recomendacion){
       this.recomendaciones.push(r);
     }
 
     addMentor(u: user){
       this.mentoresSiguiendo.push(u);
-    }
-
-    delMentor(u: user){
-      var aux = this.mentoresSiguiendo.indexOf(u);
-      if (aux != -1){
-        this.mentoresSiguiendo.splice(aux,1);
-      }
     }
 
     addMeGustaR(r: Recomendacion){

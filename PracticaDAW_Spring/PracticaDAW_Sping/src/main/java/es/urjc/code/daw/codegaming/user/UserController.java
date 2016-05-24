@@ -13,14 +13,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.daw.codegaming.Entidades.Juego;
 import es.urjc.code.daw.codegaming.Entidades.Recomendacion;
+import es.urjc.code.daw.codegaming.user.User.Basico;
 
 
 
 @RestController	
 
 public class UserController {
-
+	
+	interface RecomendacionJSON extends Recomendacion.Basico,User.Basico,Juego.Basico{}
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -52,12 +58,25 @@ public class UserController {
 		}
 	}
 	
+	@JsonView(RecomendacionJSON.class)
 	@RequestMapping(value = "/users/recomendaciones/{id}", method = RequestMethod.GET)
 	public ResponseEntity<List<Recomendacion>> getRecomendacionesUser(@PathVariable long id) {
 
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
 			return new ResponseEntity<>(usuario.getRecomendaciones(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(RecomendacionJSON.class)
+	@RequestMapping(value = "/users/recomendaciones/meGusta/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Recomendacion>> getRecomendacionesMeGustaUser(@PathVariable long id) {
+
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+			return new ResponseEntity<>(usuario.getRecomendacionesMeGusta(), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -93,9 +112,54 @@ public class UserController {
 		if (usuario != null) {
 
 			usuario.addRecomendacion(recomendacion);
-			for(Recomendacion rec:usuario.getRecomendaciones()){
-				System.out.println(rec.getDescripcion());
+			this.userRepository.save(usuario);
+
+			return new ResponseEntity<>(usuario, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/users/recomendaciones/meGusta/{id}/{idMentor}", method = RequestMethod.PUT)
+	public ResponseEntity<User> addRecomendacionMeGusta(@PathVariable long id,@PathVariable long idMentor, @RequestBody Recomendacion recomendacion) {
+
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+			User newUser = this.userRepository.findOne(idMentor);
+			for(Recomendacion rec : newUser.getRecomendaciones()){
+				if(rec.getId() == recomendacion.getId()){
+					rec.setMeGusta(rec.getMeGusta()+1);
+				}
 			}
+			this.userRepository.save(newUser);
+			usuario.addRecomendacionMeGusta(recomendacion);
+			this.userRepository.save(usuario);
+
+			return new ResponseEntity<>(usuario, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/users/deleteRecomendaciones/meGusta/{id}/{idMentor}", method = RequestMethod.PUT)
+	public ResponseEntity<User> removeRecomendacionMeGusta(@PathVariable long id, @RequestBody Recomendacion recomendacion,@PathVariable long idMentor) {
+
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+			User newUser = this.userRepository.findOne(idMentor);
+			for(Recomendacion rec : usuario.getRecomendacionesMeGusta()){
+				if(rec.getId() == recomendacion.getId()){
+					System.out.println("pasa");
+					usuario.getRecomendacionesMeGusta().remove(rec);
+					break;
+				}
+			}
+			for(Recomendacion rec : newUser.getRecomendaciones()){
+				if(rec.getId() == recomendacion.getId()){
+					rec.setMeGusta(rec.getMeGusta()-1);
+				}
+			}
+			this.userRepository.save(newUser);
 			this.userRepository.save(usuario);
 
 			return new ResponseEntity<>(usuario, HttpStatus.OK);
@@ -130,25 +194,34 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	@RequestMapping(value = "/users/mentores/{id}/{idMentor}", method = RequestMethod.PUT)
-	public ResponseEntity<User> borraMentor(@PathVariable long id, @PathVariable long idMentor) {
+	
+	@RequestMapping(value = "/users/deleteMentores/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<User> borraMentor(@PathVariable long id, @RequestBody User usuarioIn) {
 		if (this.userRepository.exists(id)) {
 			User usuario = this.userRepository.findOne(id);
-			User mentorB = null;
-			for(User mentor : usuario.getMentoresSiguiendo()){
-				if(mentor.getId().equals(idMentor)){
-					mentorB = mentor;
+			usuario.dejarSeguir(usuarioIn);
+			this.userRepository.save(usuario);
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/users/updateRecomendaciones/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<User> actualizarRecomendacion(@PathVariable long id, @RequestBody Recomendacion recomendacion) {
+
+		User usuario = this.userRepository.findOne(id);
+		if (usuario != null) {
+			for(Recomendacion rec : usuario.getRecomendaciones()){
+				if(rec.getId()==recomendacion.getId()){
+					usuario.getRecomendaciones().remove(rec);
 					break;
 				}
 			}
-			if(mentorB!=null){
-				usuario.dejarSeguir(mentorB);
-				this.userRepository.save(usuario);
-				this.userRepository.save(mentorB);
-				return new ResponseEntity<>(null, HttpStatus.OK);
-			} else {
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
+			usuario.addRecomendacion(recomendacion);
+			this.userRepository.save(usuario);
+
+			return new ResponseEntity<>(usuario, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

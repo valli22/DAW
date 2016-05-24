@@ -81,6 +81,91 @@ export class UsersService{
         if(this.usuarios[i].nombre==nombre){return this.usuarios[i]};
     }
   }
+  
+  getRecomendaciones(id : number){
+  		return this.http.get('users/recomendaciones/'+id).map(
+  			response => {
+  				let recomendaciones = response.json();
+  				return recomendaciones;
+  			}
+  		);
+  }
+  
+  addRecomendacionMeGusta(recomendacion : Recomendacion, id : number, idMentor: number){
+    let body = JSON.stringify(recomendacion);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.put('users/recomendaciones/meGusta/'+id+'/'+idMentor, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+  
+  deleteRecomendacionMeGusta(recomendacion : Recomendacion, id : number, idMentor: number){
+    let body = JSON.stringify(recomendacion);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.put('users/deleteRecomendaciones/meGusta/'+id+'/'+idMentor, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+  
+  getRecomendacionesMeGusta(id : number){
+  		return this.http.get('users/recomendaciones/meGusta/'+id).map(
+  			response => {
+  				let recomendaciones = response.json();
+  				return recomendaciones;
+  			}
+  		);
+  }
+  
+  deleteRecomendacion(recomendacion: Recomendacion, id : number){
+  	
+  	let body = JSON.stringify(recomendacion);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.put('users/recomendaciones/meGusta/remove/'+id, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+  
+  dejarDeSeguir(id: number, user : User){
+  	
+  	let body = JSON.stringify(user);
+  	
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.put('users/deleteMentores/'+id, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+  
+  actualizarRecomendacion(id : number, recomendacion : Recomendacion){
+  
+  	let body = JSON.stringify(recomendacion);
+  	
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.put('users/updateRecomendaciones/'+id, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+  }
+  
   private handleError(error: any){
       console.error(error);
       return Observable.throw("Server error (" + error.status + "): " + error.text())

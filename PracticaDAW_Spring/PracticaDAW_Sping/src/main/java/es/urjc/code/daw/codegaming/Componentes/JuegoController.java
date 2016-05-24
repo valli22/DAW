@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import es.urjc.code.daw.codegaming.Entidades.Juego;
+import es.urjc.code.daw.codegaming.Entidades.Recomendacion;
 import es.urjc.code.daw.codegaming.Repositorios.JuegoRepository;
+import es.urjc.code.daw.codegaming.user.User;
 
 
 @RestController
@@ -67,4 +69,29 @@ public class JuegoController {
 		}
 	}
 	
+	@RequestMapping(value = "/juego/recomendaciones/{nombre}", method = RequestMethod.PUT)
+	public ResponseEntity<Juego> addRecomendacion(@PathVariable String nombre, @RequestBody Recomendacion recomendacion) {
+
+		Juego juego = this.rep.findByNombre(nombre);
+		if (juego != null) {
+
+			juego.addRecomendacion(recomendacion);
+			this.rep.save(juego);
+
+			return new ResponseEntity<>(juego, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/juego/recomendaciones/{nombre}", method = RequestMethod.GET)
+	public ResponseEntity<List<Recomendacion>> getJuegoRecomendaciones(@PathVariable String nombre){
+		Juego juego = rep.findByNombre(nombre);
+		if(juego!=null){
+			return new ResponseEntity<>(juego.getRecomendacion(), HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+	}
 }

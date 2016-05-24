@@ -1,5 +1,7 @@
-<div>
-  <ul class = "list-group">
-    <mentor3mentores (refrescar)='refreshRecomendaciones($event)' *ngFor = "#recom of recomendaciones" [recomendacion] = "recom"></mentor3mentores>
-  </ul>
+<div *ngIf="dataUp">
+	<div>
+	  <ul class = "list-group">
+	    <mentor3mentores (refrescar)='refreshRecomendaciones($event)' *ngFor = "#recom of recomendaciones" [recomendacion] = "recom"></mentor3mentores>
+	  </ul>
+	</div>
 </div>

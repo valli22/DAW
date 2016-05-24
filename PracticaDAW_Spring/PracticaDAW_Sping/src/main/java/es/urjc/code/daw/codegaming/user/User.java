@@ -91,8 +91,13 @@ public class User {
 	@JsonView(Basico.class)
 	private List<String> roles;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Recomendacion> recomendaciones;
+	
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Recomendacion> recomendacionesMeGusta;
 	
 	
 	
@@ -113,6 +118,7 @@ public class User {
 		this.seguidores = 0;
 		this.recomendaciones = new ArrayList<>();
 		this.fotoPerfil="";
+		this.recomendacionesMeGusta=new ArrayList<>();
 	}
 
 	public String getNombre() {
@@ -220,7 +226,12 @@ public class User {
 	}
 	public void dejarSeguir(User usuario){
 		usuario.seguidores-= 1;
-		this.mentoresSiguiendo.remove(usuario);
+		for(User user: this.mentoresSiguiendo){
+			if(user.id.equals(usuario.id)){
+				this.mentoresSiguiendo.remove(user);
+				break;
+			}
+		}
 	}
 	public void setFotoPerfil(String fotoPerfil){
 		this.fotoPerfil=fotoPerfil;
@@ -240,4 +251,17 @@ public class User {
 		this.recomendaciones.add(recomendacion);
 	}
 
+	public List<Recomendacion> getRecomendacionesMeGusta() {
+		return recomendacionesMeGusta;
+	}
+
+	public void setRecomendacionesMeGusta(List<Recomendacion> recomendacionesMeGusta) {
+		this.recomendacionesMeGusta = recomendacionesMeGusta;
+	}
+	public void addRecomendacionMeGusta(Recomendacion recomendacion){
+		this.recomendacionesMeGusta.add(recomendacion);
+	}
+	public void removeRecomendacionMeGusta(Recomendacion recomendacion){
+		this.recomendacionesMeGusta.remove(recomendacion);
+	}
 }

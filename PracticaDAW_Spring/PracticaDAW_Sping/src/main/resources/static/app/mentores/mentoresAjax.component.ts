@@ -1,7 +1,7 @@
 import {MisMentores} from "./misMentoresEstruc.component";
 import {Recomendaciones} from "./recomendacionesEstruc.component";
 import {TodosMentores} from "./todosMentoresEstruc.component";
-import {Component, Input} from 'angular2/core';
+import {Component, Input,Output,EventEmitter} from 'angular2/core';
 import {Recomendacion} from '../classes/recomendacion.model';
 import {EditarRecomendacion} from './editarRecomendacion.component';
 
@@ -13,10 +13,17 @@ import {EditarRecomendacion} from './editarRecomendacion.component';
 
 export class MentoresAjaxComponent{
 
+  @Output()
+  refrescar = new EventEmitter<boolean>();
+
   @Input()
   private pestana: string;
   private recom: Recomendacion;
 
+  refresh(refrescar:boolean){
+  	this.refrescar.next(true);
+  }
+ 
   editarRecomendacion(recomendacion1: Recomendacion){
     this.recom = recomendacion1;
     this.pestana = "editar";

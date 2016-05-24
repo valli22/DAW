@@ -7,7 +7,7 @@
       <h4>Siguiendo:</h4>
     </div>
     <ul class="list-group text-center recomendaciones">
-      <mentoresSiguiendo *ngFor="#mentorCom of mentoresSig" [mentor]="mentorCom"></mentoresSiguiendo>
+      <mentoresSiguiendo  *ngFor="#mentorCom of mentoresSig" [mentor]="mentorCom"></mentoresSiguiendo>
     </ul>
   </div>
   <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
@@ -24,7 +24,7 @@
         </li>
       </ul>
     </div>
-    <mentoresAjax [pestana] = 'aMostrar'></mentoresAjax>
+    <mentoresAjax (refrescar)='refresh($event)' [pestana] = 'aMostrar'></mentoresAjax>
     <!-- Aqui va toda la parte ajax -->
   </div>
 </div>
