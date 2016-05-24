@@ -76,7 +76,6 @@ export class JuegoEditComponent{
 
     setFoto(){
 		this.juegoCopia.imagen = "img/"+this.nombre+this.i+".jpg";
-		this.juegoCopia.imagen = "img/darkSouls2.jpg";
 		this.i++;
      	//this.juego.imagen=imgs;
     }

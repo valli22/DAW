@@ -3,7 +3,8 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
     <div class="row">
       <img *ngIf="noesVacioImg()" class="img-responsive" src="{{imagen}}" width="200" height="200">
-      <button type="button" class="btn btn-default" (click)="anadirFoto()" data-toggle="modal" data-target="#imgs">Añadir foto</button>
+      <input type="file" class="btn btn-default" (change)="selectFoto($event);" value = "Cambiar Foto"><!-- data-toggle="modal" data-target="#imgs" --> 
+	  <button type = "button" class = "btn btn-default" (click)="upload()">Subir Imagen</button>
       <div [ngClass]="{'modal fade':true,'in':!colpasado}" [ngStyle]="getStyles()"id="imgs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
