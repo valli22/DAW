@@ -51,6 +51,9 @@ Otras entidades ->
 	- Diego Jimenez Fernandez-Pacheco, d.jimenezfer@alumnos.urjc.es, Zigic23
 	- Miguel Roldan Alcala, m.roldana@alumnos.urjc.es, miguelr95
 	- Pedro Redondo Rabanal, p.redondor@alumnos.urjc.es, dropelega
-
+#Diagrama de base de datos ->
+<img src="img-release/Diagrama-de-bd.jpg">
+#Diagrama de base de datos ->
+<img src="img-release/Esquema-clases.png">
 #TRELLO
 https://trello.com/b/cImjlED9/daw
