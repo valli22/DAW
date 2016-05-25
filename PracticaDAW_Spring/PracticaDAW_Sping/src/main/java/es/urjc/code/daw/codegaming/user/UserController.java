@@ -97,8 +97,11 @@ public class UserController {
 		if (usuario != null) {
 
 			usuario.addMentor(usuarioNuevo);
+		
+			User newUser = this.userRepository.findOne(usuarioNuevo.getId());
+			newUser.setSeguidores(usuarioNuevo.getSeguidores()+1);
 			this.userRepository.save(usuario);
-			this.userRepository.save(usuarioNuevo);
+			this.userRepository.save(newUser);
 			return new ResponseEntity<>(usuario, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -173,7 +176,6 @@ public class UserController {
 
 		User usuario = this.userRepository.findOne(id);
 		if (usuario != null) {
-			System.out.println(usuarioNuevo.getRecomendaciones().toString());
 			usuarioNuevo.setPass(usuario.getPass());
 			usuarioNuevo.setId(id);
 			this.userRepository.save(usuarioNuevo);
@@ -200,7 +202,9 @@ public class UserController {
 		if (this.userRepository.exists(id)) {
 			User usuario = this.userRepository.findOne(id);
 			usuario.dejarSeguir(usuarioIn);
+			usuarioIn.setSeguidores(usuarioIn.getSeguidores()-1);
 			this.userRepository.save(usuario);
+			this.userRepository.save(usuarioIn);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

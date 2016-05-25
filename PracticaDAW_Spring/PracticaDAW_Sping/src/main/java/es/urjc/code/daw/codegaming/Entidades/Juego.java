@@ -99,7 +99,14 @@ public class Juego {
 	public String getDescripcion() {
 		return descripcion;
 	}
-
+	public boolean tieneOferta(Oferta oferta){
+		for(Oferta ofertat:this.getOfertas()){
+			if (ofertat.getId()==oferta.getId()){
+				return true;
+			}
+		}
+		return false;
+	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}

@@ -81,8 +81,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 
 		User usuario1 = new User("user", "pass", "prueba@gmail.com", "1995-05-19","drope","drope", "descr", "descrp mentor" ,"ROLE_USER");
 		User usuario2 = new User("admin", "pass","prueba@gmail.com", "1995-05-19","drope","drope", "descr", "descrp mentor", "ROLE_USER", "ROLE_ADMIN");
-		usuario1.addMentor(usuario2);
-		usuario2.addMentor(usuario1);
+
 		
 		Plataforma p1 = new Plataforma("PS4");
 		Tag t1 = new Tag("divertido");

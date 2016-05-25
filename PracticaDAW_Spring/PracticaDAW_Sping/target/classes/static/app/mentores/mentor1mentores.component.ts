@@ -1,4 +1,5 @@
 import {CurrentUserService} from "../service/currentUser.service";
+import {UsersService} from "../service/users.service";
 import {user} from "../classes/user.model";
 import {Component, Input} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
@@ -16,7 +17,7 @@ export class Mentor1{
   private follow: boolean = false;
   private us: boolean = false;
 
-  constructor(private curUsService: CurrentUserService){}
+  constructor(private curUsService: CurrentUserService, private userService : UsersService){}
 
   ngOnInit(){
     this.curUs = this.curUsService.getCurrentUser();
@@ -24,14 +25,16 @@ export class Mentor1{
     
       response=> {
         var mentores = response;
-        if (this.curUs == this.mentor){
+        if (this.curUs.id == this.mentor.id){
           this.follow = true;
           this.us = true;
         }
-        var i = 0;
-        while (!this.follow && i < mentores.length){
-          this.follow = mentores[i] == this.mentor;
-          i++;
+        
+        for( var mentor of mentores){
+        	if(mentor.id == this.mentor.id){
+        		this.follow=true;
+        		break;
+        	}
         }
       },
       error=> console.log('Error: '+error)
@@ -40,15 +43,37 @@ export class Mentor1{
   }
 
   seguirMentor(){
-    this.curUs.addMentor(this.mentor);
-    this.mentor.addSeguidor();
-    this.follow = true;
+  
+  	this.userService.seguir(this.curUs.id,this.mentor).subscribe(
+	    	response => {
+	    		console.log("Usuario seguido");
+	    		this.mentor.seguidores+=1;
+	    		this.follow = true;
+	    		},
+	    	error => {
+	    		this.follow = true;
+	    		this.mentor.seguidores+=1;
+	    		console.log('Usuario seguido');
+	    	}
+	    );
+ 
   }
 
   dejarSeguirMentor(){
-    this.curUs.delMentor(this.mentor);
-    this.mentor.seguidores--;
-    this.follow = false;
+  
+  
+	  this.userService.dejarDeSeguir(this.curUs.id,this.mentor).subscribe(
+	    	response => {
+	    		console.log("Usuario dejado de seguir");
+	    		this.mentor.seguidores-=1;
+	    		this.follow = false;
+	    		},
+	    	error => {
+	    		this.follow = false;
+	    		this.mentor.seguidores-=1;
+	    		console.log('Usuario dejado de seguir');
+	    	}
+	    );
   }
 
   siguiendo(){

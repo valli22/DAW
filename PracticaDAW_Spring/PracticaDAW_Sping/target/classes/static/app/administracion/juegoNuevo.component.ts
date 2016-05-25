@@ -65,9 +65,9 @@ export class JuegoNuevoComponent {
   }
 
   setFoto(){
-	this.juegoCopia.imagen = "img/"+this.nombre+this.i+".jpg";
+	this.imagen = "img/"+this.nombre+this.i+".jpg";
 	this.i++;
-    //this.imagen=imgs;
+    //this.imagen=this.juegoCopia.imagen;
   }
 
   getStyles(){

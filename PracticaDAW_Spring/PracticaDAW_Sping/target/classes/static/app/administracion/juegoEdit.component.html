@@ -67,7 +67,7 @@
 	        </form>
 	      </div>
 	      <div *ngFor="#tag of juegoCopia.tags; #i = index">
-	        <span>{{tag}}</span>
+	        <span>{{tag.nombre}}</span>
 	        <button type="button" class="btn btn-default" (click)="eliminarTag(i)">Eliminar tag</button>
 	      </div>
 	      <button type="button" class="btn btn-default center-block" (click)="guardar()">Guardar</button>

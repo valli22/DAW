@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -72,11 +73,13 @@ public class User {
 	private Integer seguidores;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	@JsonIgnore
 	private List<User> mentoresSiguiendo;
 	
-	
+	@JsonIgnore
+	@ManyToMany(mappedBy="mentoresSiguiendo")
+	private List<User> mentoresSeguidos;
 	
 	@JsonView(Basico.class)
 	private String nombre;
@@ -221,11 +224,9 @@ public class User {
 		this.mentoresSiguiendo = mentoresSiguiendo;
 	}
 	public void addMentor(User usuario){
-		usuario.seguidores += 1;
 		this.mentoresSiguiendo.add(usuario);
 	}
 	public void dejarSeguir(User usuario){
-		usuario.seguidores-= 1;
 		for(User user: this.mentoresSiguiendo){
 			if(user.id.equals(usuario.id)){
 				this.mentoresSiguiendo.remove(user);

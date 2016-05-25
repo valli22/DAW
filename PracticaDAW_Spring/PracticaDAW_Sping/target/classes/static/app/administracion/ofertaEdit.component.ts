@@ -123,11 +123,12 @@ export class OfertaEditComponent{
 
   eliminarJuego( i : number){
     var game= this.ofertaCopia.juegos[i];
-    this.ofertaCopia.juegos.splice(i,1);
+    
     console.log(game)
     this.serviceOfertas.borrarJuego(game.nombre,this.oferta.nombre).subscribe(
     	result=>console.log('se borra'),
     	error=>console.log(error));
+    this.ofertaCopia.juegos.splice(i,1);
   }
 
   cambiarFoto(){

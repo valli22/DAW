@@ -166,6 +166,21 @@ export class UsersService{
   
   }
   
+  seguir(id: number, user : User){
+  
+	  let body = JSON.stringify(user);
+	  	
+	    let headers = new Headers({
+	        'Content-Type': 'application/json',
+	        'X-Requested-With': 'XMLHttpRequest'
+	    });
+	    let options = new RequestOptions({ headers });
+	    return this.http.put('users/mentores/'+id, body, options)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
+      
+  }
+  
   private handleError(error: any){
       console.error(error);
       return Observable.throw("Server error (" + error.status + "): " + error.text())

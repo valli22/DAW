@@ -52,8 +52,10 @@ public class OfertaController {
 			Oferta oferta = rep.findByNombre(nombre);
 			for(Juego juego:lista){
 				Juego jue= repJ.findByNombre(juego.getNombre());
-				jue.addOferta(oferta);
-				repJ.save(jue);
+				if(!jue.tieneOferta(oferta)){
+					jue.addOferta(oferta);
+					repJ.save(jue);
+				}
 				}
 			return oferta;
 			}
@@ -62,14 +64,14 @@ public class OfertaController {
 	
 	@RequestMapping(value="/deleteJuegoOferta/{nombre}",method=RequestMethod.PUT)
 	public Juego deleteJuego(@PathVariable String nombre,@RequestBody String nombreJ){
-		System.out.println("pasas por aqui");
 		if(rep.findByNombre(nombre)!=null){
 			Oferta oferta = rep.findByNombre(nombre);
-			Juego jue= repJ.findByNombre(nombreJ);
+			String[] l = nombreJ.split("\"");
+			Juego jue= this.repJ.findByNombre(l[1]);
 			if(jue!=null){
-			jue.borrarOferta(oferta);
-			repJ.save(jue);
-			return jue;
+				jue.borrarOferta(oferta);
+				repJ.save(jue);
+				return jue;
 			}else{
 				System.out.println("no coge la oferta");
 			}
