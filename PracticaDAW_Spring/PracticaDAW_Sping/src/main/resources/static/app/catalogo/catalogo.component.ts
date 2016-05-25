@@ -56,7 +56,7 @@ export class CatalogoComponent{
     				for (var game of juegos){
 				        plataf=false;
 				        for (var consola of game.plataforma){
-				          if(consola.nombre==this.plataforma.nombre){
+				          if(consola.nombre==this.plataforma){
 				            plataf=true;
 				            console.log('plataforma igual');
 				          }
@@ -66,7 +66,7 @@ export class CatalogoComponent{
 				      	}
 					  }
 				      this.juegosE=gamesInit;
-				      console.log('juegosE'+juegosE);
+				      console.log('juegosE'+this.juegosE);
 				      var i = 0;
 				      var j = 0;
 				      var jueguillos = [];
@@ -104,16 +104,16 @@ export class CatalogoComponent{
 				            plata=true;
 				          }else{
 				          for (var consola of game.plataforma){
-				            if(consola.nombre==this.plataforma.nombre){
+				            if(consola.nombre==this.plataforma){
 				              plata=true;
 				            }
 				          }
 				         }//comprobar categoria
-				        if(this.categoria.nombre=="Cualquiera"){
+				        if(this.categoria=="Cualquiera"){
 				          catego=true;
 				        }else{
 				          for(var categoria of game.tags){
-				            if(categoria.nombre==this.categoria.nombre){
+				            if(categoria.nombre==this.categoria){
 				              catego=true;
 				            }
 				          }
@@ -142,8 +142,7 @@ export class CatalogoComponent{
 				          j=0;
 				        }
 				      }
-				  }
-    			},
+				  },
     	error => console.log(error)
     );
 

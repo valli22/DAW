@@ -1,5 +1,7 @@
 import {Recomendacion} from './recomendacion.model';
 import {user} from './user.model';
+import {Tag} from './tag.model';
+import {Plataforma} from './plataforma.model';
 
 export class Juego{
   imagen: string;
@@ -7,12 +9,12 @@ export class Juego{
   descripcion: string;
   precio: number;
   valoracion: number;
-  tags: string[];
-  plataforma: string[];
+  tags: Tag[];
+  plataforma: Plataforma[];
   recomendacion : Recomendacion[] = [];
   cantidad:number;
   id:number;
-  constructor(private imagenc:string,private nombrec:string,private descripcionc:string,private precioc:number,private valoracionc : number, private tagsc:string[],private plataformac : string[]){
+  constructor(private imagenc:string,private nombrec:string,private descripcionc:string,private precioc:number,private valoracionc : number, private tagsc:Tag[],private plataformac : Plataforma[]){
     this.imagen = imagenc;
     this.nombre = nombrec;
     this.descripcion = descripcionc;
