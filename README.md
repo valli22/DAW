@@ -53,7 +53,7 @@ Otras entidades ->
 	- Pedro Redondo Rabanal, p.redondor@alumnos.urjc.es, dropelega
 #Diagrama de base de datos ->
 <img src="img-release/Diagrama-de-bd.jpg">
-#Diagrama de base de datos ->
+#Diagrama de servidor ->
 <img src="img-release/Esquema-clases.png">
 #TRELLO
 https://trello.com/b/cImjlED9/daw
