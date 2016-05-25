@@ -15,7 +15,7 @@ export class CatalogoComponent{
   private parametro:string="";
   private plataforma:string="";
   private categoria:string="Cualquiera";
-  private juegosE:Juego[];
+  private juegosE:Juego[]=[];
   private dataUp = false;
   constructor(private juegosService:JuegosService,private _router:Router, routeParams:RouteParams){
     this.plataforma=routeParams.get('plataforma');
@@ -25,7 +25,7 @@ export class CatalogoComponent{
     var plataf:boolean;
     var gamesInit:Juego[]=[];
     if(this.plataforma=='Cualquiera'){
-      this.juegosE= this.juegosService.getJuegos().subscribe(
+    this.juegosService.getJuegos().subscribe(
     	juegos => {
     				this.juegosE = juegos;
     				console.log(this.juegosE);
@@ -38,6 +38,7 @@ export class CatalogoComponent{
 			        j++;
 			        if(j==4 || ((i*4)+j)==this.juegosE.length){
 			          this.juegos.push(jueguillos);
+			          console.log('jueguillos'+jueguillos);
 			          jueguillos=[];
 			          i++;
 			          j=0;
@@ -45,7 +46,7 @@ export class CatalogoComponent{
 			      }
     			},
     	error => console.log(error)
-    );;
+    );
 
     }else{
     	this.juegosService.getJuegos().subscribe(
@@ -54,9 +55,10 @@ export class CatalogoComponent{
     				this.dataUp = true;
     				for (var game of juegos){
 				        plataf=false;
-				        for (var consola of game.plataforma.nombre){
-				          if(consola==this.plataforma){
+				        for (var consola of game.plataforma){
+				          if(consola.nombre==this.plataforma.nombre){
 				            plataf=true;
+				            console.log('plataforma igual');
 				          }
 				        }
 				        if(plataf==true){
@@ -64,6 +66,7 @@ export class CatalogoComponent{
 				      	}
 					  }
 				      this.juegosE=gamesInit;
+				      console.log('juegosE'+juegosE);
 				      var i = 0;
 				      var j = 0;
 				      var jueguillos = [];
@@ -87,7 +90,7 @@ export class CatalogoComponent{
     var catego:boolean;
     var games: Juego[]=[];
     
-    this.juegosE= this.juegosService.getJuegos().subscribe(
+    this.juegosService.getJuegos().subscribe(
     	juegosFun => {
     				var juegos = juegosFun;
     				this.dataUp = true;
@@ -101,16 +104,16 @@ export class CatalogoComponent{
 				            plata=true;
 				          }else{
 				          for (var consola of game.plataforma){
-				            if(consola==this.plataforma){
+				            if(consola.nombre==this.plataforma.nombre){
 				              plata=true;
 				            }
 				          }
 				         }//comprobar categoria
-				        if(this.categoria=="Cualquiera"){
+				        if(this.categoria.nombre=="Cualquiera"){
 				          catego=true;
 				        }else{
 				          for(var categoria of game.tags){
-				            if(categoria==this.categoria){
+				            if(categoria.nombre==this.categoria.nombre){
 				              catego=true;
 				            }
 				          }
@@ -142,6 +145,6 @@ export class CatalogoComponent{
 				  }
     			},
     	error => console.log(error)
-    );;
+    );
 
 }
